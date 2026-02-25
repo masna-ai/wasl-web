@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>wasl for Enterprise API Programs</title>
+    <meta name="description" content="Enterprise landing page for wasl: open-source API gateway, policy controls, tenant/environment isolation, and integration runtime." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">wasl <span>open by design</span></div>
+      <nav>
+        <a href="./index.html">Main Site</a>
+        <a href="#enterprise">Enterprise</a>
+        <a href="#waitlist">Contact</a>
+      </nav>
+      <a class="cta" href="#waitlist">Book Discovery</a>
+    </header>
+
+    <main>
+      <section class="hero" id="enterprise">
+        <div class="hero-copy">
+          <p class="eyebrow">Enterprise API Platform</p>
+          <h1>Modernize gateway and integration delivery with wasl.</h1>
+          <p>
+            Replace fragmented tooling with one open, policy-first platform for API governance,
+            integration flows, tenant isolation, and controlled environment promotion.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#waitlist">Book Discovery Call</a>
+            <a class="btn btn-ghost" href="./index.html">Back to Product Overview</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="metric"><strong>P0</strong><span>Operational visibility</span></div>
+          <div class="metric"><strong>MT</strong><span>Multi-tenant by design</span></div>
+          <div class="metric"><strong>CI/CD</strong><span>Revision deployment model</span></div>
+          <div class="metric"><strong>OSS</strong><span>No black-box lock-in</span></div>
+        </div>
+      </section>
+
+      <section class="features">
+        <article>
+          <h3>Governance without Friction</h3>
+          <p>Centralized policy controls for authentication, traffic shaping, and security baselines.</p>
+        </article>
+        <article>
+          <h3>Predictable Releases</h3>
+          <p>Deploy, promote, and rollback with environment pointers instead of risky file-copy releases.</p>
+        </article>
+        <article>
+          <h3>Integration Extensibility</h3>
+          <p>Use marketplace adapters and plugin SDK to standardize enterprise integration patterns.</p>
+        </article>
+      </section>
+
+      <section id="waitlist" class="waitlist">
+        <h2>Talk to us about your gateway modernization plan</h2>
+        <form id="waitlistForm">
+          <input type="email" id="email" placeholder="you@company.com" required />
+          <button class="btn btn-primary" type="submit">Request Contact</button>
+        </form>
+        <p id="waitlistMessage" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <footer>
+      <span>wasl</span>
+      <span>Enterprise API delivery platform</span>
+    </footer>
+
+    <script src="./config.js"></script>
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
