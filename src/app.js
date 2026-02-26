@@ -180,8 +180,30 @@ function applyVariantByQuery() {
   }
 }
 
+function initScrollReveal() {
+  const reveals = document.querySelectorAll('.reveal');
+  if (!reveals.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        // observer.unobserve(entry.target); // Uncomment to only reveal once
+      }
+    });
+  }, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  });
+
+  reveals.forEach(reveal => observer.observe(reveal));
+}
+
 initAnalytics();
 initLinkedInPixel();
 initGoogleAds();
 wireCredibilityLinks();
 applyVariantByQuery();
+initScrollReveal();
+
