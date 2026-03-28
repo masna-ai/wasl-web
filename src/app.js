@@ -3,6 +3,7 @@ const responseBlock = document.querySelector('#responseBlock');
 const sendBtn = document.querySelector('#sendBtn');
 const method = document.querySelector('#method');
 const endpoint = document.querySelector('#endpoint');
+const gatewayMode = document.querySelector('#gatewayMode');
 const payload = document.querySelector('#payload');
 const mockMode = document.querySelector('#mockMode');
 const traceMode = document.querySelector('#traceMode');
@@ -14,36 +15,53 @@ function renderResponse(body) {
 function simulateStudioCall() {
   let parsedPayload = {};
   try {
-    parsedPayload = JSON.parse(payload.value || '{}');
+    parsedPayload = JSON.parse(payload?.value || '{}');
   } catch {
-    parsedPayload = { raw: payload.value };
+    parsedPayload = { raw: payload?.value };
   }
 
   const now = new Date().toISOString();
   const correlationId = Math.random().toString(16).slice(2) + Math.random().toString(16).slice(2);
+  const aiMode = gatewayMode?.value === 'ai-gateway';
 
   const result = {
     request: {
-      method: method.value,
-      endpoint: endpoint.value,
+      method: method?.value || 'POST',
+      endpoint: endpoint?.value || '/ai/orchestrate',
       payload: parsedPayload,
-      mode: mockMode.checked ? 'mock' : 'live'
+      gateway: aiMode ? 'ai-gateway' : 'api-gateway',
+      mode: mockMode?.checked ? 'mock' : 'live'
     },
     response: {
       status: 200,
-      message: mockMode.checked ? 'Mock response served by Mockgee via WASL API Studio' : 'Live gateway response from WASL',
-      data: {
-        orderId: parsedPayload.orderId || `ord_${correlationId.slice(0, 8)}`,
-        accepted: true
-      }
+      message: aiMode
+        ? (mockMode?.checked ? 'Normalized AI stream served from WASL AI Gateway preview' : 'Live AI gateway response from WASL')
+        : (mockMode?.checked ? 'Mock response served by Mockgee via WASL API Studio' : 'Live gateway response from WASL'),
+      data: aiMode
+        ? {
+            routeId: 'openai',
+            provider: 'openai',
+            streamMode: parsedPayload.streamMode || 'normalized',
+            output: 'Orders move from creation to fulfilment, shipment, and final delivery confirmation.',
+            usage: {
+              promptTokens: 28,
+              completionTokens: 19,
+              totalTokens: 47
+            }
+          }
+        : {
+            orderId: parsedPayload.orderId || `ord_${correlationId.slice(0, 8)}`,
+            accepted: true
+          }
     },
-    trace: traceMode.checked
+    trace: traceMode?.checked
       ? {
           correlationId,
           timeline: [
             { step: 'request.received', at: now },
-            { step: mockMode.checked ? 'mock.policy.evaluated' : 'policy.chain.executed', at: now },
-            { step: 'flow.executed', at: now },
+            { step: mockMode?.checked ? 'mock.policy.evaluated' : 'policy.chain.executed', at: now },
+            { step: aiMode ? 'ai.route.executed' : 'flow.executed', at: now },
+            ...(aiMode ? [{ step: 'stream.normalized', at: now }] : []),
             { step: 'response.returned', at: now }
           ]
         }
@@ -200,10 +218,25 @@ function initScrollReveal() {
   reveals.forEach(reveal => observer.observe(reveal));
 }
 
+function initCardGlow() {
+  const cards = document.querySelectorAll('.metric, .platform-card, .ai-card, .cred-card, .feature-strip article, .features article');
+  
+  cards.forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
+}
+
 initAnalytics();
 initLinkedInPixel();
 initGoogleAds();
 wireCredibilityLinks();
 applyVariantByQuery();
 initScrollReveal();
-
+initCardGlow();
