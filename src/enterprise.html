@@ -23,72 +23,76 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 
 <body>
+  <div class="site-background" aria-hidden="true">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+
   <header class="topbar">
-    <div class="brand">wasl <span>open by design</span></div>
+    <div class="brand">wasl <span>Enterprise</span></div>
     <nav>
-      <a href="./index.html">Main Site</a>
-      <a href="#enterprise">Enterprise</a>
+      <a href="./index.html">Product</a>
       <a href="#waitlist">Contact</a>
     </nav>
-    <a class="cta" href="#waitlist">Book Discovery</a>
+    <a class="cta" href="#waitlist">Book Demo</a>
   </header>
 
   <main>
     <section class="hero reveal" id="enterprise">
       <div class="hero-copy">
-        <p class="eyebrow reveal reveal-delay-1">Enterprise API Platform</p>
-        <h1 class="reveal reveal-delay-2">Modernize gateway and integration delivery with wasl.</h1>
+        <p class="eyebrow reveal reveal-delay-1">Enterprise Ready</p>
+        <h1 class="reveal reveal-delay-2">Scale without limits.</h1>
         <p class="reveal reveal-delay-3">
-          Replace fragmented tooling with one open, policy-first platform for API governance,
-          integration flows, tenant isolation, and controlled environment promotion.
+          Unify your API gateway and integration layer. Isolated tenants, revision control, and strict governance included.
         </p>
         <div class="hero-actions reveal reveal-delay-3">
-          <a class="btn btn-primary" href="#waitlist">Book Discovery Call</a>
-          <a class="btn btn-ghost" href="./index.html">Back to Product Overview</a>
+          <a class="btn btn-primary" href="#waitlist">Schedule Call</a>
+          <a class="btn btn-ghost" href="./index.html">Back Home</a>
         </div>
       </div>
       <div class="hero-card reveal reveal-delay-2">
-        <div class="metric"><strong>P0</strong><span>Operational visibility</span></div>
-        <div class="metric"><strong>MT</strong><span>Multi-tenant by design</span></div>
-        <div class="metric"><strong>CI/CD</strong><span>Revision deployment model</span></div>
-        <div class="metric"><strong>OSS</strong><span>No black-box lock-in</span></div>
+        <div class="hero-metrics" style="grid-template-columns: 1fr; gap: 20px;">
+          <div class="metric"><strong>Multi-Tenant Space</strong><span>True environment isolation</span></div>
+          <div class="metric"><strong>Open Source Core</strong><span>No vendor lock-in</span></div>
+        </div>
       </div>
     </section>
 
     <section class="features">
       <article class="reveal reveal-delay-1">
-        <h3>Governance without Friction</h3>
-        <p>Centralized policy controls for authentication, traffic shaping, and security baselines.</p>
+        <h3>Painless Governance</h3>
+        <p>Centralized policy controls across the entire infrastructure.</p>
       </article>
       <article class="reveal reveal-delay-2">
-        <h3>Predictable Releases</h3>
-        <p>Deploy, promote, and rollback with environment pointers instead of risky file-copy releases.</p>
+        <h3>Predictable CI/CD</h3>
+        <p>Deploy with pointers instead of fragile file drops.</p>
       </article>
       <article class="reveal reveal-delay-3">
-        <h3>Integration Extensibility</h3>
-        <p>Use marketplace adapters and plugin SDK to standardize enterprise integration patterns.</p>
+        <h3>Deep Extensibility</h3>
+        <p>Adopt our marketplace adapters or write your own plugins.</p>
       </article>
     </section>
 
     <section id="waitlist" class="waitlist reveal">
-      <h2 class="reveal">Talk to us about your gateway modernization plan</h2>
+      <h2 class="reveal">Talk to us.</h2>
       <form id="waitlistForm" class="reveal reveal-delay-1">
-        <input type="email" id="email" placeholder="you@company.com" required />
-        <button class="btn btn-primary" type="submit">Request Contact</button>
+        <input type="email" id="email" placeholder="Work Email" required />
+        <button class="btn btn-primary" type="submit">Send</button>
       </form>
       <p id="waitlistMessage" aria-live="polite" class="reveal"></p>
     </section>
   </main>
 
   <footer>
-    <span>wasl</span>
-    <span>Enterprise API delivery platform</span>
+    <span>WASL | Enterprise architecture.</span>
+    <span>&copy; 2026 WASL HQ</span>
   </footer>
 
   <script src="./config.js"></script>
