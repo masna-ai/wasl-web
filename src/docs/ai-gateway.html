@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WASL Docs | AI Gateway</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./docs.css" />
+</head>
+<body>
+  <div class="docs-shell">
+    <header class="docs-topbar">
+      <div class="docs-brand">wasl <span>docs</span></div>
+      <div class="docs-actions">
+        <a class="docs-btn docs-btn-primary" href="/#waitlist">Get Early Access</a>
+      </div>
+    </header>
+    <div class="docs-layout">
+                  <aside class="docs-sidebar">
+        <div class="docs-nav-group">
+          <h4>Getting Started</h4>
+          <nav class="docs-nav">
+            <a href="./index.html">Introduction</a>
+            <a href="./quickstart.html">Quickstart</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Platform Architecture</h4>
+          <nav class="docs-nav">
+            <a href="./api-gateway.html">API Gateway</a>
+            <a href="./ai-gateway.html" class="active">AI Gateway</a>
+            <a href="./flow-runtime.html">Flow Runtime</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Operations & Logic</h4>
+          <nav class="docs-nav">
+            <a href="./policies.html">Policies</a>
+            <a href="./adapters.html">Adapters</a>
+            <a href="./deployments.html">Deployments</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Reference</h4>
+          <nav class="docs-nav">
+            <a href="./security.html">Security</a>
+            <a href="./troubleshooting.html">Troubleshooting</a>
+          </nav>
+        </div>
+      </aside>
+      <main class="docs-content">
+        <section class="docs-hero">
+          <div class="docs-eyebrow">AI Gateway</div>
+          <h1>Route and govern AI traffic</h1>
+          <p>WASL AI Gateway lets you expose a stable route while managing provider selection, streaming, quotas, guardrails, and AI-specific controls behind it.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>Supported provider model</h2>
+          <p>Create an AI route, connect one or more providers, and configure the controls you need for that route.</p>
+          <ul>
+            <li>OpenAI</li>
+            <li>Anthropic</li>
+            <li>Gemini</li>
+            <li>Ollama</li>
+          </ul>
+
+          <div class="docs-diagram">
+            <div class="docs-diagram-label">AI Route Path</div>
+            <div class="diagram-stage-grid">
+              <div class="diagram-stage diagram-stage-accent">
+                <div class="diagram-stage-step">1</div>
+                <strong>Client Route</strong>
+                <p>Client calls a stable route such as <span class="docs-inline-code">POST /ai/openai-test</span>.</p>
+              </div>
+              <div class="diagram-stage">
+                <div class="diagram-stage-step">2</div>
+                <strong>AI Controls</strong>
+                <p>WASL applies auth, guardrails, limits, quotas, prompt controls, and optional semantic cache.</p>
+              </div>
+              <div class="diagram-stage diagram-stage-alt">
+                <div class="diagram-stage-step">3</div>
+                <strong>Provider Routing</strong>
+                <p>Routing chooses the model provider using priority, weighted, latency-aware, cost-aware, or health-aware strategies.</p>
+              </div>
+              <div class="diagram-stage">
+                <div class="diagram-stage-step">4</div>
+                <strong>Response Path</strong>
+                <p>Buffered or streaming output returns through the same governed route with analytics and tracing.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="docs-section">
+          <h2>What you can configure</h2>
+          <ul>
+            <li>Authentication</li>
+            <li>Guardrails</li>
+            <li>Limits</li>
+            <li>Retry and circuit breaker</li>
+            <li>Quota and cost control</li>
+            <li>Prompt management</li>
+            <li>Semantic caching</li>
+            <li>RAG</li>
+            <li>PII sanitization</li>
+            <li>Load balancing strategies</li>
+          </ul>
+        </section>
+
+        <section class="docs-section">
+          <h2>Runtime endpoint pattern</h2>
+          <p>AI routes are invoked through the gateway hostname for the active tenant and environment.</p>
+<pre><code>POST http://&lt;tenant&gt;.&lt;environment&gt;.localhost:8080/ai/{routeId}
+
+Example:
+POST http://acme-corp.dev.localhost:8080/ai/openai-test</code></pre>
+        </section>
+
+        <section class="docs-section">
+          <h2>Streaming</h2>
+          <p>Clients control streaming behavior per request. WASL supports buffered responses and streaming responses from the same route.</p>
+          <ul>
+            <li><span class="docs-inline-code">raw</span> for provider-native SSE passthrough.</li>
+            <li><span class="docs-inline-code">normalized</span> for stable WASL events such as <span class="docs-inline-code">token</span>, <span class="docs-inline-code">usage</span>, and <span class="docs-inline-code">done</span>.</li>
+            <li><span class="docs-inline-code">text</span> for simple text-only SSE chunks.</li>
+          </ul>
+<pre><code>curl -N -X POST http://acme-corp.dev.localhost:8080/ai/openai \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: text/event-stream' \
+  -d '{
+    "stream": true,
+    "streamMode": "normalized",
+    "input": {
+      "prompt": "Explain what WASL AI Gateway does"
+    }
+  }'</code></pre>
+        </section>
+
+        <section class="docs-section">
+          <h2>Typical route configuration</h2>
+          <p>A typical AI route includes providers, a default routing choice, and plugin configs that define governance behavior.</p>
+<pre><code>{
+  "id": "openai-test",
+  "name": "OpenAI Test Route",
+  "environment": "dev",
+  "enabled": true,
+  "defaultProvider": "openai-primary",
+  "providers": [
+    {
+      "id": "openai-primary",
+      "type": "openai",
+      "model": "gpt-4o-mini",
+      "apiKeyEnv": "OPENAI_API_KEY",
+      "baseUrl": "https://api.openai.com/v1",
+      "timeoutMs": 15000
+    }
+  ]
+}</code></pre>
+        </section>
+
+        <section class="docs-section">
+          <h2>Operational guidance</h2>
+          <ul>
+            <li>Start with one provider, then add fallback or load-balancing strategies once the route is stable.</li>
+            <li>Use authentication and guardrails before enabling public or partner traffic.</li>
+            <li>Turn on semantic caching and quota controls for cost-sensitive routes.</li>
+            <li>Validate route behavior in Studio before deployment to the target environment.</li>
+          </ul>
+
+          <div class="docs-mini-grid">
+            <div class="docs-mini-card">
+              <strong>Govern</strong>
+              <span>Attach auth, guardrails, and cost controls before wider rollout.</span>
+            </div>
+            <div class="docs-mini-card">
+              <strong>Optimize</strong>
+              <span>Use semantic cache and routing strategies to improve latency and cost.</span>
+            </div>
+            <div class="docs-mini-card">
+              <strong>Observe</strong>
+              <span>Use tracing and analytics to validate provider choice and runtime behavior.</span>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

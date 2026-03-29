@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WASL Docs | Adapters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./docs.css" />
+</head>
+<body>
+  <div class="docs-shell">
+    <header class="docs-topbar">
+      <div class="docs-brand">wasl <span>docs</span></div>
+      <div class="docs-actions">
+        <a class="docs-btn docs-btn-primary" href="/#waitlist">Get Early Access</a>
+      </div>
+    </header>
+    <div class="docs-layout">
+                  <aside class="docs-sidebar">
+        <div class="docs-nav-group">
+          <h4>Getting Started</h4>
+          <nav class="docs-nav">
+            <a href="./index.html">Introduction</a>
+            <a href="./quickstart.html">Quickstart</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Platform Architecture</h4>
+          <nav class="docs-nav">
+            <a href="./api-gateway.html">API Gateway</a>
+            <a href="./ai-gateway.html">AI Gateway</a>
+            <a href="./flow-runtime.html">Flow Runtime</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Operations & Logic</h4>
+          <nav class="docs-nav">
+            <a href="./policies.html">Policies</a>
+            <a href="./adapters.html" class="active">Adapters</a>
+            <a href="./deployments.html">Deployments</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Reference</h4>
+          <nav class="docs-nav">
+            <a href="./security.html">Security</a>
+            <a href="./troubleshooting.html">Troubleshooting</a>
+          </nav>
+        </div>
+      </aside>
+      <main class="docs-content">
+        <section class="docs-hero">
+          <div class="docs-eyebrow">Adapters</div>
+          <h1>Extend runtime connectivity</h1>
+          <p>Adapters let flows connect to systems such as databases, messaging platforms, or custom runtime extensions without hardwiring those capabilities into every route.</p>
+        </section>
+        <section class="docs-section">
+          <h2>Common usage</h2>
+          <ul>
+            <li>JDBC for relational data access.</li>
+            <li>Kafka for event production and consumption.</li>
+            <li>Marketplace-installed adapters for standardized integration patterns.</li>
+          </ul>
+        </section>
+
+        <section class="docs-section">
+          <h2>How adapters fit into runtime</h2>
+          <p>Adapters are configured per tenant and per environment. Flows call adapters by alias, while the actual connection details stay in the environment configuration layer.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>JDBC example</h2>
+          <p>Use the WASL JDBC Adapter for relational database access from Flow JS.</p>
+<pre><code>const rows = adapters.queryJson('wasl-jdbc', {
+  connection: 'default',
+  sql: 'SELECT id, name FROM customers'
+});
+
+response.status = 200;
+response.body = {
+  count: rows.length,
+  data: rows
+};</code></pre>
+
+          <p>Typical JDBC configuration is stored per environment and includes the JDBC URL, credentials, driver class, driver jar path, and validation query.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>Kafka example</h2>
+          <p>Use Kafka adapters for event production and event-driven consumption.</p>
+<pre><code>adapters.invoke('kafka', {
+  connection: 'kafka',
+  operation: 'produce',
+  topic: 'customer-events',
+  key: flow.utils.uuid(),
+  payload: JSON.stringify({ orderId: 42, status: 'shipped' })
+});</code></pre>
+
+          <p>Kafka listeners are deployment-aware. They run only for deployed revisions and can auto-start or auto-stop as deployments change.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>Troubleshooting</h2>
+          <ul>
+            <li>If JDBC validation fails, verify the URL starts with <span class="docs-inline-code">jdbc:</span>, the driver path is valid, and <span class="docs-inline-code">simulate</span> is disabled for real checks.</li>
+            <li>If Kafka produce succeeds but no message appears, confirm the broker endpoint matches the network path used by WASL.</li>
+            <li>If an adapter is reported as not installed, verify the plugin scope, tenant installation, and environment config.</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

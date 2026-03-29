@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WASL Docs | Quickstart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./docs.css" />
+</head>
+<body>
+  <div class="docs-shell">
+    <header class="docs-topbar">
+      <div class="docs-brand">wasl <span>docs</span></div>
+      <div class="docs-actions">
+        <a class="docs-btn docs-btn-primary" href="/#waitlist">Get Early Access</a>
+      </div>
+    </header>
+    <div class="docs-layout">
+                  <aside class="docs-sidebar">
+        <div class="docs-nav-group">
+          <h4>Getting Started</h4>
+          <nav class="docs-nav">
+            <a href="./index.html">Introduction</a>
+            <a href="./quickstart.html" class="active">Quickstart</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Platform Architecture</h4>
+          <nav class="docs-nav">
+            <a href="./api-gateway.html">API Gateway</a>
+            <a href="./ai-gateway.html">AI Gateway</a>
+            <a href="./flow-runtime.html">Flow Runtime</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Operations & Logic</h4>
+          <nav class="docs-nav">
+            <a href="./policies.html">Policies</a>
+            <a href="./adapters.html">Adapters</a>
+            <a href="./deployments.html">Deployments</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Reference</h4>
+          <nav class="docs-nav">
+            <a href="./security.html">Security</a>
+            <a href="./troubleshooting.html">Troubleshooting</a>
+          </nav>
+        </div>
+      </aside>
+      <main class="docs-content">
+        <section class="docs-hero">
+          <div class="docs-eyebrow">Quickstart</div>
+          <h1>Get started with WASL</h1>
+          <p>This quickstart shows the shortest path to create a route, test it, and deploy it through the gateway.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>1. Sign in to Studio</h2>
+          <p>Open Studio, sign in, select your tenant, and choose the environment you want to work in. For most teams that starts with <span class="docs-inline-code">dev</span>.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>2. Create your first API route</h2>
+          <p>Create a new bundle, add an API endpoint, and let WASL generate the initial flow.</p>
+<pre><code>GET /orders
+Bundle: order-platform
+Flow: ListOrders</code></pre>
+        </section>
+
+        <section class="docs-section">
+          <h2>3. Add simple flow logic</h2>
+          <p>Edit the generated flow and return a simple JSON payload first. Once the route works, you can add targets or adapters.</p>
+<pre><code>response.status = 200;
+response.setHeader('content-type', 'application/json');
+response.body = {
+  ok: true,
+  source: 'wasl'
+};</code></pre>
+        </section>
+
+        <section class="docs-section">
+          <h2>4. Test in Studio</h2>
+          <p>Use the built-in test experience from the API or flow detail view. This validates route logic before deployment.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>5. Deploy to an environment</h2>
+          <p>Deploy the current revision to an environment such as <span class="docs-inline-code">dev</span>. WASL tracks deployed revisions per environment.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>6. Invoke through the gateway</h2>
+          <p>Routes are invoked through the gateway hostname using tenant and environment context.</p>
+<pre><code>curl --request GET \
+  --url http://acme-corp.dev.localhost:8080/orders</code></pre>
+
+          <div class="docs-callout">
+            <strong>Next step</strong>
+            <p>Continue with <a href="./api-gateway.html">API Gateway</a> or <a href="./ai-gateway.html">AI Gateway</a> depending on what you are building.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

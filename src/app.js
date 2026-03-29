@@ -35,14 +35,14 @@ function simulateStudioCall() {
     response: {
       status: 200,
       message: aiMode
-        ? (mockMode?.checked ? 'Normalized AI stream served from WASL AI Gateway preview' : 'Live AI gateway response from WASL')
-        : (mockMode?.checked ? 'Mock response served by Mockgee via WASL API Studio' : 'Live gateway response from WASL'),
+        ? (mockMode?.checked ? 'Simulated AI response served from Compliance Preview' : 'Live governed AI response from Provider Fleet')
+        : (mockMode?.checked ? 'Mock payload served by Governance Engine Sandbox' : 'Live verified payload from Edge Router'),
       data: aiMode
         ? {
-            routeId: 'openai',
-            provider: 'openai',
-            streamMode: parsedPayload.streamMode || 'normalized',
-            output: 'Orders move from creation to fulfilment, shipment, and final delivery confirmation.',
+            routeId: 'private-llm-cluster',
+            provider: 'secure-internal',
+            pii_masking: 'enforced',
+            output: 'User feedback has been aggregated and masked for sensitive data securely.',
             usage: {
               promptTokens: 28,
               completionTokens: 19,

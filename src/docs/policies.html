@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WASL Docs | Policies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./docs.css" />
+</head>
+<body>
+  <div class="docs-shell">
+    <header class="docs-topbar">
+      <div class="docs-brand">wasl <span>docs</span></div>
+      <div class="docs-actions">
+        <a class="docs-btn docs-btn-primary" href="/#waitlist">Get Early Access</a>
+      </div>
+    </header>
+    <div class="docs-layout">
+                  <aside class="docs-sidebar">
+        <div class="docs-nav-group">
+          <h4>Getting Started</h4>
+          <nav class="docs-nav">
+            <a href="./index.html">Introduction</a>
+            <a href="./quickstart.html">Quickstart</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Platform Architecture</h4>
+          <nav class="docs-nav">
+            <a href="./api-gateway.html">API Gateway</a>
+            <a href="./ai-gateway.html">AI Gateway</a>
+            <a href="./flow-runtime.html">Flow Runtime</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Operations & Logic</h4>
+          <nav class="docs-nav">
+            <a href="./policies.html" class="active">Policies</a>
+            <a href="./adapters.html">Adapters</a>
+            <a href="./deployments.html">Deployments</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Reference</h4>
+          <nav class="docs-nav">
+            <a href="./security.html">Security</a>
+            <a href="./troubleshooting.html">Troubleshooting</a>
+          </nav>
+        </div>
+      </aside>
+      <main class="docs-content">
+        <section class="docs-hero">
+          <div class="docs-eyebrow">Policies</div>
+          <h1>Apply governance consistently</h1>
+          <p>Policies are how WASL applies auth, security, traffic, reliability, and AI-specific controls consistently across routes and environments.</p>
+        </section>
+        <section class="docs-section">
+          <h2>Policy categories</h2>
+          <ul>
+            <li>Authentication such as API key, JWT, OAuth2, basic auth, and mTLS.</li>
+            <li>Security controls such as IP filtering, request size, and header limits.</li>
+            <li>Traffic and reliability controls such as rate limiting and circuit breaker.</li>
+            <li>AI controls such as guardrails, quotas, cost limits, PII sanitization, and prompt management.</li>
+          </ul>
+        </section>
+
+        <section class="docs-section">
+          <h2>How policies work</h2>
+          <p>Policies execute before flow logic, so authentication and core governance happen at the gateway edge instead of deep inside your runtime code. Policies are versioned with the bundle revision and move through environments with the rest of the deployment.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>Common auth patterns</h2>
+          <h3>API Key</h3>
+<pre><code>[
+  {
+    "type": "apikey",
+    "headerName": "x-api-key",
+    "apiKeys": ["wasl-dev-key-1", "wasl-dev-key-2"]
+  }
+]</code></pre>
+
+          <h3>JWT</h3>
+<pre><code>[
+  {
+    "type": "jwt",
+    "secret": "replace-with-shared-secret",
+    "algorithm": "HS256",
+    "requireExp": true,
+    "clockSkewSeconds": 30
+  }
+]</code></pre>
+
+          <h3>mTLS</h3>
+<pre><code>[
+  {
+    "type": "mtls",
+    "enforceClientCert": true
+  }
+]</code></pre>
+        </section>
+
+        <section class="docs-section">
+          <h2>Operational guidance</h2>
+          <ul>
+            <li>Apply security policies before flow logic so requests fail early.</li>
+            <li>Attach policies at the API level and validate them in the deployed environment, not just in Studio.</li>
+            <li>For AI routes, combine authentication with guardrails, limits, quotas, and cost controls.</li>
+            <li>Use tracing when validating policy behavior so you can confirm which policy blocked or changed the request.</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

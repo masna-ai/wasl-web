@@ -5,6 +5,7 @@ Standalone marketing website for `waslhq.com` focused on **wasl** as the primary
 ## What this module includes
 
 - Main landing page: `src/index.html`
+- Public docs pages: `src/docs/`
 - Enterprise campaign variant: `src/enterprise.html`
 - Product demo block: WASL API Studio + Mockgee context
 - Waitlist capture integration hooks
@@ -50,6 +51,7 @@ If `waitlist.endpoint` is empty, form submission uses local success mode (no net
 ## A/B / campaign usage
 
 - Main page: `/`
+- Docs: `/docs/`
 - Enterprise page: `/enterprise`
 - Inline A/B variant on main page: `/?variant=enterprise`
 

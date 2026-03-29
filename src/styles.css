@@ -552,6 +552,11 @@ h3 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.capabilities-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
 .platform-card,
 .ai-card,
 .cred-card {
@@ -561,6 +566,16 @@ h3 {
 .platform-card h3, .ai-card h3 {
   font-size: 1.35rem;
   color: var(--ink);
+}
+
+.platform-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 230px;
+}
+
+.platform-card p {
+  max-width: 34ch;
 }
 
 .platform-card p,
