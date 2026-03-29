@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WASL Docs | Security</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./docs.css" />
+</head>
+<body>
+  <div class="docs-shell">
+    <header class="docs-topbar">
+      <div class="docs-brand">wasl <span>docs</span></div>
+      <div class="docs-actions">
+        <a class="docs-btn docs-btn-primary" href="/#waitlist">Get Early Access</a>
+      </div>
+    </header>
+    <div class="docs-layout">
+                  <aside class="docs-sidebar">
+        <div class="docs-nav-group">
+          <h4>Getting Started</h4>
+          <nav class="docs-nav">
+            <a href="./index.html">Introduction</a>
+            <a href="./quickstart.html">Quickstart</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Platform Architecture</h4>
+          <nav class="docs-nav">
+            <a href="./api-gateway.html">API Gateway</a>
+            <a href="./ai-gateway.html">AI Gateway</a>
+            <a href="./flow-runtime.html">Flow Runtime</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Operations & Logic</h4>
+          <nav class="docs-nav">
+            <a href="./policies.html">Policies</a>
+            <a href="./adapters.html">Adapters</a>
+            <a href="./deployments.html">Deployments</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Reference</h4>
+          <nav class="docs-nav">
+            <a href="./security.html" class="active">Security</a>
+            <a href="./troubleshooting.html">Troubleshooting</a>
+          </nav>
+        </div>
+      </aside>
+      <main class="docs-content">
+        <section class="docs-hero">
+          <div class="docs-eyebrow">Security</div>
+          <h1>Secure the platform and traffic path</h1>
+          <p>Security in WASL spans route policies, tenant isolation, certificate management, and environment-aware runtime control.</p>
+        </section>
+        <section class="docs-section">
+          <h2>Security topics</h2>
+          <ul>
+            <li>Authentication policies such as API key, JWT, OAuth2, and mTLS.</li>
+            <li>Certificate management for trust anchors and client certificates.</li>
+            <li>Tenant and environment isolation across control plane and data plane.</li>
+            <li>AI-specific controls such as guardrails and PII sanitization.</li>
+          </ul>
+        </section>
+
+        <section class="docs-section">
+          <h2>Recommended security model</h2>
+          <p>For most teams, the right sequence is: authenticate first, apply request security controls next, then run flow or AI route logic. WASL executes these controls before flow execution so failures happen early and consistently.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>Common authentication patterns</h2>
+          <ul>
+            <li><span class="docs-inline-code">API key</span> for partner and developer access.</li>
+            <li><span class="docs-inline-code">JWT</span> for shared-secret internal systems.</li>
+            <li><span class="docs-inline-code">OAuth2 introspection</span> for identity-provider-backed access tokens.</li>
+            <li><span class="docs-inline-code">mTLS</span> for B2B integrations that require client certificates.</li>
+          </ul>
+        </section>
+
+        <section class="docs-section">
+          <h2>mTLS deployment pattern</h2>
+          <p>WASL commonly runs behind an HTTPS front proxy such as Nginx. The proxy terminates TLS, validates the client certificate, and forwards the validated certificate to the gateway through the <span class="docs-inline-code">x-client-cert</span> header for the <span class="docs-inline-code">auth.mtls</span> policy.</p>
+<pre><code>curl https://acme-corp.dev.localhost:8443/crm/tls/test \
+  --cert client.crt \
+  --key client.key \
+  --cacert certs/ca.crt</code></pre>
+        </section>
+
+        <section class="docs-section">
+          <h2>Operational guidance</h2>
+          <ul>
+            <li>Upload trust anchors and client key pairs through the Certificates workspace instead of hardwiring PEM material into route logic.</li>
+            <li>Validate security behavior in the deployed environment, not only in Studio tests.</li>
+            <li>For AI routes, combine auth with guardrails, quotas, and PII controls before opening routes to wider traffic.</li>
+            <li>Use tracing and analytics when validating policy behavior so you can see which control accepted or blocked the request.</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

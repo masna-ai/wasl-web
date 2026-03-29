@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WASL Docs | Deployments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./docs.css" />
+</head>
+<body>
+  <div class="docs-shell">
+    <header class="docs-topbar">
+      <div class="docs-brand">wasl <span>docs</span></div>
+      <div class="docs-actions">
+        <a class="docs-btn docs-btn-primary" href="/#waitlist">Get Early Access</a>
+      </div>
+    </header>
+    <div class="docs-layout">
+                  <aside class="docs-sidebar">
+        <div class="docs-nav-group">
+          <h4>Getting Started</h4>
+          <nav class="docs-nav">
+            <a href="./index.html">Introduction</a>
+            <a href="./quickstart.html">Quickstart</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Platform Architecture</h4>
+          <nav class="docs-nav">
+            <a href="./api-gateway.html">API Gateway</a>
+            <a href="./ai-gateway.html">AI Gateway</a>
+            <a href="./flow-runtime.html">Flow Runtime</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Operations & Logic</h4>
+          <nav class="docs-nav">
+            <a href="./policies.html">Policies</a>
+            <a href="./adapters.html">Adapters</a>
+            <a href="./deployments.html" class="active">Deployments</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Reference</h4>
+          <nav class="docs-nav">
+            <a href="./security.html">Security</a>
+            <a href="./troubleshooting.html">Troubleshooting</a>
+          </nav>
+        </div>
+      </aside>
+      <main class="docs-content">
+        <section class="docs-hero">
+          <div class="docs-eyebrow">Deployments</div>
+          <h1>Move safely across environments</h1>
+          <p>WASL uses revisioned deployments so teams can deploy, promote, and roll back without losing the exact runtime state of each environment.</p>
+        </section>
+        <section class="docs-section">
+          <h2>Deployment model</h2>
+          <ul>
+            <li>Development is the working source area.</li>
+            <li>Deployments bind a specific revision to an environment.</li>
+            <li>Promotion moves a tested revision into the next environment.</li>
+            <li>Rollback returns the environment to a previous deployed revision.</li>
+          </ul>
+
+          <div class="docs-diagram">
+            <div class="docs-diagram-label">Revision Lifecycle</div>
+            <div class="diagram-stage-grid">
+              <div class="diagram-stage diagram-stage-accent">
+                <div class="diagram-stage-step">1</div>
+                <strong>Working Revision</strong>
+                <p>Develop and save changes in Studio to create a new revision for the bundle.</p>
+              </div>
+              <div class="diagram-stage">
+                <div class="diagram-stage-step">2</div>
+                <strong>Deploy to Dev</strong>
+                <p>The selected environment points to the chosen revision instead of copying source files.</p>
+              </div>
+              <div class="diagram-stage diagram-stage-alt">
+                <div class="diagram-stage-step">3</div>
+                <strong>Promote</strong>
+                <p>Move the same tested revision into staging or production when it is ready.</p>
+              </div>
+              <div class="diagram-stage">
+                <div class="diagram-stage-step">4</div>
+                <strong>Rollback</strong>
+                <p>Re-point the environment to a previous deployed revision if you need to recover quickly.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="docs-section">
+          <h2>Core concepts</h2>
+          <ul>
+            <li><span class="docs-inline-code">Revision-based source</span>: bundle revisions are stored under tenant-scoped revision folders.</li>
+            <li><span class="docs-inline-code">Deployment pointers</span>: environments point to a selected revision rather than copying files around.</li>
+            <li><span class="docs-inline-code">Environment-specific configs</span>: adapters and targets can differ per environment.</li>
+          </ul>
+        </section>
+
+        <section class="docs-section">
+          <h2>Environment resolution</h2>
+          <p>WASL resolves the active environment in this order:</p>
+          <ol>
+            <li><span class="docs-inline-code">X-Environment</span> header</li>
+            <li>Environment slug in the request host</li>
+            <li>Path prefix such as <span class="docs-inline-code">/env/staging/...</span></li>
+            <li>Default fallback to <span class="docs-inline-code">dev</span></li>
+          </ol>
+        </section>
+
+        <section class="docs-section">
+          <h2>Studio workflow</h2>
+          <ol>
+            <li>Create or verify environments in the Environments workspace.</li>
+            <li>Save your bundle to create a new revision.</li>
+            <li>Deploy the chosen revision to the target environment.</li>
+            <li>Promote between environments when the revision is ready.</li>
+            <li>Roll back by pointing the environment to a previous revision if required.</li>
+          </ol>
+        </section>
+
+        <section class="docs-section">
+          <h2>Troubleshooting</h2>
+          <ul>
+            <li>If the wrong revision is served, verify the active deployment pointer for the tenant, bundle, and environment.</li>
+            <li>If an adapter is missing at runtime, confirm the adapter config exists for that environment.</li>
+            <li>If a target server is missing, verify the environment-specific target exists and matches the alias used in the flow.</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

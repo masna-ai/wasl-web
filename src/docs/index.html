@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WASL Docs | Introduction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./docs.css" />
+</head>
+
+<body>
+  <div class="docs-shell">
+    <header class="docs-topbar">
+      <div class="docs-brand">wasl <span>docs</span></div>
+      <div class="docs-actions">
+        <a class="docs-btn docs-btn-primary" href="/#waitlist">Get Early Access</a>
+      </div>
+    </header>
+
+    <div class="docs-layout">
+                  <aside class="docs-sidebar">
+        <div class="docs-nav-group">
+          <h4>Getting Started</h4>
+          <nav class="docs-nav">
+            <a href="./index.html" class="active">Introduction</a>
+            <a href="./quickstart.html">Quickstart</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Platform Architecture</h4>
+          <nav class="docs-nav">
+            <a href="./api-gateway.html">API Gateway</a>
+            <a href="./ai-gateway.html">AI Gateway</a>
+            <a href="./flow-runtime.html">Flow Runtime</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Operations & Logic</h4>
+          <nav class="docs-nav">
+            <a href="./policies.html">Policies</a>
+            <a href="./adapters.html">Adapters</a>
+            <a href="./deployments.html">Deployments</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Reference</h4>
+          <nav class="docs-nav">
+            <a href="./security.html">Security</a>
+            <a href="./troubleshooting.html">Troubleshooting</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="docs-content">
+        <section class="docs-hero">
+          <div class="docs-eyebrow">Public Docs</div>
+          <h1>WASL Documentation</h1>
+          <p>WASL is an open-source API gateway with integration runtime and AI gateway capabilities. These docs are written for end users, not internal engineering teams.</p>
+          <div class="docs-card-grid">
+            <article class="docs-card">
+              <h3>Start here</h3>
+              <p>Use the quickstart to create your first API route, AI route, and deployment flow.</p>
+            </article>
+            <article class="docs-card">
+              <h3>Product model</h3>
+              <p>WASL combines API Gateway, AI Gateway, and integration runtime in one control plane and one operating model.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="docs-section">
+          <h2>What WASL is</h2>
+          <p>WASL gives platform teams one place to manage API traffic, integration logic, and AI traffic. Instead of running a gateway product, a separate integration runtime, and an AI control layer, you operate one platform with shared governance, deployment, and observability.</p>
+
+          <h3>Core surfaces</h3>
+          <ul>
+            <li><span class="docs-inline-code">API Gateway</span> for routing, policy enforcement, and release control.</li>
+            <li><span class="docs-inline-code">AI Gateway</span> for LLM routing, guardrails, quotas, streaming, caching, and prompt governance.</li>
+            <li><span class="docs-inline-code">Flow Runtime</span> for JavaScript-based integration logic, targets, adapters, and event-driven execution.</li>
+          </ul>
+
+          <div class="docs-callout">
+            <strong>Recommended path</strong>
+            <p>If you are new to the platform, go to <a href="./quickstart.html">Quickstart</a> first. It is the fastest way to understand the product model.</p>
+          </div>
+        </section>
+
+        <section class="docs-section">
+          <h2>How the product is organized</h2>
+          <p>End users mainly work through the Studio control plane. Studio is where you create bundles, APIs, flows, policies, targets, adapters, AI routes, and deployments. The gateway runtime then serves traffic based on those deployed assets.</p>
+
+          <h3>Typical workflow</h3>
+          <ol>
+            <li>Create an API route or AI route in Studio.</li>
+            <li>Attach policies and configure runtime behavior.</li>
+            <li>Test in Studio.</li>
+            <li>Deploy to an environment such as <span class="docs-inline-code">dev</span> or <span class="docs-inline-code">staging</span>.</li>
+            <li>Invoke the route through the gateway hostname for the selected tenant and environment.</li>
+          </ol>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+
+</html>

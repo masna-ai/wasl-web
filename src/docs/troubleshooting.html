@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WASL Docs | Troubleshooting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./docs.css" />
+</head>
+<body>
+  <div class="docs-shell">
+    <header class="docs-topbar">
+      <div class="docs-brand">wasl <span>docs</span></div>
+      <div class="docs-actions">
+        <a class="docs-btn docs-btn-primary" href="/#waitlist">Get Early Access</a>
+      </div>
+    </header>
+    <div class="docs-layout">
+                  <aside class="docs-sidebar">
+        <div class="docs-nav-group">
+          <h4>Getting Started</h4>
+          <nav class="docs-nav">
+            <a href="./index.html">Introduction</a>
+            <a href="./quickstart.html">Quickstart</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Platform Architecture</h4>
+          <nav class="docs-nav">
+            <a href="./api-gateway.html">API Gateway</a>
+            <a href="./ai-gateway.html">AI Gateway</a>
+            <a href="./flow-runtime.html">Flow Runtime</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Operations & Logic</h4>
+          <nav class="docs-nav">
+            <a href="./policies.html">Policies</a>
+            <a href="./adapters.html">Adapters</a>
+            <a href="./deployments.html">Deployments</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Reference</h4>
+          <nav class="docs-nav">
+            <a href="./security.html">Security</a>
+            <a href="./troubleshooting.html" class="active">Troubleshooting</a>
+          </nav>
+        </div>
+      </aside>
+      <main class="docs-content">
+        <section class="docs-hero">
+          <div class="docs-eyebrow">Troubleshooting</div>
+          <h1>Diagnose common runtime and configuration issues</h1>
+          <p>Use this section when a route works in Studio but not in gateway, a policy behaves differently than expected, or environment-specific runtime settings are missing.</p>
+        </section>
+        <section class="docs-section">
+          <h2>Common checks</h2>
+          <ul>
+            <li>Confirm the correct tenant and environment are selected.</li>
+            <li>Confirm the revision is deployed to the target environment.</li>
+            <li>Verify targets, certificates, and adapter configs for that environment.</li>
+            <li>Check tracing and analytics for the route correlation ID.</li>
+          </ul>
+        </section>
+
+        <section class="docs-section">
+          <h2>API Gateway issues</h2>
+          <ul>
+            <li>If the wrong route behavior is returned, confirm the active deployment revision for that environment.</li>
+            <li>If a target server is missing, verify the target alias exists in the selected environment.</li>
+            <li>If a policy behaves differently than expected, check whether the deployed revision actually includes the latest policy change.</li>
+          </ul>
+        </section>
+
+        <section class="docs-section">
+          <h2>AI Gateway issues</h2>
+          <ul>
+            <li>If a route returns provider errors, verify the configured base URL, API key source, and selected provider model.</li>
+            <li>If streaming behavior is unexpected, confirm the request includes the intended <span class="docs-inline-code">stream</span> and <span class="docs-inline-code">streamMode</span> values.</li>
+            <li>If auth blocks the route, check the attached auth config and the actual request headers reaching the gateway.</li>
+          </ul>
+        </section>
+
+        <section class="docs-section">
+          <h2>Integration and adapter issues</h2>
+          <ul>
+            <li>For JDBC, verify driver path, credentials, port, and that the URL starts with <span class="docs-inline-code">jdbc:</span>.</li>
+            <li>For Kafka, confirm broker endpoints, network path, and whether the listener belongs to a deployed revision.</li>
+            <li>If Studio test mode works but runtime does not, compare the tenant and environment context used in both executions.</li>
+          </ul>
+        </section>
+
+        <section class="docs-section">
+          <h2>Best debugging path</h2>
+          <ol>
+            <li>Identify the tenant, bundle or route, and environment.</li>
+            <li>Confirm deployment state and revision.</li>
+            <li>Replay the request with curl using the runtime hostname.</li>
+            <li>Use tracing to inspect policy execution, flow execution, and adapter calls.</li>
+            <li>Fix the environment-specific config before changing route logic if the failure is infrastructure-related.</li>
+          </ol>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WASL Docs | Flow Runtime</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./docs.css" />
+</head>
+<body>
+  <div class="docs-shell">
+    <header class="docs-topbar">
+      <div class="docs-brand">wasl <span>docs</span></div>
+      <div class="docs-actions">
+        <a class="docs-btn docs-btn-primary" href="/#waitlist">Get Early Access</a>
+      </div>
+    </header>
+    <div class="docs-layout">
+                  <aside class="docs-sidebar">
+        <div class="docs-nav-group">
+          <h4>Getting Started</h4>
+          <nav class="docs-nav">
+            <a href="./index.html">Introduction</a>
+            <a href="./quickstart.html">Quickstart</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Platform Architecture</h4>
+          <nav class="docs-nav">
+            <a href="./api-gateway.html">API Gateway</a>
+            <a href="./ai-gateway.html">AI Gateway</a>
+            <a href="./flow-runtime.html" class="active">Flow Runtime</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Operations & Logic</h4>
+          <nav class="docs-nav">
+            <a href="./policies.html">Policies</a>
+            <a href="./adapters.html">Adapters</a>
+            <a href="./deployments.html">Deployments</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Reference</h4>
+          <nav class="docs-nav">
+            <a href="./security.html">Security</a>
+            <a href="./troubleshooting.html">Troubleshooting</a>
+          </nav>
+        </div>
+      </aside>
+      <main class="docs-content">
+        <section class="docs-hero">
+          <div class="docs-eyebrow">Flow Runtime</div>
+          <h1>Write integration logic in JavaScript</h1>
+          <p>WASL Flow Runtime gives you a JavaScript execution model for request handling, orchestration, HTTP targets, and adapter calls.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>Runtime bindings</h2>
+          <p>Flow scripts run with built-in objects such as <span class="docs-inline-code">request</span>, <span class="docs-inline-code">response</span>, <span class="docs-inline-code">flow</span>, <span class="docs-inline-code">http</span>, and <span class="docs-inline-code">adapters</span>.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>Simple response example</h2>
+<pre><code>response.status = 200;
+response.setHeader('content-type', 'application/json');
+response.body = {
+  ok: true,
+  runtime: 'wasl-flow-js'
+};</code></pre>
+        </section>
+
+        <section class="docs-section">
+          <h2>Target call example</h2>
+<pre><code>const result = http.getJson('erp-service', {
+  path: '/orders',
+  query: { status: 'OPEN' }
+});
+
+response.status = 200;
+response.body = result;</code></pre>
+        </section>
+
+        <section class="docs-section">
+          <h2>Adapter call example</h2>
+<pre><code>const rows = adapters.queryJson('wasl-jdbc', {
+  connection: 'default',
+  sql: 'SELECT id, name FROM customers'
+});
+
+response.status = 200;
+response.body = {
+  count: rows.length,
+  data: rows
+};</code></pre>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

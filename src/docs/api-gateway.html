@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WASL Docs | API Gateway</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./docs.css" />
+</head>
+<body>
+  <div class="docs-shell">
+    <header class="docs-topbar">
+      <div class="docs-brand">wasl <span>docs</span></div>
+      <div class="docs-actions">
+        <a class="docs-btn docs-btn-primary" href="/#waitlist">Get Early Access</a>
+      </div>
+    </header>
+    <div class="docs-layout">
+                  <aside class="docs-sidebar">
+        <div class="docs-nav-group">
+          <h4>Getting Started</h4>
+          <nav class="docs-nav">
+            <a href="./index.html">Introduction</a>
+            <a href="./quickstart.html">Quickstart</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Platform Architecture</h4>
+          <nav class="docs-nav">
+            <a href="./api-gateway.html" class="active">API Gateway</a>
+            <a href="./ai-gateway.html">AI Gateway</a>
+            <a href="./flow-runtime.html">Flow Runtime</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Operations & Logic</h4>
+          <nav class="docs-nav">
+            <a href="./policies.html">Policies</a>
+            <a href="./adapters.html">Adapters</a>
+            <a href="./deployments.html">Deployments</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Reference</h4>
+          <nav class="docs-nav">
+            <a href="./security.html">Security</a>
+            <a href="./troubleshooting.html">Troubleshooting</a>
+          </nav>
+        </div>
+      </aside>
+      <main class="docs-content">
+        <section class="docs-hero">
+          <div class="docs-eyebrow">API Gateway</div>
+          <h1>Build and govern API routes</h1>
+          <p>WASL API Gateway focuses on route definition, policies, revisioned deployments, targets, and runtime observability.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>Key concepts</h2>
+          <ul>
+            <li><span class="docs-inline-code">Bundle</span>: a versioned workspace containing APIs, flows, and policies.</li>
+            <li><span class="docs-inline-code">API</span>: the public route definition such as <span class="docs-inline-code">GET /orders</span>.</li>
+            <li><span class="docs-inline-code">Flow</span>: the runtime logic executed for the API.</li>
+            <li><span class="docs-inline-code">Policy</span>: auth, security, or traffic control applied to the route.</li>
+          </ul>
+
+          <div class="docs-diagram">
+            <div class="docs-diagram-label">Request Path</div>
+            <div class="diagram-stage-grid">
+              <div class="diagram-stage diagram-stage-accent">
+                <div class="diagram-stage-step">1</div>
+                <strong>Client Request</strong>
+                <p>Client calls the tenant and environment route through the public gateway hostname.</p>
+              </div>
+              <div class="diagram-stage">
+                <div class="diagram-stage-step">2</div>
+                <strong>Gateway + Policies</strong>
+                <p>Authentication, security, and traffic controls execute before any flow code runs.</p>
+              </div>
+              <div class="diagram-stage diagram-stage-alt">
+                <div class="diagram-stage-step">3</div>
+                <strong>Flow + Targets</strong>
+                <p>Flow runtime calls targets, adapters, databases, or other systems using environment-aware configuration.</p>
+              </div>
+              <div class="diagram-stage">
+                <div class="diagram-stage-step">4</div>
+                <strong>Response + Trace</strong>
+                <p>Gateway returns the response and records a traceable execution path for debugging and operations.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="docs-section">
+          <h2>Typical lifecycle</h2>
+          <ol>
+            <li>Create bundle.</li>
+            <li>Add API endpoint.</li>
+            <li>Implement flow logic.</li>
+            <li>Attach policies.</li>
+            <li>Deploy revision to environment.</li>
+            <li>Promote or roll back as needed.</li>
+          </ol>
+        </section>
+
+        <section class="docs-section">
+          <h2>Targets and outbound calls</h2>
+          <p>Use targets when your flow needs to call external HTTP systems. Targets are environment-aware and designed to separate logical route references from actual endpoint configuration.</p>
+<pre><code>const result = http.getJson('erp-service', {
+  path: '/orders',
+  query: { status: 'OPEN' }
+});</code></pre>
+
+          <div class="docs-mini-grid">
+            <div class="docs-mini-card">
+              <strong>Public Route</strong>
+              <span>What clients call through the gateway.</span>
+            </div>
+            <div class="docs-mini-card">
+              <strong>Bundle Target</strong>
+              <span>The logical alias referenced by the flow.</span>
+            </div>
+            <div class="docs-mini-card">
+              <strong>Environment Target</strong>
+              <span>The actual endpoint configured per environment.</span>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
