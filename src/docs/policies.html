@@ -48,6 +48,7 @@
           <h4>Reference</h4>
           <nav class="docs-nav">
             <a href="./security.html">Security</a>
+            <a href="./oauth2-provider.html">OAuth2 Provider API</a>
             <a href="./troubleshooting.html">Troubleshooting</a>
           </nav>
         </div>
@@ -78,9 +79,11 @@
           <h3>API Key</h3>
 <pre><code>[
   {
-    "type": "apikey",
+    "type": "auth.apikey",
     "headerName": "x-api-key",
-    "apiKeys": ["wasl-dev-key-1", "wasl-dev-key-2"]
+    "queryParamName": "apikey",
+    "allowHeader": true,
+    "allowQueryParam": false
   }
 ]</code></pre>
 

@@ -33,6 +33,7 @@
           <nav class="docs-nav">
             <a href="./api-gateway.html">API Gateway</a>
             <a href="./ai-gateway.html">AI Gateway</a>
+            <a href="./developer-portal.html">Developer Portal</a>
             <a href="./flow-runtime.html">Flow Runtime</a>
           </nav>
         </div>
@@ -48,6 +49,7 @@
           <h4>Reference</h4>
           <nav class="docs-nav">
             <a href="./security.html">Security</a>
+            <a href="./oauth2-provider.html">OAuth2 Provider API</a>
             <a href="./troubleshooting.html">Troubleshooting</a>
           </nav>
         </div>
@@ -99,9 +101,27 @@ response.body = {
 <pre><code>curl --request GET \
   --url http://acme-corp.dev.localhost:8080/orders</code></pre>
 
+          <h3>Production-style consumer access (recommended)</h3>
+          <ol>
+            <li>Create a consumer product and include operations for your deployed bundle.</li>
+            <li>Set product default limits (for example: 1000 requests every 60 seconds).</li>
+            <li>Create a consumer app and subscribe it to that product.</li>
+            <li>Issue app credential (API key or OAuth client) and test through the portal or direct gateway call.</li>
+          </ol>
+          <p>Rate and quota limits are enforced at runtime from the subscribed plan; limit breaches return <span class="docs-inline-code">429</span>.</p>
+          <p>Use <span class="docs-inline-code">docs/testing/CONSUMER_ACCESS_E2E_GUIDE.md</span> as the single end-to-end validation guide.</p>
+
+          <h3>Optional: expose it through the Developer Portal</h3>
+          <p>After you publish a bundle, you can expose it through one of three portal models:</p>
+          <ul>
+            <li><span class="docs-inline-code">http://localhost:3000/</span> for shared portal mode</li>
+            <li><span class="docs-inline-code">http://localhost:3000/?tenant=&lt;tenantId-or-slug&gt;</span> for tenant-scoped mode</li>
+            <li><span class="docs-inline-code">http://localhost:3000/?portal=&lt;portalId-or-slug&gt;</span> for a managed customer portal</li>
+          </ul>
+
           <div class="docs-callout">
             <strong>Next step</strong>
-            <p>Continue with <a href="./api-gateway.html">API Gateway</a> or <a href="./ai-gateway.html">AI Gateway</a> depending on what you are building.</p>
+            <p>Continue with <a href="./api-gateway.html">API Gateway</a>, <a href="./ai-gateway.html">AI Gateway</a>, or <a href="./developer-portal.html">Developer Portal</a> depending on what you are building.</p>
           </div>
         </section>
       </main>

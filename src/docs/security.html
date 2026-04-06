@@ -48,6 +48,7 @@
           <h4>Reference</h4>
           <nav class="docs-nav">
             <a href="./security.html" class="active">Security</a>
+            <a href="./oauth2-provider.html">OAuth2 Provider API</a>
             <a href="./troubleshooting.html">Troubleshooting</a>
           </nav>
         </div>
@@ -74,13 +75,23 @@
         </section>
 
         <section class="docs-section">
+          <h2>Studio-managed security assets</h2>
+          <ul>
+            <li><span class="docs-inline-code">Certificates</span> are managed in Studio and used for mTLS and outbound TLS profiles.</li>
+            <li><span class="docs-inline-code">KVM / Secret References</span> are managed in <span class="docs-inline-code">Studio → API Gateway → KVM</span>.</li>
+            <li>Both are consumed by gateway policies and flow runtime, not by the public portal.</li>
+          </ul>
+        </section>
+
+        <section class="docs-section">
           <h2>Common authentication patterns</h2>
           <ul>
             <li><span class="docs-inline-code">API key</span> for partner and developer access.</li>
             <li><span class="docs-inline-code">JWT</span> for shared-secret internal systems.</li>
-            <li><span class="docs-inline-code">OAuth2 introspection</span> for identity-provider-backed access tokens.</li>
+            <li><span class="docs-inline-code">OAuth2 provider profiles</span> (<span class="docs-inline-code">jwks</span>, <span class="docs-inline-code">introspection</span>, or <span class="docs-inline-code">hybrid</span>) for identity-provider-backed tokens.</li>
             <li><span class="docs-inline-code">mTLS</span> for B2B integrations that require client certificates.</li>
           </ul>
+          <p>For WASL-native token APIs and provider-based gateway wiring, see <a href="./oauth2-provider.html">OAuth2 Provider API</a>.</p>
         </section>
 
         <section class="docs-section">
