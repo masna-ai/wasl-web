@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WASL Docs | OAuth2 Provider API</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./docs.css" />
+</head>
+<body>
+  <div class="docs-shell">
+    <header class="docs-topbar">
+      <div class="docs-brand">wasl <span>docs</span></div>
+      <div class="docs-actions">
+        <a class="docs-btn docs-btn-primary" href="/#waitlist">Get Early Access</a>
+      </div>
+    </header>
+    <div class="docs-layout">
+      <aside class="docs-sidebar">
+        <div class="docs-nav-group">
+          <h4>Getting Started</h4>
+          <nav class="docs-nav">
+            <a href="./index.html">Introduction</a>
+            <a href="./quickstart.html">Quickstart</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Platform Architecture</h4>
+          <nav class="docs-nav">
+            <a href="./api-gateway.html">API Gateway</a>
+            <a href="./ai-gateway.html">AI Gateway</a>
+            <a href="./developer-portal.html">Developer Portal</a>
+            <a href="./flow-runtime.html">Flow Runtime</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Operations & Logic</h4>
+          <nav class="docs-nav">
+            <a href="./policies.html">Policies</a>
+            <a href="./adapters.html">Adapters</a>
+            <a href="./deployments.html">Deployments</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Reference</h4>
+          <nav class="docs-nav">
+            <a href="./security.html">Security</a>
+            <a href="./oauth2-provider.html" class="active">OAuth2 Provider API</a>
+            <a href="./troubleshooting.html">Troubleshooting</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="docs-content">
+        <section class="docs-hero">
+          <div class="docs-eyebrow">OAuth2 Provider</div>
+          <h1>Generate and introspect OAuth2 tokens in WASL Portal runtime.</h1>
+          <p>WASL includes OAuth2 provider capabilities for client credentials flow. Use it to issue access tokens for app credentials and validate those tokens through gateway <span class="docs-inline-code">auth.oauth2</span> policies.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>Endpoints</h2>
+          <ul>
+            <li><span class="docs-inline-code">POST /oauth/token</span> (canonical)</li>
+            <li><span class="docs-inline-code">POST /oauth/introspect</span> (canonical)</li>
+            <li>Compatibility aliases: <span class="docs-inline-code">/portal/oauth/token</span> and <span class="docs-inline-code">/portal/oauth/introspect</span></li>
+          </ul>
+          <p>Runtime host: <span class="docs-inline-code">http://localhost:9091</span> in local development.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>Provider management APIs (Studio control plane)</h2>
+          <p>OAuth provider profiles are configured from Studio and consumed by gateway policy binding.</p>
+          <ul>
+            <li><span class="docs-inline-code">GET/POST /api/security/oauth-providers</span></li>
+            <li><span class="docs-inline-code">GET/PUT/DELETE /api/security/oauth-providers/{providerId}</span></li>
+            <li><span class="docs-inline-code">POST /api/security/oauth-providers/{providerId}/test</span></li>
+            <li><span class="docs-inline-code">POST /api/security/oauth-providers/{providerId}/promote</span></li>
+            <li><span class="docs-inline-code">GET/POST /api/security/oauth-provider-credentials</span></li>
+          </ul>
+          <p>Provider health telemetry is exposed through <span class="docs-inline-code">GET /api/analytics/auth/providers</span>.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>Issue Token (client_credentials)</h2>
+<pre><code>curl -X POST "http://localhost:9091/oauth/token" \
+  -u "wasl_client_xxx:wasl_secret_xxx" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "grant_type=client_credentials&scope=orders.read"</code></pre>
+
+          <h3>Expected response</h3>
+<pre><code>{
+  "access_token": "wasl_oat_...",
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "scope": "orders.read",
+  "app_id": "app_...",
+  "tenant_id": "tenant_...",
+  "client_id": "wasl_client_..."
+}</code></pre>
+        </section>
+
+        <section class="docs-section">
+          <h2>Introspect Token</h2>
+<pre><code>curl -X POST "http://localhost:9091/oauth/introspect" \
+  -u "wasl_client_xxx:wasl_secret_xxx" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "token=wasl_oat_xxx"</code></pre>
+
+          <h3>Expected response</h3>
+<pre><code>{
+  "active": true,
+  "tenant_id": "tenant_...",
+  "scope": "orders.read",
+  "token_type": "Bearer",
+  "exp": 1775142630,
+  "app_id": "app_...",
+  "client_id": "wasl_client_...",
+  "username": "dev_..."
+}</code></pre>
+
+          <p>Invalid/expired token returns <span class="docs-inline-code">{"active": false}</span>.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>Gateway Policy Wiring</h2>
+<pre><code>{
+  "type": "auth.oauth2",
+  "providerRef": "wasl-internal-dev",
+  "validationMode": "internal",
+  "requiredScopes": ["orders.read"],
+  "scopeMatchMode": "all",
+  "audienceMode": "provider_default",
+  "enforceProductPlan": true,
+  "allowAnonymous": false
+}</code></pre>
+
+          <p>In enterprise setups, bind each API policy to a provider profile with <span class="docs-inline-code">providerRef</span>. Do not place static client credentials inside API policy JSON.</p>
+
+          <h3>WASL Internal Provider profile</h3>
+          <p>When your token issuer is WASL internal OAuth (<span class="docs-inline-code">/oauth/token</span>), configure provider profile as:</p>
+          <ul>
+            <li><span class="docs-inline-code">providerType = wasl_internal</span></li>
+            <li><span class="docs-inline-code">validationMode = internal</span></li>
+            <li><span class="docs-inline-code">clientAuthMethod = none</span></li>
+            <li><span class="docs-inline-code">authCredentialRef = null</span></li>
+          </ul>
+          <p>This avoids static introspection credential wiring for app-generated OAuth clients.</p>
+
+          <h3>Runtime authorization model</h3>
+          <p>Successful OAuth validation alone is not enough. WASL then enforces app subscription and plan limits:</p>
+          <ol>
+            <li>Credential must be active for a consumer app.</li>
+            <li>App must be subscribed to a product containing the target operation.</li>
+            <li>Plan scopes and limits must allow the request.</li>
+          </ol>
+          <p>When limits are exceeded, gateway returns <span class="docs-inline-code">429 Plan rate limit exceeded</span>.</p>
+
+          <h3>Mixed-provider validation (recommended)</h3>
+          <ol>
+            <li>Create two provider profiles in Studio: one for <span class="docs-inline-code">jwks</span>, one for <span class="docs-inline-code">introspection</span>.</li>
+            <li>Bind APIs to specific providers using <span class="docs-inline-code">providerRef</span>.</li>
+            <li>Verify wrong-provider tokens are denied (no cross-provider fallback).</li>
+            <li>Verify plan + operation scopes still enforce after token validation.</li>
+          </ol>
+
+          <p>Validation runbooks:</p>
+          <ul>
+            <li><span class="docs-inline-code">docs/testing/CONSUMER_ACCESS_E2E_GUIDE.md</span> (master end-to-end flow)</li>
+            <li><span class="docs-inline-code">docs/testing/OAUTH_MIXED_PROVIDER_E2E_RUNBOOK.md</span> (mixed provider validation)</li>
+            <li><span class="docs-inline-code">docs/testing/KEYCLOAK_PRODUCT_APP_VALIDATION_RUNBOOK.md</span> (external Keycloak flow)</li>
+          </ul>
+
+          <div class="docs-callout">
+            <strong>Verification order</strong>
+            <p>Always use the same token value across token generation, introspection, and gateway API call. Most false failures are caused by testing different token values.</p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

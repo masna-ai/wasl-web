@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WASL Docs | Developer Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./docs.css" />
+</head>
+<body>
+  <div class="docs-shell">
+    <header class="docs-topbar">
+      <div class="docs-brand">wasl <span>docs</span></div>
+      <div class="docs-actions">
+        <a class="docs-btn docs-btn-primary" href="/#waitlist">Get Early Access</a>
+      </div>
+    </header>
+    <div class="docs-layout">
+      <aside class="docs-sidebar">
+        <div class="docs-nav-group">
+          <h4>Getting Started</h4>
+          <nav class="docs-nav">
+            <a href="./index.html">Introduction</a>
+            <a href="./quickstart.html">Quickstart</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Platform Architecture</h4>
+          <nav class="docs-nav">
+            <a href="./api-gateway.html">API Gateway</a>
+            <a href="./ai-gateway.html">AI Gateway</a>
+            <a href="./developer-portal.html" class="active">Developer Portal</a>
+            <a href="./flow-runtime.html">Flow Runtime</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Operations & Logic</h4>
+          <nav class="docs-nav">
+            <a href="./policies.html">Policies</a>
+            <a href="./adapters.html">Adapters</a>
+            <a href="./deployments.html">Deployments</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Reference</h4>
+          <nav class="docs-nav">
+            <a href="./security.html">Security</a>
+            <a href="./oauth2-provider.html">OAuth2 Provider API</a>
+            <a href="./troubleshooting.html">Troubleshooting</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="docs-content">
+        <section class="docs-hero">
+          <div class="docs-eyebrow">Developer Portal</div>
+          <h1>Expose APIs through shared, tenant-scoped, or managed customer portals.</h1>
+          <p>WASL supports one portal backend and frontend with multiple exposure models. You can run a shared portal for internal discovery, a tenant-scoped portal for one customer, or managed portals with their own branding, publications, and onboarding rules.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>Portal modes</h2>
+          <ul>
+            <li><span class="docs-inline-code">Shared portal</span>: `http://localhost:3000/` for broad discovery across visible tenants.</li>
+            <li><span class="docs-inline-code">Tenant-scoped portal</span>: `http://localhost:3000/?tenant=&lt;tenantId-or-slug&gt;` for one-tenant catalog and onboarding.</li>
+            <li><span class="docs-inline-code">Managed customer portal</span>: `http://localhost:3000/?portal=&lt;portalId-or-slug&gt;` for a Studio-managed portal entity.</li>
+          </ul>
+        </section>
+
+        <section class="docs-section">
+          <h2>What a managed portal controls</h2>
+          <ul>
+            <li>Portal branding such as title, hero copy, colors, docs link, and support link.</li>
+            <li>Published consumer products exposed to that portal.</li>
+            <li>Onboarding mode: self-service API keys or approval-based access requests.</li>
+            <li>Portal-specific webhook notifications and admin contacts.</li>
+          </ul>
+        </section>
+
+        <section class="docs-section">
+          <h2>What the portal does not manage</h2>
+          <p>The portal is for consumers. Platform configuration stays in Studio.</p>
+          <ul>
+            <li><span class="docs-inline-code">KVM / Secret References</span> live in <span class="docs-inline-code">Studio → API Gateway → KVM</span>.</li>
+            <li><span class="docs-inline-code">Certificates</span> and <span class="docs-inline-code">OAuth provider profiles</span> are also managed in Studio.</li>
+            <li>Flow scripts read KVM values through <span class="docs-inline-code">flow.kvm</span> and <span class="docs-inline-code">context.getVariable('kvm.&lt;contextKey&gt;')</span>.</li>
+          </ul>
+        </section>
+
+        <section class="docs-section">
+          <h2>Product-first access model</h2>
+          <p>The enterprise model is product-first and app-first:</p>
+          <p><span class="docs-inline-code">Tenant → Product → Plan → App → Subscription → Credential → Gateway</span></p>
+          <ul>
+            <li>Products define allowed operations and default limits.</li>
+            <li>Apps are runtime consumer identities.</li>
+            <li>Credentials (API key or OAuth client) are issued per app.</li>
+            <li>Portal is a publishing/onboarding surface, not the owner of products.</li>
+          </ul>
+        </section>
+
+        <section class="docs-section">
+          <h2>Recommended SaaS model</h2>
+          <p>For SaaS, keep the WASL control plane multi-tenant, but expose developer portals per customer or per audience. Use shared portal mode for internal platform teams, tenant-scoped mode for default customer exposure, and managed customer portals when you need branded or publication-specific experiences.</p>
+
+          <div class="docs-callout">
+            <strong>Current development workflow</strong>
+            <p>Create the portal in Studio under <span class="docs-inline-code">Common → Portals</span>, publish bundles, then open it with <span class="docs-inline-code">?portal=&lt;portalId-or-slug&gt;</span>.</p>
+          </div>
+        </section>
+
+        <section class="docs-section">
+          <h2>OAuth2 Provider Quickstart</h2>
+          <ol>
+            <li>Create a consumer product and set operation scope + default limits.</li>
+            <li>Create an app and subscribe it to the product.</li>
+            <li>Issue an OAuth client credential for that app.</li>
+            <li>Generate an access token using <span class="docs-inline-code">POST /oauth/token</span>.</li>
+            <li>Validate token state using <span class="docs-inline-code">POST /oauth/introspect</span>.</li>
+            <li>Attach <span class="docs-inline-code">auth.oauth2</span> policy using <span class="docs-inline-code">providerRef</span> and call with bearer token.</li>
+          </ol>
+          <p>Full endpoint contract and examples: <a href="./oauth2-provider.html">OAuth2 Provider API</a>.</p>
+          <p>For enterprise validation:</p>
+          <ul>
+            <li><span class="docs-inline-code">docs/testing/CONSUMER_ACCESS_E2E_GUIDE.md</span> (products, apps, credentials, quota, analytics)</li>
+            <li><span class="docs-inline-code">docs/testing/OAUTH_MIXED_PROVIDER_E2E_RUNBOOK.md</span> (JWKS + introspection provider isolation)</li>
+            <li><span class="docs-inline-code">docs/testing/API_KEY_APP_AUTH_REGRESSION.md</span> (API key app-subscription regression)</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

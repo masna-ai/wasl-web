@@ -48,6 +48,7 @@
           <h4>Reference</h4>
           <nav class="docs-nav">
             <a href="./security.html">Security</a>
+            <a href="./oauth2-provider.html">OAuth2 Provider API</a>
             <a href="./troubleshooting.html">Troubleshooting</a>
           </nav>
         </div>
@@ -103,8 +104,31 @@
             <li>Implement flow logic.</li>
             <li>Attach policies.</li>
             <li>Deploy revision to environment.</li>
+            <li>Package operations in a consumer product and subscribe apps.</li>
             <li>Promote or roll back as needed.</li>
           </ol>
+        </section>
+
+        <section class="docs-section">
+          <h2>Runtime authorization and quota model</h2>
+          <p>For enterprise access control, WASL evaluates request identity and subscription together:</p>
+          <ul>
+            <li><span class="docs-inline-code">auth.apikey</span> or <span class="docs-inline-code">auth.oauth2</span> validates credential identity.</li>
+            <li>Gateway resolves app subscription to product operation scope.</li>
+            <li>Gateway enforces plan scopes and rate/quota limits.</li>
+          </ul>
+          <p>This keeps docs exposure and runtime authorization aligned across Studio, Portal, and Gateway.</p>
+          <p>Validation guide: <span class="docs-inline-code">docs/testing/CONSUMER_ACCESS_E2E_GUIDE.md</span>.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>KVM and runtime config</h2>
+          <p>KVM is a gateway-side configuration store used for runtime lookups and secret references. It is managed in Studio under <span class="docs-inline-code">API Gateway → KVM</span>, then read inside flow scripts via <span class="docs-inline-code">flow.kvm</span>.</p>
+          <ul>
+            <li>Use it for tenant/environment-scoped values.</li>
+            <li>Do not inject KVM data into request payloads.</li>
+            <li>Read values with <span class="docs-inline-code">context.getVariable('kvm.&lt;contextKey&gt;')</span> when you need a direct lookup.</li>
+          </ul>
         </section>
 
         <section class="docs-section">
