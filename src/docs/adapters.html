@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WASL Docs | Adapters</title>
+  <title>WASL Docs | Integration Plugins</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="./docs.css" />
 </head>
@@ -16,7 +16,8 @@
     <header class="docs-topbar">
       <div class="docs-brand">wasl <span>docs</span></div>
       <div class="docs-actions">
-        <a class="docs-btn docs-btn-primary" href="/#waitlist">Get Early Access</a>
+        <a class="docs-btn" href="https://github.com/" target="_blank" rel="noopener">Star on GitHub</a>
+        <a class="docs-btn docs-btn-primary" href="/#waitlist">Join Waitlist</a>
       </div>
     </header>
     <div class="docs-layout">
@@ -34,13 +35,14 @@
             <a href="./api-gateway.html">API Gateway</a>
             <a href="./ai-gateway.html">AI Gateway</a>
             <a href="./flow-runtime.html">Flow Runtime</a>
+            <a href="./developer-portal.html">Developer Portal</a>
           </nav>
         </div>
         <div class="docs-nav-group">
           <h4>Operations & Logic</h4>
           <nav class="docs-nav">
             <a href="./policies.html">Policies</a>
-            <a href="./adapters.html" class="active">Adapters</a>
+            <a href="./adapters.html" class="active">Integration Plugins</a>
             <a href="./deployments.html">Deployments</a>
           </nav>
         </div>
@@ -55,27 +57,32 @@
       </aside>
       <main class="docs-content">
         <section class="docs-hero">
-          <div class="docs-eyebrow">Adapters</div>
-          <h1>Extend runtime connectivity</h1>
-          <p>Adapters let flows connect to systems such as databases, messaging platforms, or custom runtime extensions without hardwiring those capabilities into every route.</p>
-        </section>
-        <section class="docs-section">
-          <h2>Common usage</h2>
-          <ul>
-            <li>JDBC for relational data access.</li>
-            <li>Kafka for event production and consumption.</li>
-            <li>Marketplace-installed adapters for standardized integration patterns.</li>
-          </ul>
+          <div class="docs-eyebrow">Integration Plugins</div>
+          <h1>Backend connectivity, as plugins</h1>
+          <p>Integration plugins extend WASL with backend connectivity &mdash; databases, messaging, search, object storage, and custom systems &mdash; without bolting any of it into the gateway core. Plugins are hot-reloadable, signed for production integrity, and distributed via the built-in Plugin Marketplace.</p>
         </section>
 
         <section class="docs-section">
-          <h2>How adapters fit into runtime</h2>
-          <p>Adapters are configured per tenant and per environment. Flows call adapters by alias, while the actual connection details stay in the environment configuration layer.</p>
+          <h2>Built-in plugins</h2>
+          <ul>
+            <li><strong>JDBC</strong> &mdash; PostgreSQL, MySQL, Oracle, SQLite</li>
+            <li><strong>Kafka</strong> &mdash; producer / consumer with retry and DLQ</li>
+            <li><strong>MongoDB</strong>, <strong>Redis</strong>, <strong>RabbitMQ</strong></li>
+            <li><strong>OpenSearch</strong> &mdash; index, search, aggregations</li>
+            <li><strong>Object Storage (S3-compatible)</strong></li>
+            <li><strong>HTTP</strong> &mdash; via the 3-level target architecture</li>
+          </ul>
+          <p>Custom plugins can be authored against the public Java SPI and distributed through the Plugin Marketplace.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>How plugins fit into runtime</h2>
+          <p>Plugins are configured per tenant and per environment. Flows invoke them by alias through the <span class="docs-inline-code">adapters</span> binding &mdash; the runtime invocation surface for integration plugins &mdash; while the actual connection details stay in the environment configuration layer.</p>
         </section>
 
         <section class="docs-section">
           <h2>JDBC example</h2>
-          <p>Use the WASL JDBC Adapter for relational database access from Flow JS.</p>
+          <p>Use the WASL JDBC plugin for relational database access from Flow JS.</p>
 <pre><code>const rows = adapters.queryJson('wasl-jdbc', {
   connection: 'default',
   sql: 'SELECT id, name FROM customers'
@@ -92,7 +99,7 @@ response.body = {
 
         <section class="docs-section">
           <h2>Kafka example</h2>
-          <p>Use Kafka adapters for event production and event-driven consumption.</p>
+          <p>Use the Kafka plugin for event production and event-driven consumption.</p>
 <pre><code>adapters.invoke('kafka', {
   connection: 'kafka',
   operation: 'produce',
@@ -109,7 +116,7 @@ response.body = {
           <ul>
             <li>If JDBC validation fails, verify the URL starts with <span class="docs-inline-code">jdbc:</span>, the driver path is valid, and <span class="docs-inline-code">simulate</span> is disabled for real checks.</li>
             <li>If Kafka produce succeeds but no message appears, confirm the broker endpoint matches the network path used by WASL.</li>
-            <li>If an adapter is reported as not installed, verify the plugin scope, tenant installation, and environment config.</li>
+            <li>If a plugin is reported as not installed, verify the plugin scope, tenant installation, and environment config.</li>
           </ul>
         </section>
       </main>

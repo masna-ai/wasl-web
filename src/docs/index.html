@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="./docs.css" />
 </head>
@@ -18,7 +18,8 @@
     <header class="docs-topbar">
       <div class="docs-brand">wasl <span>docs</span></div>
       <div class="docs-actions">
-        <a class="docs-btn docs-btn-primary" href="/#waitlist">Get Early Access</a>
+        <a class="docs-btn" href="https://github.com/" target="_blank" rel="noopener">Star on GitHub</a>
+        <a class="docs-btn docs-btn-primary" href="/#waitlist">Join Waitlist</a>
       </div>
     </header>
 
@@ -44,7 +45,7 @@
           <h4>Operations & Logic</h4>
           <nav class="docs-nav">
             <a href="./policies.html">Policies</a>
-            <a href="./adapters.html">Adapters</a>
+            <a href="./adapters.html">Integration Plugins</a>
             <a href="./deployments.html">Deployments</a>
           </nav>
         </div>
@@ -60,35 +61,38 @@
 
       <main class="docs-content">
         <section class="docs-hero">
-          <div class="docs-eyebrow">Public Docs</div>
+          <div class="docs-eyebrow">Documentation</div>
           <h1>WASL Documentation</h1>
-          <p>WASL is an open-source API gateway with integration runtime and AI gateway capabilities. These docs are written for end users, not internal engineering teams.</p>
+          <p>WASL is the unified open-source <strong>API Gateway and AI Gateway</strong> with integrations as plugins. These docs are written for end users — not internal engineering teams.</p>
           <div class="docs-card-grid">
             <article class="docs-card">
               <h3>Start here</h3>
-              <p>Use the quickstart to create your first API route, AI route, and deployment flow.</p>
+              <p>Use the <a href="./quickstart.html">Quickstart</a> to create your first API route, AI route, and deployment in minutes.</p>
             </article>
             <article class="docs-card">
-              <h3>Product model</h3>
-              <p>WASL combines API Gateway, AI Gateway, and integration runtime in one control plane and one operating model.</p>
+              <h3>Two gateways, one platform</h3>
+              <p>The <a href="./api-gateway.html">API Gateway</a> and <a href="./ai-gateway.html">AI Gateway</a> are twin first-class products on a shared control and data plane.</p>
             </article>
             <article class="docs-card">
-              <h3>Developer portal model</h3>
-              <p>Use shared, tenant-scoped, or managed customer portals depending on your SaaS exposure pattern.</p>
+              <h3>Pluggable everywhere</h3>
+              <p><a href="./adapters.html">Integration Plugins</a> extend the platform — backend connectivity ships as plugins, not bolted into the core.</p>
             </article>
           </div>
         </section>
 
         <section class="docs-section">
           <h2>What WASL is</h2>
-          <p>WASL gives platform teams one place to manage API traffic, integration logic, and AI traffic. Instead of running a gateway product, a separate integration runtime, and an AI control layer, you operate one platform with shared governance, deployment, and observability.</p>
+          <p>WASL gives platform teams one place to govern API traffic and AI traffic. Instead of running a separate gateway product, an AI control layer, and an integration runtime, you operate one open platform with a shared policy engine, plugin SDK, and deployment model.</p>
 
-          <h3>Core surfaces</h3>
+          <h3>Three pillars</h3>
           <ul>
-            <li><span class="docs-inline-code">API Gateway</span> for routing, policy enforcement, and release control.</li>
-            <li><span class="docs-inline-code">AI Gateway</span> for LLM routing, guardrails, quotas, streaming, caching, and prompt governance.</li>
-            <li><span class="docs-inline-code">Flow Runtime</span> for JavaScript-based integration logic, targets, adapters, and event-driven execution.</li>
+            <li><span class="docs-inline-code">API Gateway</span> &mdash; routing, policy enforcement, multi-tenancy, revisioned deployments.</li>
+            <li><span class="docs-inline-code">AI Gateway</span> &mdash; LLM routing, guardrails, quotas, streaming, semantic caching, prompt governance, cost caps.</li>
+            <li><span class="docs-inline-code">Integration Plugins</span> &mdash; backend connectivity (JDBC, Kafka, MongoDB, Redis, RabbitMQ, OpenSearch, S3, HTTP) via a unified plugin SDK with marketplace distribution.</li>
           </ul>
+
+          <h3>Open source forever</h3>
+          <p>Apache 2.0 licensed. Self-host on your own infrastructure. The full feature set &mdash; not a stripped-down community edition.</p>
 
           <div class="docs-callout">
             <strong>Recommended path</strong>
