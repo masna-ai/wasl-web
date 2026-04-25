@@ -519,9 +519,50 @@ h3 {
 .ai-gateway,
 .studio,
 .credibility,
+.opensource,
 .waitlist {
   padding: 40px 0;
   margin-bottom: 40px;
+}
+
+.oss-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  max-width: 920px;
+  margin: 0 auto 32px;
+}
+
+.oss-pill {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 18px 22px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+
+.oss-pill strong {
+  color: var(--ink);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.oss-pill span {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.oss-cta {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .section-head {

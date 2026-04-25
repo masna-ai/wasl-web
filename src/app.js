@@ -146,8 +146,8 @@ async function submitWaitlist(email) {
   const fieldMap = config?.waitlist?.fieldMap || {};
   const payloadData = {};
   payloadData[fieldMap.email || 'email'] = email;
-  payloadData[fieldMap.source || 'source'] = 'wasl-web';
-  payloadData[fieldMap.product || 'product'] = 'wasl';
+  if (fieldMap.source) payloadData[fieldMap.source] = 'wasl-web';
+  if (fieldMap.product) payloadData[fieldMap.product] = 'wasl';
 
   const response = await fetch(endpointUrl, {
     method: (config?.waitlist?.method || 'POST').toUpperCase(),

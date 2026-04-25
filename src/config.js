@@ -1,12 +1,10 @@
 window.WASL_WEB_CONFIG = {
   waitlist: {
-    endpoint: '',
+    endpoint: 'https://wasl-waitlist-notification-23987395973.me-central1.run.app/',
     method: 'POST',
     contentType: 'application/json',
     fieldMap: {
-      email: 'email',
-      source: 'source',
-      product: 'product'
+      email: 'email'
     }
   },
   analytics: {
