@@ -4,158 +4,302 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WASL — API Gateway + AI Gateway. Launching soon.</title>
+  <title>WASL — Enterprise API Gateway and AI Gateway</title>
   <meta name="description"
-    content="The unified open-source API Gateway and AI Gateway. Integrations as plugins. Launching soon — join the waitlist." />
+    content="WASL is a unified enterprise API Gateway and AI Gateway with policy enforcement, tenant-aware deployments, governed LLM routing, integration plugins, Studio, and Developer Portal." />
 
-  <meta property="og:title" content="WASL — API Gateway + AI Gateway" />
+  <meta property="og:title" content="WASL — Enterprise API Gateway and AI Gateway" />
   <meta property="og:description"
-    content="One open platform for API and AI traffic. Integrations as plugins. Launching soon." />
+    content="One governed platform for API traffic, AI workloads, integrations, developer self-service, and production observability." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://waslhq.com/og-image.jpg" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="WASL — API Gateway + AI Gateway" />
+  <meta name="twitter:title" content="WASL — Enterprise API Gateway and AI Gateway" />
   <meta name="twitter:description"
-    content="Unified API Gateway + AI Gateway. Launching soon." />
+    content="Unified API Gateway, AI Gateway, Studio, Portal, policies, plugins, and observability for enterprise platforms." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 
 <body>
-  <div class="site-background" aria-hidden="true">
-    <div class="shape shape-1"></div>
-    <div class="shape shape-2"></div>
-    <div class="shape shape-3"></div>
-  </div>
-
   <header class="topbar">
-    <div class="brand">wasl <span>Open Source</span></div>
-    <nav>
-      <a href="#features">Platform</a>
-      <a href="#opensource">Open Source</a>
+    <a class="brand" href="#top" aria-label="WASL home">
+      <span class="brand-mark">W</span>
+      <span class="brand-text">WASL</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#platform">Platform</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#ai-gateway">AI Gateway</a>
+      <a href="#studio">Studio</a>
       <a href="/docs/">Docs</a>
-      <a href="https://github.com/">GitHub</a>
     </nav>
-    <a class="cta topbar-cta" href="#waitlist">Join Waitlist</a>
+    <a class="btn btn-outline topbar-cta" href="#waitlist">Request Access</a>
   </header>
 
-  <main>
-    <section class="hero reveal">
-      <div class="hero-copy">
-        <p class="eyebrow reveal reveal-delay-1">Open Source &middot; Launching soon</p>
-        <h1 class="reveal reveal-delay-2">
-          The open-source gateway <br>
-          <span class="hero-highlight">for APIs and AI.</span>
-        </h1>
-        <p class="reveal reveal-delay-3">
-          Unified <strong>API Gateway and AI Gateway</strong> with integrations as plugins.
-          Apache 2.0. Self-host forever. Built in the open.
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Enterprise gateway platform</p>
+        <h1>Govern APIs, AI workloads, and integrations from one control plane.</h1>
+        <p class="hero-lede">
+          WASL combines an API Gateway, governed AI Gateway, integration plugin runtime, Studio control plane,
+          and Developer Portal in a light, self-hosted platform built for multi-tenant enterprise environments.
         </p>
-        <div class="hero-actions reveal reveal-delay-3">
-          <a class="btn btn-primary" href="#waitlist">Join Waitlist</a>
-          <a class="btn btn-ghost" href="https://github.com/">Star on GitHub</a>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#waitlist">Request Early Access</a>
+          <a class="btn btn-secondary" href="/docs/">Read Documentation</a>
         </div>
-        <div class="hero-trust reveal reveal-delay-3">
-          <span>Apache 2.0</span>
-          <span>Self-hosted</span>
-          <span>No vendor lock-in</span>
+        <div class="hero-proof" aria-label="Platform highlights">
+          <span>Control plane / data plane</span>
+          <span>24 policy types</span>
+          <span>Immutable revisions</span>
+          <span>Tenant isolated</span>
         </div>
       </div>
-      <div class="hero-card reveal reveal-delay-2">
-        <div class="hero-card-shell">
-          <div class="hero-card-header">
-            <span class="hero-card-title">Runtime Control Path</span>
-            <span class="hero-card-badge">Protected</span>
+
+      <div class="hero-visual reveal reveal-delay-1" aria-label="WASL platform architecture overview">
+        <div class="traffic-card">
+          <div class="traffic-card-head">
+            <span>Tenant request</span>
+            <strong>acme.dev.localhost:8080</strong>
           </div>
-          <div class="hero-route">
-            <div class="route-node route-node-entry">
-              <strong>Tenant Request</strong>
-              <span>GET /orders or POST /ai/openai</span>
+          <div class="traffic-path">
+            <div class="traffic-node">
+              <span class="node-kicker">Gateway data plane</span>
+              <strong>API + AI traffic</strong>
+              <small>Routing, policies, flows, plugins, trace capture</small>
             </div>
-            <div class="route-line"></div>
-            <div class="route-node">
-              <strong>Unified Policy Engine</strong>
-              <span>Auth • Rate Limit • Guardrails • PII • Cost Cap</span>
+            <div class="traffic-arrow"></div>
+            <div class="node-grid">
+              <div class="traffic-node compact">
+                <span class="node-kicker">PostgreSQL</span>
+                <strong>Deployments</strong>
+              </div>
+              <div class="traffic-node compact">
+                <span class="node-kicker">Redis</span>
+                <strong>Cluster state</strong>
+              </div>
             </div>
-            <div class="route-line"></div>
-            <div class="route-node route-node-provider">
-              <strong>Plugin Layer</strong>
-              <span>JDBC • Kafka • Redis • S3 • OpenAI • Anthropic • Gemini</span>
+            <div class="traffic-arrow"></div>
+            <div class="traffic-node">
+              <span class="node-kicker">Plugin layer</span>
+              <strong>Backends + LLM providers</strong>
+              <small>JDBC, Kafka, Redis, S3, OpenAI, Anthropic, Gemini</small>
             </div>
           </div>
+        </div>
+        <div class="studio-card">
+          <div>
+            <span class="node-kicker">Studio control plane</span>
+            <strong>Author, deploy, observe</strong>
+          </div>
+          <span class="status-pill">Separated runtime</span>
         </div>
       </div>
     </section>
 
-    <section id="features" class="platform reveal">
+    <section class="logo-strip reveal" aria-label="Core platform surfaces">
+      <span>Gateway</span>
+      <span>Studio</span>
+      <span>Portal</span>
+      <span>Policies</span>
+      <span>Plugins</span>
+      <span>Observability</span>
+    </section>
+
+    <section id="platform" class="section">
       <div class="section-head reveal">
-        <h2>Three pillars. One platform.</h2>
-        <p>API Gateway and AI Gateway as twin first-class products &mdash; extended through one plugin SDK.</p>
+        <p class="eyebrow">Platform</p>
+        <h2>Not just a gateway. A complete operating layer for governed traffic.</h2>
+        <p>
+          WASL reflects how modern platform teams actually work: API programs, LLM access, backend integrations,
+          deployment promotion, developer onboarding, and auditability are managed together.
+        </p>
       </div>
-      <div class="platform-grid capabilities-grid">
-        <article class="platform-card reveal reveal-delay-1">
-          <div class="ai-card-kicker">Product</div>
+      <div class="platform-grid">
+        <article class="feature-card reveal reveal-delay-1">
+          <span class="card-icon">01</span>
           <h3>API Gateway</h3>
-          <p>Policy-enforcing gateway with built-in auth, rate limiting, security, and observability. Multi-tenant by design.</p>
+          <p>Tenant-aware routing, REST, HTTP/2, WebSocket, gRPC, Java 25 runtime, GraalJS flows, target servers, and policy enforcement.</p>
         </article>
-        <article class="platform-card reveal reveal-delay-2">
-          <div class="ai-card-kicker">Product</div>
+        <article class="feature-card reveal reveal-delay-2">
+          <span class="card-icon">02</span>
           <h3>AI Gateway</h3>
-          <p>Route LLM traffic across providers with guardrails, PII redaction, semantic cache, token limits, and cost caps.</p>
+          <p>Govern LLM traffic with auth, PII handling, guardrails, semantic cache, RAG, retry, fallback, token limits, quota, and cost controls.</p>
         </article>
-        <article class="platform-card reveal reveal-delay-3">
-          <div class="ai-card-kicker">Extension</div>
+        <article class="feature-card reveal reveal-delay-3">
+          <span class="card-icon">03</span>
           <h3>Integration Plugins</h3>
-          <p>Backend connectivity via a unified plugin SDK. Hot-reloadable, signed, distributed via the built-in marketplace.</p>
+          <p>Connect flows to JDBC, Kafka, MongoDB, Redis, RabbitMQ, OpenSearch, S3-compatible storage, HTTP services, and custom adapters.</p>
+        </article>
+        <article class="feature-card reveal reveal-delay-1">
+          <span class="card-icon">04</span>
+          <h3>Studio</h3>
+          <p>Control-plane workspace for bundles, revisions, deployments, policies, certificates, traces, analytics, users, tenants, and environments.</p>
+        </article>
+        <article class="feature-card reveal reveal-delay-2">
+          <span class="card-icon">05</span>
+          <h3>Developer Portal</h3>
+          <p>Self-service API catalog, interactive testing, application registration, API keys, usage charts, and a built-in OAuth2 authorization server.</p>
+        </article>
+        <article class="feature-card reveal reveal-delay-3">
+          <span class="card-icon">06</span>
+          <h3>Operations</h3>
+          <p>PostgreSQL-backed state, Redis cluster coordination, trace timelines, metrics, alerts, tenant isolation, and Kubernetes deployment assets.</p>
         </article>
       </div>
     </section>
 
-    <section id="opensource" class="opensource reveal">
+    <section id="architecture" class="split-section">
+      <div class="section-copy reveal">
+        <p class="eyebrow">Architecture</p>
+        <h2>Separated Gateway and Studio, designed for production blast-radius control.</h2>
+        <p>
+          Gateway serves data-plane traffic independently of Studio. Studio writes deployment intent to PostgreSQL;
+          Gateway reads the active revision for the tenant and environment. Rollback is a database operation, not file copying.
+        </p>
+        <div class="check-list">
+          <span>Hostname routing: tenant and environment resolved from subdomain</span>
+          <span>Immutable bundle revisions with database-tracked deployments</span>
+          <span>Tenant-specific analytics, traces, logs, keys, policies, and certificates</span>
+          <span>Stateless Gateway pods ready for horizontal scaling</span>
+        </div>
+      </div>
+      <div class="architecture-panel reveal reveal-delay-1">
+        <div class="panel-row">
+          <span class="panel-label">Control plane</span>
+          <strong>Studio :9090</strong>
+          <small>Author, govern, deploy, observe</small>
+        </div>
+        <div class="panel-row active">
+          <span class="panel-label">Data plane</span>
+          <strong>Gateway :8080 / :9080</strong>
+          <small>Policies, flows, routing, plugin execution</small>
+        </div>
+        <div class="panel-row">
+          <span class="panel-label">Developer surface</span>
+          <strong>Portal :9091</strong>
+          <small>Catalog, keys, OAuth2, usage</small>
+        </div>
+        <div class="panel-row">
+          <span class="panel-label">State</span>
+          <strong>PostgreSQL + Redis</strong>
+          <small>Deployments, sessions, counters, cache, alerts</small>
+        </div>
+      </div>
+    </section>
+
+    <section id="ai-gateway" class="section tinted">
       <div class="section-head reveal">
-        <h2>Open source. Forever.</h2>
-        <p>Free to use, free to modify, free to deploy. The full platform &mdash; not a stripped-down community edition.</p>
+        <p class="eyebrow">AI Gateway</p>
+        <h2>Enterprise controls for every LLM request.</h2>
+        <p>
+          WASL runs AI traffic through a fixed governance pipeline before and after provider calls, with provider
+          routing, fallback, streaming normalization, quota, and cost accounting built in.
+        </p>
       </div>
-      <div class="oss-strip reveal reveal-delay-1">
-        <div class="oss-pill"><strong>Apache 2.0</strong><span>Permissive license</span></div>
-        <div class="oss-pill"><strong>Self-host</strong><span>Your infra, your rules</span></div>
-        <div class="oss-pill"><strong>No paywall</strong><span>Full feature set</span></div>
-        <div class="oss-pill"><strong>Built in the open</strong><span>Public roadmap</span></div>
+      <div class="pipeline reveal reveal-delay-1">
+        <span>Auth</span>
+        <span>Prompt Management</span>
+        <span>RAG</span>
+        <span>Semantic Cache</span>
+        <span>PII</span>
+        <span>Guardrail</span>
+        <span>Limits</span>
+        <span>Provider Loop</span>
+        <span>Quota + Cost</span>
       </div>
-      <div class="oss-cta reveal reveal-delay-2">
-        <a class="btn btn-primary" href="https://github.com/">Star on GitHub</a>
-        <a class="btn btn-ghost" href="/docs/">Read Docs</a>
+    </section>
+
+    <section id="studio" class="split-section reverse">
+      <div class="product-screen reveal">
+        <div class="screen-top">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="screen-body">
+          <aside>
+            <strong>WASL Studio</strong>
+            <span class="selected">Deployments</span>
+            <span>Policies</span>
+            <span>Certificates</span>
+            <span>Traces</span>
+            <span>Tenants</span>
+          </aside>
+          <section>
+            <div class="screen-title">
+              <span>acme-corp / dev</span>
+              <strong>Customer APIs</strong>
+            </div>
+            <div class="deploy-table">
+              <div><span>orders-api</span><strong>rev 18</strong><em>running</em></div>
+              <div><span>identity-api</span><strong>rev 09</strong><em>running</em></div>
+              <div><span>ai-support</span><strong>rev 04</strong><em>guarded</em></div>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div class="section-copy reveal reveal-delay-1">
+        <p class="eyebrow">Studio + Portal</p>
+        <h2>Operate the platform without hiding the runtime model.</h2>
+        <p>
+          Studio exposes the operational primitives directly: tenants, environments, bundles, revisions, policies,
+          listeners, certificates, traces, and deployments. Portal gives consumers a self-service API surface backed by
+          keys, subscriptions, usage analytics, and OAuth2 flows.
+        </p>
+        <div class="metric-row">
+          <div><strong>24</strong><span>built-in policies</span></div>
+          <div><strong>5</strong><span>tenant resolution modes</span></div>
+          <div><strong>4</strong><span>environment modes</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head reveal">
+        <p class="eyebrow">Security and governance</p>
+        <h2>Policy depth that matches the real platform.</h2>
+      </div>
+      <div class="policy-grid reveal reveal-delay-1">
+        <span>Basic Auth</span><span>API Key</span><span>JWT</span><span>OAuth2</span><span>mTLS</span>
+        <span>Rate Limit</span><span>Quota</span><span>CORS</span><span>IP Filter</span><span>WAF</span>
+        <span>Bot Detection</span><span>Threat Protection</span><span>Data Masking</span><span>OpenAPI Validation</span><span>AI Guardrail</span>
       </div>
     </section>
 
     <section id="waitlist" class="waitlist reveal">
-      <h2 class="reveal">Be first in line.</h2>
-      <p class="reveal reveal-delay-1" style="text-align:center; max-width:520px; margin:0 auto 24px;">
-        Launching soon. Join the waitlist for early access.
-      </p>
-      <form id="waitlistForm" class="reveal reveal-delay-1">
-        <input type="email" id="email" placeholder="you@company.com" required />
-        <button class="btn btn-primary" type="submit">Join Waitlist</button>
+      <div>
+        <p class="eyebrow">Early access</p>
+        <h2>Bring the real WASL story to your platform team.</h2>
+        <p>
+          Request early access for the enterprise gateway platform, product updates, and implementation guidance.
+        </p>
+      </div>
+      <form id="waitlistForm">
+        <input type="email" id="email" placeholder="you@company.com" required aria-label="Email address" />
+        <button class="btn btn-primary" type="submit">Request Access</button>
+        <p id="waitlistMessage" aria-live="polite"></p>
       </form>
-      <p id="waitlistMessage" aria-live="polite" class="reveal"></p>
     </section>
   </main>
 
   <footer>
-    <div style="display:flex; flex-direction: column; gap: 8px;">
-      <span style="color:var(--ink); font-weight:700; font-family:'Outfit', sans-serif;">WASL</span>
-      <span>API Gateway &middot; AI Gateway &middot; Plugins</span>
-      <span>Apache 2.0 &middot; Open source forever</span>
+    <div>
+      <strong>WASL</strong>
+      <span>Enterprise API Gateway and AI Gateway</span>
     </div>
-    <div style="align-self: flex-end;">
-      <span>&copy; 2026 WASL HQ</span>
-    </div>
+    <nav aria-label="Footer navigation">
+      <a href="/docs/">Docs</a>
+      <a href="./enterprise.html">Enterprise</a>
+      <a href="https://github.com/" id="githubLink">GitHub</a>
+    </nav>
+    <span>&copy; 2026 WASL HQ</span>
   </footer>
 
   <script src="./config.js"></script>
