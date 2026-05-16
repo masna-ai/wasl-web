@@ -219,7 +219,7 @@ function initScrollReveal() {
 }
 
 function initCardGlow() {
-  const cards = document.querySelectorAll('.metric, .platform-card, .ai-card, .cred-card, .feature-strip article, .features article');
+  const cards = document.querySelectorAll('.feature-card, .traffic-card, .architecture-panel, .product-screen');
   
   cards.forEach(card => {
     card.addEventListener('mousemove', e => {
