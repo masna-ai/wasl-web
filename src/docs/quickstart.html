@@ -32,17 +32,17 @@
         <div class="docs-nav-group">
           <h4>Platform Architecture</h4>
           <nav class="docs-nav">
-            <a href="./api-gateway.html">API Gateway</a>
+            <a href="./api-gateway.html">Unified Gateway</a>
             <a href="./ai-gateway.html">AI Gateway</a>
             <a href="./developer-portal.html">Developer Portal</a>
-            <a href="./flow-runtime.html">Flow Runtime</a>
+            <a href="./flow-runtime.html">FlowJS Runtime</a>
           </nav>
         </div>
         <div class="docs-nav-group">
           <h4>Operations & Logic</h4>
           <nav class="docs-nav">
             <a href="./policies.html">Policies</a>
-            <a href="./adapters.html">Integration Plugins</a>
+            <a href="./adapters.html">Gateway Plugins</a>
             <a href="./deployments.html">Deployments</a>
           </nav>
         </div>
@@ -59,7 +59,7 @@
         <section class="docs-hero">
           <div class="docs-eyebrow">Quickstart</div>
           <h1>Get started with WASL</h1>
-          <p>This quickstart shows the shortest path to create a route, test it, and deploy it through the gateway.</p>
+          <p>This quickstart shows the shortest path to create a FlowJS-backed integration route, test it, and deploy it through the unified gateway.</p>
         </section>
 
         <section class="docs-section">
@@ -68,16 +68,16 @@
         </section>
 
         <section class="docs-section">
-          <h2>2. Create your first API route</h2>
-          <p>Create a new bundle, add an API endpoint, and let WASL generate the initial flow.</p>
+          <h2>2. Create your first integration route</h2>
+          <p>Create a new bundle, add an API endpoint, and let WASL generate the initial FlowJS file. This gives you a gateway route and an iPaaS flow in one artifact.</p>
 <pre><code>GET /orders
 Bundle: order-platform
 Flow: ListOrders</code></pre>
         </section>
 
         <section class="docs-section">
-          <h2>3. Add simple flow logic</h2>
-          <p>Edit the generated flow and return a simple JSON payload first. Once the route works, you can add targets or adapters.</p>
+          <h2>3. Add simple FlowJS logic</h2>
+          <p>Edit the generated FlowJS script and return a simple JSON payload first. Once the route works, add HTTP targets or gateway plugin calls.</p>
 <pre><code>response.status = 200;
 response.setHeader('content-type', 'application/json');
 response.body = {
@@ -87,17 +87,32 @@ response.body = {
         </section>
 
         <section class="docs-section">
-          <h2>4. Test in Studio</h2>
-          <p>Use the built-in test experience from the API or flow detail view. This validates route logic before deployment.</p>
+          <h2>4. Add a plugin-backed call</h2>
+          <p>Install and configure the required plugin under Studio, then call it from FlowJS by alias. For example, a JDBC-backed lookup can enrich the route response.</p>
+<pre><code>const rows = adapters.queryJson('wasl-jdbc', {
+  connection: 'default',
+  sql: 'SELECT id, status FROM orders LIMIT 10'
+});
+
+response.status = 200;
+response.body = {
+  count: rows.length,
+  orders: rows
+};</code></pre>
         </section>
 
         <section class="docs-section">
-          <h2>5. Deploy to an environment</h2>
+          <h2>5. Test in Studio</h2>
+          <p>Use the built-in test experience from the API or flow detail view. This validates route logic, target calls, and plugin configuration before deployment.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>6. Deploy to an environment</h2>
           <p>Deploy the current revision to an environment such as <span class="docs-inline-code">dev</span>. WASL tracks deployed revisions per environment.</p>
         </section>
 
         <section class="docs-section">
-          <h2>6. Invoke through the gateway</h2>
+          <h2>7. Invoke through the gateway</h2>
           <p>Routes are invoked through the gateway hostname using tenant and environment context.</p>
 <pre><code>curl --request GET \
   --url http://acme-corp.dev.localhost:8080/orders</code></pre>
@@ -122,7 +137,7 @@ response.body = {
 
           <div class="docs-callout">
             <strong>Next step</strong>
-            <p>Continue with <a href="./api-gateway.html">API Gateway</a>, <a href="./ai-gateway.html">AI Gateway</a>, or <a href="./developer-portal.html">Developer Portal</a> depending on what you are building.</p>
+            <p>Continue with <a href="./api-gateway.html">Unified Gateway</a>, <a href="./flow-runtime.html">FlowJS Runtime</a>, <a href="./adapters.html">Gateway Plugins</a>, or <a href="./ai-gateway.html">AI Gateway</a> depending on what you are building.</p>
           </div>
         </section>
       </main>

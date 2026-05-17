@@ -35,17 +35,17 @@
         <div class="docs-nav-group">
           <h4>Platform Architecture</h4>
           <nav class="docs-nav">
-            <a href="./api-gateway.html">API Gateway</a>
+            <a href="./api-gateway.html">Unified Gateway</a>
             <a href="./ai-gateway.html">AI Gateway</a>
             <a href="./developer-portal.html">Developer Portal</a>
-            <a href="./flow-runtime.html">Flow Runtime</a>
+            <a href="./flow-runtime.html">FlowJS Runtime</a>
           </nav>
         </div>
         <div class="docs-nav-group">
           <h4>Operations & Logic</h4>
           <nav class="docs-nav">
             <a href="./policies.html">Policies</a>
-            <a href="./adapters.html">Integration Plugins</a>
+            <a href="./adapters.html">Gateway Plugins</a>
             <a href="./deployments.html">Deployments</a>
           </nav>
         </div>
@@ -63,32 +63,33 @@
         <section class="docs-hero">
           <div class="docs-eyebrow">Documentation</div>
           <h1>WASL Documentation</h1>
-          <p>WASL is the unified open-source <strong>API Gateway and AI Gateway</strong> with integrations as plugins. These docs are written for end users — not internal engineering teams.</p>
+          <p>WASL is a unified gateway and iPaaS platform: API governance, AI governance, FlowJS orchestration, and integration plugins in one deployment model. These docs are written for end users, platform teams, and integration builders.</p>
           <div class="docs-card-grid">
             <article class="docs-card">
               <h3>Start here</h3>
               <p>Use the <a href="./quickstart.html">Quickstart</a> to create your first API route, AI route, and deployment in minutes.</p>
             </article>
             <article class="docs-card">
-              <h3>Two gateways, one platform</h3>
-              <p>The <a href="./api-gateway.html">API Gateway</a> and <a href="./ai-gateway.html">AI Gateway</a> are twin first-class products on a shared control and data plane.</p>
+              <h3>Unified gateway</h3>
+              <p>The <a href="./api-gateway.html">Gateway</a> handles API routes, AI routes, FlowJS integrations, policies, deployments, and traces through one platform model.</p>
             </article>
             <article class="docs-card">
-              <h3>Pluggable everywhere</h3>
-              <p><a href="./adapters.html">Integration Plugins</a> extend the platform — backend connectivity ships as plugins, not bolted into the core.</p>
+              <h3>Plugin-based iPaaS</h3>
+              <p><a href="./adapters.html">Gateway Plugins</a> provide backend, event, data, and custom system connectivity for FlowJS without bolting drivers into the gateway core.</p>
             </article>
           </div>
         </section>
 
         <section class="docs-section">
           <h2>What WASL is</h2>
-          <p>WASL gives platform teams one place to govern API traffic and AI traffic. Instead of running a separate gateway product, an AI control layer, and an integration runtime, you operate one open platform with a shared policy engine, plugin SDK, and deployment model.</p>
+          <p>WASL gives platform teams one place to govern API traffic, AI traffic, and integration flows. Instead of running a separate gateway product, iPaaS runtime, AI control layer, portal, and observability stack, you operate one platform with a shared policy engine, plugin SDK, FlowJS runtime, and deployment model.</p>
 
-          <h3>Three pillars</h3>
+          <h3>Four pillars</h3>
           <ul>
-            <li><span class="docs-inline-code">API Gateway</span> &mdash; routing, policy enforcement, multi-tenancy, revisioned deployments.</li>
-            <li><span class="docs-inline-code">AI Gateway</span> &mdash; LLM routing, guardrails, quotas, streaming, semantic caching, prompt governance, cost caps.</li>
-            <li><span class="docs-inline-code">Integration Plugins</span> &mdash; backend connectivity (JDBC, Kafka, MongoDB, Redis, RabbitMQ, OpenSearch, S3, HTTP) via a unified plugin SDK with marketplace distribution.</li>
+            <li><span class="docs-inline-code">Unified Gateway</span> &mdash; API routes, AI routes, tenant-aware routing, policy enforcement, multi-tenancy, and revisioned deployments.</li>
+            <li><span class="docs-inline-code">FlowJS Runtime</span> &mdash; JavaScript orchestration for request handling, transformation, HTTP calls, plugin calls, and reusable bundle-local modules.</li>
+            <li><span class="docs-inline-code">Gateway Plugins</span> &mdash; backend connectivity for JDBC, Kafka, MongoDB, Redis, RabbitMQ, OpenSearch, S3-compatible storage, HTTP, and custom systems.</li>
+            <li><span class="docs-inline-code">AI Governance</span> &mdash; LLM routing, guardrails, quotas, streaming, semantic caching, prompt governance, PII controls, and cost caps.</li>
           </ul>
 
           <h3>Open source forever</h3>
@@ -102,13 +103,14 @@
 
         <section class="docs-section">
           <h2>How the product is organized</h2>
-          <p>End users mainly work through the Studio control plane. Studio is where you create bundles, APIs, flows, policies, targets, adapters, AI routes, and deployments. The gateway runtime then serves traffic based on those deployed assets.</p>
+          <p>End users mainly work through the Studio control plane. Studio is where you create bundles, APIs, FlowJS flows, policies, targets, plugin connections, AI routes, listeners, products, and deployments. The gateway runtime then serves traffic based on those deployed assets.</p>
 
           <h3>Typical workflow</h3>
           <ol>
-            <li>Create an API route or AI route in Studio.</li>
+            <li>Create an API route, AI route, or FlowJS integration in Studio.</li>
+            <li>Install and configure the required plugins for each tenant and environment.</li>
             <li>Attach policies and configure runtime behavior.</li>
-            <li>Test in Studio.</li>
+            <li>Test the route or flow in Studio.</li>
             <li>Deploy to an environment such as <span class="docs-inline-code">dev</span> or <span class="docs-inline-code">staging</span>.</li>
             <li>Invoke the route through the gateway hostname for the selected tenant and environment.</li>
           </ol>

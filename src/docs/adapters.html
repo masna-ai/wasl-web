@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WASL Docs | Integration Plugins</title>
+  <title>WASL Docs | Gateway Plugins</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -32,9 +32,9 @@
         <div class="docs-nav-group">
           <h4>Platform Architecture</h4>
           <nav class="docs-nav">
-            <a href="./api-gateway.html">API Gateway</a>
+            <a href="./api-gateway.html">Unified Gateway</a>
             <a href="./ai-gateway.html">AI Gateway</a>
-            <a href="./flow-runtime.html">Flow Runtime</a>
+            <a href="./flow-runtime.html">FlowJS Runtime</a>
             <a href="./developer-portal.html">Developer Portal</a>
           </nav>
         </div>
@@ -42,7 +42,7 @@
           <h4>Operations & Logic</h4>
           <nav class="docs-nav">
             <a href="./policies.html">Policies</a>
-            <a href="./adapters.html" class="active">Integration Plugins</a>
+            <a href="./adapters.html" class="active">Gateway Plugins</a>
             <a href="./deployments.html">Deployments</a>
           </nav>
         </div>
@@ -57,13 +57,13 @@
       </aside>
       <main class="docs-content">
         <section class="docs-hero">
-          <div class="docs-eyebrow">Integration Plugins</div>
-          <h1>Backend connectivity, as plugins</h1>
-          <p>Integration plugins extend WASL with backend connectivity &mdash; databases, messaging, search, object storage, and custom systems &mdash; without bolting any of it into the gateway core. Plugins are hot-reloadable, signed for production integrity, and distributed via the built-in Plugin Marketplace.</p>
+          <div class="docs-eyebrow">Gateway Plugins</div>
+          <h1>iPaaS connectivity, as gateway plugins</h1>
+          <p>Gateway plugins extend WASL with integration connectivity and runtime capabilities: databases, messaging, search, object storage, custom systems, and AI governance controls. FlowJS calls integration plugins by alias, while Studio manages installation, tenant scope, environment config, versioning, and connection tests.</p>
         </section>
 
         <section class="docs-section">
-          <h2>Built-in plugins</h2>
+          <h2>Built-in integration plugins</h2>
           <ul>
             <li><strong>JDBC</strong> &mdash; PostgreSQL, MySQL, Oracle, SQLite</li>
             <li><strong>Kafka</strong> &mdash; producer / consumer with retry and DLQ</li>
@@ -72,17 +72,36 @@
             <li><strong>Object Storage (S3-compatible)</strong></li>
             <li><strong>HTTP</strong> &mdash; via the 3-level target architecture</li>
           </ul>
-          <p>Custom plugins can be authored against the public Java SPI and distributed through the Plugin Marketplace.</p>
+          <p>Custom plugins can be authored against the public Java SPI and distributed through the Plugin Marketplace. The same platform model also hosts AI governance plugins such as auth, guardrails, PII handling, semantic cache, prompt management, quota, cost, retry, and provider routing.</p>
         </section>
 
         <section class="docs-section">
           <h2>How plugins fit into runtime</h2>
-          <p>Plugins are configured per tenant and per environment. Flows invoke them by alias through the <span class="docs-inline-code">adapters</span> binding &mdash; the runtime invocation surface for integration plugins &mdash; while the actual connection details stay in the environment configuration layer.</p>
+          <p>Plugins are configured per tenant and per environment. FlowJS invokes integration plugins by alias through the <span class="docs-inline-code">adapters</span> binding, while actual credentials, hosts, topics, buckets, indexes, and driver settings stay in the environment configuration layer.</p>
+          <div class="docs-diagram">
+            <div class="docs-diagram-label">Plugin invocation model</div>
+            <div class="diagram-flow">
+              <div class="diagram-node diagram-node-accent">
+                <strong>FlowJS script</strong>
+                <span>Calls <span class="docs-inline-code">adapters.query</span>, <span class="docs-inline-code">adapters.update</span>, or <span class="docs-inline-code">adapters.invoke</span> by alias.</span>
+              </div>
+              <div class="diagram-arrow"></div>
+              <div class="diagram-node">
+                <strong>Plugin registry</strong>
+                <span>Resolves tenant/global installation, plugin version, descriptor, and active classloader.</span>
+              </div>
+              <div class="diagram-arrow"></div>
+              <div class="diagram-node diagram-node-alt">
+                <strong>Environment config</strong>
+                <span>Applies dev/staging/prod connection settings and secrets before executing the plugin call.</span>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section class="docs-section">
           <h2>JDBC example</h2>
-          <p>Use the WASL JDBC plugin for relational database access from Flow JS.</p>
+          <p>Use the WASL JDBC plugin for relational database access from FlowJS. Reads use <span class="docs-inline-code">query</span>; writes should use <span class="docs-inline-code">update</span> or pass <span class="docs-inline-code">operation: 'update'</span>.</p>
 <pre><code>const rows = adapters.queryJson('wasl-jdbc', {
   connection: 'default',
   sql: 'SELECT id, name FROM customers'
@@ -99,7 +118,7 @@ response.body = {
 
         <section class="docs-section">
           <h2>Kafka example</h2>
-          <p>Use the Kafka plugin for event production and event-driven consumption.</p>
+          <p>Use the Kafka plugin for event production and event-driven consumption. Listener flows are generated and managed through plugin configuration, then run only for deployed revisions.</p>
 <pre><code>adapters.invoke('kafka', {
   connection: 'kafka',
   operation: 'produce',
@@ -109,6 +128,17 @@ response.body = {
 });</code></pre>
 
           <p>Kafka listeners are deployment-aware. They run only for deployed revisions and can auto-start or auto-stop as deployments change.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>Plugin operating model</h2>
+          <ul>
+            <li><strong>Install</strong> a plugin globally or for a tenant through Studio or the marketplace APIs.</li>
+            <li><strong>Configure</strong> environment-specific connections for dev, staging, production, and custom environments.</li>
+            <li><strong>Test</strong> the connection from the plugin detail page before routing traffic through it.</li>
+            <li><strong>Invoke</strong> the plugin from FlowJS by alias; scripts do not hold credentials.</li>
+            <li><strong>Upgrade</strong> plugins with classloader eviction and active-call draining so new calls use fresh plugin code.</li>
+          </ul>
         </section>
 
         <section class="docs-section">

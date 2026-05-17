@@ -219,7 +219,7 @@ function initScrollReveal() {
 }
 
 function initCardGlow() {
-  const cards = document.querySelectorAll('.feature-card, .traffic-card, .architecture-panel, .product-screen');
+  const cards = document.querySelectorAll('.feature-card, .product-map, .deployment-board, .product-screen, .capability-list div');
   
   cards.forEach(card => {
     card.addEventListener('mousemove', e => {
@@ -233,6 +233,34 @@ function initCardGlow() {
   });
 }
 
+function initMobileMenu() {
+  const toggle = document.querySelector('#menuToggle');
+  const nav = document.querySelector('#primaryNav');
+  if (!toggle || !nav) return;
+
+  function setOpen(open) {
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    nav.classList.toggle('is-open', open);
+  }
+
+  toggle.addEventListener('click', () => {
+    setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+  });
+
+  nav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setOpen(false));
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setOpen(false);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1020) setOpen(false);
+  });
+}
+
 initAnalytics();
 initLinkedInPixel();
 initGoogleAds();
@@ -240,3 +268,4 @@ wireCredibilityLinks();
 applyVariantByQuery();
 initScrollReveal();
 initCardGlow();
+initMobileMenu();

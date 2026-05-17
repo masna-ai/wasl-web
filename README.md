@@ -1,13 +1,13 @@
 # wasl-web
 
-Standalone marketing website for `waslhq.com` focused on **wasl** as the primary product.
+Standalone marketing website for `waslhq.com` focused on **WASL** as a unified gateway and iPaaS platform.
 
 ## What this module includes
 
 - Main landing page: `src/index.html`
 - Public docs pages: `src/docs/`
 - Enterprise campaign variant: `src/enterprise.html`
-- Product demo block: WASL API Studio + Mockgee context
+- Product positioning for unified gateway, FlowJS iPaaS runtime, gateway plugins, Studio, Portal, and AI governance
 - Waitlist capture integration hooks
 - Analytics and ad-pixel integration hooks
 - Static deploy configs for Vercel, Netlify, and Cloudflare Pages
@@ -59,6 +59,9 @@ Use paid traffic to point to `/enterprise` while organic and branded traffic use
 
 ## Deploy
 
+- GitHub Pages: this repo uses `.github/workflows/deploy-pages.yml`. In repository settings, set
+  **Settings → Pages → Build and deployment → Source** to **GitHub Actions**. If Pages is set to
+  "Deploy from a branch" at repository root, GitHub will show this README instead of the website.
 - Vercel: uses `vercel.json`
 - Netlify: uses `netlify.toml`
 - Cloudflare Pages/Workers: uses `wrangler.toml`
