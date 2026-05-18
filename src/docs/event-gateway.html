@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WASL Docs | Event Gateway</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./docs.css" />
+</head>
+<body>
+  <div class="docs-shell">
+    <header class="docs-topbar">
+      <div class="docs-brand">wasl <span>docs</span></div>
+      <div class="docs-actions">
+        <a class="docs-btn" href="https://github.com/" target="_blank" rel="noopener">Star on GitHub</a>
+        <a class="docs-btn docs-btn-primary" href="/#waitlist">Join Waitlist</a>
+      </div>
+    </header>
+    <div class="docs-layout">
+            <aside class="docs-sidebar">
+        <div class="docs-nav-group">
+          <h4>Getting Started</h4>
+          <nav class="docs-nav">
+            <a href="./index.html">Introduction</a>
+            <a href="./quickstart.html">Quickstart</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Platform Architecture</h4>
+          <nav class="docs-nav">
+            <a href="./api-gateway.html">API Gateway</a>
+            <a href="./ai-gateway.html">AI Gateway</a>
+            <a href="./event-gateway.html" class="active">Event Gateway</a>
+            <a href="./flow-runtime.html">FlowJS Runtime</a>
+            <a href="./developer-portal.html">Developer Portal</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Operations & Logic</h4>
+          <nav class="docs-nav">
+            <a href="./policies.html">Policies</a>
+            <a href="./adapters.html">Gateway Plugins</a>
+            <a href="./deployments.html">Deployments</a>
+          </nav>
+        </div>
+        <div class="docs-nav-group">
+          <h4>Reference</h4>
+          <nav class="docs-nav">
+            <a href="./security.html">Security</a>
+            <a href="./oauth2-provider.html">OAuth2 Provider API</a>
+            <a href="./troubleshooting.html">Troubleshooting</a>
+          </nav>
+        </div>
+      </aside>
+      <main class="docs-content">
+        <section class="docs-hero">
+          <div class="docs-eyebrow">Product &middot; Event Gateway</div>
+          <h1>Pub/sub over HTTP — browsers, mobile, partners, edge.</h1>
+          <p>The <strong>WASL Event Gateway</strong> exposes event streams as plain HTTP endpoints. Producers POST records to an endpoint, consumers stream over Server-Sent Events or long-poll, and offsets are managed by the gateway. Any client that speaks HTTP joins the same event flow your backend uses — no Kafka SDK, no broker credentials in third-party hands, no extra network paths to govern.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>Key concepts</h2>
+          <ul>
+            <li><span class="docs-inline-code">Endpoint</span>: a named, governed entry point — for example <span class="docs-inline-code">order-events</span>. Producers POST to it; consumers subscribe to it.</li>
+            <li><span class="docs-inline-code">Contract</span>: an optional JSON Schema attached to an endpoint. Records that fail validation are rejected at produce time, before they reach the broker.</li>
+            <li><span class="docs-inline-code">Subscription</span>: a durable position in the stream for a specific consumer. Survives reconnects, browser refreshes, and pod restarts.</li>
+            <li><span class="docs-inline-code">Cluster</span>: the underlying broker (Kafka today). Endpoints reference a cluster by name so you can move them between brokers without touching producers or consumers.</li>
+            <li><span class="docs-inline-code">AsyncAPI document</span>: auto-generated, downloadable spec describing every endpoint — feed it to clients the same way you feed OpenAPI to REST consumers.</li>
+          </ul>
+
+          <div class="docs-diagram">
+            <div class="docs-diagram-label">End-to-end event flow</div>
+            <div class="diagram-stage-grid">
+              <div class="diagram-stage diagram-stage-accent">
+                <div class="diagram-stage-step">1</div>
+                <strong>Produce</strong>
+                <p>Client POSTs to <span class="docs-inline-code">/events/{endpoint}/records</span>. Gateway authenticates, validates against the contract, then writes to the broker.</p>
+              </div>
+              <div class="diagram-stage">
+                <div class="diagram-stage-step">2</div>
+                <strong>Subscribe</strong>
+                <p>Consumer opens an SSE stream at <span class="docs-inline-code">/events/{endpoint}/stream</span> or long-polls <span class="docs-inline-code">/subscriptions/{subId}/records</span>.</p>
+              </div>
+              <div class="diagram-stage diagram-stage-alt">
+                <div class="diagram-stage-step">3</div>
+                <strong>Commit</strong>
+                <p>Consumer POSTs the last-processed offset to <span class="docs-inline-code">/subscriptions/{subId}/commit</span> — durable position in the stream.</p>
+              </div>
+              <div class="diagram-stage">
+                <div class="diagram-stage-step">4</div>
+                <strong>Observe</strong>
+                <p>Every produce, deliver, and commit emits a trace event with the same correlation ID format as REST and AI traffic.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="docs-section">
+          <h2>Why HTTP for events</h2>
+          <p>A traditional broker like Kafka assumes every client can run a long-lived SDK with cluster discovery, partition assignment, consumer groups, and offset management. That's fine for back-end services but a poor fit for:</p>
+          <ul>
+            <li><strong>Browsers and mobile apps</strong> — no Kafka SDK, no broker credentials at the edge.</li>
+            <li><strong>Edge workers and serverless functions</strong> — cold-start hostile and short-lived.</li>
+            <li><strong>Partner systems and webhooks</strong> — outbound HTTP is the only thing the perimeter allows.</li>
+            <li><strong>Polyglot teams</strong> — every language has an HTTP client; not every language has a maintained Kafka client.</li>
+          </ul>
+          <p>The Event Gateway sits in front of your broker and lets all of these clients participate in the same event streams as your back-end services, with the same authentication, quota, and trace pipeline as the rest of WASL.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>Producing records</h2>
+          <p>POST one or more records to the endpoint. The body is an array of JSON objects; the gateway validates each against the contract before forwarding to the broker.</p>
+<pre><code>POST /events/order-events/records
+Authorization: Bearer &lt;app credential&gt;
+Content-Type: application/json
+
+[
+  { "orderId": "ord_1234", "status": "PLACED", "amount": 49.95 },
+  { "orderId": "ord_1235", "status": "PLACED", "amount": 12.00 }
+]</code></pre>
+          <p>Successful writes return per-record offsets so the producer can correlate them with downstream consume events. Contract violations are rejected with a 422 and a per-record reason — no partial writes.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>Consuming records</h2>
+          <p>Two delivery modes are supported on the same endpoint — pick whichever fits your client:</p>
+          <div class="docs-mini-grid">
+            <div class="docs-mini-card">
+              <strong>Server-Sent Events</strong>
+              <span>Long-lived <span class="docs-inline-code">GET /events/{endpoint}/stream</span>. The gateway pushes records as they arrive. Ideal for browsers, dashboards, and any client that can hold an open connection.</span>
+            </div>
+            <div class="docs-mini-card">
+              <strong>Long-poll</strong>
+              <span>Repeated <span class="docs-inline-code">GET /subscriptions/{subId}/records</span>. The gateway holds the request open until records are available or a timeout elapses. Ideal for serverless, mobile background fetch, and proxy-traversing clients.</span>
+            </div>
+            <div class="docs-mini-card">
+              <strong>Offset commit</strong>
+              <span><span class="docs-inline-code">POST /subscriptions/{subId}/commit</span> tells the gateway where to resume on the next consume. Subscriptions survive reconnects, refreshes, and pod restarts.</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="docs-section">
+          <h2>Governance — same as everything else</h2>
+          <p>Event endpoints sit behind the unified policy engine. Attach the same primitives you'd attach to a REST route:</p>
+          <ul>
+            <li><span class="docs-inline-code">auth.apikey</span>, <span class="docs-inline-code">auth.oauth2</span>, or <span class="docs-inline-code">auth.jwt</span> at produce and consume time.</li>
+            <li><span class="docs-inline-code">rate-limit</span> and <span class="docs-inline-code">quota</span> per app, per tenant, or per endpoint.</li>
+            <li><span class="docs-inline-code">data-masking</span> and <span class="docs-inline-code">pii</span> on payload fields before they hit the broker.</li>
+            <li><span class="docs-inline-code">request-validation</span> for stricter contracts than JSON Schema can express.</li>
+          </ul>
+          <p>Subscription approvals, app-to-endpoint bindings, and per-plan quotas flow through the same Portal + Products + Subscriptions model used by REST and AI products.</p>
+        </section>
+
+        <section class="docs-section">
+          <h2>AsyncAPI out of the box</h2>
+          <p>Every endpoint has an auto-generated AsyncAPI 2.x document at <span class="docs-inline-code">GET /api/event-gateway/endpoints/{id}/asyncapi</span>. It includes the contract schema, supported delivery modes, and ready-to-paste connection snippets (curl, Node, Python) so consumers can integrate without reading custom docs.</p>
+          <div class="docs-callout">
+            <strong>Same trace pipeline as the rest of WASL</strong>
+            <p>A single correlation ID follows a request from the REST API edge, through a FlowJS handler, into a produce call on an event endpoint, out to a consuming worker, and into whatever downstream call that worker makes. One trace view, all traffic types.</p>
+          </div>
+        </section>
+
+        <section class="docs-section">
+          <h2>What's coming</h2>
+          <p>The current Event Gateway is HTTP/SSE-first and Kafka-backed. The schema reserves <span class="docs-inline-code">protocol_modes</span> so a future release can add native Kafka protocol proxy for high-throughput back-end consumers without breaking the HTTP API. Disconnected / edge-buffered producers are explicitly v2+ and tracked separately.</p>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

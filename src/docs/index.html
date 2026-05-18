@@ -24,7 +24,7 @@
     </header>
 
     <div class="docs-layout">
-                  <aside class="docs-sidebar">
+                        <aside class="docs-sidebar">
         <div class="docs-nav-group">
           <h4>Getting Started</h4>
           <nav class="docs-nav">
@@ -35,10 +35,11 @@
         <div class="docs-nav-group">
           <h4>Platform Architecture</h4>
           <nav class="docs-nav">
-            <a href="./api-gateway.html">Unified Gateway</a>
+            <a href="./api-gateway.html">API Gateway</a>
             <a href="./ai-gateway.html">AI Gateway</a>
-            <a href="./developer-portal.html">Developer Portal</a>
+            <a href="./event-gateway.html">Event Gateway</a>
             <a href="./flow-runtime.html">FlowJS Runtime</a>
+            <a href="./developer-portal.html">Developer Portal</a>
           </nav>
         </div>
         <div class="docs-nav-group">
@@ -63,33 +64,34 @@
         <section class="docs-hero">
           <div class="docs-eyebrow">Documentation</div>
           <h1>WASL Documentation</h1>
-          <p>WASL is a unified gateway and iPaaS platform: API governance, AI governance, FlowJS orchestration, and integration plugins in one deployment model. These docs are written for end users, platform teams, and integration builders.</p>
+          <p>WASL is a unified gateway platform: APIs, AI workloads, event streams, integration flows, and integration plugins on one runtime, governed by one policy engine, observed by one trace pipeline. These docs are written for end users, platform teams, and integration builders.</p>
           <div class="docs-card-grid">
             <article class="docs-card">
               <h3>Start here</h3>
-              <p>Use the <a href="./quickstart.html">Quickstart</a> to create your first API route, AI route, and deployment in minutes.</p>
+              <p>The <a href="./quickstart.html">Quickstart</a> walks you through your first API route, AI route, event endpoint, and deployment.</p>
             </article>
             <article class="docs-card">
-              <h3>Unified gateway</h3>
-              <p>The <a href="./api-gateway.html">Gateway</a> handles API routes, AI routes, FlowJS integrations, policies, deployments, and traces through one platform model.</p>
+              <h3>Pick a surface</h3>
+              <p>Read the surface you're starting with: <a href="./api-gateway.html">API Gateway</a>, <a href="./ai-gateway.html">AI Gateway</a>, <a href="./event-gateway.html">Event Gateway</a>, or <a href="./flow-runtime.html">FlowJS Runtime</a>.</p>
             </article>
             <article class="docs-card">
-              <h3>Plugin-based iPaaS</h3>
-              <p><a href="./adapters.html">Gateway Plugins</a> provide backend, event, data, and custom system connectivity for FlowJS without bolting drivers into the gateway core.</p>
+              <h3>Connect your stack</h3>
+              <p><a href="./adapters.html">Gateway Plugins</a> bring databases, queues, search, storage, and custom systems into FlowJS without bolting drivers into the gateway core.</p>
             </article>
           </div>
         </section>
 
         <section class="docs-section">
           <h2>What WASL is</h2>
-          <p>WASL gives platform teams one place to govern API traffic, AI traffic, and integration flows. Instead of running a separate gateway product, iPaaS runtime, AI control layer, portal, and observability stack, you operate one platform with a shared policy engine, plugin SDK, FlowJS runtime, and deployment model.</p>
+          <p>WASL gives platform teams one place to govern API traffic, AI traffic, event streams, and integration flows. Instead of running a separate gateway product, iPaaS runtime, event broker frontend, AI control layer, portal, and observability stack, you operate one platform with a shared policy engine, plugin SDK, FlowJS runtime, and deployment model.</p>
 
-          <h3>Four pillars</h3>
+          <h3>Five surfaces</h3>
           <ul>
-            <li><span class="docs-inline-code">Unified Gateway</span> &mdash; API routes, AI routes, tenant-aware routing, policy enforcement, multi-tenancy, and revisioned deployments.</li>
-            <li><span class="docs-inline-code">FlowJS Runtime</span> &mdash; JavaScript orchestration for request handling, transformation, HTTP calls, plugin calls, and reusable bundle-local modules.</li>
-            <li><span class="docs-inline-code">Gateway Plugins</span> &mdash; backend connectivity for JDBC, Kafka, MongoDB, Redis, RabbitMQ, OpenSearch, S3-compatible storage, HTTP, and custom systems.</li>
-            <li><span class="docs-inline-code">AI Governance</span> &mdash; LLM routing, guardrails, quotas, streaming, semantic caching, prompt governance, PII controls, and cost caps.</li>
+            <li><span class="docs-inline-code">API Gateway</span> &mdash; REST, HTTP/2, WebSocket, and gRPC routes with tenant-aware routing, policy enforcement, multi-tenancy, and versioned deployments.</li>
+            <li><span class="docs-inline-code">AI Gateway</span> &mdash; OpenAI-compatible LLM routing with guardrails, quotas, streaming, semantic caching, prompt versioning, PII controls, and cost caps.</li>
+            <li><span class="docs-inline-code">Event Gateway</span> &mdash; HTTP produce, SSE / long-poll consume, contracts, subscriptions, and AsyncAPI docs &mdash; pub/sub for clients that can't run a Kafka SDK.</li>
+            <li><span class="docs-inline-code">FlowJS Runtime</span> &mdash; JavaScript orchestration for request handling, transformation, HTTP calls, plugin calls, and reusable modules.</li>
+            <li><span class="docs-inline-code">Gateway Plugins</span> &mdash; connectors for JDBC, Kafka, MongoDB, Redis, RabbitMQ, OpenSearch, S3-compatible storage, HTTP, and custom systems via the public SDK.</li>
           </ul>
 
           <h3>Open source forever</h3>
@@ -107,12 +109,12 @@
 
           <h3>Typical workflow</h3>
           <ol>
-            <li>Create an API route, AI route, or FlowJS integration in Studio.</li>
-            <li>Install and configure the required plugins for each tenant and environment.</li>
+            <li>Create an API route, AI route, event endpoint, or FlowJS integration in Studio.</li>
+            <li>Install and configure the required plugins for each tenant and fleet.</li>
             <li>Attach policies and configure runtime behavior.</li>
-            <li>Test the route or flow in Studio.</li>
-            <li>Deploy to an environment such as <span class="docs-inline-code">dev</span> or <span class="docs-inline-code">staging</span>.</li>
-            <li>Invoke the route through the gateway hostname for the selected tenant and environment.</li>
+            <li>Test the route, endpoint, or flow in Studio.</li>
+            <li>Deploy to a fleet such as <span class="docs-inline-code">dev</span> or <span class="docs-inline-code">staging</span>.</li>
+            <li>Invoke the route through the gateway hostname for the selected tenant and fleet.</li>
           </ol>
         </section>
       </main>

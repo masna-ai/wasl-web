@@ -336,12 +336,24 @@ h3 {
 }
 
 .map-header,
-.map-runtime,
 .board-title {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  min-width: 0;
+}
+
+/* Runtime footer stacks vertically — the label+title block and the
+   pill em can't both fit horizontally in the product-map column without
+   forcing the strong text ("Self-registering · fleet-aware · stateless")
+   to wrap at every bullet. Mobile already collapses to column at the
+   breakpoint below; we just promote that to the default. */
+.map-runtime {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
   min-width: 0;
 }
 
@@ -368,7 +380,10 @@ h3 {
 
 .map-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* Three columns so the five-surface grid lays out as 3+2 instead of
+     2+2+1 (orphaned card looks unfinished). On the mobile breakpoint
+     below this collapses to a single column. */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -409,12 +424,24 @@ h3 {
   background: #fbfdfd;
 }
 
+/* The unnamed inner <div> holds the label+title pair. Without explicit
+   flex sizing it shrinks to its smallest column, forcing the strong text
+   ("Self-registering · fleet-aware · stateless") to wrap at every word.
+   flex: 1 1 auto + min-width: 0 lets it claim the remaining row width and
+   wrap only when truly needed. */
+.map-runtime > div {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
 .map-runtime strong {
   display: block;
   margin-top: 4px;
   color: var(--ink-strong);
   overflow-wrap: normal;
   word-break: normal;
+  /* Prefer breaking at separators, not mid-word. */
+  white-space: normal;
 }
 
 .map-runtime em {
@@ -565,6 +592,41 @@ h3 {
   font-weight: 800;
 }
 
+/* Replaces the placeholder-logo strip with a single-line trust signal.
+   Single row at desktop, wraps gracefully on narrow viewports. The
+   subtle vertical-line dividers keep the three claims visually
+   separate without resorting to bullet characters. */
+.trust-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px 20px;
+  margin: 24px 0 84px;
+  padding: 16px 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.65);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.trust-strip .trust-item {
+  color: var(--muted);
+}
+
+.trust-strip .trust-item strong {
+  color: var(--ink-strong);
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+.trust-strip .trust-divider {
+  width: 1px;
+  height: 14px;
+  background: var(--line);
+}
+
 .section,
 .split-section {
   margin-bottom: 96px;
@@ -599,18 +661,10 @@ h3 {
   overflow-wrap: anywhere;
 }
 
-.card-icon {
-  display: inline-grid;
-  width: 38px;
-  height: 38px;
-  place-items: center;
-  border-radius: 7px;
-  background: var(--brand-soft);
-  color: var(--brand-strong);
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.82rem;
-  font-weight: 800;
-}
+/* .card-icon (the "01" / "02" / "03" badges) was removed from the markup —
+   the H3 titles carry their own weight without numerals. Rule kept absent
+   so leftover .card-icon references in any one-off page would just fall
+   back to default inline behavior, not silently render a styled placeholder. */
 
 .split-section {
   display: grid;

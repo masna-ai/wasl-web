@@ -10,6 +10,12 @@ const newFontLink = `<link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />`;
 
+// Sidebar nav, propagated to every src/docs/*.html on `node scripts/update-docs.js`.
+// Keep ordering consistent with the homepage product map (src/index.html) — the
+// five surfaces lead Platform Architecture, supporting components follow.
+// Developer Portal + OAuth2 Provider API were present in src/docs/index.html but
+// missing from this propagator until the docs refresh — keep them here so the
+// next propagation doesn't strip them.
 const navStructure = [
   {
     title: 'Getting Started',
@@ -21,24 +27,27 @@ const navStructure = [
   {
     title: 'Platform Architecture',
     links: [
-      { href: './api-gateway.html', text: 'API Gateway', match: ['api-gateway.html'] },
-      { href: './ai-gateway.html', text: 'AI Gateway', match: ['ai-gateway.html'] },
-      { href: './flow-runtime.html', text: 'Flow Runtime', match: ['flow-runtime.html'] }
+      { href: './api-gateway.html',      text: 'API Gateway',      match: ['api-gateway.html'] },
+      { href: './ai-gateway.html',       text: 'AI Gateway',       match: ['ai-gateway.html'] },
+      { href: './event-gateway.html',    text: 'Event Gateway',    match: ['event-gateway.html'] },
+      { href: './flow-runtime.html',     text: 'FlowJS Runtime',   match: ['flow-runtime.html'] },
+      { href: './developer-portal.html', text: 'Developer Portal', match: ['developer-portal.html'] }
     ]
   },
   {
     title: 'Operations & Logic',
     links: [
-      { href: './policies.html', text: 'Policies', match: ['policies.html'] },
-      { href: './adapters.html', text: 'Adapters', match: ['adapters.html'] },
-      { href: './deployments.html', text: 'Deployments', match: ['deployments.html'] }
+      { href: './policies.html',    text: 'Policies',        match: ['policies.html'] },
+      { href: './adapters.html',    text: 'Gateway Plugins', match: ['adapters.html'] },
+      { href: './deployments.html', text: 'Deployments',     match: ['deployments.html'] }
     ]
   },
   {
     title: 'Reference',
     links: [
-      { href: './security.html', text: 'Security', match: ['security.html'] },
-      { href: './troubleshooting.html', text: 'Troubleshooting', match: ['troubleshooting.html'] }
+      { href: './security.html',        text: 'Security',            match: ['security.html'] },
+      { href: './oauth2-provider.html', text: 'OAuth2 Provider API', match: ['oauth2-provider.html'] },
+      { href: './troubleshooting.html', text: 'Troubleshooting',     match: ['troubleshooting.html'] }
     ]
   }
 ];
