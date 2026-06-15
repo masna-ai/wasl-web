@@ -26,15 +26,55 @@
   <meta name="twitter:image" content="https://waslhq.com/og-image.png" />
 
   <link rel="icon" type="image/svg+xml" href="./brand-mark.svg" />
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <meta name="theme-color" content="#ffffff" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="./styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://waslhq.com/#organization",
+        "name": "WASL",
+        "url": "https://waslhq.com/",
+        "logo": "https://waslhq.com/brand-mark.svg",
+        "sameAs": [
+          "https://www.linkedin.com/company/waslhq",
+          "https://x.com/waslhq",
+          "https://www.youtube.com/@waslhq",
+          "https://github.com/waslhq"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://waslhq.com/#website",
+        "url": "https://waslhq.com/",
+        "name": "WASL",
+        "publisher": { "@id": "https://waslhq.com/#organization" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "WASL",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Linux, Docker, Kubernetes",
+        "description": "Unified gateway platform for API traffic, governed AI access, event streaming, and async jobs — one control plane, deployable anywhere.",
+        "url": "https://waslhq.com/"
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
+  <a class="skip-link" href="#top">Skip to content</a>
   <header class="topbar">
     <a class="brand" href="#top" aria-label="Wasl home">
       <img class="brand-mark" src="./brand-mark.svg" alt="" aria-hidden="true" width="34" height="34" />

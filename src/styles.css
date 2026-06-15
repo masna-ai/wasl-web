@@ -1131,6 +1131,48 @@ footer {
   }
 }
 
+/* ─────────  Skip link (a11y)  ───────── */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -56px;
+  z-index: 100;
+  padding: 10px 16px;
+  border-radius: 9px;
+  background: var(--ink-strong);
+  color: #ffffff;
+  font-weight: 700;
+  transition: top 0.18s ease;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+/* ─────────  404 page  ───────── */
+.notfound {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  min-height: 64vh;
+  padding: 64px 0;
+}
+
+.notfound h1 {
+  margin: 12px 0 16px;
+}
+
+.notfound p {
+  max-width: 52ch;
+  color: var(--muted);
+  font-size: 1.06rem;
+  line-height: 1.7;
+}
+
+.notfound .hero-actions {
+  margin-top: 24px;
+}
+
 /* ─────────  Premium polish  ───────── */
 
 /* Brand-tinted selection + accessible focus ring */
