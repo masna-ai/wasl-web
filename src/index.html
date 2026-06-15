@@ -26,15 +26,55 @@
   <meta name="twitter:image" content="https://waslhq.com/og-image.png" />
 
   <link rel="icon" type="image/svg+xml" href="./brand-mark.svg" />
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <meta name="theme-color" content="#ffffff" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="./styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://waslhq.com/#organization",
+        "name": "WASL",
+        "url": "https://waslhq.com/",
+        "logo": "https://waslhq.com/brand-mark.svg",
+        "sameAs": [
+          "https://www.linkedin.com/company/waslhq",
+          "https://x.com/waslhq",
+          "https://www.youtube.com/@waslhq",
+          "https://github.com/waslhq"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://waslhq.com/#website",
+        "url": "https://waslhq.com/",
+        "name": "WASL",
+        "publisher": { "@id": "https://waslhq.com/#organization" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "WASL",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Linux, Docker, Kubernetes",
+        "description": "Unified gateway platform for API traffic, governed AI access, event streaming, and async jobs — one control plane, deployable anywhere.",
+        "url": "https://waslhq.com/"
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
+  <a class="skip-link" href="#top">Skip to content</a>
   <header class="topbar">
     <a class="brand" href="#top" aria-label="Wasl home">
       <img class="brand-mark" src="./brand-mark.svg" alt="" aria-hidden="true" width="34" height="34" />
@@ -75,44 +115,10 @@
         </div>
       </div>
 
-      <div class="hero-visual reveal reveal-delay-1" aria-label="WASL platform architecture overview">
-        <div class="traffic-card">
-          <div class="traffic-card-head">
-            <span>Tenant request</span>
-            <strong>acme.example.com</strong>
-          </div>
-          <div class="traffic-path">
-            <div class="traffic-node">
-              <span class="node-kicker">Data plane runtimes</span>
-              <strong>API · AI · Event · Worker</strong>
-              <small>Routing, policies, flows, jobs, and trace capture</small>
-            </div>
-            <div class="traffic-arrow"></div>
-            <div class="node-grid">
-              <div class="traffic-node compact">
-                <span class="node-kicker">PostgreSQL</span>
-                <strong>Deployments</strong>
-              </div>
-              <div class="traffic-node compact">
-                <span class="node-kicker">Redis</span>
-                <strong>Cluster state</strong>
-              </div>
-            </div>
-            <div class="traffic-arrow"></div>
-            <div class="traffic-node">
-              <span class="node-kicker">Plugin layer</span>
-              <strong>Backends + LLM providers</strong>
-              <small>Databases, queues, object storage, SaaS APIs, and LLM providers</small>
-            </div>
-          </div>
-        </div>
-        <div class="studio-card">
-          <div>
-            <span class="node-kicker">Studio control plane</span>
-            <strong>Author, deploy, observe</strong>
-          </div>
-          <span class="status-pill">Separated runtime</span>
-        </div>
+      <div class="hero-diagram reveal reveal-delay-1">
+        <img src="./wasl-dataflow-light.svg"
+          alt="WASL request lifecycle: a tenant request flows through the data-plane runtime's policy pipeline — auth, rate limit, routing, guardrail, flow, trace — to backends and LLM providers, with a separated Studio control plane writing deployment intent to PostgreSQL and Redis."
+          width="1200" height="600" loading="lazy" decoding="async" />
       </div>
     </section>
 
@@ -306,7 +312,7 @@
     <div class="footer-top">
       <div class="footer-brand-col">
         <a class="footer-brand-lockup" href="#top" aria-label="Wasl home">
-          <img src="./brand-mark.svg" alt="" aria-hidden="true" width="30" height="30" />
+          <img src="./brand-mark.svg" alt="" aria-hidden="true" width="36" height="36" />
           <span class="footer-brand"><span class="brand-w">W</span>asl</span>
         </a>
         <p>One gateway for APIs, AI, events, and jobs — governed and observed from a single control plane.</p>

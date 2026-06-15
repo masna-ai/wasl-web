@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://waslhq.com/</loc><lastmod>2026-06-15</lastmod><priority>1.0</priority></url>
+  <url><loc>https://waslhq.com/docs/</loc><lastmod>2026-06-15</lastmod><priority>0.8</priority></url>
+  <url><loc>https://waslhq.com/docs/quickstart.html</loc><lastmod>2026-06-15</lastmod><priority>0.7</priority></url>
+  <url><loc>https://waslhq.com/docs/api-gateway.html</loc><lastmod>2026-06-15</lastmod><priority>0.6</priority></url>
+  <url><loc>https://waslhq.com/docs/ai-gateway.html</loc><lastmod>2026-06-15</lastmod><priority>0.6</priority></url>
+  <url><loc>https://waslhq.com/docs/event-gateway.html</loc><lastmod>2026-06-15</lastmod><priority>0.6</priority></url>
+  <url><loc>https://waslhq.com/docs/flow-runtime.html</loc><lastmod>2026-06-15</lastmod><priority>0.6</priority></url>
+  <url><loc>https://waslhq.com/docs/deployments.html</loc><lastmod>2026-06-15</lastmod><priority>0.6</priority></url>
+  <url><loc>https://waslhq.com/docs/developer-portal.html</loc><lastmod>2026-06-15</lastmod><priority>0.6</priority></url>
+  <url><loc>https://waslhq.com/docs/policies.html</loc><lastmod>2026-06-15</lastmod><priority>0.6</priority></url>
+  <url><loc>https://waslhq.com/docs/security.html</loc><lastmod>2026-06-15</lastmod><priority>0.6</priority></url>
+  <url><loc>https://waslhq.com/docs/oauth2-provider.html</loc><lastmod>2026-06-15</lastmod><priority>0.6</priority></url>
+  <url><loc>https://waslhq.com/docs/adapters.html</loc><lastmod>2026-06-15</lastmod><priority>0.6</priority></url>
+  <url><loc>https://waslhq.com/docs/troubleshooting.html</loc><lastmod>2026-06-15</lastmod><priority>0.6</priority></url>
+</urlset>
