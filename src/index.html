@@ -77,7 +77,7 @@
   <a class="skip-link" href="#top">Skip to content</a>
   <header class="topbar">
     <a class="brand" href="#top" aria-label="Wasl home">
-      <img class="brand-mark" src="./brand-mark.svg" alt="" aria-hidden="true" width="34" height="34" />
+      <img class="brand-mark" src="./brand-mark.svg" alt="" aria-hidden="true" width="42" height="42" />
       <span class="brand-text"><span class="brand-w">W</span>asl</span>
     </a>
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-controls="primaryNav" aria-expanded="false">
@@ -87,11 +87,12 @@
     </button>
     <nav id="primaryNav" aria-label="Primary navigation">
       <a href="#platform">Platform</a>
-      <a href="#architecture">Architecture</a>
+      <a href="#ai-gateway">AI Gateway</a>
+      <a href="#observability">Observability</a>
       <a href="/docs/">Docs</a>
       <a class="nav-cta" href="#waitlist">Request Access</a>
     </nav>
-    <a class="btn btn-outline topbar-cta" href="#waitlist">Request Access</a>
+    <a class="btn btn-primary topbar-cta" href="#waitlist">Request Access <span class="cta-arrow" aria-hidden="true">→</span></a>
   </header>
 
   <main id="top">
@@ -122,13 +123,17 @@
       </div>
     </section>
 
-    <section class="logo-strip reveal" aria-label="Core platform surfaces">
-      <span>API Gateway</span>
-      <span>AI Gateway</span>
-      <span>Event Gateway</span>
-      <span>Worker</span>
-      <span>Studio</span>
-      <span>Portal</span>
+    <section class="builton reveal" aria-label="Built on proven infrastructure">
+      <span class="builton-label">Runs on the stack you already operate</span>
+      <div class="builton-logos">
+        <span>Java / JVM</span>
+        <span>PostgreSQL</span>
+        <span>Redis</span>
+        <span>Apache Kafka</span>
+        <span>Kubernetes</span>
+        <span>OpenAI</span>
+        <span>Anthropic</span>
+      </div>
     </section>
 
     <section id="platform" class="section">
@@ -174,6 +179,13 @@
       </div>
     </section>
 
+    <section class="stats reveal" aria-label="Platform at a glance">
+      <div class="stat"><strong data-count="4">4</strong><span>data-plane runtimes</span></div>
+      <div class="stat"><strong data-count="24">24</strong><span>built-in policies</span></div>
+      <div class="stat"><strong data-count="12">12</strong><span>AI governance plugins</span></div>
+      <div class="stat"><strong data-count="8">8</strong><span>integration connectors</span></div>
+    </section>
+
     <section id="architecture" class="split-section">
       <div class="section-copy reveal">
         <p class="eyebrow">Deploy anywhere</p>
@@ -215,80 +227,118 @@
       </div>
     </section>
 
-    <section id="ai-gateway" class="section tinted">
-      <div class="section-head reveal">
-        <p class="eyebrow">AI Gateway</p>
-        <h2>Enterprise controls for every LLM request.</h2>
-        <p>
-          WASL runs AI traffic through a fixed governance pipeline before and after provider calls, with provider
-          routing, fallback, streaming normalization, quota, and cost accounting built in.
-        </p>
-      </div>
-      <div class="pipeline reveal reveal-delay-1">
-        <span>Auth</span>
-        <span>Prompt Management</span>
-        <span>RAG</span>
-        <span>Semantic Cache</span>
-        <span>PII</span>
-        <span>Guardrail</span>
-        <span>Limits</span>
-        <span>Provider Loop</span>
-        <span>Quota + Cost</span>
+    <section id="ai-gateway" class="band-dark">
+      <div class="band-inner">
+        <div class="section-head section-head-center reveal">
+          <p class="eyebrow eyebrow-dark">AI Gateway</p>
+          <h2>Enterprise controls for every LLM request.</h2>
+          <p>
+            Every prompt runs through a fixed governance pipeline before and after the provider call — with
+            multi-provider routing, fallback, streaming normalization, quota, and cost accounting built in.
+          </p>
+        </div>
+        <div class="ai-pipeline reveal reveal-delay-1" aria-label="AI governance pipeline">
+          <div class="ai-stage"><span class="ai-step">01</span><strong>Auth</strong><small>JWT · OAuth2 · API key</small></div>
+          <div class="ai-stage"><span class="ai-step">02</span><strong>Prompt + RAG</strong><small>versioned · tenant KB</small></div>
+          <div class="ai-stage"><span class="ai-step">03</span><strong>PII + Guardrail</strong><small>pre &amp; post checks</small></div>
+          <div class="ai-stage"><span class="ai-step">04</span><strong>Semantic cache</strong><small>tenant-scoped</small></div>
+          <div class="ai-stage"><span class="ai-step">05</span><strong>Provider loop</strong><small>retry · CB · fallback</small></div>
+          <div class="ai-stage"><span class="ai-step">06</span><strong>Quota + Cost</strong><small>per-tenant caps</small></div>
+        </div>
+        <div class="band-foot reveal reveal-delay-2">
+          <span>OpenAI · Anthropic · Gemini · Bedrock · Vertex · self-hosted</span>
+          <span>Stream · buffer · async 202</span>
+        </div>
       </div>
     </section>
 
     <section id="studio" class="split-section reverse">
-      <div class="product-screen reveal">
-        <div class="screen-top">
+      <div class="browser-frame reveal">
+        <div class="browser-bar">
           <span></span><span></span><span></span>
+          <em>acme-corp.wasl.studio</em>
         </div>
-        <div class="screen-body">
-          <aside>
-            <strong>WASL Studio</strong>
-            <span class="selected">Deployments</span>
-            <span>Policies</span>
-            <span>Certificates</span>
-            <span>Traces</span>
-            <span>Tenants</span>
-          </aside>
-          <section>
-            <div class="screen-title">
-              <span>acme-corp / dev</span>
-              <strong>Customer APIs</strong>
-            </div>
-            <div class="deploy-table">
-              <div><span>orders-api</span><strong>rev 18</strong><em>running</em></div>
-              <div><span>identity-api</span><strong>rev 09</strong><em>running</em></div>
-              <div><span>ai-support</span><strong>rev 04</strong><em>guarded</em></div>
-            </div>
-          </section>
-        </div>
+        <img src="./studio-dashboard.png"
+          alt="WASL Studio dashboard — manage API, AI, and Event gateways, deployments, runtimes, plugins, and traces from one console."
+          width="2080" height="1065" loading="lazy" decoding="async" />
       </div>
       <div class="section-copy reveal reveal-delay-1">
         <p class="eyebrow">Studio + Portal</p>
-        <h2>Operate the platform without hiding the runtime model.</h2>
+        <h2>One console to author, deploy, and observe.</h2>
         <p>
-          Studio exposes the operational primitives directly: tenants, fleets, bundles, revisions, policies,
-          certificates, traces, and deployments. Portal gives consumers a self-service API surface backed by
-          keys, subscriptions, usage analytics, and OAuth2 flows.
+          Studio exposes the operational primitives directly — tenants, fleets, bundles, revisions, policies,
+          certificates, traces, and deployments — and the Developer Portal gives consumers self-service API keys,
+          subscriptions, usage analytics, and OAuth2 flows.
         </p>
-        <div class="metric-row">
-          <div><strong>4</strong><span>data-plane runtimes</span></div>
-          <div><strong>24</strong><span>built-in policies</span></div>
-          <div><strong>5</strong><span>tenant resolution modes</span></div>
+        <div class="check-list">
+          <span>Author bundles, AI routes, events, and worker schedules in one workspace</span>
+          <span>Promote and roll back revisions across fleets as one atomic action</span>
+          <span>Live traces, metrics, and alerts across API, AI, event, and job traffic</span>
+          <span>Multi-tenant RBAC with a built-in OAuth2 authorization server</span>
         </div>
+      </div>
+    </section>
+
+    <section id="observability" class="split-section">
+      <div class="section-copy reveal">
+        <p class="eyebrow">Observability</p>
+        <h2>See every request — across API, AI, events, and jobs.</h2>
+        <p>
+          One trace pipeline and one analytics layer for the whole platform — Apigee-style distributed tracing,
+          latency and throughput analytics, AI token &amp; cost breakdowns, and alerting. No second APM to run.
+        </p>
+        <div class="check-list">
+          <span>Apigee-style distributed tracing — one correlation ID across every hop</span>
+          <span>Latency analytics: end-to-end, gateway overhead, p50 / p95 / p99</span>
+          <span>AI token &amp; cost analytics per route, provider, and tenant</span>
+          <span>Prometheus scrape, log export (Fluent Bit · Vector · Loki), and alerts</span>
+        </div>
+      </div>
+      <div class="browser-frame reveal reveal-delay-1">
+        <div class="browser-bar">
+          <span></span><span></span><span></span>
+          <em>acme-corp.wasl.studio · API Metrics · Latency</em>
+        </div>
+        <img src="./obs-latency.png"
+          alt="WASL Studio observability — latency analysis dashboard with end-to-end response time, target response time, gateway processing overhead, and p95 latency across API traffic."
+          width="2080" height="1043" loading="lazy" decoding="async" />
       </div>
     </section>
 
     <section class="section">
       <div class="section-head reveal">
-        <p class="eyebrow">Security and governance</p>
-        <h2>Policy depth that matches the real platform.</h2>
+        <p class="eyebrow">Security &amp; governance</p>
+        <h2>24 policies. One engine. Every surface.</h2>
+        <p>
+          The same unified policy engine runs at every stage of the request lifecycle — for API, AI, event, and
+          job traffic alike. Stateful policies are cluster-aware with Redis; secrets are referenced, never stored.
+        </p>
       </div>
-      <div class="policy-grid reveal reveal-delay-1">
-        <span>Basic Auth</span><span>API Key</span><span>JWT</span><span>OAuth2</span><span>mTLS</span>
-        <span>Rate Limit</span><span>Quota</span><span>CORS</span><span>IP Filter</span><span>WAF</span>
-        <span>Bot Detection</span><span>Threat Protection</span><span>Data Masking</span><span>OpenAPI Validation</span><span>AI Guardrail</span>
+      <div class="policy-matrix reveal reveal-delay-1">
+        <div class="policy-cat">
+          <strong>Authentication</strong>
+          <span>API Key · Basic · JWT (RS256/HS256) · OAuth2 · mTLS</span>
+        </div>
+        <div class="policy-cat">
+          <strong>Rate &amp; Quota</strong>
+          <span>Token bucket · Fixed &amp; sliding window · Spike arrest · Quota</span>
+        </div>
+        <div class="policy-cat">
+          <strong>Validation &amp; Threat</strong>
+          <span>CORS · IP filter · WAF (OWASP CRS) · Bot detection · Threat protection · Data masking · Schema</span>
+        </div>
+        <div class="policy-cat">
+          <strong>Traffic management</strong>
+          <span>Circuit breaker · Response cache · KVM config · Flow callout</span>
+        </div>
+        <div class="policy-cat">
+          <strong>AI governance</strong>
+          <span>Guardrails · PII pre/post · Semantic cache · Token limits · Cost cap</span>
+        </div>
+        <div class="policy-cat">
+          <strong>Secrets &amp; identity</strong>
+          <span>Vault · AWS / Azure secrets · OAuth2 AS · multi-tenant RBAC</span>
+        </div>
       </div>
     </section>
 
