@@ -181,6 +181,11 @@ a {
   border-radius: 4px;
 }
 
+/* Mobile menu toggle — hidden on desktop, shown in the ≤980 query. */
+.docs-nav-toggle {
+  display: none;
+}
+
 .docs-nav-group {
   margin-bottom: 24px;
 }
@@ -572,24 +577,57 @@ pre code {
     grid-template-columns: 1fr;
     gap: 0;
   }
-  /* Collapse the full nav into a compact, scrollable menu panel so it
-     doesn't push the actual content a full screen down on mobile. */
+  /* Collapsible menu: a tap-to-expand toggle, collapsed by default so the
+     nav doesn't push content down and no links get clipped. */
   .docs-sidebar {
     position: static;
     display: block;
-    max-height: 260px;
-    overflow-y: auto;
-    margin-bottom: 28px;
-    padding: 14px 16px;
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    background: var(--surface-strong);
+    max-height: none;
+    overflow: visible;
+    margin-bottom: 26px;
+    padding: 0;
+    border: 0;
+    background: transparent;
   }
+  .docs-nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 48px;
+    padding: 0 16px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--surface-strong);
+    color: var(--ink);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .docs-nav-toggle::after {
+    content: "⌄";
+    margin-top: -6px;
+    color: var(--muted);
+    font-size: 1.1rem;
+    transition: transform 0.2s ease;
+  }
+  .docs-sidebar.is-open .docs-nav-toggle::after {
+    transform: rotate(180deg);
+    margin-top: 4px;
+  }
+  /* nav groups hidden until expanded */
   .docs-nav-group {
+    display: none;
     margin-bottom: 14px;
   }
   .docs-nav-group:last-child {
     margin-bottom: 0;
+  }
+  .docs-sidebar.is-open .docs-nav-group {
+    display: block;
+  }
+  .docs-sidebar.is-open .docs-nav-group:first-of-type {
+    margin-top: 16px;
   }
 }
 
