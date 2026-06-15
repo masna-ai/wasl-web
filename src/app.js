@@ -133,9 +133,15 @@ function wireCredibilityLinks() {
   const githubLink = document.querySelector('#githubLink');
   const docsLink = document.querySelector('#docsLink');
   const roadmapLink = document.querySelector('#roadmapLink');
+  const linkedinLink = document.querySelector('#linkedinLink');
+  const xLink = document.querySelector('#xLink');
+  const youtubeLink = document.querySelector('#youtubeLink');
   if (githubLink && links.github) githubLink.href = links.github;
   if (docsLink && links.docs) docsLink.href = links.docs;
   if (roadmapLink && links.roadmap) roadmapLink.href = links.roadmap;
+  if (linkedinLink && links.linkedin) linkedinLink.href = links.linkedin;
+  if (xLink && links.x) xLink.href = links.x;
+  if (youtubeLink && links.youtube) youtubeLink.href = links.youtube;
 }
 
 async function submitWaitlist(email) {

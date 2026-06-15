@@ -16,7 +16,10 @@ window.WASL_WEB_CONFIG = {
     googleAdsId: ''
   },
   links: {
-    github: 'https://github.com/',
+    github: 'https://github.com/waslhq',
+    linkedin: 'https://www.linkedin.com/company/waslhq',
+    x: 'https://x.com/waslhq',
+    youtube: 'https://www.youtube.com/@waslhq',
     docs: '/docs',
     roadmap: '/roadmap'
   }
