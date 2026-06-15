@@ -157,6 +157,49 @@ nav a:hover {
   color: var(--ink-strong);
 }
 
+/* Topbar: scroll-aware elevation */
+.topbar {
+  transition: background 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.topbar.scrolled {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: var(--line-strong);
+  box-shadow: 0 14px 38px rgba(15, 23, 42, 0.12);
+}
+
+/* Topbar nav: animated gradient underline */
+.topbar nav a {
+  position: relative;
+  transition: color 0.18s ease;
+}
+
+.topbar nav a:not(.nav-cta)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--brand-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.24s ease;
+}
+
+.topbar nav a:not(.nav-cta):hover::after {
+  transform: scaleX(1);
+}
+
+.topbar-cta .cta-arrow {
+  transition: transform 0.2s ease;
+}
+
+.topbar-cta:hover .cta-arrow {
+  transform: translateX(3px);
+}
+
 main {
   width: min(1180px, calc(100% - 40px));
   margin: 0 auto;
@@ -1257,6 +1300,10 @@ footer {
     border-radius: 9px;
     color: var(--ink-strong);
     font-weight: 700;
+  }
+
+  .topbar nav a:not(.nav-cta)::after {
+    display: none;
   }
 
   .topbar nav a:hover,

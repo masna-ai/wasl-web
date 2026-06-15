@@ -327,6 +327,14 @@ function initStatCounters() {
   nums.forEach((n) => io.observe(n));
 }
 
+function initStickyHeader() {
+  const bar = document.querySelector('.topbar');
+  if (!bar) return;
+  const onScroll = () => bar.classList.toggle('scrolled', window.scrollY > 8);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+}
+
 wireCredibilityLinks();
 setupMobileNav();
 applyVariantByQuery();
@@ -334,3 +342,4 @@ setupCookieConsent();
 initScrollReveal();
 initCardGlow();
 initStatCounters();
+initStickyHeader();
