@@ -37,6 +37,7 @@ html {
 
 body {
   min-height: 100vh;
+  overflow-x: hidden;
   color: var(--ink);
   background:
     linear-gradient(180deg, rgba(59, 130, 246, 0.08), rgba(248, 250, 252, 0) 360px),
@@ -74,6 +75,45 @@ input {
   background: rgba(255, 255, 255, 0.88);
   box-shadow: 0 8px 28px rgba(20, 38, 56, 0.08);
   backdrop-filter: blur(18px);
+}
+
+.menu-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid var(--line-strong);
+  border-radius: 9px;
+  background: var(--surface);
+  cursor: pointer;
+}
+
+.menu-bar {
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--ink-strong);
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .menu-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.nav-cta {
+  display: none;
 }
 
 .brand {
@@ -892,10 +932,53 @@ footer {
 @media (max-width: 1020px) {
   .topbar {
     width: calc(100% - 28px);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .topbar-cta {
+    display: none;
   }
 
   .topbar nav {
     display: none;
+    order: 3;
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    margin-top: 4px;
+    padding-top: 10px;
+    border-top: 1px solid var(--line);
+    font-size: 1rem;
+  }
+
+  .topbar nav.is-open {
+    display: flex;
+  }
+
+  .topbar nav a {
+    padding: 11px 12px;
+    border-radius: 9px;
+    color: var(--ink-strong);
+    font-weight: 700;
+  }
+
+  .topbar nav a:hover,
+  .topbar nav a:focus-visible {
+    background: var(--surface-soft);
+  }
+
+  .topbar nav .nav-cta {
+    display: inline-flex;
+    justify-content: center;
+    margin-top: 6px;
+    background: var(--brand-gradient);
+    color: #ffffff;
   }
 
   main,
@@ -907,15 +990,15 @@ footer {
   .split-section,
   .split-section.reverse,
   .waitlist {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .hero {
-    padding-top: 48px;
+    padding-top: 40px;
   }
 
   h1 {
-    max-width: 12.5ch;
+    max-width: 16ch;
   }
 
   .platform-grid {
@@ -937,11 +1020,12 @@ footer {
   }
 
   h1 {
-    font-size: clamp(2.7rem, 15vw, 4rem);
+    font-size: clamp(2.1rem, 9.5vw, 3.2rem);
+    line-height: 1.02;
   }
 
   h2 {
-    font-size: clamp(1.9rem, 10vw, 2.6rem);
+    font-size: clamp(1.75rem, 8vw, 2.4rem);
   }
 
   .hero {
@@ -958,11 +1042,11 @@ footer {
   .platform-grid,
   .logo-strip,
   .metric-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .screen-body {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .screen-body aside {

@@ -40,10 +40,16 @@
       <img class="brand-mark" src="./brand-mark.svg" alt="" aria-hidden="true" width="34" height="34" />
       <span class="brand-text"><span class="brand-w">W</span>asl</span>
     </a>
-    <nav aria-label="Primary navigation">
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-controls="primaryNav" aria-expanded="false">
+      <span class="menu-bar"></span>
+      <span class="menu-bar"></span>
+      <span class="menu-bar"></span>
+    </button>
+    <nav id="primaryNav" aria-label="Primary navigation">
       <a href="#platform">Platform</a>
       <a href="#architecture">Architecture</a>
       <a href="/docs/">Docs</a>
+      <a class="nav-cta" href="#waitlist">Request Access</a>
     </nav>
     <a class="btn btn-outline topbar-cta" href="#waitlist">Request Access</a>
   </header>
@@ -52,7 +58,7 @@
     <section class="hero">
       <div class="hero-copy reveal">
         <p class="eyebrow">Enterprise gateway platform</p>
-        <h1>One&nbsp;gateway. <span class="grad">Every kind of traffic.</span></h1>
+        <h1>One gateway. <span class="grad">Every kind of traffic.</span></h1>
         <p class="hero-lede">
           WASL runs API traffic, governed AI access, event streaming, and async jobs on one platform —
           authored, governed, and observed from a single control plane, and deployed anywhere from cloud to edge.
