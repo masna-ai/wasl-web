@@ -3,25 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WASL Docs | Unified Gateway</title>
+  <title>WASL Docs | API Gateway</title>
+  <link rel="icon" type="image/svg+xml" href="../brand-mark.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="./docs.css" />
 </head>
 <body>
   <div class="docs-shell">
     <header class="docs-topbar">
-      <div class="docs-brand">wasl <span>docs</span></div>
+      <div class="docs-brand"><span class="docs-wordmark">Wasl</span> <span>docs</span></div>
       <div class="docs-actions">
         <a class="docs-btn" href="https://github.com/" target="_blank" rel="noopener">Star on GitHub</a>
         <a class="docs-btn docs-btn-primary" href="/#waitlist">Join Waitlist</a>
       </div>
     </header>
     <div class="docs-layout">
-                        <aside class="docs-sidebar">
+                  <aside class="docs-sidebar">
         <div class="docs-nav-group">
           <h4>Getting Started</h4>
           <nav class="docs-nav">
@@ -34,8 +35,7 @@
           <nav class="docs-nav">
             <a href="./api-gateway.html" class="active">API Gateway</a>
             <a href="./ai-gateway.html">AI Gateway</a>
-            <a href="./event-gateway.html">Event Gateway</a>
-            <a href="./flow-runtime.html">FlowJS Runtime</a>
+            <a href="./flow-runtime.html">Flow Runtime</a>
             <a href="./developer-portal.html">Developer Portal</a>
           </nav>
         </div>
@@ -43,7 +43,7 @@
           <h4>Operations & Logic</h4>
           <nav class="docs-nav">
             <a href="./policies.html">Policies</a>
-            <a href="./adapters.html">Gateway Plugins</a>
+            <a href="./adapters.html">Integration Plugins</a>
             <a href="./deployments.html">Deployments</a>
           </nav>
         </div>
@@ -58,43 +58,42 @@
       </aside>
       <main class="docs-content">
         <section class="docs-hero">
-          <div class="docs-eyebrow">Product &middot; Unified Gateway</div>
-          <h1>Build APIs, integrations, and AI routes on one gateway model</h1>
-          <p>The <strong>WASL Unified Gateway</strong> is the data-plane runtime for API routes, FlowJS integration routes, plugin-backed backend calls, event listener flows, AI routes, policies, revisioned deployments, tenant isolation, and distributed tracing.</p>
+          <div class="docs-eyebrow">Product &middot; API Gateway</div>
+          <h1>Build and govern API routes</h1>
+          <p>The <strong>WASL API Gateway</strong> is one of two first-class products in the platform &mdash; a policy-first runtime for route definition, revisioned deployments, multi-tenancy, target routing, and full distributed tracing.</p>
         </section>
 
         <section class="docs-section">
           <h2>Key concepts</h2>
           <ul>
-            <li><span class="docs-inline-code">Bundle</span>: a versioned workspace containing APIs, FlowJS flows, targets, plugin references, triggers, and policies.</li>
-            <li><span class="docs-inline-code">Route</span>: the public entry point such as <span class="docs-inline-code">GET /orders</span>, an AI route, or a listener-triggered integration.</li>
-            <li><span class="docs-inline-code">FlowJS</span>: JavaScript orchestration logic for request shaping, transforms, target calls, and plugin adapter calls.</li>
-            <li><span class="docs-inline-code">Gateway plugin</span>: installable connectivity or governance extension invoked from FlowJS or the AI governance chain.</li>
-            <li><span class="docs-inline-code">Policy</span>: auth, security, traffic, validation, governance, or response control applied around the route and target calls.</li>
+            <li><span class="docs-inline-code">Bundle</span>: a versioned workspace containing APIs, flows, and policies.</li>
+            <li><span class="docs-inline-code">API</span>: the public route definition such as <span class="docs-inline-code">GET /orders</span>.</li>
+            <li><span class="docs-inline-code">Flow</span>: the runtime logic executed for the API.</li>
+            <li><span class="docs-inline-code">Policy</span>: auth, security, or traffic control applied to the route.</li>
           </ul>
 
           <div class="docs-diagram">
-            <div class="docs-diagram-label">Unified execution path</div>
+            <div class="docs-diagram-label">Request Path</div>
             <div class="diagram-stage-grid">
               <div class="diagram-stage diagram-stage-accent">
                 <div class="diagram-stage-step">1</div>
-                <strong>Ingress</strong>
-                <p>Client, partner, app, scheduler, event listener, or AI client enters through a tenant and environment route.</p>
+                <strong>Client Request</strong>
+                <p>Client calls the tenant and environment route through the public gateway hostname.</p>
               </div>
               <div class="diagram-stage">
                 <div class="diagram-stage-step">2</div>
                 <strong>Gateway + Policies</strong>
-                <p>Authentication, validation, security, quota, and traffic controls run before FlowJS or provider execution.</p>
+                <p>Authentication, security, and traffic controls execute before any flow code runs.</p>
               </div>
               <div class="diagram-stage diagram-stage-alt">
                 <div class="diagram-stage-step">3</div>
-                <strong>FlowJS + Plugins</strong>
-                <p>FlowJS calls HTTP targets and gateway plugins for databases, events, search, storage, custom systems, or AI providers.</p>
+                <strong>Flow + Targets</strong>
+                <p>Flow runtime calls targets, adapters, databases, or other systems using environment-aware configuration.</p>
               </div>
               <div class="diagram-stage">
                 <div class="diagram-stage-step">4</div>
                 <strong>Response + Trace</strong>
-                <p>Gateway returns the result and records policy events, flow steps, plugin calls, payload samples, and correlation IDs.</p>
+                <p>Gateway returns the response and records a traceable execution path for debugging and operations.</p>
               </div>
             </div>
           </div>
@@ -103,12 +102,11 @@
         <section class="docs-section">
           <h2>Typical lifecycle</h2>
           <ol>
-            <li>Create a bundle for the API, integration, or AI surface.</li>
-            <li>Add a public route, listener trigger, or AI route.</li>
-            <li>Implement FlowJS logic or configure the AI governance chain.</li>
-            <li>Install and configure gateway plugins per tenant and environment.</li>
-            <li>Attach policies around ingress, target/plugin calls, and responses.</li>
-            <li>Deploy the immutable revision to an environment.</li>
+            <li>Create bundle.</li>
+            <li>Add API endpoint.</li>
+            <li>Implement flow logic.</li>
+            <li>Attach policies.</li>
+            <li>Deploy revision to environment.</li>
             <li>Package operations in a consumer product and subscribe apps.</li>
             <li>Promote or roll back as needed.</li>
           </ol>
@@ -128,7 +126,7 @@
 
         <section class="docs-section">
           <h2>KVM and runtime config</h2>
-          <p>KVM is a gateway-side configuration store used for runtime lookups and secret references. It is managed in Studio and read inside FlowJS via <span class="docs-inline-code">flow.kvm</span> or the Apigee-compatible context API.</p>
+          <p>KVM is a gateway-side configuration store used for runtime lookups and secret references. It is managed in Studio under <span class="docs-inline-code">API Gateway → KVM</span>, then read inside flow scripts via <span class="docs-inline-code">flow.kvm</span>.</p>
           <ul>
             <li>Use it for tenant/environment-scoped values.</li>
             <li>Do not inject KVM data into request payloads.</li>
@@ -137,8 +135,8 @@
         </section>
 
         <section class="docs-section">
-          <h2>Targets, plugins, and outbound calls</h2>
-          <p>Use targets for HTTP systems and gateway plugins for databases, queues, search, storage, and custom services. Both are environment-aware, so the same FlowJS code can run across dev, staging, and production.</p>
+          <h2>Targets and outbound calls</h2>
+          <p>Use targets when your flow needs to call external HTTP systems. Targets are environment-aware and designed to separate logical route references from actual endpoint configuration.</p>
 <pre><code>const result = http.getJson('erp-service', {
   path: '/orders',
   query: { status: 'OPEN' }
@@ -146,16 +144,16 @@
 
           <div class="docs-mini-grid">
             <div class="docs-mini-card">
-              <strong>Unified Route</strong>
-              <span>What clients, events, or AI consumers enter through.</span>
+              <strong>Public Route</strong>
+              <span>What clients call through the gateway.</span>
             </div>
             <div class="docs-mini-card">
-              <strong>FlowJS Logic</strong>
-              <span>The orchestration script that shapes, calls, joins, and returns data.</span>
+              <strong>Bundle Target</strong>
+              <span>The logical alias referenced by the flow.</span>
             </div>
             <div class="docs-mini-card">
-              <strong>Target or Plugin</strong>
-              <span>The environment-specific backend, queue, datastore, or provider connection.</span>
+              <strong>Environment Target</strong>
+              <span>The actual endpoint configured per environment.</span>
             </div>
           </div>
         </section>

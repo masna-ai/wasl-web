@@ -4,48 +4,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WASL — One Gateway for APIs, AI, Events, and Integrations</title>
+  <title>WASL — One Gateway for APIs, AI, Events, and Jobs</title>
   <meta name="description"
-    content="WASL is a unified gateway platform. APIs, AI workloads, event streams, and integration flows run on the same data plane — with shared revisions, policies, plugins, and traces. One platform instead of four vendors." />
+    content="WASL is a unified platform for API traffic, governed AI access, event streaming, and async jobs — authored, governed, and observed from one control plane and deployed anywhere from cloud to edge." />
 
-  <meta property="og:title" content="WASL — One Gateway for APIs, AI, Events, and Integrations" />
+  <link rel="canonical" href="https://waslhq.com/" />
+  <meta property="og:title" content="WASL — One Gateway for APIs, AI, Events, and Jobs" />
   <meta property="og:description"
-    content="APIs, AI workloads, event streams, and integration flows — on a single gateway with shared governance, observability, and a connected hybrid runtime." />
+    content="One platform for API traffic, governed AI access, event streaming, and async jobs — with a connected hybrid runtime you can deploy anywhere." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://waslhq.com/og-image.jpg" />
+  <meta property="og:url" content="https://waslhq.com/" />
+  <meta property="og:image" content="https://waslhq.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Wasl — one gateway for every kind of traffic" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="WASL — One Gateway for APIs, AI, Events, and Integrations" />
+  <meta name="twitter:title" content="WASL — One Gateway for APIs, AI, Events, and Jobs" />
   <meta name="twitter:description"
-    content="One control plane. Five governed surfaces. One trace pipeline across every kind of traffic." />
+    content="One platform for APIs, AI, events, and async jobs — with a connected hybrid runtime you can deploy anywhere." />
+  <meta name="twitter:image" content="https://waslhq.com/og-image.png" />
 
+  <link rel="icon" type="image/svg+xml" href="./brand-mark.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 
 <body>
   <header class="topbar">
-    <a class="brand" href="#top" aria-label="WASL home">
-      <span class="brand-mark">W</span>
-      <span class="brand-text">WASL</span>
+    <a class="brand" href="#top" aria-label="Wasl home">
+      <img class="brand-mark" src="./brand-mark.svg" alt="" aria-hidden="true" width="34" height="34" />
+      <span class="brand-text"><span class="brand-w">W</span>asl</span>
     </a>
-    <button
-      class="menu-toggle"
-      id="menuToggle"
-      type="button"
-      aria-label="Open menu"
-      aria-controls="primaryNav"
-      aria-expanded="false">
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-controls="primaryNav" aria-expanded="false">
       <span class="menu-bar"></span>
       <span class="menu-bar"></span>
       <span class="menu-bar"></span>
     </button>
     <nav id="primaryNav" aria-label="Primary navigation">
-      <a href="#surfaces">Platform</a>
+      <a href="#platform">Platform</a>
+      <a href="#architecture">Architecture</a>
       <a href="/docs/">Docs</a>
       <a class="nav-cta" href="#waitlist">Request Access</a>
     </nav>
@@ -53,448 +55,243 @@
   </header>
 
   <main id="top">
-    <section class="hero product-hero">
+    <section class="hero">
       <div class="hero-copy reveal">
-        <p class="eyebrow">APIs · AI · Events · Integrations · Plugins</p>
-        <h1>One gateway. Every kind of traffic.</h1>
+        <p class="eyebrow">Enterprise gateway platform</p>
+        <h1>One gateway. <span class="grad">Every kind of traffic.</span></h1>
         <p class="hero-lede">
-          WASL runs API management, integration orchestration, event streaming, and governed AI access on the same
-          platform — with shared governance, observability, and a connected hybrid runtime. Stop stitching together
-          a gateway, an iPaaS, an event broker, and an AI proxy from four vendors.
+          WASL runs API traffic, governed AI access, event streaming, and async jobs on one platform —
+          authored, governed, and observed from a single control plane, and deployed anywhere from cloud to edge.
         </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#waitlist">Request Early Access</a>
+          <a class="btn btn-secondary" href="/docs/">Read Documentation</a>
+        </div>
         <div class="hero-proof" aria-label="Platform highlights">
-          <span>One control plane</span>
-          <span>Zero-downtime deploy &amp; rollback</span>
+          <span>API · AI · Events · Jobs</span>
           <span>24 built-in policies</span>
-          <span>OpenAI-compatible AI surface</span>
+          <span>Deploy anywhere</span>
+          <span>Tenant isolated</span>
         </div>
       </div>
 
-      <div class="product-map reveal reveal-delay-1" aria-label="WASL unified gateway">
-        <div class="map-header">
-          <span>Unified gateway platform</span>
-          <strong>API · AI · Event Gateways</strong>
+      <div class="hero-visual reveal reveal-delay-1" aria-label="WASL platform architecture overview">
+        <div class="traffic-card">
+          <div class="traffic-card-head">
+            <span>Tenant request</span>
+            <strong>acme.example.com</strong>
+          </div>
+          <div class="traffic-path">
+            <div class="traffic-node">
+              <span class="node-kicker">Data plane runtimes</span>
+              <strong>API · AI · Event · Worker</strong>
+              <small>Routing, policies, flows, jobs, and trace capture</small>
+            </div>
+            <div class="traffic-arrow"></div>
+            <div class="node-grid">
+              <div class="traffic-node compact">
+                <span class="node-kicker">PostgreSQL</span>
+                <strong>Deployments</strong>
+              </div>
+              <div class="traffic-node compact">
+                <span class="node-kicker">Redis</span>
+                <strong>Cluster state</strong>
+              </div>
+            </div>
+            <div class="traffic-arrow"></div>
+            <div class="traffic-node">
+              <span class="node-kicker">Plugin layer</span>
+              <strong>Backends + LLM providers</strong>
+              <small>Databases, queues, object storage, SaaS APIs, and LLM providers</small>
+            </div>
+          </div>
         </div>
-        <div class="map-grid">
-          <div class="map-card primary">
-            <span>Gateway</span>
-            <strong>API Gateway</strong>
-            <small>REST, HTTP/2, gRPC, WebSocket — direct-proxy, flow, or mock per route.</small>
-          </div>
-          <div class="map-card">
-            <span>Orchestration</span>
-            <strong>FlowJS iPaaS</strong>
-            <small>JavaScript orchestration with first-class connectors for databases, queues, and SaaS APIs.</small>
-          </div>
-          <div class="map-card">
-            <span>AI</span>
-            <strong>AI Gateway</strong>
-            <small>OpenAI-compatible surface with safety, cost, and quota governance built in.</small>
-          </div>
-          <div class="map-card">
-            <span>Events</span>
-            <strong>Event Gateway</strong>
-            <small>HTTP produce + SSE / long-poll consume. Subscriptions, contracts, AsyncAPI out of the box.</small>
-          </div>
-          <div class="map-card">
-            <span>Extensions</span>
-            <strong>Plugin Marketplace</strong>
-            <small>Signed, hot-reloadable connectors. Build your own with the public SDK.</small>
-          </div>
-        </div>
-        <div class="map-runtime">
+        <div class="studio-card">
           <div>
-            <span>Connected hybrid runtime</span>
-            <strong>Self-registering · fleet-aware · stateless</strong>
+            <span class="node-kicker">Studio control plane</span>
+            <strong>Author, deploy, observe</strong>
           </div>
-          <em>Control plane outages never affect traffic</em>
+          <span class="status-pill">Separated runtime</span>
         </div>
       </div>
     </section>
 
-    <section class="trust-strip reveal" aria-label="Project credentials">
-      <span class="trust-item"><strong>Apache 2.0</strong> &middot; self-hostable, no vendor lock-in</span>
-      <span class="trust-divider" aria-hidden="true"></span>
-      <span class="trust-item">Runs on the JVM, PostgreSQL, and Redis you already operate</span>
-      <span class="trust-divider" aria-hidden="true"></span>
-      <span class="trust-item">Helm-first &middot; Kubernetes-native by design</span>
+    <section class="logo-strip reveal" aria-label="Core platform surfaces">
+      <span>API Gateway</span>
+      <span>AI Gateway</span>
+      <span>Event Gateway</span>
+      <span>Worker</span>
+      <span>Studio</span>
+      <span>Portal</span>
     </section>
 
-    <section id="why" class="section">
+    <section id="platform" class="section">
       <div class="section-head reveal">
-        <p class="eyebrow">Why WASL</p>
-        <h2>Three things you won't find in a typical gateway.</h2>
+        <p class="eyebrow">Platform</p>
+        <h2>Not just a gateway. A complete platform for every kind of traffic.</h2>
         <p>
-          Most platforms force a trade-off: a fast gateway with no integration runtime, an iPaaS that can't serve
-          production API traffic, or an AI proxy that's blind to the rest of your stack. WASL refuses the trade-off
-          — every workload runs on one platform, governed by one policy engine, observed by one trace pipeline.
+          API programs, LLM access, event streams, async jobs, backend integrations, and developer onboarding
+          are managed together — one place to author, govern, deploy, and observe everything.
         </p>
       </div>
       <div class="platform-grid">
         <article class="feature-card reveal reveal-delay-1">
-          <h3>One platform, four workloads</h3>
-          <p>
-            APIs, integration flows, event streams, and AI traffic all share the same governance, observability,
-            and deployment model. One platform to learn, one platform to operate, one platform to audit.
-          </p>
+          <span class="card-icon">01</span>
+          <h3>API Gateway</h3>
+          <p>Tenant-aware routing for REST, HTTP/2, WebSocket, and gRPC — with JavaScript flows and a unified policy engine on every request.</p>
         </article>
         <article class="feature-card reveal reveal-delay-2">
-          <h3>Execution-mode spectrum</h3>
-          <p>
-            Pick the cheapest path per route: <strong>direct-proxy</strong> for pass-through, <strong>flow</strong>
-            for custom JavaScript, <strong>mock</strong> for contract-first design. Latency budgets stay realistic
-            instead of "everything is a flow."
-          </p>
+          <span class="card-icon">02</span>
+          <h3>AI Gateway</h3>
+          <p>Govern LLM traffic with auth, guardrails, PII handling, semantic cache, RAG, provider fallback, token limits, quota, and cost caps.</p>
         </article>
         <article class="feature-card reveal reveal-delay-3">
-          <h3>Atomic deploy and rollback</h3>
-          <p>
-            Every save is an immutable, versioned revision. Promotion across fleets and one-click rollback complete
-            as a single atomic action — zero-downtime, race-free, and GitOps-friendly. No file copies, no half-applied
-            state, no "did the new pod pick it up yet?"
-          </p>
+          <span class="card-icon">03</span>
+          <h3>Event Gateway</h3>
+          <p>Pub/sub over plain HTTP — produce with REST, consume over SSE or long-poll. Subscriptions, schema contracts, and AsyncAPI, governed like the rest of your traffic.</p>
+        </article>
+        <article class="feature-card reveal reveal-delay-1">
+          <span class="card-icon">04</span>
+          <h3>Worker Runtime</h3>
+          <p>Scheduled jobs, long-running orchestrations, connector polling, and async APIs — with retries, dead-letter handling, and trackable progress, off the request path.</p>
+        </article>
+        <article class="feature-card reveal reveal-delay-2">
+          <span class="card-icon">05</span>
+          <h3>Integration Plugins</h3>
+          <p>Connect flows to databases, message queues, object storage, search, and SaaS APIs through hot-reloadable, signed plugins built on a public SDK.</p>
+        </article>
+        <article class="feature-card reveal reveal-delay-3">
+          <span class="card-icon">06</span>
+          <h3>Studio &amp; Developer Portal</h3>
+          <p>One control plane to author, deploy, govern, and observe — plus a self-service portal with catalog, API keys, usage analytics, and a built-in OAuth2 server.</p>
         </article>
       </div>
     </section>
 
-    <section id="surfaces" class="section tinted">
-      <div class="section-head reveal">
-        <p class="eyebrow">The five surfaces</p>
-        <h2>One platform, designed around what platform teams actually run.</h2>
-        <p>
-          Each surface is a first-class product with its own authoring, deployment, and governance — but they share
-          the same engine, the same tenant model, and the same observability. Pick the surfaces you need today, add
-          the rest later without re-platforming.
-        </p>
-      </div>
-      <div class="capability-list reveal reveal-delay-1">
-        <div>
-          <strong>API Gateway</strong>
-          <span>
-            Multi-protocol runtime — REST, HTTP/2, WebSocket, and gRPC on a single port. Versioned bundles,
-            fleet-aware deployment, and a unified policy engine that runs at every stage of the request lifecycle.
-          </span>
-        </div>
-        <div>
-          <strong>FlowJS iPaaS</strong>
-          <span>
-            JavaScript orchestration with HTTP targets, plugin adapters, reusable modules, and retry / circuit-breaker
-            guards. Author transforms, enrichments, and event reactions without leaving the gateway.
-          </span>
-        </div>
-        <div>
-          <strong>AI Gateway</strong>
-          <span>
-            OpenAI-compatible surface with twelve governance plugins, multi-provider fallback, request-driven
-            streaming, async jobs, and tenant-scoped semantic cache. Drop in any LLM, govern it the same way.
-          </span>
-        </div>
-        <div>
-          <strong>Event Gateway</strong>
-          <span>
-            HTTP-based produce and SSE / long-poll consume — pub/sub for services that can't (or don't want to) run
-            a Kafka client. First-class subscriptions, contracts, AsyncAPI docs, and offset-commit semantics.
-          </span>
-        </div>
-        <div>
-          <strong>Plugin Marketplace</strong>
-          <span>
-            Eight built-in connectors out of the box — JDBC, Kafka, MongoDB, Redis, RabbitMQ, OpenSearch, S3, HTTP —
-            plus a public SDK. Hot-reloadable, cryptographically signed, with first-class telemetry.
-          </span>
-        </div>
-        <div>
-          <strong>Studio</strong>
-          <span>
-            One control plane for authoring, deployment, policy composition, plugin installation, AI-assisted
-            generation, traces, alerts, and tenant administration.
-          </span>
-        </div>
-        <div>
-          <strong>Developer Portal</strong>
-          <span>
-            Self-service catalog with OpenAPI specs, API key provisioning, an embedded OAuth2 Authorization Server,
-            an App + Product + Subscription model, and per-key usage analytics.
-          </span>
-        </div>
-      </div>
-    </section>
-
-    <section id="ai" class="split-section">
+    <section id="architecture" class="split-section">
       <div class="section-copy reveal">
-        <p class="eyebrow">AI Gateway</p>
-        <h2>Governed LLM access without a second platform.</h2>
+        <p class="eyebrow">Deploy anywhere</p>
+        <h2>Connected hybrid runtime, managed from one console.</h2>
         <p>
-          The AI Gateway runs as its own data plane so long-running LLM calls don't share thread pools with your
-          synchronous API traffic — but it inherits WASL's policy engine, trace pipeline, tenant model, and
-          deployment story. The public surface is OpenAI-compatible: every consumer calls
-          <code>/v1/chat/completions</code> and WASL resolves the route, provider, and governance from the bearer
-          credential.
+          The control plane writes deployment intent; stateless runtimes read it. Runtimes self-register, pull
+          their desired state over an outbound-only connection, and keep serving traffic even when the control
+          plane is offline — so you can run WASL in the cloud, on-premises, on Kubernetes, or at the edge and
+          manage it all from one place.
         </p>
         <div class="check-list">
-          <span>Twelve governance plugins in a fixed, observable pipeline</span>
-          <span>Multi-provider fallback — OpenAI, Anthropic, Gemini, Bedrock, Vertex, or your own</span>
-          <span>PII pre/post, content guardrails, semantic cache, RAG, versioned prompts</span>
-          <span>Per-tenant token quotas, daily cost caps, streaming or async by request</span>
+          <span>Runtimes self-register and pull desired state — no control plane in the request path</span>
+          <span>Outbound-only agent — the control plane never reaches into your network</span>
+          <span>Offline cache keeps traffic flowing through control-plane outages</span>
+          <span>Run across cloud, on-premises, Kubernetes, and edge — one console</span>
         </div>
       </div>
-      <div class="deployment-board reveal reveal-delay-1" aria-label="AI Gateway pipeline">
-        <div class="board-title">
-          <span>POST /v1/chat/completions</span>
-          <strong>plugin pipeline</strong>
+      <div class="architecture-panel reveal reveal-delay-1">
+        <div class="panel-row">
+          <span class="panel-label">Control plane</span>
+          <strong>Studio</strong>
+          <small>Author, govern, deploy, observe</small>
         </div>
-        <div class="env-row"><span>auth</span><strong>JWT · OAuth2</strong><em>pre</em></div>
-        <div class="env-row"><span>prompt-management</span><strong>versioned</strong><em>pre</em></div>
-        <div class="env-row"><span>rag · semantic-cache</span><strong>tenant-scoped</strong><em>pre</em></div>
-        <div class="env-row"><span>pii · guardrail · limits</span><strong>safety</strong><em>pre</em></div>
-        <div class="env-row"><span>provider loop</span><strong>retry · CB · fallback</strong><em>route</em></div>
-        <div class="env-row"><span>quota · cost</span><strong>per tenant</strong><em>post</em></div>
-        <div class="promotion-flow">
-          <span>Stream</span>
-          <span>Buffer</span>
-          <span>Async 202</span>
+        <div class="panel-row active">
+          <span class="panel-label">Data plane</span>
+          <strong>API · AI · Event Gateways &amp; Worker</strong>
+          <small>Stateless runtimes, hot-reload on every deploy</small>
+        </div>
+        <div class="panel-row">
+          <span class="panel-label">Hybrid fleet</span>
+          <strong>Connected runtimes</strong>
+          <small>Self-register, pull desired state, report health</small>
+        </div>
+        <div class="panel-row">
+          <span class="panel-label">State</span>
+          <strong>PostgreSQL + Redis</strong>
+          <small>Authoritative state and cluster coordination</small>
         </div>
       </div>
     </section>
 
-    <section id="ipaas" class="split-section reverse">
+    <section id="ai-gateway" class="section tinted">
+      <div class="section-head reveal">
+        <p class="eyebrow">AI Gateway</p>
+        <h2>Enterprise controls for every LLM request.</h2>
+        <p>
+          WASL runs AI traffic through a fixed governance pipeline before and after provider calls, with provider
+          routing, fallback, streaming normalization, quota, and cost accounting built in.
+        </p>
+      </div>
+      <div class="pipeline reveal reveal-delay-1">
+        <span>Auth</span>
+        <span>Prompt Management</span>
+        <span>RAG</span>
+        <span>Semantic Cache</span>
+        <span>PII</span>
+        <span>Guardrail</span>
+        <span>Limits</span>
+        <span>Provider Loop</span>
+        <span>Quota + Cost</span>
+      </div>
+    </section>
+
+    <section id="studio" class="split-section reverse">
       <div class="product-screen reveal">
         <div class="screen-top">
           <span></span><span></span><span></span>
         </div>
         <div class="screen-body">
           <aside>
-            <strong>Flow JS</strong>
-            <span class="selected">customer-sync</span>
-            <span>order-enrich</span>
-            <span>kyc-events</span>
-            <span>nightly-recon</span>
+            <strong>WASL Studio</strong>
+            <span class="selected">Deployments</span>
+            <span>Policies</span>
+            <span>Certificates</span>
+            <span>Traces</span>
+            <span>Tenants</span>
           </aside>
           <section>
             <div class="screen-title">
-              <span>acme-corp / prod-eu</span>
-              <strong>flow runtime</strong>
+              <span>acme-corp / dev</span>
+              <strong>Customer APIs</strong>
             </div>
             <div class="deploy-table">
-              <div><span>http.get('crm', ...)</span><strong>3-level</strong><em>200</em></div>
-              <div><span>adapters.query('salesDb', ...)</span><strong>JDBC</strong><em>14ms</em></div>
-              <div><span>adapters.invoke('kafka', ...)</span><strong>publish</strong><em>ack</em></div>
-              <div><span>response.json({ ... })</span><strong>shape</strong><em>OK</em></div>
+              <div><span>orders-api</span><strong>rev 18</strong><em>running</em></div>
+              <div><span>identity-api</span><strong>rev 09</strong><em>running</em></div>
+              <div><span>ai-support</span><strong>rev 04</strong><em>guarded</em></div>
             </div>
           </section>
         </div>
       </div>
       <div class="section-copy reveal reveal-delay-1">
-        <p class="eyebrow">iPaaS inside the gateway</p>
-        <h2>FlowJS orchestration with the connectors enterprises actually need.</h2>
+        <p class="eyebrow">Studio + Portal</p>
+        <h2>Operate the platform without hiding the runtime model.</h2>
         <p>
-          FlowJS executes JavaScript inside the gateway itself — request shaping, downstream HTTP calls, database
-          and queue access, reusable modules, retry and circuit-breaker guards. Backend systems extend the gateway
-          as plugins, not bolted-on sidecars; the same flow runs in dev, staging, and production without code changes.
+          Studio exposes the operational primitives directly: tenants, fleets, bundles, revisions, policies,
+          certificates, traces, and deployments. Portal gives consumers a self-service API surface backed by
+          keys, subscriptions, usage analytics, and OAuth2 flows.
         </p>
-        <div class="check-list">
-          <span>Targets resolved per-fleet — same code, different backend per region or stage</span>
-          <span>Connectors for JDBC, Kafka, MongoDB, Redis, RabbitMQ, OpenSearch, S3, HTTP</span>
-          <span>Hot-reloadable, cryptographically signed plugins authored against a public SDK</span>
-          <span>Event-triggered flows for Kafka and the WASL Event Gateway</span>
-        </div>
-      </div>
-    </section>
-
-    <section id="events" class="split-section">
-      <div class="section-copy reveal">
-        <p class="eyebrow">Event Gateway</p>
-        <h2>Pub/sub without a Kafka client in every service.</h2>
-        <p>
-          The Event Gateway exposes event streams over plain HTTP — producers POST records, consumers stream over
-          SSE or long-poll, and offsets are managed by the gateway. Browsers, edge workers, mobile clients, and
-          partner systems can join the same event flow as your backend without running a Kafka SDK or punching
-          holes in the network perimeter.
-        </p>
-        <div class="check-list">
-          <span>HTTP produce, SSE / long-poll consume, gateway-managed offsets</span>
-          <span>Subscriptions, contracts, and AsyncAPI docs generated for every endpoint</span>
-          <span>Same auth, quota, and trace pipeline as your REST and AI traffic</span>
-          <span>Backed by Kafka today; protocol-agnostic so additional brokers can ship without breaking consumers</span>
-        </div>
-      </div>
-      <div class="deployment-board reveal reveal-delay-1" aria-label="Event Gateway flow">
-        <div class="board-title">
-          <span>POST /events/{endpoint}/records</span>
-          <strong>producer</strong>
-        </div>
-        <div class="env-row"><span>auth</span><strong>API key · JWT</strong><em>pre</em></div>
-        <div class="env-row"><span>contract validation</span><strong>JSON schema</strong><em>pre</em></div>
-        <div class="env-row"><span>broker write</span><strong>acked</strong><em>route</em></div>
-        <div class="env-row"><span>GET /stream</span><strong>SSE</strong><em>consume</em></div>
-        <div class="env-row"><span>POST /commit</span><strong>offset</strong><em>ack</em></div>
-        <div class="promotion-flow">
-          <span>Produce</span>
-          <span>Subscribe</span>
-          <span>Commit</span>
-        </div>
-      </div>
-    </section>
-
-    <section id="architecture" class="split-section reverse">
-      <div class="section-copy reveal">
-        <p class="eyebrow">Architecture</p>
-        <h2>Strict separation. Stateless data plane. Connected hybrid runtime.</h2>
-        <p>
-          The control plane writes deployment intent; the data plane reads it. There is no synchronous control-plane
-          dependency at request time — your traffic keeps flowing even if Studio is being upgraded, restarted, or
-          fully offline. Runtimes register themselves with the control plane on first boot, advertise their
-          capabilities, and pull desired state on their own cadence — so you can run gateways in your DC, at the
-          edge, or in a partner's cluster and still manage them from one console.
-        </p>
-        <div class="check-list">
-          <span>Connected hybrid: runtimes self-register and pull desired state, no control plane in the request path</span>
-          <span>Hostname-based tenant + fleet routing (<code>acme.prod-eu.example.com</code>)</span>
-          <span>Versioned revisions, atomic promote and rollback across fleets</span>
-          <span>Stateless data-plane pods scale independently of the control plane</span>
-        </div>
-      </div>
-      <div class="deployment-board reveal reveal-delay-1">
-        <div class="board-title">
-          <span>fleet deployments</span>
-          <strong>acme-corp</strong>
-        </div>
-        <div class="env-row">
-          <span>prod-eu</span><strong>rev 17</strong><em>active</em>
-        </div>
-        <div class="env-row">
-          <span>prod-us</span><strong>rev 17</strong><em>active</em>
-        </div>
-        <div class="env-row">
-          <span>staging</span><strong>rev 18</strong><em>testing</em>
-        </div>
-        <div class="env-row">
-          <span>dev</span><strong>rev 19</strong><em>draft</em>
-        </div>
-        <div class="promotion-flow">
-          <span>Deploy</span>
-          <span>Promote</span>
-          <span>Rollback</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section tinted">
-      <div class="section-head reveal">
-        <p class="eyebrow">Security &amp; governance</p>
-        <h2>24 policies. Five stages. One policy engine.</h2>
-        <p>
-          Every API, flow, and AI route runs through the same unified policy engine — stateful policies are
-          cluster-aware when Redis is configured, with local fallback for single-node development. Secrets are
-          referenced, never stored.
-        </p>
-      </div>
-      <div class="policy-categories reveal reveal-delay-1">
-        <div>
-          <strong>Authentication</strong>
-          <span>API Key · Basic · JWT (RS256/HS256) · OAuth2 (introspection / JWKS) · mTLS</span>
-        </div>
-        <div>
-          <strong>Rate &amp; Quota</strong>
-          <span>Token Bucket · Fixed Window · Sliding Window · Spike Arrest (GCRA) · Quota (daily/weekly/monthly)</span>
-        </div>
-        <div>
-          <strong>Validation &amp; Threat</strong>
-          <span>CORS · IP Filter · Request Size · JSON Schema · OpenAPI · WAF (OWASP CRS) · Bot Detection · IP Reputation · Threat Protection · Data Masking</span>
-        </div>
-        <div>
-          <strong>Traffic Management</strong>
-          <span>Circuit Breaker · Response Cache · KVM Config · Flow Callout</span>
-        </div>
-        <div>
-          <strong>AI Governance</strong>
-          <span>Guardrails · PII pre/post · Semantic Cache · Token Limits · Cost Cap</span>
-        </div>
-        <div>
-          <strong>Secrets &amp; Identity</strong>
-          <span>Vault · AWS SSM / Secrets Manager · Azure Key Vault · OAuth2 AS (RS256, PKCE, refresh, revoke) · multi-tenant RBAC</span>
+        <div class="metric-row">
+          <div><strong>4</strong><span>data-plane runtimes</span></div>
+          <div><strong>24</strong><span>built-in policies</span></div>
+          <div><strong>5</strong><span>tenant resolution modes</span></div>
         </div>
       </div>
     </section>
 
     <section class="section">
       <div class="section-head reveal">
-        <p class="eyebrow">Observability</p>
-        <h2>Apigee-X parity, without a second APM.</h2>
-        <p>
-          One trace pipeline covers API, AI, event, and integration traffic. Correlation IDs propagate across the
-          policy chain, flow runtime, plugin calls, and async workers — so a single trace ID follows a request
-          from the API edge through downstream calls and into the event stream it produced. Prometheus scrape
-          endpoint ships in the box.
-        </p>
+        <p class="eyebrow">Security and governance</p>
+        <h2>Policy depth that matches the real platform.</h2>
       </div>
-      <div class="metric-row reveal reveal-delay-1">
-        <div><strong>3</strong><span>execution modes per route</span></div>
-        <div><strong>24</strong><span>built-in policies</span></div>
-        <div><strong>12</strong><span>AI governance plugins</span></div>
-        <div><strong>8</strong><span>built-in integration plugins</span></div>
-      </div>
-      <div class="policy-grid reveal reveal-delay-2" style="margin-top: 22px">
-        <span>Trace API</span>
-        <span>Prometheus</span>
-        <span>Latency histograms (p50/p90/p99)</span>
-        <span>Mode-aware latency</span>
-        <span>Per-tenant analytics</span>
-        <span>Cluster-aware alerts</span>
-        <span>Log export (Fluent Bit · Vector · Loki)</span>
-        <span>Anomaly detection</span>
-        <span>Webhook · email · log sinks</span>
-      </div>
-    </section>
-
-    <section class="split-section">
-      <div class="section-copy reveal">
-        <p class="eyebrow">Built for Kubernetes</p>
-        <h2>Production deployment is the default path.</h2>
-        <p>
-          Every component ships as a container with a production-grade Helm chart — Deployments, Services, health
-          probes, ConfigMap and Secret wiring, Ingress, persistent storage hooks, and gateway autoscaling included
-          out of the box. Redis coordinates rate limits, circuit-breaker state, cache invalidation, and alerts
-          across pods so your gateway scales horizontally without losing its memory.
-        </p>
-        <div class="check-list">
-          <span>Containerized runtimes with first-class Kubernetes manifests and Helm chart</span>
-          <span>Modern JVM tuned for connection-heavy workloads — fast pod start, predictable autoscaling</span>
-          <span>PostgreSQL for authoritative state, Redis for cluster-wide coordination</span>
-          <span>Non-root pod security defaults · TLS at the ingress or inside the gateway</span>
-        </div>
-      </div>
-      <div class="architecture-panel reveal reveal-delay-1">
-        <div class="panel-row active">
-          <span class="panel-label">Data plane</span>
-          <strong>API · AI · Event Gateways</strong>
-          <small>All traffic. Stateless. Autoscale 2–N pods. Hot-reload on every deployment.</small>
-        </div>
-        <div class="panel-row">
-          <span class="panel-label">Control plane</span>
-          <strong>Studio</strong>
-          <small>Authoring, deployment, policy composition, traces, tenant administration.</small>
-        </div>
-        <div class="panel-row">
-          <span class="panel-label">Developer surface</span>
-          <strong>Portal</strong>
-          <small>Catalog, API keys, OAuth2 Authorization Server, usage analytics.</small>
-        </div>
-        <div class="panel-row">
-          <span class="panel-label">State</span>
-          <strong>PostgreSQL + Redis</strong>
-          <small>Authoritative state in Postgres. Cluster coordination and ephemeral caches in Redis.</small>
-        </div>
+      <div class="policy-grid reveal reveal-delay-1">
+        <span>Basic Auth</span><span>API Key</span><span>JWT</span><span>OAuth2</span><span>mTLS</span>
+        <span>Rate Limit</span><span>Quota</span><span>CORS</span><span>IP Filter</span><span>WAF</span>
+        <span>Bot Detection</span><span>Threat Protection</span><span>Data Masking</span><span>OpenAPI Validation</span><span>AI Guardrail</span>
       </div>
     </section>
 
     <section id="waitlist" class="waitlist reveal">
       <div>
         <p class="eyebrow">Early access</p>
-        <h2>Evaluate WASL for your platform.</h2>
+        <h2>See what WASL can do for your platform team.</h2>
         <p>
-          Request early access for product updates, reference architectures, and implementation guidance for
-          regulated integration, API, and AI programs.
+          Request early access for the enterprise gateway platform, product updates, and implementation guidance.
         </p>
       </div>
       <form id="waitlistForm">
@@ -506,16 +303,56 @@
   </main>
 
   <footer>
-    <div>
-      <strong>WASL</strong>
-      <span>One Gateway · APIs · AI · Events · Integrations</span>
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <a class="footer-brand-lockup" href="#top" aria-label="Wasl home">
+          <img src="./brand-mark.svg" alt="" aria-hidden="true" width="30" height="30" />
+          <span class="footer-brand"><span class="brand-w">W</span>asl</span>
+        </a>
+        <p>One gateway for APIs, AI, events, and jobs — governed and observed from a single control plane.</p>
+        <div class="footer-social" aria-label="Wasl on social media">
+          <a id="linkedinLink" href="https://www.linkedin.com/company/waslhq" target="_blank" rel="noopener" aria-label="Wasl on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.73v20.53C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.74V1.73C24 .78 23.2 0 22.22 0z"/></svg>
+          </a>
+          <a id="xLink" href="https://x.com/waslhq" target="_blank" rel="noopener" aria-label="Wasl on X">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26L22.83 21.75h-6.66l-5.21-6.82-5.97 6.82H1.68l7.73-8.84L1.17 2.25h6.83l4.71 6.23 5.53-6.23zm-1.16 17.52h1.83L7.01 4.13H5.04l12.04 15.64z"/></svg>
+          </a>
+          <a id="youtubeLink" href="https://www.youtube.com/@waslhq" target="_blank" rel="noopener" aria-label="Wasl on YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.08 0 12 0 12s0 3.92.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
+          </a>
+          <a id="githubLink" href="https://github.com/waslhq" target="_blank" rel="noopener" aria-label="Wasl on GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58A12 12 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+          </a>
+        </div>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <a href="#platform">Overview</a>
+          <a href="/docs/api-gateway.html">API Gateway</a>
+          <a href="/docs/ai-gateway.html">AI Gateway</a>
+          <a href="/docs/event-gateway.html">Event Gateway</a>
+          <a href="#architecture">Deploy anywhere</a>
+        </div>
+        <div class="footer-col">
+          <h4>Developers</h4>
+          <a href="/docs/">Documentation</a>
+          <a href="/docs/quickstart.html">Quickstart</a>
+          <a href="/docs/flow-runtime.html">Flow runtime</a>
+          <a href="/docs/developer-portal.html">Developer Portal</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="./enterprise.html">Enterprise</a>
+          <a href="/docs/security.html">Security</a>
+          <a href="#waitlist">Request access</a>
+        </div>
+      </nav>
     </div>
-    <nav aria-label="Footer navigation">
-      <a href="/docs/">Docs</a>
-      <a href="#waitlist">Early Access</a>
-      <a href="https://github.com/" id="githubLink">GitHub</a>
-    </nav>
-    <span>&copy; 2026 WASL HQ</span>
+    <div class="footer-bottom">
+      <span>&copy; 2026 WASL HQ. All rights reserved.</span>
+      <a class="footer-totop" href="#top">Back to top ↑</a>
+    </div>
   </footer>
 
   <script src="./config.js"></script>

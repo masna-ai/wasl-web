@@ -133,9 +133,15 @@ function wireCredibilityLinks() {
   const githubLink = document.querySelector('#githubLink');
   const docsLink = document.querySelector('#docsLink');
   const roadmapLink = document.querySelector('#roadmapLink');
+  const linkedinLink = document.querySelector('#linkedinLink');
+  const xLink = document.querySelector('#xLink');
+  const youtubeLink = document.querySelector('#youtubeLink');
   if (githubLink && links.github) githubLink.href = links.github;
   if (docsLink && links.docs) docsLink.href = links.docs;
   if (roadmapLink && links.roadmap) roadmapLink.href = links.roadmap;
+  if (linkedinLink && links.linkedin) linkedinLink.href = links.linkedin;
+  if (xLink && links.x) xLink.href = links.x;
+  if (youtubeLink && links.youtube) youtubeLink.href = links.youtube;
 }
 
 async function submitWaitlist(email) {
@@ -219,7 +225,7 @@ function initScrollReveal() {
 }
 
 function initCardGlow() {
-  const cards = document.querySelectorAll('.feature-card, .product-map, .deployment-board, .product-screen, .capability-list div');
+  const cards = document.querySelectorAll('.feature-card, .traffic-card, .architecture-panel, .product-screen');
   
   cards.forEach(card => {
     card.addEventListener('mousemove', e => {
@@ -233,31 +239,31 @@ function initCardGlow() {
   });
 }
 
-function initMobileMenu() {
+function setupMobileNav() {
   const toggle = document.querySelector('#menuToggle');
   const nav = document.querySelector('#primaryNav');
   if (!toggle || !nav) return;
 
-  function setOpen(open) {
-    toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    nav.classList.toggle('is-open', open);
-  }
+  const close = () => {
+    nav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+  };
 
   toggle.addEventListener('click', () => {
-    setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    const open = nav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   });
 
-  nav.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => setOpen(false));
-  });
+  nav.querySelectorAll('a').forEach(link => link.addEventListener('click', close));
 
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') setOpen(false);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') close();
   });
 
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 1020) setOpen(false);
+    if (window.innerWidth > 1020) close();
   });
 }
 
@@ -265,7 +271,7 @@ initAnalytics();
 initLinkedInPixel();
 initGoogleAds();
 wireCredibilityLinks();
+setupMobileNav();
 applyVariantByQuery();
 initScrollReveal();
 initCardGlow();
-initMobileMenu();

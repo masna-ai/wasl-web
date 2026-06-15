@@ -1,24 +1,27 @@
 :root {
-  --bg: #f7f8fb;
+  /* Brand sheet: Signal Blue → Flow Teal on a slate / Ink foundation. */
+  --bg: #f8fafc;
   --surface: #ffffff;
-  --surface-soft: #eef3f7;
-  --surface-warm: #fbfaf7;
-  --ink: #12202f;
-  --ink-strong: #07111f;
-  --muted: #5d6c7b;
-  --muted-soft: #8290a0;
-  --line: #dce4ec;
-  --line-strong: #c3d0dc;
-  --brand: #087b8f;
-  --brand-strong: #075f6f;
-  --brand-soft: #dff5f7;
-  --accent: #5363d8;
-  --accent-soft: #e9ebff;
-  --success: #11875d;
-  --success-soft: #e5f7ee;
-  --shadow: 0 24px 70px rgba(20, 38, 56, 0.12);
-  --shadow-soft: 0 12px 36px rgba(20, 38, 56, 0.08);
-  --radius: 8px;
+  --surface-soft: #eef2f7;
+  --surface-warm: #f8fafc;
+  --ink: #1e293b;
+  --ink-strong: #0f172a;
+  --muted: #64748b;
+  --muted-soft: #94a3b8;
+  --line: #e2e8f0;
+  --line-strong: #cbd5e1;
+  --brand: #3b82f6;
+  --brand-strong: #2563eb;
+  --brand-soft: #eff6ff;
+  --accent: #14b8a6;
+  --accent-soft: #e6faf6;
+  --success: #0d9488;
+  --success-soft: #e6faf6;
+  --brand-gradient: linear-gradient(135deg, #3b82f6 0%, #14b8a6 100%);
+  --shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+  --shadow-soft: 0 12px 36px rgba(15, 23, 42, 0.08);
+  --radius: 12px;
+  --font-display: "Poppins", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 * {
@@ -27,16 +30,9 @@
   padding: 0;
 }
 
-*,
-*::before,
-*::after {
-  min-width: 0;
-}
-
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -44,19 +40,13 @@ body {
   overflow-x: hidden;
   color: var(--ink);
   background:
-    linear-gradient(180deg, rgba(223, 245, 247, 0.78), rgba(247, 248, 251, 0) 360px),
-    radial-gradient(circle at 82% 8%, rgba(83, 99, 216, 0.12), transparent 280px),
+    linear-gradient(180deg, rgba(59, 130, 246, 0.08), rgba(248, 250, 252, 0) 360px),
+    radial-gradient(circle at 82% 8%, rgba(20, 184, 166, 0.12), transparent 280px),
     var(--bg);
   font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-}
-
-img,
-svg {
-  max-width: 100%;
-  height: auto;
 }
 
 a {
@@ -87,23 +77,19 @@ input {
   backdrop-filter: blur(18px);
 }
 
-.topbar nav {
-  min-width: 0;
-}
-
 .menu-toggle {
   display: none;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   padding: 0;
-  border: 1px solid var(--line-strong);
-  border-radius: 7px;
-  background: var(--surface);
-  cursor: pointer;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 4px;
+  border: 1px solid var(--line-strong);
+  border-radius: 9px;
+  background: var(--surface);
+  cursor: pointer;
 }
 
 .menu-bar {
@@ -135,24 +121,27 @@ input {
   align-items: center;
   gap: 10px;
   padding-left: 4px;
-  font-weight: 800;
-  letter-spacing: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
   color: var(--ink-strong);
 }
 
 .brand-mark {
-  display: inline-grid;
+  display: block;
   width: 34px;
   height: 34px;
-  place-items: center;
-  border-radius: 7px;
-  background: var(--ink-strong);
-  color: #ffffff;
-  font-size: 0.96rem;
 }
 
 .brand-text {
-  font-size: 1.05rem;
+  font-size: 1.18rem;
+}
+
+.brand-text .brand-w {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 nav {
@@ -192,13 +181,13 @@ main {
 }
 
 .btn-primary {
-  background: var(--ink-strong);
+  background: var(--brand-gradient);
   color: #ffffff;
-  box-shadow: 0 10px 22px rgba(7, 17, 31, 0.16);
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.22);
 }
 
 .btn-primary:hover {
-  background: #18283b;
+  box-shadow: 0 14px 28px rgba(37, 99, 235, 0.3);
 }
 
 .btn-secondary {
@@ -221,13 +210,8 @@ main {
   padding: 72px 0 34px;
 }
 
-.product-hero {
-  padding-top: 84px;
-}
-
 .hero-copy {
   max-width: 690px;
-  min-width: 0;
 }
 
 .eyebrow {
@@ -251,13 +235,14 @@ h1,
 h2,
 h3 {
   color: var(--ink-strong);
-  letter-spacing: 0;
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
 }
 
 h1 {
-  max-width: 11.8ch;
-  font-size: clamp(3.1rem, 6.2vw, 5.9rem);
-  line-height: 0.96;
+  max-width: 16ch;
+  font-size: clamp(3.1rem, 6.2vw, 5.6rem);
+  line-height: 0.98;
   font-weight: 800;
 }
 
@@ -319,140 +304,6 @@ h3 {
   position: relative;
   display: grid;
   gap: 14px;
-}
-
-.product-map,
-.deployment-board {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface);
-  box-shadow: var(--shadow);
-}
-
-.product-map {
-  display: grid;
-  gap: 14px;
-  padding: 18px;
-}
-
-.map-header,
-.board-title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  min-width: 0;
-}
-
-/* Runtime footer stacks vertically — the label+title block and the
-   pill em can't both fit horizontally in the product-map column without
-   forcing the strong text ("Self-registering · fleet-aware · stateless")
-   to wrap at every bullet. Mobile already collapses to column at the
-   breakpoint below; we just promote that to the default. */
-.map-runtime {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  min-width: 0;
-}
-
-.map-header {
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--line);
-}
-
-.map-header span,
-.map-card span,
-.map-runtime span,
-.board-title span {
-  color: var(--muted-soft);
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.map-header strong,
-.board-title strong {
-  color: var(--brand-strong);
-}
-
-.map-grid {
-  display: grid;
-  /* Three columns so the five-surface grid lays out as 3+2 instead of
-     2+2+1 (orphaned card looks unfinished). On the mobile breakpoint
-     below this collapses to a single column. */
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.map-card {
-  display: grid;
-  min-height: 150px;
-  align-content: start;
-  gap: 8px;
-  padding: 16px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: linear-gradient(180deg, #ffffff, #f8fbfc);
-}
-
-.map-card.primary {
-  border-color: rgba(8, 123, 143, 0.28);
-  background: linear-gradient(180deg, var(--brand-soft), #ffffff);
-}
-
-.map-card strong {
-  color: var(--ink-strong);
-  font-size: 1.08rem;
-  overflow-wrap: anywhere;
-}
-
-.map-card small,
-.map-runtime em {
-  color: var(--muted);
-  font-size: 0.84rem;
-  line-height: 1.55;
-  overflow-wrap: anywhere;
-}
-
-.map-runtime {
-  padding: 16px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: #fbfdfd;
-}
-
-/* The unnamed inner <div> holds the label+title pair. Without explicit
-   flex sizing it shrinks to its smallest column, forcing the strong text
-   ("Self-registering · fleet-aware · stateless") to wrap at every word.
-   flex: 1 1 auto + min-width: 0 lets it claim the remaining row width and
-   wrap only when truly needed. */
-.map-runtime > div {
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
-.map-runtime strong {
-  display: block;
-  margin-top: 4px;
-  color: var(--ink-strong);
-  overflow-wrap: normal;
-  word-break: normal;
-  /* Prefer breaking at separators, not mid-word. */
-  white-space: normal;
-}
-
-.map-runtime em {
-  flex: 0 0 auto;
-  padding: 6px 9px;
-  border-radius: 999px;
-  background: var(--accent-soft);
-  color: var(--accent);
-  font-family: "JetBrains Mono", monospace;
-  font-style: normal;
-  font-weight: 700;
 }
 
 .traffic-card,
@@ -546,7 +397,7 @@ h3 {
   width: 2px;
   height: 22px;
   margin: -2px auto;
-  background: linear-gradient(180deg, var(--line-strong), var(--brand));
+  background: var(--brand-gradient);
 }
 
 .studio-card {
@@ -592,41 +443,6 @@ h3 {
   font-weight: 800;
 }
 
-/* Replaces the placeholder-logo strip with a single-line trust signal.
-   Single row at desktop, wraps gracefully on narrow viewports. The
-   subtle vertical-line dividers keep the three claims visually
-   separate without resorting to bullet characters. */
-.trust-strip {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 14px 20px;
-  margin: 24px 0 84px;
-  padding: 16px 22px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.65);
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.trust-strip .trust-item {
-  color: var(--muted);
-}
-
-.trust-strip .trust-item strong {
-  color: var(--ink-strong);
-  font-weight: 700;
-  margin-right: 4px;
-}
-
-.trust-strip .trust-divider {
-  width: 1px;
-  height: 14px;
-  background: var(--line);
-}
-
 .section,
 .split-section {
   margin-bottom: 96px;
@@ -658,13 +474,20 @@ h3 {
 .feature-card p {
   color: var(--muted);
   font-size: 0.96rem;
-  overflow-wrap: anywhere;
 }
 
-/* .card-icon (the "01" / "02" / "03" badges) was removed from the markup —
-   the H3 titles carry their own weight without numerals. Rule kept absent
-   so leftover .card-icon references in any one-off page would just fall
-   back to default inline behavior, not silently render a styled placeholder. */
+.card-icon {
+  display: inline-grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 9px;
+  background: var(--brand-gradient);
+  color: #ffffff;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
 
 .split-section {
   display: grid;
@@ -695,7 +518,6 @@ h3 {
   background: rgba(255, 255, 255, 0.72);
   color: var(--ink);
   font-weight: 700;
-  overflow-wrap: anywhere;
 }
 
 .check-list span::before {
@@ -716,68 +538,6 @@ h3 {
   padding: 16px;
 }
 
-.deployment-board {
-  display: grid;
-  gap: 12px;
-  padding: 18px;
-}
-
-.board-title {
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--line);
-}
-
-.env-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto;
-  gap: 12px;
-  align-items: center;
-  padding: 16px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: #ffffff;
-}
-
-.env-row span {
-  color: var(--ink-strong);
-  font-weight: 800;
-  overflow-wrap: anywhere;
-}
-
-.env-row strong {
-  color: var(--muted);
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.86rem;
-}
-
-.env-row em {
-  padding: 5px 8px;
-  border-radius: 999px;
-  background: var(--success-soft);
-  color: var(--success);
-  font-size: 0.74rem;
-  font-style: normal;
-  font-weight: 800;
-}
-
-.promotion-flow {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px;
-  margin-top: 4px;
-}
-
-.promotion-flow span {
-  display: grid;
-  min-height: 42px;
-  place-items: center;
-  border: 1px solid var(--line);
-  border-radius: 7px;
-  background: var(--surface-soft);
-  color: var(--muted);
-  font-weight: 800;
-}
-
 .panel-row {
   display: grid;
   gap: 5px;
@@ -788,7 +548,7 @@ h3 {
 }
 
 .panel-row.active {
-  border-color: rgba(8, 123, 143, 0.34);
+  border-color: rgba(59, 130, 246, 0.34);
   background: linear-gradient(180deg, var(--brand-soft), #ffffff);
 }
 
@@ -806,7 +566,7 @@ h3 {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background:
-    linear-gradient(135deg, rgba(223, 245, 247, 0.78), rgba(233, 235, 255, 0.68)),
+    linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(20, 184, 166, 0.1)),
     #ffffff;
 }
 
@@ -815,34 +575,6 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-}
-
-.capability-list {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.capability-list div {
-  min-height: 132px;
-  padding: 18px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: #ffffff;
-}
-
-.capability-list strong {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--ink-strong);
-  font-size: 1.02rem;
-}
-
-.capability-list span {
-  color: var(--muted);
-  font-size: 0.94rem;
-  line-height: 1.62;
-  overflow-wrap: anywhere;
 }
 
 .pipeline span {
@@ -987,50 +719,6 @@ h3 {
   color: var(--brand-strong);
 }
 
-.policy-categories {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.policy-categories div {
-  padding: 20px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: #ffffff;
-}
-
-.policy-categories strong {
-  display: block;
-  margin-bottom: 10px;
-  color: var(--ink-strong);
-  font-size: 1rem;
-}
-
-.policy-categories span {
-  color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.6;
-  overflow-wrap: anywhere;
-}
-
-code {
-  padding: 1px 6px;
-  border: 1px solid var(--line);
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.85);
-  color: var(--brand-strong);
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.86em;
-}
-
-.check-list code,
-.section-copy p code,
-.hero-lede code {
-  background: rgba(8, 123, 143, 0.08);
-  border-color: rgba(8, 123, 143, 0.2);
-}
-
 .waitlist {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(360px, 0.78fr);
@@ -1048,7 +736,7 @@ code {
 .waitlist .eyebrow {
   border-color: rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.08);
-  color: #9ee7ef;
+  color: #2dd4bf;
 }
 
 .waitlist h2 {
@@ -1080,8 +768,8 @@ input::placeholder {
 }
 
 input:focus {
-  outline: 3px solid rgba(158, 231, 239, 0.25);
-  border-color: #9ee7ef;
+  outline: 3px solid rgba(45, 212, 191, 0.25);
+  border-color: #2dd4bf;
 }
 
 .waitlist .btn-primary {
@@ -1091,35 +779,131 @@ input:focus {
 
 #waitlistMessage {
   min-height: 22px;
-  color: #9ee7ef;
+  color: #2dd4bf;
   font-size: 0.9rem;
   font-weight: 700;
 }
 
 footer {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto;
-  gap: 24px;
-  align-items: center;
   width: min(1180px, calc(100% - 40px));
-  margin: 0 auto;
-  padding: 26px 0 42px;
-  border-top: 1px solid var(--line);
+  margin: 8px auto 0;
+  padding: 8px 0 40px;
   color: var(--muted);
   font-size: 0.92rem;
 }
 
-footer div {
+.footer-top {
   display: grid;
-  gap: 4px;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 2fr);
+  gap: 48px;
+  padding: 40px 0 36px;
+  border-top: 1px solid var(--line);
 }
 
-footer strong {
+.footer-brand-col {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+  max-width: 340px;
+}
+
+.footer-brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+}
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   color: var(--ink-strong);
 }
 
-footer nav {
-  gap: 16px;
+.footer-brand-col p {
+  color: var(--muted);
+  line-height: 1.62;
+}
+
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-social a {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--muted);
+  transition: transform 0.18s ease, color 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.footer-social a:hover {
+  transform: translateY(-2px);
+  color: var(--brand-strong);
+  border-color: var(--brand);
+  box-shadow: var(--shadow-soft);
+}
+
+.footer-social svg {
+  width: 18px;
+  height: 18px;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.footer-col {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.footer-col h4 {
+  margin-bottom: 4px;
+  color: var(--muted-soft);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footer-col a {
+  color: var(--muted);
+  font-weight: 600;
+  transition: color 0.18s ease;
+}
+
+.footer-col a:hover {
+  color: var(--ink-strong);
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.footer-totop {
+  font-weight: 600;
+}
+
+.footer-totop:hover {
+  color: var(--ink-strong);
 }
 
 .reveal {
@@ -1145,13 +929,19 @@ footer nav {
   transition-delay: 0.24s;
 }
 
-/* ─────────  Tablet  ───────── */
 @media (max-width: 1020px) {
   .topbar {
     width: calc(100% - 28px);
     flex-wrap: wrap;
     gap: 12px;
-    align-items: center;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .topbar-cta {
+    display: none;
   }
 
   .topbar nav {
@@ -1161,8 +951,8 @@ footer nav {
     flex-direction: column;
     align-items: stretch;
     gap: 4px;
-    padding-top: 10px;
     margin-top: 4px;
+    padding-top: 10px;
     border-top: 1px solid var(--line);
     font-size: 1rem;
   }
@@ -1172,11 +962,10 @@ footer nav {
   }
 
   .topbar nav a {
-    padding: 11px 10px;
-    border-radius: 7px;
+    padding: 11px 12px;
+    border-radius: 9px;
     color: var(--ink-strong);
     font-weight: 700;
-    overflow-wrap: anywhere;
   }
 
   .topbar nav a:hover,
@@ -1186,19 +975,10 @@ footer nav {
 
   .topbar nav .nav-cta {
     display: inline-flex;
-    margin-top: 6px;
-    background: var(--ink-strong);
-    color: #ffffff;
-    text-align: center;
     justify-content: center;
-  }
-
-  .menu-toggle {
-    display: inline-flex;
-  }
-
-  .topbar-cta {
-    display: none;
+    margin-top: 6px;
+    background: var(--brand-gradient);
+    color: #ffffff;
   }
 
   main,
@@ -1210,125 +990,47 @@ footer nav {
   .split-section,
   .split-section.reverse,
   .waitlist {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-
-  .product-map,
-  .deployment-board,
-  .product-screen {
-    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .hero {
-    padding-top: 48px;
-  }
-
-  .product-hero {
-    padding-top: 56px;
+    padding-top: 40px;
   }
 
   h1 {
-    max-width: 14ch;
-    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    max-width: 16ch;
   }
 
-  h2 {
-    font-size: clamp(1.8rem, 4.4vw, 2.6rem);
-  }
-
-  .platform-grid,
-  .policy-categories,
-  .capability-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .metric-row {
+  .platform-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .logo-strip {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin-bottom: 64px;
-  }
-
-  .section,
-  .split-section {
-    margin-bottom: 72px;
-  }
-
-  .tinted {
-    padding: 32px;
-  }
-
-  .feature-card {
-    min-height: 0;
   }
 }
 
-/* ─────────  Mobile  ───────── */
 @media (max-width: 680px) {
-  body {
-    background:
-      linear-gradient(180deg, rgba(223, 245, 247, 0.78), rgba(247, 248, 251, 0) 260px),
-      var(--bg);
-  }
-
   .topbar {
-    top: 8px;
     margin-top: 8px;
-    padding: 8px 10px;
   }
 
-  .menu-toggle {
-    width: 38px;
-    height: 38px;
-  }
-
-  .brand-text {
-    font-size: 1rem;
-  }
-
-  main,
-  footer {
-    width: calc(100% - 24px);
+  .topbar-cta {
+    display: none;
   }
 
   h1 {
-    max-width: none;
-    font-size: clamp(2.3rem, 11vw, 3.4rem);
+    font-size: clamp(2.1rem, 9.5vw, 3.2rem);
     line-height: 1.02;
   }
 
   h2 {
-    font-size: clamp(1.7rem, 8vw, 2.3rem);
+    font-size: clamp(1.75rem, 8vw, 2.4rem);
   }
 
-  .eyebrow {
-    max-width: 100%;
-    font-size: 0.7rem;
-    letter-spacing: 0.06em;
-    white-space: normal;
-  }
-
-  .hero,
-  .product-hero {
-    padding-top: 36px;
-    padding-bottom: 18px;
-    gap: 28px;
-  }
-
-  .hero-lede,
-  .section-head p,
-  .section-copy > p,
-  .waitlist > div > p {
-    font-size: 1rem;
-    line-height: 1.65;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    gap: 10px;
+  .hero {
+    gap: 34px;
+    padding-bottom: 22px;
   }
 
   .hero-actions .btn,
@@ -1336,267 +1038,182 @@ footer nav {
     width: 100%;
   }
 
-  .hero-proof span,
-  .policy-grid span,
-  .pipeline span {
-    min-height: 32px;
-    font-size: 0.78rem;
-    line-height: 1.35;
-  }
-
-  .hero-proof,
-  .policy-grid,
-  .pipeline {
-    gap: 8px;
-  }
-
   .node-grid,
   .platform-grid,
   .logo-strip,
-  .metric-row,
-  .map-grid,
-  .capability-list,
-  .policy-categories,
-  .promotion-flow {
-    grid-template-columns: 1fr;
-  }
-
-  .logo-strip {
-    margin: 16px 0 48px;
-    padding: 10px;
-  }
-
-  .logo-strip span {
-    min-height: 42px;
-    padding: 8px;
-    text-align: center;
-    font-size: 0.88rem;
-  }
-
-  .section,
-  .split-section {
-    margin-bottom: 52px;
-  }
-
-  .section-head {
-    margin-bottom: 22px;
-  }
-
-  .product-map,
-  .deployment-board,
-  .traffic-card,
-  .architecture-panel,
-  .feature-card {
-    padding: 16px;
-  }
-
-  .map-header,
-  .board-title {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .feature-card {
-    gap: 10px;
-  }
-
-  .map-card {
-    min-height: 0;
-    padding: 14px;
-  }
-
-  .capability-list div,
-  .policy-categories div {
-    min-height: 0;
-    padding: 16px;
+  .metric-row {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .screen-body {
-    grid-template-columns: 1fr;
-    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .screen-body aside {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 14px 16px;
-    gap: 6px;
     border-right: 0;
     border-bottom: 1px solid var(--line);
   }
 
-  .screen-body aside strong {
-    flex-basis: 100%;
-    margin-bottom: 4px;
-  }
-
-  .screen-body aside span {
-    flex: 1 1 auto;
-    text-align: center;
-    white-space: nowrap;
-  }
-
-  .screen-body section {
-    padding: 18px;
-  }
-
-  .screen-title {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .screen-title strong {
-    overflow-wrap: anywhere;
-  }
-
-  .deploy-table {
-    gap: 8px;
-  }
-
   .deploy-table div {
     grid-template-columns: 1fr;
-    gap: 6px;
-    padding: 12px;
   }
 
-  .deploy-table div span,
-  .deploy-table div strong {
-    overflow-wrap: anywhere;
-    word-break: break-word;
+  .tinted,
+  .waitlist {
+    padding: 24px;
   }
 
-  .deploy-table div em,
-  .env-row em {
-    width: fit-content;
-  }
-
-  .env-row,
-  .map-runtime {
+  .footer-top {
     grid-template-columns: 1fr;
-    gap: 6px;
-    padding: 14px;
+    gap: 32px;
   }
 
-  .env-row strong {
-    overflow-wrap: anywhere;
+  .footer-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .map-runtime {
-    align-items: flex-start;
+  .footer-bottom {
     flex-direction: column;
-  }
-
-  .map-runtime em {
-    width: fit-content;
-    max-width: 100%;
-  }
-
-  .tinted,
-  .waitlist {
-    padding: 22px;
-  }
-
-  .waitlist {
-    margin-bottom: 56px;
-  }
-
-  .check-list span {
-    padding: 12px 14px 12px 36px;
-    font-size: 0.95rem;
-  }
-
-  .metric-row strong {
-    font-size: 1.5rem;
-  }
-
-  footer {
-    grid-template-columns: 1fr;
-    padding: 22px 0 32px;
-    text-align: left;
-  }
-
-  footer nav {
-    flex-wrap: wrap;
-    gap: 14px;
-  }
-
-  code {
-    overflow-wrap: anywhere;
-    word-break: break-word;
+    align-items: flex-start;
   }
 }
 
-@media (max-width: 480px) {
-  main,
-  footer,
-  .topbar {
-    width: calc(100% - 20px);
-  }
+/* ─────────  Premium polish  ───────── */
 
-  h1 {
-    font-size: clamp(2.05rem, 12vw, 2.8rem);
-  }
-
-  h2 {
-    font-size: clamp(1.55rem, 9vw, 2.05rem);
-  }
-
-  h3 {
-    font-size: 1rem;
-  }
-
-  .hero-lede,
-  .section-head p,
-  .section-copy > p,
-  .waitlist > div > p {
-    font-size: 0.96rem;
-  }
-
-  .btn {
-    min-height: 46px;
-    padding: 0 14px;
-  }
-
-  .product-map,
-  .deployment-board,
-  .product-screen,
-  .feature-card,
-  .tinted,
-  .waitlist {
-    box-shadow: var(--shadow-soft);
-  }
-
-  .capability-list strong,
-  .policy-categories strong,
-  .feature-card h3 {
-    line-height: 1.28;
-  }
-
-  .policy-grid span {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-  }
+/* Brand-tinted selection + accessible focus ring */
+::selection {
+  background: rgba(59, 130, 246, 0.18);
+  color: var(--ink-strong);
 }
 
-/* ─────────  Narrow phones  ───────── */
-@media (max-width: 380px) {
-  .brand-text {
-    display: none;
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Anchor targets clear the sticky topbar */
+[id] {
+  scroll-margin-top: 92px;
+}
+
+/* Gradient keyword utility for display headings */
+.grad {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Eyebrow gets a small gradient signal dot */
+.eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--brand-gradient);
+}
+
+.waitlist .eyebrow::before {
+  background: linear-gradient(135deg, #60a5fa, #2dd4bf);
+}
+
+/* Soft brand glow behind the hero visual for depth */
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  inset: -12% -8% -12% -4%;
+  z-index: -1;
+  background:
+    radial-gradient(58% 58% at 72% 18%, rgba(59, 130, 246, 0.16), transparent 70%),
+    radial-gradient(52% 52% at 28% 92%, rgba(20, 184, 166, 0.14), transparent 70%);
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+/* Interactive depth on cards */
+.feature-card,
+.traffic-node,
+.panel-row,
+.metric-row div {
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.feature-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--brand-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow);
+}
+
+.feature-card:hover::after {
+  transform: scaleX(1);
+}
+
+.feature-card:hover .card-icon {
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.28);
+}
+
+.card-icon {
+  transition: box-shadow 0.22s ease;
+}
+
+.metric-row div:hover,
+.panel-row:hover {
+  transform: translateY(-2px);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Chip + tag hover states */
+.hero-proof span,
+.pipeline span,
+.policy-grid span,
+.logo-strip span {
+  transition: transform 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-proof span:hover,
+.pipeline span:hover,
+.policy-grid span:hover {
+  transform: translateY(-1px);
+  border-color: var(--brand);
+  color: var(--brand-strong);
+}
+
+.logo-strip span:hover {
+  border-color: var(--line-strong);
+  color: var(--ink-strong);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 
-  .hero-proof {
-    gap: 6px;
-  }
-
-  .promotion-flow {
-    gap: 6px;
-  }
-
-  .screen-body aside span {
-    flex-basis: 100%;
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }
