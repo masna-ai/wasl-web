@@ -1,21 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-  --bg: #030308;
-  --bg-deep: #010103;
-  --bg-soft: #0a0a14;
+  /* Brand sheet dark variant: Signal Blue → Flow Teal on slate Ink (#0B1220). */
+  --bg: #0f172a;
+  --bg-deep: #0b1220;
+  --bg-soft: #131c2e;
   --surface: rgba(255, 255, 255, 0.02);
   --surface-strong: rgba(255, 255, 255, 0.05);
-  --surface-panel: rgba(3, 3, 8, 0.75);
-  --ink: #ffffff;
-  --muted: #a1a1aa;
-  --muted-soft: #71717a;
-  --brand: #00e5ff;
-  --brand-soft: rgba(0, 229, 255, 0.15);
-  --accent: #8b5cf6;
-  --accent-soft: rgba(139, 92, 246, 0.15);
+  --surface-panel: rgba(11, 18, 32, 0.75);
+  --ink: #f1f5f9;
+  --muted: #94a3b8;
+  --muted-soft: #64748b;
+  --brand: #60a5fa;
+  --brand-soft: rgba(96, 165, 250, 0.15);
+  --accent: #2dd4bf;
+  --accent-soft: rgba(45, 212, 191, 0.15);
   --line: rgba(255, 255, 255, 0.08);
-  --success: #10b981;
+  --success: #2dd4bf;
+  --brand-gradient: linear-gradient(135deg, #60a5fa 0%, #2dd4bf 100%);
 }
 
 * {
@@ -38,8 +40,8 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: var(--ink);
   background:
-    radial-gradient(circle at 0% 0%, rgba(139, 92, 246, 0.08), transparent 40%),
-    radial-gradient(circle at 100% 100%, rgba(0, 229, 255, 0.06), transparent 30%),
+    radial-gradient(circle at 0% 0%, rgba(45, 212, 191, 0.08), transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(96, 165, 250, 0.06), transparent 30%),
     var(--bg-deep);
   line-height: 1.6;
   font-weight: 400;
@@ -49,7 +51,7 @@ body {
 }
 
 h1, h2, h3, h4, .docs-brand, .docs-eyebrow, .docs-btn {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 a {
@@ -83,11 +85,22 @@ a {
 .docs-brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   font-size: 1.15rem;
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  background: linear-gradient(90deg, #fff, #a1a1aa);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.docs-brand::before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("../brand-mark.svg") center / contain no-repeat;
+}
+
+.docs-brand .docs-wordmark {
+  background: var(--brand-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -97,7 +110,7 @@ a {
   padding: 4px 10px;
   border-radius: 999px;
   border: 1px solid var(--brand-soft);
-  background: rgba(0, 229, 255, 0.06);
+  background: rgba(96, 165, 250, 0.06);
   color: var(--brand);
   font-size: 0.72rem;
   font-weight: 700;
@@ -132,13 +145,14 @@ a {
 }
 
 .docs-btn-primary {
-  background: var(--ink);
-  color: var(--bg-deep);
+  background: var(--brand-gradient);
+  color: #0b1220;
   border-color: transparent;
-  box-shadow: 0 0 16px rgba(255,255,255,0.1);
+  box-shadow: 0 6px 20px rgba(45, 212, 191, 0.22);
 }
 .docs-btn-primary:hover {
-  background: #e2e8f0;
+  background: var(--brand-gradient);
+  box-shadow: 0 10px 26px rgba(45, 212, 191, 0.32);
 }
 
 /* LAYOUT */
@@ -203,7 +217,7 @@ a {
 }
 
 .docs-nav a.active {
-  background: rgba(0, 229, 255, 0.08);
+  background: rgba(96, 165, 250, 0.08);
   color: var(--brand);
   font-weight: 600;
 }
@@ -227,8 +241,8 @@ a {
   padding: 6px 14px;
   border-radius: 999px;
   background: var(--accent-soft);
-  color: #c4b5fd;
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  color: #5eead4;
+  border: 1px solid rgba(45, 212, 191, 0.2);
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -250,7 +264,7 @@ a {
   font-style: italic;
   font-weight: 400;
   letter-spacing: -0.01em;
-  color: #c4b5fd;
+  color: #5eead4;
 }
 
 .docs-hero p {
@@ -355,7 +369,7 @@ pre code {
   font-size: 1.05rem;
   font-weight: 600;
   letter-spacing: -0.01em;
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .docs-card p {
@@ -378,7 +392,7 @@ pre code {
   margin-bottom: 16px;
   padding: 5px 12px;
   border-radius: 999px;
-  background: rgba(0, 229, 255, 0.08);
+  background: rgba(96, 165, 250, 0.08);
   color: var(--brand);
   font-size: 0.76rem;
   font-weight: 700;
@@ -411,18 +425,18 @@ pre code {
 }
 
 .diagram-node-accent {
-  background: rgba(0, 229, 255, 0.05);
+  background: rgba(96, 165, 250, 0.05);
 }
 
 .diagram-node-alt {
-  background: rgba(139, 92, 246, 0.08);
+  background: rgba(45, 212, 191, 0.08);
 }
 
 .diagram-arrow {
   width: 2px;
   height: 18px;
   margin: 0 auto;
-  background: linear-gradient(180deg, rgba(0, 229, 255, 0.75), rgba(139, 92, 246, 0.28));
+  background: linear-gradient(180deg, rgba(96, 165, 250, 0.75), rgba(45, 212, 191, 0.28));
 }
 
 .diagram-stage-grid {
@@ -448,7 +462,7 @@ pre code {
   right: -12px;
   width: 24px;
   height: 2px;
-  background: linear-gradient(90deg, rgba(0, 229, 255, 0.75), rgba(139, 92, 246, 0.28));
+  background: linear-gradient(90deg, rgba(96, 165, 250, 0.75), rgba(45, 212, 191, 0.28));
   transform: translateY(-50%);
 }
 
@@ -468,25 +482,25 @@ pre code {
   color: var(--ink);
   font-size: 0.9rem;
   font-weight: 700;
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .diagram-stage-accent {
-  background: rgba(0, 229, 255, 0.06);
+  background: rgba(96, 165, 250, 0.06);
 }
 
 .diagram-stage-accent .diagram-stage-step {
-  background: rgba(0, 229, 255, 0.14);
+  background: rgba(96, 165, 250, 0.14);
   color: var(--brand);
 }
 
 .diagram-stage-alt {
-  background: rgba(139, 92, 246, 0.08);
+  background: rgba(45, 212, 191, 0.08);
 }
 
 .diagram-stage-alt .diagram-stage-step {
-  background: rgba(139, 92, 246, 0.18);
-  color: #c4b5fd;
+  background: rgba(45, 212, 191, 0.18);
+  color: #5eead4;
 }
 
 .diagram-stage strong {
@@ -543,7 +557,7 @@ pre code {
   display: block;
   color: var(--ink);
   font-weight: 700;
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.1rem;
   margin-bottom: 6px;
 }
@@ -603,7 +617,7 @@ pre code {
     width: 2px;
     height: 24px;
     transform: translateX(50%);
-    background: linear-gradient(180deg, rgba(0, 229, 255, 0.75), rgba(139, 92, 246, 0.28));
+    background: linear-gradient(180deg, rgba(96, 165, 250, 0.75), rgba(45, 212, 191, 0.28));
   }
   .docs-sidebar {
     grid-template-columns: 1fr 1fr;

@@ -1,24 +1,27 @@
 :root {
-  --bg: #f7f8fb;
+  /* Brand sheet: Signal Blue → Flow Teal on a slate / Ink foundation. */
+  --bg: #f8fafc;
   --surface: #ffffff;
-  --surface-soft: #eef3f7;
-  --surface-warm: #fbfaf7;
-  --ink: #12202f;
-  --ink-strong: #07111f;
-  --muted: #5d6c7b;
-  --muted-soft: #8290a0;
-  --line: #dce4ec;
-  --line-strong: #c3d0dc;
-  --brand: #087b8f;
-  --brand-strong: #075f6f;
-  --brand-soft: #dff5f7;
-  --accent: #5363d8;
-  --accent-soft: #e9ebff;
-  --success: #11875d;
-  --success-soft: #e5f7ee;
-  --shadow: 0 24px 70px rgba(20, 38, 56, 0.12);
-  --shadow-soft: 0 12px 36px rgba(20, 38, 56, 0.08);
-  --radius: 8px;
+  --surface-soft: #eef2f7;
+  --surface-warm: #f8fafc;
+  --ink: #1e293b;
+  --ink-strong: #0f172a;
+  --muted: #64748b;
+  --muted-soft: #94a3b8;
+  --line: #e2e8f0;
+  --line-strong: #cbd5e1;
+  --brand: #3b82f6;
+  --brand-strong: #2563eb;
+  --brand-soft: #eff6ff;
+  --accent: #14b8a6;
+  --accent-soft: #e6faf6;
+  --success: #0d9488;
+  --success-soft: #e6faf6;
+  --brand-gradient: linear-gradient(135deg, #3b82f6 0%, #14b8a6 100%);
+  --shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+  --shadow-soft: 0 12px 36px rgba(15, 23, 42, 0.08);
+  --radius: 12px;
+  --font-display: "Poppins", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 * {
@@ -36,8 +39,8 @@ body {
   min-height: 100vh;
   color: var(--ink);
   background:
-    linear-gradient(180deg, rgba(223, 245, 247, 0.78), rgba(247, 248, 251, 0) 360px),
-    radial-gradient(circle at 82% 8%, rgba(83, 99, 216, 0.12), transparent 280px),
+    linear-gradient(180deg, rgba(59, 130, 246, 0.08), rgba(248, 250, 252, 0) 360px),
+    radial-gradient(circle at 82% 8%, rgba(20, 184, 166, 0.12), transparent 280px),
     var(--bg);
   font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.55;
@@ -78,24 +81,27 @@ input {
   align-items: center;
   gap: 10px;
   padding-left: 4px;
-  font-weight: 800;
-  letter-spacing: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
   color: var(--ink-strong);
 }
 
 .brand-mark {
-  display: inline-grid;
+  display: block;
   width: 34px;
   height: 34px;
-  place-items: center;
-  border-radius: 7px;
-  background: var(--ink-strong);
-  color: #ffffff;
-  font-size: 0.96rem;
 }
 
 .brand-text {
-  font-size: 1.05rem;
+  font-size: 1.18rem;
+}
+
+.brand-text .brand-w {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 nav {
@@ -135,13 +141,13 @@ main {
 }
 
 .btn-primary {
-  background: var(--ink-strong);
+  background: var(--brand-gradient);
   color: #ffffff;
-  box-shadow: 0 10px 22px rgba(7, 17, 31, 0.16);
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.22);
 }
 
 .btn-primary:hover {
-  background: #18283b;
+  box-shadow: 0 14px 28px rgba(37, 99, 235, 0.3);
 }
 
 .btn-secondary {
@@ -189,7 +195,8 @@ h1,
 h2,
 h3 {
   color: var(--ink-strong);
-  letter-spacing: 0;
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
 }
 
 h1 {
@@ -350,7 +357,7 @@ h3 {
   width: 2px;
   height: 22px;
   margin: -2px auto;
-  background: linear-gradient(180deg, var(--line-strong), var(--brand));
+  background: var(--brand-gradient);
 }
 
 .studio-card {
@@ -434,9 +441,9 @@ h3 {
   width: 38px;
   height: 38px;
   place-items: center;
-  border-radius: 7px;
-  background: var(--brand-soft);
-  color: var(--brand-strong);
+  border-radius: 9px;
+  background: var(--brand-gradient);
+  color: #ffffff;
   font-family: "JetBrains Mono", monospace;
   font-size: 0.82rem;
   font-weight: 800;
@@ -501,7 +508,7 @@ h3 {
 }
 
 .panel-row.active {
-  border-color: rgba(8, 123, 143, 0.34);
+  border-color: rgba(59, 130, 246, 0.34);
   background: linear-gradient(180deg, var(--brand-soft), #ffffff);
 }
 
@@ -519,7 +526,7 @@ h3 {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background:
-    linear-gradient(135deg, rgba(223, 245, 247, 0.78), rgba(233, 235, 255, 0.68)),
+    linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(20, 184, 166, 0.1)),
     #ffffff;
 }
 
@@ -689,7 +696,7 @@ h3 {
 .waitlist .eyebrow {
   border-color: rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.08);
-  color: #9ee7ef;
+  color: #2dd4bf;
 }
 
 .waitlist h2 {
@@ -721,8 +728,8 @@ input::placeholder {
 }
 
 input:focus {
-  outline: 3px solid rgba(158, 231, 239, 0.25);
-  border-color: #9ee7ef;
+  outline: 3px solid rgba(45, 212, 191, 0.25);
+  border-color: #2dd4bf;
 }
 
 .waitlist .btn-primary {
@@ -732,7 +739,7 @@ input:focus {
 
 #waitlistMessage {
   min-height: 22px;
-  color: #9ee7ef;
+  color: #2dd4bf;
   font-size: 0.9rem;
   font-weight: 700;
 }
@@ -757,6 +764,13 @@ footer div {
 
 footer strong {
   color: var(--ink-strong);
+}
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 footer nav {
