@@ -267,11 +267,41 @@ function setupMobileNav() {
   });
 }
 
-initAnalytics();
-initLinkedInPixel();
-initGoogleAds();
+function hasTrackers() {
+  const a = config?.analytics || {};
+  const p = config?.pixels || {};
+  return !!(a.ga4MeasurementId || a.gtmId || p.linkedinPartnerId || p.googleAdsId);
+}
+
+function initTracking() {
+  initAnalytics();
+  initLinkedInPixel();
+  initGoogleAds();
+}
+
+function setupCookieConsent() {
+  const KEY = 'wasl-cookie-consent';
+  const banner = document.querySelector('#cookieConsent');
+  let choice = null;
+  try { choice = localStorage.getItem(KEY); } catch { /* storage blocked */ }
+
+  if (choice === 'granted') { initTracking(); return; }
+  if (choice === 'denied') return;
+  if (!hasTrackers() || !banner) return; // nothing to consent to
+
+  banner.hidden = false;
+  const decide = (value) => {
+    try { localStorage.setItem(KEY, value); } catch { /* storage blocked */ }
+    banner.hidden = true;
+    if (value === 'granted') initTracking();
+  };
+  banner.querySelector('#cookieAccept')?.addEventListener('click', () => decide('granted'));
+  banner.querySelector('#cookieDecline')?.addEventListener('click', () => decide('denied'));
+}
+
 wireCredibilityLinks();
 setupMobileNav();
 applyVariantByQuery();
+setupCookieConsent();
 initScrollReveal();
 initCardGlow();
