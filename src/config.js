@@ -8,7 +8,7 @@ window.WASL_WEB_CONFIG = {
     }
   },
   analytics: {
-    ga4MeasurementId: '',
+    ga4MeasurementId: 'G-YTFP7XZ9RZ',
     gtmId: ''
   },
   pixels: {
