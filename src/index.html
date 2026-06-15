@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WASL — Enterprise API Gateway and AI Gateway</title>
+  <title>WASL — One Gateway for APIs, AI, Events, and Jobs</title>
   <meta name="description"
-    content="WASL is a unified enterprise API Gateway and AI Gateway with policy enforcement, tenant-aware deployments, governed LLM routing, integration plugins, Studio, and Developer Portal." />
+    content="WASL is a unified platform for API traffic, governed AI access, event streaming, and async jobs — authored, governed, and observed from one control plane and deployed anywhere from cloud to edge." />
 
   <link rel="canonical" href="https://waslhq.com/" />
-  <meta property="og:title" content="WASL — Enterprise API Gateway and AI Gateway" />
+  <meta property="og:title" content="WASL — One Gateway for APIs, AI, Events, and Jobs" />
   <meta property="og:description"
-    content="One governed platform for API traffic, AI workloads, integrations, developer self-service, and production observability." />
+    content="One platform for API traffic, governed AI access, event streaming, and async jobs — with a connected hybrid runtime you can deploy anywhere." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://waslhq.com/" />
   <meta property="og:image" content="https://waslhq.com/og-image.png" />
@@ -20,9 +20,9 @@
   <meta property="og:image:alt" content="Wasl — one gateway for every kind of traffic" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="WASL — Enterprise API Gateway and AI Gateway" />
+  <meta name="twitter:title" content="WASL — One Gateway for APIs, AI, Events, and Jobs" />
   <meta name="twitter:description"
-    content="Unified API Gateway, AI Gateway, Studio, Portal, policies, plugins, and observability for enterprise platforms." />
+    content="One platform for APIs, AI, events, and async jobs — with a connected hybrid runtime you can deploy anywhere." />
   <meta name="twitter:image" content="https://waslhq.com/og-image.png" />
 
   <link rel="icon" type="image/svg+xml" href="./brand-mark.svg" />
@@ -43,8 +43,6 @@
     <nav aria-label="Primary navigation">
       <a href="#platform">Platform</a>
       <a href="#architecture">Architecture</a>
-      <a href="#ai-gateway">AI Gateway</a>
-      <a href="#studio">Studio</a>
       <a href="/docs/">Docs</a>
     </nav>
     <a class="btn btn-outline topbar-cta" href="#waitlist">Request Access</a>
@@ -56,17 +54,17 @@
         <p class="eyebrow">Enterprise gateway platform</p>
         <h1>One gateway. <span class="grad">Every kind of traffic.</span></h1>
         <p class="hero-lede">
-          WASL combines an API Gateway, governed AI Gateway, integration plugin runtime, Studio control plane,
-          and Developer Portal in a light, self-hosted platform built for multi-tenant enterprise environments.
+          WASL runs API traffic, governed AI access, event streaming, and async jobs on one platform —
+          authored, governed, and observed from a single control plane, and deployed anywhere from cloud to edge.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#waitlist">Request Early Access</a>
           <a class="btn btn-secondary" href="/docs/">Read Documentation</a>
         </div>
         <div class="hero-proof" aria-label="Platform highlights">
-          <span>Control plane / data plane</span>
-          <span>24 policy types</span>
-          <span>Immutable revisions</span>
+          <span>API · AI · Events · Jobs</span>
+          <span>24 built-in policies</span>
+          <span>Deploy anywhere</span>
           <span>Tenant isolated</span>
         </div>
       </div>
@@ -75,13 +73,13 @@
         <div class="traffic-card">
           <div class="traffic-card-head">
             <span>Tenant request</span>
-            <strong>acme.dev.localhost:8080</strong>
+            <strong>acme.example.com</strong>
           </div>
           <div class="traffic-path">
             <div class="traffic-node">
-              <span class="node-kicker">Gateway data plane</span>
-              <strong>API + AI traffic</strong>
-              <small>Routing, policies, flows, plugins, trace capture</small>
+              <span class="node-kicker">Data plane runtimes</span>
+              <strong>API · AI · Event · Worker</strong>
+              <small>Routing, policies, flows, jobs, and trace capture</small>
             </div>
             <div class="traffic-arrow"></div>
             <div class="node-grid">
@@ -98,7 +96,7 @@
             <div class="traffic-node">
               <span class="node-kicker">Plugin layer</span>
               <strong>Backends + LLM providers</strong>
-              <small>JDBC, Kafka, Redis, S3, OpenAI, Anthropic, Gemini</small>
+              <small>Databases, queues, object storage, SaaS APIs, and LLM providers</small>
             </div>
           </div>
         </div>
@@ -113,92 +111,94 @@
     </section>
 
     <section class="logo-strip reveal" aria-label="Core platform surfaces">
-      <span>Gateway</span>
+      <span>API Gateway</span>
+      <span>AI Gateway</span>
+      <span>Event Gateway</span>
+      <span>Worker</span>
       <span>Studio</span>
       <span>Portal</span>
-      <span>Policies</span>
-      <span>Plugins</span>
-      <span>Observability</span>
     </section>
 
     <section id="platform" class="section">
       <div class="section-head reveal">
         <p class="eyebrow">Platform</p>
-        <h2>Not just a gateway. A complete operating layer for governed traffic.</h2>
+        <h2>Not just a gateway. A complete platform for every kind of traffic.</h2>
         <p>
-          WASL reflects how modern platform teams actually work: API programs, LLM access, backend integrations,
-          deployment promotion, developer onboarding, and auditability are managed together.
+          API programs, LLM access, event streams, async jobs, backend integrations, and developer onboarding
+          are managed together — one place to author, govern, deploy, and observe everything.
         </p>
       </div>
       <div class="platform-grid">
         <article class="feature-card reveal reveal-delay-1">
           <span class="card-icon">01</span>
           <h3>API Gateway</h3>
-          <p>Tenant-aware routing, REST, HTTP/2, WebSocket, gRPC, Java 25 runtime, GraalJS flows, target servers, and policy enforcement.</p>
+          <p>Tenant-aware routing for REST, HTTP/2, WebSocket, and gRPC — with JavaScript flows and a unified policy engine on every request.</p>
         </article>
         <article class="feature-card reveal reveal-delay-2">
           <span class="card-icon">02</span>
           <h3>AI Gateway</h3>
-          <p>Govern LLM traffic with auth, PII handling, guardrails, semantic cache, RAG, retry, fallback, token limits, quota, and cost controls.</p>
+          <p>Govern LLM traffic with auth, guardrails, PII handling, semantic cache, RAG, provider fallback, token limits, quota, and cost caps.</p>
         </article>
         <article class="feature-card reveal reveal-delay-3">
           <span class="card-icon">03</span>
-          <h3>Integration Plugins</h3>
-          <p>Connect flows to JDBC, Kafka, MongoDB, Redis, RabbitMQ, OpenSearch, S3-compatible storage, HTTP services, and custom adapters.</p>
+          <h3>Event Gateway</h3>
+          <p>Pub/sub over plain HTTP — produce with REST, consume over SSE or long-poll. Subscriptions, schema contracts, and AsyncAPI, governed like the rest of your traffic.</p>
         </article>
         <article class="feature-card reveal reveal-delay-1">
           <span class="card-icon">04</span>
-          <h3>Studio</h3>
-          <p>Control-plane workspace for bundles, revisions, deployments, policies, certificates, traces, analytics, users, tenants, and environments.</p>
+          <h3>Worker Runtime</h3>
+          <p>Scheduled jobs, long-running orchestrations, connector polling, and async APIs — with retries, dead-letter handling, and trackable progress, off the request path.</p>
         </article>
         <article class="feature-card reveal reveal-delay-2">
           <span class="card-icon">05</span>
-          <h3>Developer Portal</h3>
-          <p>Self-service API catalog, interactive testing, application registration, API keys, usage charts, and a built-in OAuth2 authorization server.</p>
+          <h3>Integration Plugins</h3>
+          <p>Connect flows to databases, message queues, object storage, search, and SaaS APIs through hot-reloadable, signed plugins built on a public SDK.</p>
         </article>
         <article class="feature-card reveal reveal-delay-3">
           <span class="card-icon">06</span>
-          <h3>Operations</h3>
-          <p>PostgreSQL-backed state, Redis cluster coordination, trace timelines, metrics, alerts, tenant isolation, and Kubernetes deployment assets.</p>
+          <h3>Studio &amp; Developer Portal</h3>
+          <p>One control plane to author, deploy, govern, and observe — plus a self-service portal with catalog, API keys, usage analytics, and a built-in OAuth2 server.</p>
         </article>
       </div>
     </section>
 
     <section id="architecture" class="split-section">
       <div class="section-copy reveal">
-        <p class="eyebrow">Architecture</p>
-        <h2>Separated Gateway and Studio, designed for production blast-radius control.</h2>
+        <p class="eyebrow">Deploy anywhere</p>
+        <h2>Connected hybrid runtime, managed from one console.</h2>
         <p>
-          Gateway serves data-plane traffic independently of Studio. Studio writes deployment intent to PostgreSQL;
-          Gateway reads the active revision for the tenant and environment. Rollback is a database operation, not file copying.
+          The control plane writes deployment intent; stateless runtimes read it. Runtimes self-register, pull
+          their desired state over an outbound-only connection, and keep serving traffic even when the control
+          plane is offline — so you can run WASL in the cloud, on-premises, on Kubernetes, or at the edge and
+          manage it all from one place.
         </p>
         <div class="check-list">
-          <span>Hostname routing: tenant and environment resolved from subdomain</span>
-          <span>Immutable bundle revisions with database-tracked deployments</span>
-          <span>Tenant-specific analytics, traces, logs, keys, policies, and certificates</span>
-          <span>Stateless Gateway pods ready for horizontal scaling</span>
+          <span>Runtimes self-register and pull desired state — no control plane in the request path</span>
+          <span>Outbound-only agent — the control plane never reaches into your network</span>
+          <span>Offline cache keeps traffic flowing through control-plane outages</span>
+          <span>Run across cloud, on-premises, Kubernetes, and edge — one console</span>
         </div>
       </div>
       <div class="architecture-panel reveal reveal-delay-1">
         <div class="panel-row">
           <span class="panel-label">Control plane</span>
-          <strong>Studio :9090</strong>
+          <strong>Studio</strong>
           <small>Author, govern, deploy, observe</small>
         </div>
         <div class="panel-row active">
           <span class="panel-label">Data plane</span>
-          <strong>Gateway :8080 / :9080</strong>
-          <small>Policies, flows, routing, plugin execution</small>
+          <strong>API · AI · Event Gateways &amp; Worker</strong>
+          <small>Stateless runtimes, hot-reload on every deploy</small>
         </div>
         <div class="panel-row">
-          <span class="panel-label">Developer surface</span>
-          <strong>Portal :9091</strong>
-          <small>Catalog, keys, OAuth2, usage</small>
+          <span class="panel-label">Hybrid fleet</span>
+          <strong>Connected runtimes</strong>
+          <small>Self-register, pull desired state, report health</small>
         </div>
         <div class="panel-row">
           <span class="panel-label">State</span>
           <strong>PostgreSQL + Redis</strong>
-          <small>Deployments, sessions, counters, cache, alerts</small>
+          <small>Authoritative state and cluster coordination</small>
         </div>
       </div>
     </section>
@@ -256,14 +256,14 @@
         <p class="eyebrow">Studio + Portal</p>
         <h2>Operate the platform without hiding the runtime model.</h2>
         <p>
-          Studio exposes the operational primitives directly: tenants, environments, bundles, revisions, policies,
-          listeners, certificates, traces, and deployments. Portal gives consumers a self-service API surface backed by
+          Studio exposes the operational primitives directly: tenants, fleets, bundles, revisions, policies,
+          certificates, traces, and deployments. Portal gives consumers a self-service API surface backed by
           keys, subscriptions, usage analytics, and OAuth2 flows.
         </p>
         <div class="metric-row">
+          <div><strong>4</strong><span>data-plane runtimes</span></div>
           <div><strong>24</strong><span>built-in policies</span></div>
           <div><strong>5</strong><span>tenant resolution modes</span></div>
-          <div><strong>4</strong><span>environment modes</span></div>
         </div>
       </div>
     </section>
@@ -299,7 +299,7 @@
   <footer>
     <div>
       <strong class="footer-brand"><span class="brand-w">W</span>asl</strong>
-      <span>Enterprise API Gateway and AI Gateway</span>
+      <span>One gateway · APIs · AI · Events · Jobs</span>
     </div>
     <nav aria-label="Footer navigation">
       <a href="/docs/">Docs</a>
