@@ -894,3 +894,143 @@ footer nav {
     grid-template-columns: 1fr;
   }
 }
+
+/* ─────────  Premium polish  ───────── */
+
+/* Brand-tinted selection + accessible focus ring */
+::selection {
+  background: rgba(59, 130, 246, 0.18);
+  color: var(--ink-strong);
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Anchor targets clear the sticky topbar */
+[id] {
+  scroll-margin-top: 92px;
+}
+
+/* Gradient keyword utility for display headings */
+.grad {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Eyebrow gets a small gradient signal dot */
+.eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--brand-gradient);
+}
+
+.waitlist .eyebrow::before {
+  background: linear-gradient(135deg, #60a5fa, #2dd4bf);
+}
+
+/* Soft brand glow behind the hero visual for depth */
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  inset: -12% -8% -12% -4%;
+  z-index: -1;
+  background:
+    radial-gradient(58% 58% at 72% 18%, rgba(59, 130, 246, 0.16), transparent 70%),
+    radial-gradient(52% 52% at 28% 92%, rgba(20, 184, 166, 0.14), transparent 70%);
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+/* Interactive depth on cards */
+.feature-card,
+.traffic-node,
+.panel-row,
+.metric-row div {
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.feature-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--brand-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow);
+}
+
+.feature-card:hover::after {
+  transform: scaleX(1);
+}
+
+.feature-card:hover .card-icon {
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.28);
+}
+
+.card-icon {
+  transition: box-shadow 0.22s ease;
+}
+
+.metric-row div:hover,
+.panel-row:hover {
+  transform: translateY(-2px);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Chip + tag hover states */
+.hero-proof span,
+.pipeline span,
+.policy-grid span,
+.logo-strip span {
+  transition: transform 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-proof span:hover,
+.pipeline span:hover,
+.policy-grid span:hover {
+  transform: translateY(-1px);
+  border-color: var(--brand);
+  color: var(--brand-strong);
+}
+
+.logo-strip span:hover {
+  border-color: var(--line-strong);
+  color: var(--ink-strong);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
