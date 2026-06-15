@@ -299,9 +299,38 @@ function setupCookieConsent() {
   banner.querySelector('#cookieDecline')?.addEventListener('click', () => decide('denied'));
 }
 
+function initStatCounters() {
+  const nums = document.querySelectorAll('.stat strong[data-count]');
+  if (!nums.length) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const animate = (el) => {
+    const target = parseInt(el.getAttribute('data-count'), 10) || 0;
+    const duration = 1100;
+    const start = performance.now();
+    el.textContent = '0';
+    const step = (now) => {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = String(Math.round(target * eased));
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = String(target);
+    };
+    requestAnimationFrame(step);
+  };
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { animate(e.target); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.6 });
+  nums.forEach((n) => io.observe(n));
+}
+
 wireCredibilityLinks();
 setupMobileNav();
 applyVariantByQuery();
 setupCookieConsent();
 initScrollReveal();
 initCardGlow();
+initStatCounters();
