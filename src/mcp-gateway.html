@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WASL for Enterprise — Governed API and AI Gateway Platform</title>
+  <title>WASL — Governed MCP Gateway &amp; Tool Registry</title>
   <meta name="description"
-    content="WASL for enterprise platform teams: separated Gateway and Studio, tenant isolation, policy governance, AI Gateway controls, Developer Portal, and integration plugins." />
+    content="Govern prompt actions, tools, and LLM integrations. Expose internal APIs as governed MCP tools, proxy third-party MCP servers, and secure agent egress." />
 
-  <link rel="canonical" href="https://waslhq.com/enterprise.html" />
+  <link rel="canonical" href="https://waslhq.com/mcp-gateway.html" />
   <link rel="icon" type="image/svg+xml" href="./brand-mark.svg" />
   <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
   <link rel="manifest" href="./manifest.webmanifest" />
@@ -25,7 +25,7 @@
   <a class="skip-link" href="#top">Skip to content</a>
   <header class="topbar">
     <a class="brand" href="./index.html" aria-label="Wasl home">
-      <img class="brand-mark" src="./brand-mark.svg" alt="" aria-hidden="true" width="34" height="34" />
+      <img class="brand-mark" src="./brand-mark.svg" alt="" aria-hidden="true" width="42" height="42" />
       <span class="brand-text"><span class="brand-w">W</span>asl</span>
     </a>
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-controls="primaryNav" aria-expanded="false">
@@ -60,7 +60,7 @@
                 <span class="icon">⚡</span>
                 <span class="label">Event Management</span>
               </a>
-              <a href="./enterprise.html" class="sidebar-item active">
+              <a href="./enterprise.html" class="sidebar-item">
                 <span class="icon">💼</span>
                 <span class="label">Enterprise Scale</span>
               </a>
@@ -82,7 +82,7 @@
               <!-- Core Services Column -->
               <div class="mega-column">
                 <h5>Core Services</h5>
-                <a href="./mcp-gateway.html">MCP Registry <span class="badge badge-new">NEW</span></a>
+                <a href="./mcp-gateway.html" class="active">MCP Registry <span class="badge badge-new">NEW</span></a>
                 <a href="./api-gateway.html#catalog">API Service Catalog</a>
                 <a href="./enterprise.html#fleet-manager">Runtime Management</a>
                 <a href="./open-source.html#sdk">APIOps &amp; Automation</a>
@@ -111,7 +111,7 @@
             <!-- Platform Teams -->
             <div class="mega-column">
               <h5>For Platform Teams</h5>
-              <a href="./enterprise.html" class="active">Developer Platform</a>
+              <a href="./enterprise.html">Developer Platform</a>
               <a href="./enterprise.html#kubernetes">Kubernetes and Microservices</a>
               <a href="./enterprise.html#observability">Observability</a>
               <a href="./enterprise.html#service-mesh">Service Mesh Connectivity</a>
@@ -159,148 +159,216 @@
       <a href="/docs/">Docs</a>
       <a class="nav-cta" href="#waitlist">Request Access</a>
     </nav>
-    <a class="btn btn-outline topbar-cta" href="#waitlist">Request Access</a>
+    <a class="btn btn-primary topbar-cta" href="#waitlist">Request Access <span class="cta-arrow" aria-hidden="true">→</span></a>
   </header>
 
   <main id="top">
     <section class="hero">
       <div class="hero-copy reveal">
-        <p class="eyebrow">Enterprise deployment model</p>
-        <h1>Control-plane clarity for <span class="grad">regulated API and AI programs.</span></h1>
+        <p class="eyebrow">Model Context Protocol</p>
+        <h1>Govern what agents <span class="grad">are allowed to do.</span></h1>
         <p class="hero-lede">
-          WASL gives enterprise teams the primitives they need to run governed traffic programs: tenant isolation,
-          environment-aware deployment, revision rollback, policy enforcement, certificate management, and traceable operations.
+          WASL MCP Gateway (`McpGatewayApp`) is an enterprise-grade control point for agent tool access. Convert internal APIs into governed tools, proxy third-party MCP servers with strict SSRF defense, and apply granular grants per agent identity.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#waitlist">Request Enterprise Access</a>
-          <a class="btn btn-secondary" href="/docs/">Read Docs</a>
-        </div>
-        <div class="hero-proof" aria-label="Enterprise highlights">
-          <span>PostgreSQL state of record</span>
-          <span>Redis cluster coordination</span>
-          <span>Kubernetes oriented</span>
-          <span>RBAC ready</span>
-        </div>
-      </div>
-      <div class="architecture-panel reveal reveal-delay-1">
-        <div class="panel-row active">
-          <span class="panel-label">Gateway</span>
-          <strong>Stateless data plane</strong>
-          <small>Serves API and AI traffic independently of Studio availability. Pods restart in seconds.</small>
-        </div>
-        <div class="panel-row">
-          <span class="panel-label">Studio</span>
-          <strong>Control plane</strong>
-          <small>Writes deployment intent, manages tenants, policies, certificates, and traces. Outages never affect data plane.</small>
-        </div>
-        <div class="panel-row">
-          <span class="panel-label">Portal</span>
-          <strong>Developer self-service</strong>
-          <small>Catalog, subscriptions, API keys, OAuth2 AS, and usage analytics. Secret keys encrypted at rest using AES-256-GCM.</small>
+          <a class="btn btn-primary" href="#waitlist">Request Platform Access</a>
+          <a class="btn btn-secondary" href="/docs/mcp-gateway.html">Read MCP Docs</a>
         </div>
       </div>
     </section>
 
-    <!-- Hybrid Fleets -->
+    <!-- Capabilities -->
     <section class="section reveal">
+      <div class="section-head reveal">
+        <p class="eyebrow">Capabilities</p>
+        <h2>Dual Egress &amp; Inbound Governance</h2>
+        <p>
+          Secure both sides of the Model Context Protocol. Expose internal functions safely or govern outgoing tool execution routes under one roof.
+        </p>
+      </div>
+
       <div class="split-section">
         <div class="section-copy reveal">
-          <p class="eyebrow">Fleet management</p>
-          <h2>Connected hybrid fleets, deployed anywhere</h2>
+          <h3>Expose &amp; Serve Tools (Inbound)</h3>
           <p style="color: var(--muted); margin-bottom: 20px;">
-            Enforce unified governance across multi-region edge nodes, cloud VM groups, and on-premises containers from a single console.
+            Expose curated sets of WASL APIs, FlowJS scripts, or Worker tasks as named tools for LLMs. Instead of leaking raw API endpoints, present high-level, governed tools designed specifically for model context.
           </p>
           <div class="check-list">
-            <span><strong>Outbound Agent Pull:</strong> Edge gateways heart-beat and pull configurations—the control plane never reaches into your network</span>
-            <span><strong>Offline Caches:</strong> Runtimes cache deployment configurations locally to continue serving traffic during database or control-plane outages</span>
-            <span><strong>Env overlays:</strong> Merge tenant variables and plugin configurations dynamically based on fleet env bounds</span>
+            <span><strong>Prompt Curations:</strong> Write model-friendly tool descriptions and names</span>
+            <span><strong>GraalJS flows:</strong> Bind tool execution to custom javascript orchestrators</span>
+            <span><strong>Dynamic schema:</strong> Automatically derive parameter schemas from inputs</span>
+            <span><strong>Policy checks:</strong> Subject every tool execution to rate limits and auth</span>
           </div>
         </div>
 
         <div class="section-copy reveal">
-          <p class="eyebrow">Operational security</p>
-          <h2>Decoupled Secrets &amp; Auditable Rollbacks</h2>
+          <h3>Proxy External MCP Servers (Egress)</h3>
           <p style="color: var(--muted); margin-bottom: 20px;">
-            Secure operations natively. Deploy bundles as database writes to Postgres, and resolve secrets at execution runtime.
+            Enforce a central registry for external MCP connections (GitHub, database connectors, SaaS agents). Block direct, shadow-AI connections and force tool traffic through WASL.
           </p>
           <div class="check-list">
-            <span><strong>Secret references:</strong> Plaintext keys are never logged. Reference Vault, AWS SSM, Azure Key Vault, or Env overlays natively</span>
-            <span><strong>Atomic deployment:</strong> Promote, scale, or roll back bundle revisions safely through a single SQL transaction write</span>
-            <span><strong>Clustered alerts:</strong> Redis-coordinated locks deduplicate anomalous latency alerts, notifying Teams once across N nodes</span>
+            <span><strong>SSRF Protection:</strong> Enforce `ProviderEgressGuard` boundaries for remote calls</span>
+            <span><strong>Drift Detection:</strong> Diff remote schemas to flag and re-approve altered tools</span>
+            <span><strong>Credential Injection:</strong> Inject client secrets only toward validated upstreams</span>
+            <span><strong>Audit Logs:</strong> Maintain trace correlation ids across all forwarded steps</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Kubernetes -->
-    <section class="split-section reverse reveal">
+    <!-- Code Switcher Section -->
+    <section class="section reveal">
+      <div class="section-head reveal">
+        <p class="eyebrow">Wire Format</p>
+        <h2>JSON-RPC 2.0 over Streamable HTTP</h2>
+        <p>
+          The MCP Gateway natively processes session handshakes, tool listing queries, and tool call executions over standard HTTP paths.
+        </p>
+      </div>
+
+      <div class="tabs-container">
+        <div class="tabs-nav">
+          <button class="tab-btn active" data-tab="tab-init">Initialize Handshake</button>
+          <button class="tab-btn" data-tab="tab-call">Execute Served Tool</button>
+          <button class="tab-btn" data-tab="tab-egress">Egress Proxy Definition</button>
+        </div>
+
+        <div id="tab-init" class="tab-pane active">
+          <div class="code-block">
+            <div class="code-header">
+              <span>POST /mcp/customer_support_ops (initialize)</span>
+              <span class="lang-badge">json-rpc</span>
+            </div>
+            <pre><code>// Client initializes session with gateway
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "initialize",
+  "params": {
+    "protocolVersion": "2025-06-18",
+    "capabilities": {},
+    "clientInfo": { "name": "claude-desktop", "version": "1.0.0" }
+  }
+}
+
+// Gateway responds with version mapping & session header
+// headers: {"Mcp-Session-Id": "sess_80a2b8109f", "Content-Type": "application/json"}
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "protocolVersion": "2025-06-18",
+    "capabilities": {
+      "tools": { "listChanged": true }
+    },
+    "serverInfo": { "name": "wasl-mcp-gateway", "version": "0.1.0" }
+  }
+}</code></pre>
+          </div>
+        </div>
+
+        <div id="tab-call" class="tab-pane">
+          <div class="code-block">
+            <div class="code-header">
+              <span>POST /mcp/customer_support_ops (tools/call)</span>
+              <span class="lang-badge">json-rpc</span>
+            </div>
+            <pre><code>// Agent invokes served tool
+{
+  "jsonrpc": "2.0",
+  "id": 2,
+  "method": "tools/call",
+  "params": {
+    "name": "lookup_customer",
+    "arguments": { "id": "cust_123" }
+  }
+}
+
+// Response from WASL (executes flow and returns result)
+{
+  "jsonrpc": "2.0",
+  "id": 2,
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Customer ID cust_123 resolved: Jane Doe, Status: VIP, Tier: Enterprise."
+      }
+    ]
+  }
+}</code></pre>
+          </div>
+        </div>
+
+        <div id="tab-egress" class="tab-pane">
+          <div class="code-block">
+            <div class="code-header">
+              <span>egress-registry-entry.json</span>
+              <span class="lang-badge">json</span>
+            </div>
+            <pre><code>{
+  "entryId": "github-mcp-server",
+  "url": "https://mcp.github.acme/mcp",
+  "auth_secret_ref": "vault:secret/wasl/github#token",
+  "allowed_scopes": ["repo", "read:org"],
+  "approval_status": "approved",
+  "drift_detection": {
+    "enabled": true,
+    "diff_on_list": true,
+    "notify_on_mismatch": true
+  }
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Agent Governance Spine -->
+    <section class="split-section reveal">
+      <div class="section-copy reveal">
+        <p class="eyebrow">Spine</p>
+        <h2>The Agent Governance Spine</h2>
+        <p>
+          Traditional API keys grant broad scopes. WASL reorients access around **Agent Identity** and **Tool-Level Grants**:
+        </p>
+        <div class="check-list" style="margin-top:20px;">
+          <span><strong>Agent Registration:</strong> Track client identities dynamically in `mcp_agents`</span>
+          <span><strong>Entitlement Grants:</strong> Bind allowed/denied/approval-required tools to specific agents</span>
+          <span><strong>Discovery-Time Filtering:</strong> `tools/list` returns only tools the requesting agent is authorized to call</span>
+        </div>
+      </div>
       <div class="browser-frame reveal">
         <div class="browser-bar">
           <span></span><span></span><span></span>
-          <em>wasl-helm-deployment-spec</em>
+          <em>acme-corp.wasl.studio · Agent Tool Grants</em>
         </div>
-        <div style="background: var(--surface-warm); padding: 24px; font-family: 'JetBrains Mono', monospace; font-size: 0.84rem; color: #cbd5e1; line-height: 1.55;">
-          <div style="color: var(--muted);"># helm-values.yaml</div>
-          <div><span style="color: #f472b6;">gateway:</span></div>
-          <div>  <span style="color: #60a5fa;">replicaCount:</span> <span style="color: #f59e0b;">3</span></div>
-          <div>  <span style="color: #60a5fa;">autoscaling:</span></div>
-          <div>    <span style="color: #60a5fa;">enabled:</span> <span style="color: #2dd4bf;">true</span></div>
-          <div>    <span style="color: #60a5fa;">minReplicas:</span> <span style="color: #f59e0b;">2</span></div>
-          <div>    <span style="color: #60a5fa;">maxReplicas:</span> <span style="color: #f59e0b;">20</span></div>
-          <div>    <span style="color: #60a5fa;">targetCPUUtilizationPercentage:</span> <span style="color: #f59e0b;">75</span></div>
-          <div>  <span style="color: #60a5fa;">securityContext:</span></div>
-          <div>    <span style="color: #60a5fa;">runAsNonRoot:</span> <span style="color: #2dd4bf;">true</span></div>
-          <div>    <span style="color: #60a5fa;">allowPrivilegeEscalation:</span> <span style="color: #2dd4bf;">false</span></div>
+        <div style="background: var(--surface-warm); padding: 24px; border-bottom: 1px solid var(--line);">
+          <strong style="color: var(--ink-strong); font-size: 1rem; display: block; margin-bottom: 8px;">Entitled Agent Grants</strong>
+          <div style="display: grid; gap: 8px;">
+            <div style="display: flex; justify-content: space-between; border: 1px solid var(--line); border-radius: 8px; padding: 12px; background: var(--surface);">
+              <div>
+                <strong style="color: var(--ink-strong); font-size: 0.9rem;">customer-support-agent</strong>
+                <small style="color: var(--muted); display: block; font-family: monospace;">client: claude-desktop</small>
+              </div>
+              <span class="status-pill" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">3 tools approved</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; border: 1px solid var(--line); border-radius: 8px; padding: 12px; background: var(--surface);">
+              <div>
+                <strong style="color: var(--ink-strong); font-size: 0.9rem;">ops-analysis-agent</strong>
+                <small style="color: var(--muted); display: block; font-family: monospace;">client: wasl-studio-co-author</small>
+              </div>
+              <span class="status-pill" style="background: rgba(168, 85, 247, 0.15); color: #c084fc;">Human Consent Required</span>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="section-copy reveal">
-        <p class="eyebrow">Cloud Native</p>
-        <h2>Kubernetes-Native Architecture</h2>
-        <p>
-          WASL is designed for orchestration tools. Every component is packaged as non-root container images with Prometheus metrics and health probes built directly into the core.
-        </p>
-        <div class="check-list" style="margin-top:20px;">
-          <span><strong>Hardened Helm Charts:</strong> Deploy Gateway HPAs, ServiceMonitors, NetworkPolicies, and PVCs cleanly</span>
-          <span><strong>Virtual Threads:</strong> Project Loom-ready threads reduce connection overhead for EKS, GKE, AKS, and OpenShift clusters</span>
-          <span><strong>PgBouncer &amp; HA Redis:</strong> Integrated support for pg_coordination and clustered Redis invalidations out of the box</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Enterprise controls -->
-    <section class="section tinted">
-      <div class="section-head reveal">
-        <p class="eyebrow">Enterprise controls</p>
-        <h2>Built around deployment intent, auditability, and tenant boundaries.</h2>
-        <p>
-          WASL treats bundles, revisions, environments, deployments, policies, certificates, traces, and developer
-          access as first-class operational objects.
-        </p>
-      </div>
-      <div class="platform-grid">
-        <article class="feature-card reveal reveal-delay-1">
-          <span class="card-icon">A</span>
-          <h3>Governed Deployment</h3>
-          <p>Deploy, promote, and rollback immutable revisions by updating deployment records rather than copying runtime files.</p>
-        </article>
-        <article class="feature-card reveal reveal-delay-2">
-          <span class="card-icon">B</span>
-          <h3>Tenant Isolation</h3>
-          <p>Tenant-scoped resources, sessions, analytics, logs, certificates, API keys, OAuth clients, and portal usage.</p>
-        </article>
-        <article class="feature-card reveal reveal-delay-3">
-          <span class="card-icon">C</span>
-          <h3>Operational Evidence</h3>
-          <p>Trace timelines, metrics, policy events, flow execution records, alerts, and usage counters for compliance workflows.</p>
-        </article>
       </div>
     </section>
 
     <section id="waitlist" class="waitlist reveal">
       <div>
         <p class="eyebrow">Early access</p>
-        <h2>Evaluate WASL with your platform architecture.</h2>
-        <p>Request early access and implementation notes for enterprise gateway deployment planning.</p>
+        <h2>Evaluate WASL's MCP Gateway</h2>
+        <p>Request early access to convert API paths to model tools, register external MCP servers, and audit agent executions.</p>
       </div>
       <form id="waitlistForm">
         <input type="email" id="email" placeholder="you@company.com" required aria-label="Email address" />
@@ -317,7 +385,7 @@
           <img src="./brand-mark.svg" alt="" aria-hidden="true" width="36" height="36" />
           <span class="footer-brand"><span class="brand-w">W</span>asl</span>
         </a>
-        <p>One gateway for APIs, AI, events, and jobs — governed and observed from a single control plane.</p>
+        <p>One control plane for APIs, AI, events, and jobs — open core, governed and observed from one place, deployed anywhere.</p>
       </div>
       <nav class="footer-links" aria-label="Footer">
         <div class="footer-col">

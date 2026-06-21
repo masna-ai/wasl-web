@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WASL for Enterprise — Governed API and AI Gateway Platform</title>
+  <title>WASL — Governed Event Gateway &amp; Worker Runtime</title>
   <meta name="description"
-    content="WASL for enterprise platform teams: separated Gateway and Studio, tenant isolation, policy governance, AI Gateway controls, Developer Portal, and integration plugins." />
+    content="Expose Kafka streams as secure, validated HTTP and SSE endpoints. Manage background jobs with retries, DLQ leases, and scheduling via the Worker Runtime." />
 
-  <link rel="canonical" href="https://waslhq.com/enterprise.html" />
+  <link rel="canonical" href="https://waslhq.com/event-gateway.html" />
   <link rel="icon" type="image/svg+xml" href="./brand-mark.svg" />
   <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
   <link rel="manifest" href="./manifest.webmanifest" />
@@ -25,7 +25,7 @@
   <a class="skip-link" href="#top">Skip to content</a>
   <header class="topbar">
     <a class="brand" href="./index.html" aria-label="Wasl home">
-      <img class="brand-mark" src="./brand-mark.svg" alt="" aria-hidden="true" width="34" height="34" />
+      <img class="brand-mark" src="./brand-mark.svg" alt="" aria-hidden="true" width="42" height="42" />
       <span class="brand-text"><span class="brand-w">W</span>asl</span>
     </a>
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-controls="primaryNav" aria-expanded="false">
@@ -56,11 +56,11 @@
                 <span class="icon">🧠</span>
                 <span class="label">AI Management</span>
               </a>
-              <a href="./event-gateway.html" class="sidebar-item">
+              <a href="./event-gateway.html" class="sidebar-item active">
                 <span class="icon">⚡</span>
                 <span class="label">Event Management</span>
               </a>
-              <a href="./enterprise.html" class="sidebar-item active">
+              <a href="./enterprise.html" class="sidebar-item">
                 <span class="icon">💼</span>
                 <span class="label">Enterprise Scale</span>
               </a>
@@ -72,7 +72,7 @@
                 <h5>Runtimes</h5>
                 <a href="./api-gateway.html">API Gateway</a>
                 <a href="./ai-gateway.html">AI Gateway <span class="badge badge-hot">HOT</span></a>
-                <a href="./event-gateway.html">Event Gateway</a>
+                <a href="./event-gateway.html" class="active">Event Gateway</a>
                 <a href="./enterprise.html#mesh">Service Mesh</a>
                 <a href="./enterprise.html#context-mesh">Context Mesh</a>
                 <a href="./enterprise.html#ingress">Ingress Controller</a>
@@ -111,7 +111,7 @@
             <!-- Platform Teams -->
             <div class="mega-column">
               <h5>For Platform Teams</h5>
-              <a href="./enterprise.html" class="active">Developer Platform</a>
+              <a href="./enterprise.html">Developer Platform</a>
               <a href="./enterprise.html#kubernetes">Kubernetes and Microservices</a>
               <a href="./enterprise.html#observability">Observability</a>
               <a href="./enterprise.html#service-mesh">Service Mesh Connectivity</a>
@@ -159,148 +159,196 @@
       <a href="/docs/">Docs</a>
       <a class="nav-cta" href="#waitlist">Request Access</a>
     </nav>
-    <a class="btn btn-outline topbar-cta" href="#waitlist">Request Access</a>
+    <a class="btn btn-primary topbar-cta" href="#waitlist">Request Access <span class="cta-arrow" aria-hidden="true">→</span></a>
   </header>
 
   <main id="top">
     <section class="hero">
       <div class="hero-copy reveal">
-        <p class="eyebrow">Enterprise deployment model</p>
-        <h1>Control-plane clarity for <span class="grad">regulated API and AI programs.</span></h1>
+        <p class="eyebrow">Real-Time Data Streams</p>
+        <h1>Expose Kafka streams. <span class="grad">Run async jobs.</span></h1>
         <p class="hero-lede">
-          WASL gives enterprise teams the primitives they need to run governed traffic programs: tenant isolation,
-          environment-aware deployment, revision rollback, policy enforcement, certificate management, and traceable operations.
+          WASL Event Gateway (`EventGatewayApp`) bridges HTTP clients with backend Kafka clusters. Publish events over simple REST and consume them via Server-Sent Events (SSE). Woven together with the `WorkerApp` scheduling engine to govern background loops.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#waitlist">Request Enterprise Access</a>
-          <a class="btn btn-secondary" href="/docs/">Read Docs</a>
-        </div>
-        <div class="hero-proof" aria-label="Enterprise highlights">
-          <span>PostgreSQL state of record</span>
-          <span>Redis cluster coordination</span>
-          <span>Kubernetes oriented</span>
-          <span>RBAC ready</span>
-        </div>
-      </div>
-      <div class="architecture-panel reveal reveal-delay-1">
-        <div class="panel-row active">
-          <span class="panel-label">Gateway</span>
-          <strong>Stateless data plane</strong>
-          <small>Serves API and AI traffic independently of Studio availability. Pods restart in seconds.</small>
-        </div>
-        <div class="panel-row">
-          <span class="panel-label">Studio</span>
-          <strong>Control plane</strong>
-          <small>Writes deployment intent, manages tenants, policies, certificates, and traces. Outages never affect data plane.</small>
-        </div>
-        <div class="panel-row">
-          <span class="panel-label">Portal</span>
-          <strong>Developer self-service</strong>
-          <small>Catalog, subscriptions, API keys, OAuth2 AS, and usage analytics. Secret keys encrypted at rest using AES-256-GCM.</small>
+          <a class="btn btn-primary" href="#waitlist">Request Platform Access</a>
+          <a class="btn btn-secondary" href="/docs/event-gateway.html">Read Event Gateway Docs</a>
         </div>
       </div>
     </section>
 
-    <!-- Hybrid Fleets -->
+    <!-- Key capabilities -->
     <section class="section reveal">
+      <div class="section-head reveal">
+        <p class="eyebrow">Runtimes</p>
+        <h2>Dual Engine for Async Architectures</h2>
+        <p>
+          Govern both stream communication and background cron schedules under the same multi-tenant control plane.
+        </p>
+      </div>
+
       <div class="split-section">
         <div class="section-copy reveal">
-          <p class="eyebrow">Fleet management</p>
-          <h2>Connected hybrid fleets, deployed anywhere</h2>
+          <h3>Event Gateway (`EventGatewayApp`)</h3>
           <p style="color: var(--muted); margin-bottom: 20px;">
-            Enforce unified governance across multi-region edge nodes, cloud VM groups, and on-premises containers from a single console.
+            Expose real-time message brokers (Kafka, Confluent, MSK, Redpanda) to lightweight web clients. The gateway handles group coordination, token bucket throttling, and schema validation.
           </p>
           <div class="check-list">
-            <span><strong>Outbound Agent Pull:</strong> Edge gateways heart-beat and pull configurations—the control plane never reaches into your network</span>
-            <span><strong>Offline Caches:</strong> Runtimes cache deployment configurations locally to continue serving traffic during database or control-plane outages</span>
-            <span><strong>Env overlays:</strong> Merge tenant variables and plugin configurations dynamically based on fleet env bounds</span>
+            <span><strong>REST-to-SSE:</strong> Clients produce with HTTP POST, consume over stream SSE</span>
+            <span><strong>Data Contracts:</strong> Enforce JSON Schema, Avro, or Protobuf formats at the edge</span>
+            <span><strong>DLQ Routing:</strong> Invalid records are automatically routed to Dead Letter Queues</span>
+            <span><strong>AsyncAPI:</strong> Self-documenting channels generate AsyncAPI 2.x documents</span>
           </div>
         </div>
 
         <div class="section-copy reveal">
-          <p class="eyebrow">Operational security</p>
-          <h2>Decoupled Secrets &amp; Auditable Rollbacks</h2>
+          <h3>Worker Runtime (`WorkerApp`)</h3>
           <p style="color: var(--muted); margin-bottom: 20px;">
-            Secure operations natively. Deploy bundles as database writes to Postgres, and resolve secrets at execution runtime.
+            A dedicated process designed for out-of-band asynchronous jobs, connector scheduling, and long-running flow orchestrations.
           </p>
           <div class="check-list">
-            <span><strong>Secret references:</strong> Plaintext keys are never logged. Reference Vault, AWS SSM, Azure Key Vault, or Env overlays natively</span>
-            <span><strong>Atomic deployment:</strong> Promote, scale, or roll back bundle revisions safely through a single SQL transaction write</span>
-            <span><strong>Clustered alerts:</strong> Redis-coordinated locks deduplicate anomalous latency alerts, notifying Teams once across N nodes</span>
+            <span><strong>Scheduled Jobs:</strong> Cron trigger engines coordinate recurring tasks across clusters</span>
+            <span><strong>Retry &amp; Leases:</strong> Job lease locking with automated retry and backoff curves</span>
+            <span><strong>Audited Progress:</strong> Track job status and log steps directly inside WASL Studio</span>
+            <span><strong>Kafka triggers:</strong> Execute JS flows dynamically on topic message ingestion</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Kubernetes -->
-    <section class="split-section reverse reveal">
+    <!-- Code Switcher Section -->
+    <section class="section reveal">
+      <div class="section-head reveal">
+        <p class="eyebrow">Protocols</p>
+        <h2>Simplified Event APIs</h2>
+        <p>
+          Expose real-time capabilities to developers without requiring heavy Kafka libraries or custom SASL configuration.
+        </p>
+      </div>
+
+      <div class="tabs-container">
+        <div class="tabs-nav">
+          <button class="tab-btn active" data-tab="tab-produce">Produce Record (HTTP)</button>
+          <button class="tab-btn" data-tab="tab-consume">Consume Stream (SSE)</button>
+          <button class="tab-btn" data-tab="tab-worker">Worker Job Config</button>
+        </div>
+
+        <div id="tab-produce" class="tab-pane active">
+          <div class="code-block">
+            <div class="code-header">
+              <span>POST /events/orders.created/records</span>
+              <span class="lang-badge">json</span>
+            </div>
+            <pre><code>// Client submits event payload
+curl -X POST https://events.acme.local/events/orders.created/records \
+  -H "Authorization: Bearer wsl_token_88921a" \
+  -H "Content-Type: application/json" \
+  -d {
+    "records": [
+      {
+        "key": "cust_123",
+        "value": { "orderId": "ord_908", "total": 150.00 }
+      }
+    ]
+  }
+
+// Response from Event Gateway
+{
+  "status": "published",
+  "topic": "orders.created.v1",
+  "partition": 2,
+  "offset": 14502
+}</code></pre>
+          </div>
+        </div>
+
+        <div id="tab-consume" class="tab-pane">
+          <div class="code-block">
+            <div class="code-header">
+              <span>GET /events/orders.created/stream</span>
+              <span class="lang-badge">text/event-stream</span>
+            </div>
+            <pre><code># Client subscribes to SSE stream using regular EventSource API
+curl -N https://events.acme.local/events/orders.created/stream?subscriptionId=sub_crm_syncer \
+  -H "Authorization: Bearer wsl_token_88921a"
+
+id: 2:14502
+event: message
+data: { "orderId": "ord_908", "total": 150.00 }
+
+id: 2:14503
+event: message
+data: { "orderId": "ord_909", "total": 230.00 }</code></pre>
+          </div>
+        </div>
+
+        <div id="tab-worker" class="tab-pane">
+          <div class="code-block">
+            <div class="code-header">
+              <span>worker-job.json</span>
+              <span class="lang-badge">json</span>
+            </div>
+            <pre><code>{
+  "jobId": "nightly-cleanup-job",
+  "tenantId": "acme-corp",
+  "schedule": "0 0 * * *",
+  "executor": "flowJS",
+  "flowRef": "cleanup-unpaid-orders",
+  "retryConfig": {
+    "maxRetries": 3,
+    "backoffSeconds": 30,
+    "deadLetterQueueTopic": "jobs.dlq"
+  }
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cluster Registry -->
+    <section class="split-section reveal">
+      <div class="section-copy reveal">
+        <p class="eyebrow">Operations</p>
+        <h2>Dynamic Cluster Registry</h2>
+        <p>
+          Configure and scan your streams without touching code. The control plane registers clusters and tracks metadata dynamically:
+        </p>
+        <div class="check-list" style="margin-top:20px;">
+          <span><strong>SASL &amp; TLS profiles:</strong> Store credentials in secret vaults and inject them dynamically</span>
+          <span><strong>Topic Scans:</strong> Auto-scan clusters to discover topics, offsets, and replication factors</span>
+          <span><strong>Consumer groups:</strong> Track lag metrics across active groups within the Studio dashboard</span>
+        </div>
+      </div>
       <div class="browser-frame reveal">
         <div class="browser-bar">
           <span></span><span></span><span></span>
-          <em>wasl-helm-deployment-spec</em>
+          <em>acme-corp.wasl.studio · Event Clusters</em>
         </div>
-        <div style="background: var(--surface-warm); padding: 24px; font-family: 'JetBrains Mono', monospace; font-size: 0.84rem; color: #cbd5e1; line-height: 1.55;">
-          <div style="color: var(--muted);"># helm-values.yaml</div>
-          <div><span style="color: #f472b6;">gateway:</span></div>
-          <div>  <span style="color: #60a5fa;">replicaCount:</span> <span style="color: #f59e0b;">3</span></div>
-          <div>  <span style="color: #60a5fa;">autoscaling:</span></div>
-          <div>    <span style="color: #60a5fa;">enabled:</span> <span style="color: #2dd4bf;">true</span></div>
-          <div>    <span style="color: #60a5fa;">minReplicas:</span> <span style="color: #f59e0b;">2</span></div>
-          <div>    <span style="color: #60a5fa;">maxReplicas:</span> <span style="color: #f59e0b;">20</span></div>
-          <div>    <span style="color: #60a5fa;">targetCPUUtilizationPercentage:</span> <span style="color: #f59e0b;">75</span></div>
-          <div>  <span style="color: #60a5fa;">securityContext:</span></div>
-          <div>    <span style="color: #60a5fa;">runAsNonRoot:</span> <span style="color: #2dd4bf;">true</span></div>
-          <div>    <span style="color: #60a5fa;">allowPrivilegeEscalation:</span> <span style="color: #2dd4bf;">false</span></div>
+        <div style="background: var(--surface-warm); padding: 24px; border-bottom: 1px solid var(--line);">
+          <strong style="color: var(--ink-strong); font-size: 1rem; display: block; margin-bottom: 8px;">Registered Broker Clusters</strong>
+          <div style="display: flex; justify-content: space-between; border: 1px solid var(--line); border-radius: 8px; padding: 12px; background: var(--surface); margin-bottom: 8px;">
+            <div>
+              <strong style="color: var(--ink-strong); font-size: 0.9rem;">ops-kafka-cluster</strong>
+              <small style="color: var(--muted); display: block; font-family: monospace;">brokers: msk-bootstrap.internal:9094</small>
+            </div>
+            <span class="status-pill">Connected</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; border: 1px solid var(--line); border-radius: 8px; padding: 12px; background: var(--surface);">
+            <div>
+              <strong style="color: var(--ink-strong); font-size: 0.9rem;">customer-redpanda-edge</strong>
+              <small style="color: var(--muted); display: block; font-family: monospace;">brokers: rp-bootstrap.local:9092</small>
+            </div>
+            <span class="status-pill">Connected</span>
+          </div>
         </div>
-      </div>
-      <div class="section-copy reveal">
-        <p class="eyebrow">Cloud Native</p>
-        <h2>Kubernetes-Native Architecture</h2>
-        <p>
-          WASL is designed for orchestration tools. Every component is packaged as non-root container images with Prometheus metrics and health probes built directly into the core.
-        </p>
-        <div class="check-list" style="margin-top:20px;">
-          <span><strong>Hardened Helm Charts:</strong> Deploy Gateway HPAs, ServiceMonitors, NetworkPolicies, and PVCs cleanly</span>
-          <span><strong>Virtual Threads:</strong> Project Loom-ready threads reduce connection overhead for EKS, GKE, AKS, and OpenShift clusters</span>
-          <span><strong>PgBouncer &amp; HA Redis:</strong> Integrated support for pg_coordination and clustered Redis invalidations out of the box</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Enterprise controls -->
-    <section class="section tinted">
-      <div class="section-head reveal">
-        <p class="eyebrow">Enterprise controls</p>
-        <h2>Built around deployment intent, auditability, and tenant boundaries.</h2>
-        <p>
-          WASL treats bundles, revisions, environments, deployments, policies, certificates, traces, and developer
-          access as first-class operational objects.
-        </p>
-      </div>
-      <div class="platform-grid">
-        <article class="feature-card reveal reveal-delay-1">
-          <span class="card-icon">A</span>
-          <h3>Governed Deployment</h3>
-          <p>Deploy, promote, and rollback immutable revisions by updating deployment records rather than copying runtime files.</p>
-        </article>
-        <article class="feature-card reveal reveal-delay-2">
-          <span class="card-icon">B</span>
-          <h3>Tenant Isolation</h3>
-          <p>Tenant-scoped resources, sessions, analytics, logs, certificates, API keys, OAuth clients, and portal usage.</p>
-        </article>
-        <article class="feature-card reveal reveal-delay-3">
-          <span class="card-icon">C</span>
-          <h3>Operational Evidence</h3>
-          <p>Trace timelines, metrics, policy events, flow execution records, alerts, and usage counters for compliance workflows.</p>
-        </article>
       </div>
     </section>
 
     <section id="waitlist" class="waitlist reveal">
       <div>
         <p class="eyebrow">Early access</p>
-        <h2>Evaluate WASL with your platform architecture.</h2>
-        <p>Request early access and implementation notes for enterprise gateway deployment planning.</p>
+        <h2>Evaluate WASL's Event Gateway</h2>
+        <p>Request early access to connect Kafka brokers to HTTP/SSE gateways, write worker schedules, and configure stream policies.</p>
       </div>
       <form id="waitlistForm">
         <input type="email" id="email" placeholder="you@company.com" required aria-label="Email address" />
@@ -317,7 +365,7 @@
           <img src="./brand-mark.svg" alt="" aria-hidden="true" width="36" height="36" />
           <span class="footer-brand"><span class="brand-w">W</span>asl</span>
         </a>
-        <p>One gateway for APIs, AI, events, and jobs — governed and observed from a single control plane.</p>
+        <p>One control plane for APIs, AI, events, and jobs — open core, governed and observed from one place, deployed anywhere.</p>
       </div>
       <nav class="footer-links" aria-label="Footer">
         <div class="footer-col">

@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WASL — One Gateway for APIs, AI, Events, and Jobs</title>
+  <title>WASL — One Control Plane for API, AI, Event &amp; Worker Traffic</title>
   <meta name="description"
-    content="WASL is a unified platform for API traffic, governed AI access, event streaming, and async jobs — authored, governed, and observed from one control plane and deployed anywhere from cloud to edge." />
+    content="WASL is an open-core, unified control plane for API traffic, governed AI access, event streaming, and async jobs — governed and observed from one place, deployed anywhere from cloud to edge. Releasing soon." />
 
   <link rel="canonical" href="https://waslhq.com/" />
-  <meta property="og:title" content="WASL — One Gateway for APIs, AI, Events, and Jobs" />
+  <meta property="og:title" content="WASL — One Control Plane for API, AI, Event &amp; Worker Traffic" />
   <meta property="og:description"
-    content="One platform for API traffic, governed AI access, event streaming, and async jobs — with a connected hybrid runtime you can deploy anywhere." />
+    content="Open-core, unified control plane for APIs, AI calls, events, and jobs — one policy model, one observability layer, deploy anywhere. Releasing soon." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://waslhq.com/" />
   <meta property="og:image" content="https://waslhq.com/og-image.png" />
@@ -20,9 +20,9 @@
   <meta property="og:image:alt" content="Wasl — one gateway for every kind of traffic" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="WASL — One Gateway for APIs, AI, Events, and Jobs" />
+  <meta name="twitter:title" content="WASL — One Control Plane for API, AI, Event &amp; Worker Traffic" />
   <meta name="twitter:description"
-    content="One platform for APIs, AI, events, and async jobs — with a connected hybrid runtime you can deploy anywhere." />
+    content="Open-core, unified control plane for APIs, AI, events, and jobs — deploy anywhere from cloud to edge. Releasing soon." />
   <meta name="twitter:image" content="https://waslhq.com/og-image.png" />
 
   <link rel="icon" type="image/svg+xml" href="./brand-mark.svg" />
@@ -65,7 +65,7 @@
         "name": "WASL",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Linux, Docker, Kubernetes",
-        "description": "Unified gateway platform for API traffic, governed AI access, event streaming, and async jobs — one control plane, deployable anywhere.",
+        "description": "Open-core, unified control plane for API traffic, governed AI access, event streaming, and async jobs — one policy model, one observability layer, deployable anywhere.",
         "url": "https://waslhq.com/"
       }
     ]
@@ -86,9 +86,128 @@
       <span class="menu-bar"></span>
     </button>
     <nav id="primaryNav" aria-label="Primary navigation">
-      <a href="#platform">Platform</a>
-      <a href="#ai-gateway">AI Gateway</a>
-      <a href="#observability">Observability</a>
+      <a href="./why-wasl.html">Why WASL</a>
+      
+      <!-- Products & Agents Mega Dropdown -->
+      <div class="dropdown mega-dropdown">
+        <button class="dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false">
+          Products &amp; Agents <span class="chevron" aria-hidden="true">▾</span>
+        </button>
+        <div class="dropdown-menu mega-menu">
+          <div class="mega-menu-header">
+            <span class="mega-menu-tag">API &amp; AI Connectivity Technologies</span>
+            <a href="./index.html" class="mega-menu-title">The Unified API and AI Platform <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="mega-menu-content">
+            <div class="mega-menu-sidebar">
+              <a href="./api-gateway.html" class="sidebar-item">
+                <span class="icon">⚙️</span>
+                <span class="label">API Management</span>
+              </a>
+              <a href="./ai-gateway.html" class="sidebar-item">
+                <span class="icon">🧠</span>
+                <span class="label">AI Management</span>
+              </a>
+              <a href="./event-gateway.html" class="sidebar-item">
+                <span class="icon">⚡</span>
+                <span class="label">Event Management</span>
+              </a>
+              <a href="./enterprise.html" class="sidebar-item">
+                <span class="icon">💼</span>
+                <span class="label">Enterprise Scale</span>
+              </a>
+            </div>
+            
+            <div class="mega-menu-columns">
+              <!-- Runtimes Column -->
+              <div class="mega-column">
+                <h5>Runtimes</h5>
+                <a href="./api-gateway.html">API Gateway</a>
+                <a href="./ai-gateway.html">AI Gateway <span class="badge badge-hot">HOT</span></a>
+                <a href="./event-gateway.html">Event Gateway</a>
+                <a href="./enterprise.html#mesh">Service Mesh</a>
+                <a href="./enterprise.html#context-mesh">Context Mesh</a>
+                <a href="./enterprise.html#ingress">Ingress Controller</a>
+                <a href="./enterprise.html#operator">WASL Operator</a>
+              </div>
+              
+              <!-- Core Services Column -->
+              <div class="mega-column">
+                <h5>Core Services</h5>
+                <a href="./mcp-gateway.html">MCP Registry <span class="badge badge-new">NEW</span></a>
+                <a href="./api-gateway.html#catalog">API Service Catalog</a>
+                <a href="./enterprise.html#fleet-manager">Runtime Management</a>
+                <a href="./open-source.html#sdk">APIOps &amp; Automation</a>
+              </div>
+              
+              <!-- Apps & AI Agents Column -->
+              <div class="mega-column">
+                <h5>Apps &amp; AI Agents</h5>
+                <a href="./enterprise.html#developer-portal">Developer Portal</a>
+                <a href="./pricing.html">Usage Billing &amp; Metering</a>
+                <a href="./enterprise.html#observability">Observability</a>
+                <a href="./ai-gateway.html#assistant">KAi Agent</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Solutions Mega Dropdown -->
+      <div class="dropdown mega-dropdown">
+        <button class="dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false">
+          Solutions <span class="chevron" aria-hidden="true">▾</span>
+        </button>
+        <div class="dropdown-menu mega-menu">
+          <div class="mega-menu-columns four-cols">
+            <!-- Platform Teams -->
+            <div class="mega-column">
+              <h5>For Platform Teams</h5>
+              <a href="./enterprise.html">Developer Platform</a>
+              <a href="./enterprise.html#kubernetes">Kubernetes and Microservices</a>
+              <a href="./enterprise.html#observability">Observability</a>
+              <a href="./enterprise.html#service-mesh">Service Mesh Connectivity</a>
+              <a href="./event-gateway.html">Kafka Event Streaming</a>
+            </div>
+            
+            <!-- Executives -->
+            <div class="mega-column">
+              <h5>For Executives</h5>
+              <a href="./ai-gateway.html">AI Connectivity</a>
+              <a href="./open-source.html">Open Banking</a>
+              <a href="./open-source.html#comparison">Legacy Migration</a>
+              <a href="./pricing.html">Platform Cost Reduction</a>
+              <a href="./event-gateway.html#cost-optimization">Kafka Cost Optimization</a>
+              <a href="./pricing.html">API Monetization</a>
+              <a href="./pricing.html#ai-monetization">AI Monetization</a>
+              <a href="./pricing.html#finops">AI FinOps</a>
+            </div>
+            
+            <!-- AI Teams -->
+            <div class="mega-column">
+              <h5>For AI Teams</h5>
+              <a href="./mcp-gateway.html">Agent Gateway</a>
+              <a href="./ai-gateway.html">AI Governance</a>
+              <a href="./ai-gateway.html#security">AI Security</a>
+              <a href="./ai-gateway.html#cost-control">AI Cost Control</a>
+              <a href="./mcp-gateway.html#agent-spine">Agentic Infrastructure</a>
+              <a href="./mcp-gateway.html#production">MCP Production</a>
+              <a href="./mcp-gateway.html#egress">MCP Traffic Gateway</a>
+            </div>
+            
+            <!-- Developers -->
+            <div class="mega-column">
+              <h5>For Developers</h5>
+              <a href="./api-gateway.html">Mobile App API Development</a>
+              <a href="./ai-gateway.html">GenAI App Development</a>
+              <a href="./api-gateway.html#istio">API Gateway for Istio</a>
+              <a href="./api-gateway.html#load-balancing">Decentralized Load Balancing</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <a href="./pricing.html">Pricing</a>
       <a href="/docs/">Docs</a>
       <a class="nav-cta" href="#waitlist">Request Access</a>
     </nav>
@@ -98,11 +217,13 @@
   <main id="top">
     <section class="hero">
       <div class="hero-copy reveal">
-        <p class="eyebrow">Enterprise gateway platform</p>
-        <h1>One gateway. <span class="grad">Every kind of traffic.</span></h1>
+        <p class="eyebrow">Open-core platform · Releasing soon</p>
+        <h1>One control plane. <span class="grad">Every kind of traffic.</span></h1>
         <p class="hero-lede">
-          WASL runs API traffic, governed AI access, event streaming, and async jobs on one platform —
-          authored, governed, and observed from a single control plane, and deployed anywhere from cloud to edge.
+          Most teams run a different tool for each kind of traffic. WASL governs them all — API requests,
+          AI/LLM calls, events, and async jobs — through one policy model and one observability layer,
+          deployed anywhere from cloud to edge. Open core: an open runtime, with a commercial control plane
+          for governance at scale.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#waitlist">Request Early Access</a>
@@ -110,14 +231,14 @@
         </div>
         <div class="hero-proof" aria-label="Platform highlights">
           <span>API · AI · Events · Jobs</span>
-          <span>24 built-in policies</span>
+          <span>One policy model</span>
           <span>Deploy anywhere</span>
-          <span>Tenant isolated</span>
+          <span>Open core</span>
         </div>
       </div>
 
       <div class="hero-diagram reveal reveal-delay-1">
-        <img src="./wasl-dataflow-light.svg"
+        <img src="./wasl-dataflow-dark.svg"
           alt="WASL request lifecycle: a tenant request flows through the data-plane runtime's policy pipeline — auth, rate limit, routing, guardrail, flow, trace — to backends and LLM providers, with a separated Studio control plane writing deployment intent to PostgreSQL and Redis."
           width="1200" height="600" loading="lazy" decoding="async" />
       </div>
@@ -139,10 +260,11 @@
     <section id="platform" class="section">
       <div class="section-head reveal">
         <p class="eyebrow">Platform</p>
-        <h2>Not just a gateway. A complete platform for every kind of traffic.</h2>
+        <h2>Not another API gateway. A control plane for every kind of traffic.</h2>
         <p>
-          API programs, LLM access, event streams, async jobs, backend integrations, and developer onboarding
-          are managed together — one place to author, govern, deploy, and observe everything.
+          The market is crowded with gateways that govern one kind of traffic. WASL brings API programs,
+          LLM access, event streams, async jobs, backend integrations, and developer onboarding under one
+          roof — authored, governed, deployed, and observed in a single place.
         </p>
       </div>
       <div class="platform-grid">
@@ -179,8 +301,71 @@
       </div>
     </section>
 
+    <section id="playground" class="section reveal">
+      <div class="section-head reveal">
+        <p class="eyebrow">Interactive Shell</p>
+        <h2>Test WASL's Five Governed Runtimes Live</h2>
+        <p>
+          Select a gateway mode below to see how WASL intercepts, modifies, and validates traffic. Toggle Mock Mode, enable PII redaction checks, or trace the multi-stage request execution lifecycle.
+        </p>
+      </div>
+
+      <div class="product-screen" style="border-color: var(--line-strong);">
+        <div class="screen-top">
+          <span></span><span></span><span></span>
+          <em>wasl-gateway-interactive-shell</em>
+        </div>
+        <div class="screen-body">
+          <aside style="padding: 24px; background: var(--surface-warm); display: flex; flex-direction: column; gap: 14px;">
+            <strong>Traffic Engine Selector</strong>
+            <div>
+              <label for="gatewayMode" style="font-size: 0.78rem; font-weight: 700; color: var(--muted); margin-bottom: 4px; display: block;">Gateway Type</label>
+              <select id="gatewayMode" class="btn btn-outline" style="width: 100%; border-radius: 6px; background: var(--surface-soft); color: var(--ink-strong); font-weight: 700; padding: 6px 10px;">
+                <option value="api-gateway">API Gateway (REST/gRPC)</option>
+                <option value="ai-gateway">AI Gateway (LLM governance)</option>
+                <option value="event-gateway">Event Gateway (REST-to-SSE)</option>
+                <option value="mcp-gateway">MCP Gateway (Governed Tools)</option>
+              </select>
+            </div>
+            
+            <select id="method" style="display:none"><option value="POST">POST</option></select>
+            
+            <div>
+              <label for="endpoint" style="font-size: 0.78rem; font-weight: 700; color: var(--muted); margin-bottom: 4px; display: block;">Proxy Target Route</label>
+              <input type="text" id="endpoint" value="/api/v1/orders" style="height: 36px; padding: 0 10px; font-size: 0.84rem; background: var(--surface-soft); border: 1px solid var(--line); border-radius: 6px; width:100%; color: var(--ink-strong);" readonly />
+            </div>
+            
+            <div>
+              <label for="payload" style="font-size: 0.78rem; font-weight: 700; color: var(--muted); margin-bottom: 4px; display: block;">Request Body (JSON)</label>
+              <textarea id="payload" style="width: 100%; height: 110px; background: var(--surface-soft); border: 1px solid var(--line); border-radius: 6px; color: #f8fafc; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; padding: 10px; resize: none;">{"orderId": "ord_908231", "amount": 154.50, "currency": "USD"}</textarea>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <label style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 700; color: var(--ink); cursor: pointer;">
+                <input type="checkbox" id="mockMode" style="width: 16px; min-height: auto; margin:0;" />
+                Mock Mode (Simulate Local Sandbox)
+              </label>
+              <label style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 700; color: var(--ink); cursor: pointer;">
+                <input type="checkbox" id="traceMode" checked style="width: 16px; min-height: auto; margin:0;" />
+                Enable Distributed Tracing
+              </label>
+            </div>
+
+            <button id="sendBtn" class="btn btn-primary" style="width: 100%; min-height: 38px; border-radius: 6px; font-size: 0.9rem; margin-top: 6px;">Send Governed Call</button>
+          </aside>
+          <section style="padding: 24px; display: flex; flex-direction: column; gap: 14px; flex: 1;">
+            <div class="screen-title" style="margin-bottom: 0;">
+              <strong>Live Edge Response &amp; Latency Trace</strong>
+              <span class="status-pill">HTTP 200 OK</span>
+            </div>
+            <pre style="margin: 0; background: var(--surface-warm); border-radius: 6px; border: 1px solid var(--line); padding: 16px; flex: 1; overflow-y: auto; max-height: 320px; text-align: left;"><code id="responseBlock" style="font-family: 'JetBrains Mono', monospace; font-size: 0.84rem; color: #a7f3d0; line-height: 1.55; display: block; white-space: pre;">Click "Send Governed Call" to trigger simulation.</code></pre>
+          </section>
+        </div>
+      </div>
+    </section>
+
     <section class="stats reveal" aria-label="Platform at a glance">
-      <div class="stat"><strong data-count="4">4</strong><span>data-plane runtimes</span></div>
+      <div class="stat"><strong data-count="5">5</strong><span>data-plane runtimes</span></div>
       <div class="stat"><strong data-count="24">24</strong><span>built-in policies</span></div>
       <div class="stat"><strong data-count="12">12</strong><span>AI governance plugins</span></div>
       <div class="stat"><strong data-count="8">8</strong><span>integration connectors</span></div>
@@ -342,12 +527,53 @@
       </div>
     </section>
 
+    <section id="open-core" class="split-section">
+      <div class="section-copy reveal">
+        <p class="eyebrow">Open core · Releasing soon</p>
+        <h2>An open runtime. A commercial control plane.</h2>
+        <p>
+          WASL is releasing as open core. The runtime is open and free to self-host; the enterprise control
+          plane adds governance at scale for the teams that need it. You adopt for free and grow into the
+          commercial edition — no rip-and-replace.
+        </p>
+        <div class="check-list">
+          <span>Open runtime — the four gateways, policy engine, Flow runtime, and plugin SDK, free to self-host</span>
+          <span>Commercial control plane — multi-tenant governance, RBAC/SSO, hybrid fleets, advanced AI governance</span>
+          <span>One platform to run locally — the same runtime from laptop to production</span>
+          <span>Releasing soon — request early access to be first in</span>
+        </div>
+      </div>
+      <div class="architecture-panel reveal reveal-delay-1">
+        <div class="panel-row active">
+          <span class="panel-label">Community</span>
+          <strong>Open runtime — free</strong>
+          <small>Four gateways · policy engine · Flow runtime · plugin SDK</small>
+        </div>
+        <div class="panel-row">
+          <span class="panel-label">Enterprise</span>
+          <strong>Commercial control plane</strong>
+          <small>Multi-tenant governance · RBAC/SSO · hybrid fleets · advanced AI governance</small>
+        </div>
+        <div class="panel-row">
+          <span class="panel-label">Model</span>
+          <strong>Open core</strong>
+          <small>Adopt free, scale commercially — no rip-and-replace</small>
+        </div>
+        <div class="panel-row">
+          <span class="panel-label">Status</span>
+          <strong>Releasing soon</strong>
+          <small>Request early access to be first in</small>
+        </div>
+      </div>
+    </section>
+
     <section id="waitlist" class="waitlist reveal">
       <div>
-        <p class="eyebrow">Early access</p>
-        <h2>See what WASL can do for your platform team.</h2>
+        <p class="eyebrow">Early access · Releasing soon</p>
+        <h2>Be first to run WASL.</h2>
         <p>
-          Request early access for the enterprise gateway platform, product updates, and implementation guidance.
+          WASL is releasing soon as open core. Request early access for the open runtime, the enterprise
+          control plane, product updates, and implementation guidance.
         </p>
       </div>
       <form id="waitlistForm">
@@ -365,7 +591,7 @@
           <img src="./brand-mark.svg" alt="" aria-hidden="true" width="36" height="36" />
           <span class="footer-brand"><span class="brand-w">W</span>asl</span>
         </a>
-        <p>One gateway for APIs, AI, events, and jobs — governed and observed from a single control plane.</p>
+        <p>One control plane for APIs, AI, events, and jobs — open core, governed and observed from one place, deployed anywhere.</p>
         <div class="footer-social" aria-label="Wasl on social media">
           <a id="linkedinLink" href="https://www.linkedin.com/company/waslhq" target="_blank" rel="noopener" aria-label="Wasl on LinkedIn">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.73v20.53C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.74V1.73C24 .78 23.2 0 22.22 0z"/></svg>
@@ -384,11 +610,11 @@
       <nav class="footer-links" aria-label="Footer">
         <div class="footer-col">
           <h4>Platform</h4>
-          <a href="#platform">Overview</a>
-          <a href="/docs/api-gateway.html">API Gateway</a>
-          <a href="/docs/ai-gateway.html">AI Gateway</a>
-          <a href="/docs/event-gateway.html">Event Gateway</a>
-          <a href="#architecture">Deploy anywhere</a>
+          <a href="./index.html">Overview</a>
+          <a href="./api-gateway.html">API Gateway</a>
+          <a href="./ai-gateway.html">AI Gateway</a>
+          <a href="./event-gateway.html">Event Gateway</a>
+          <a href="./mcp-gateway.html">MCP Gateway</a>
         </div>
         <div class="footer-col">
           <h4>Developers</h4>
@@ -400,6 +626,9 @@
         <div class="footer-col">
           <h4>Company</h4>
           <a href="./enterprise.html">Enterprise</a>
+          <a href="./open-source.html">Open Source</a>
+          <a href="./why-wasl.html">Why WASL?</a>
+          <a href="./pricing.html">Pricing</a>
           <a href="/docs/security.html">Security</a>
           <a href="#waitlist">Request access</a>
         </div>

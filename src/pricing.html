@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WASL for Enterprise — Governed API and AI Gateway Platform</title>
+  <title>Pricing — WASL Unified Gateway &amp; Integration Platform</title>
   <meta name="description"
-    content="WASL for enterprise platform teams: separated Gateway and Studio, tenant isolation, policy governance, AI Gateway controls, Developer Portal, and integration plugins." />
+    content="Flexible pricing tiers for developers, scale-up teams, and organizations needing governed hybrid fleets. Start with open-core for free or scale to managed fleets." />
 
-  <link rel="canonical" href="https://waslhq.com/enterprise.html" />
+  <link rel="canonical" href="https://waslhq.com/pricing.html" />
   <link rel="icon" type="image/svg+xml" href="./brand-mark.svg" />
   <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
   <link rel="manifest" href="./manifest.webmanifest" />
@@ -25,7 +25,7 @@
   <a class="skip-link" href="#top">Skip to content</a>
   <header class="topbar">
     <a class="brand" href="./index.html" aria-label="Wasl home">
-      <img class="brand-mark" src="./brand-mark.svg" alt="" aria-hidden="true" width="34" height="34" />
+      <img class="brand-mark" src="./brand-mark.svg" alt="" aria-hidden="true" width="42" height="42" />
       <span class="brand-text"><span class="brand-w">W</span>asl</span>
     </a>
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-controls="primaryNav" aria-expanded="false">
@@ -60,7 +60,7 @@
                 <span class="icon">⚡</span>
                 <span class="label">Event Management</span>
               </a>
-              <a href="./enterprise.html" class="sidebar-item active">
+              <a href="./enterprise.html" class="sidebar-item">
                 <span class="icon">💼</span>
                 <span class="label">Enterprise Scale</span>
               </a>
@@ -111,7 +111,7 @@
             <!-- Platform Teams -->
             <div class="mega-column">
               <h5>For Platform Teams</h5>
-              <a href="./enterprise.html" class="active">Developer Platform</a>
+              <a href="./enterprise.html">Developer Platform</a>
               <a href="./enterprise.html#kubernetes">Kubernetes and Microservices</a>
               <a href="./enterprise.html#observability">Observability</a>
               <a href="./enterprise.html#service-mesh">Service Mesh Connectivity</a>
@@ -155,152 +155,146 @@
         </div>
       </div>
       
-      <a href="./pricing.html">Pricing</a>
+      <a href="./pricing.html" class="active">Pricing</a>
       <a href="/docs/">Docs</a>
       <a class="nav-cta" href="#waitlist">Request Access</a>
     </nav>
-    <a class="btn btn-outline topbar-cta" href="#waitlist">Request Access</a>
+    <a class="btn btn-primary topbar-cta" href="#waitlist">Request Access <span class="cta-arrow" aria-hidden="true">→</span></a>
   </header>
 
   <main id="top">
-    <section class="hero">
+    <!-- Hero section -->
+    <section class="hero" style="padding-bottom: 20px;">
       <div class="hero-copy reveal">
-        <p class="eyebrow">Enterprise deployment model</p>
-        <h1>Control-plane clarity for <span class="grad">regulated API and AI programs.</span></h1>
+        <p class="eyebrow">Flexible Plans</p>
+        <h1>Developer-first pricing. <span class="grad">Predictable scaling.</span></h1>
         <p class="hero-lede">
-          WASL gives enterprise teams the primitives they need to run governed traffic programs: tenant isolation,
-          environment-aware deployment, revision rollback, policy enforcement, certificate management, and traceable operations.
+          Start with our free open-core runtimes to develop and deploy locally, then unlock WASL Studio's managed control plane and enterprise fleet sync capabilities as you grow.
         </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#waitlist">Request Enterprise Access</a>
-          <a class="btn btn-secondary" href="/docs/">Read Docs</a>
-        </div>
-        <div class="hero-proof" aria-label="Enterprise highlights">
-          <span>PostgreSQL state of record</span>
-          <span>Redis cluster coordination</span>
-          <span>Kubernetes oriented</span>
-          <span>RBAC ready</span>
-        </div>
-      </div>
-      <div class="architecture-panel reveal reveal-delay-1">
-        <div class="panel-row active">
-          <span class="panel-label">Gateway</span>
-          <strong>Stateless data plane</strong>
-          <small>Serves API and AI traffic independently of Studio availability. Pods restart in seconds.</small>
-        </div>
-        <div class="panel-row">
-          <span class="panel-label">Studio</span>
-          <strong>Control plane</strong>
-          <small>Writes deployment intent, manages tenants, policies, certificates, and traces. Outages never affect data plane.</small>
-        </div>
-        <div class="panel-row">
-          <span class="panel-label">Portal</span>
-          <strong>Developer self-service</strong>
-          <small>Catalog, subscriptions, API keys, OAuth2 AS, and usage analytics. Secret keys encrypted at rest using AES-256-GCM.</small>
-        </div>
       </div>
     </section>
 
-    <!-- Hybrid Fleets -->
+    <!-- Pricing Grid -->
+    <section class="section reveal" style="padding-top: 0;">
+      <div class="pricing-grid">
+        
+        <!-- Tier 1: Developer -->
+        <div class="pricing-card">
+          <h3>Developer</h3>
+          <p class="pricing-desc">Perfect for testing, building locally, and self-hosted open-core production gateways.</p>
+          <div class="pricing-price">
+            <span class="amount">$0</span>
+            <span class="period">/ month (Free Forever)</span>
+          </div>
+          <a class="btn btn-secondary" href="https://github.com/waslhq" target="_blank" rel="noopener">Browse GitHub</a>
+          
+          <div class="pricing-features-title">Includes:</div>
+          <ul class="pricing-features">
+            <li>All 5 Runtimes (API, AI, Event, Worker, MCP)</li>
+            <li>Full 24 Policy Library</li>
+            <li>FlowJS Runtime (GraalJS-based)</li>
+            <li>Pluggable Plugin SDK &amp; Local JAR Loading</li>
+            <li>Self-Hosted Community Deployments</li>
+            <li class="disabled">Centralized UI Studio Console</li>
+            <li class="disabled">Hybrid Fleet Self-Registration</li>
+            <li class="disabled">Enterprise RBAC &amp; Tenancy</li>
+          </ul>
+        </div>
+
+        <!-- Tier 2: Team -->
+        <div class="pricing-card popular">
+          <span class="pricing-badge">Popular</span>
+          <h3>Team</h3>
+          <p class="pricing-desc">For growing teams requiring collaborative configurations, centralized UI controls, and visual tracing.</p>
+          <div class="pricing-price">
+            <span class="amount">$150</span>
+            <span class="period">/ month (up to 5 users)</span>
+          </div>
+          <a class="btn btn-primary" href="#waitlist">Request Access</a>
+          
+          <div class="pricing-features-title">Everything in Developer, plus:</div>
+          <ul class="pricing-features">
+            <li>Managed WASL Studio Console UI</li>
+            <li>Up to 5 Team Seats with Collaboration</li>
+            <li>Central Observability &amp; Trace Explorer</li>
+            <li>Audit Logs &amp; Session Tracking</li>
+            <li>Visual Policy &amp; Flow Designer</li>
+            <li>Standard Email Support SLA</li>
+            <li class="disabled">Hybrid Fleet Self-Registration</li>
+            <li class="disabled">Advanced AI Governance (PII, Semantic Cache)</li>
+          </ul>
+        </div>
+
+        <!-- Tier 3: Enterprise -->
+        <div class="pricing-card">
+          <h3>Enterprise</h3>
+          <p class="pricing-desc">For regulated industries and large scale programs running hybrid runtimes across cloud, on-prem, and edge.</p>
+          <div class="pricing-price">
+            <span class="amount">Custom</span>
+            <span class="period">/ tailored SLAs</span>
+          </div>
+          <a class="btn btn-secondary" href="#waitlist">Contact Sales</a>
+          
+          <div class="pricing-features-title">Everything in Team, plus:</div>
+          <ul class="pricing-features">
+            <li>Unlimited Team Seats &amp; Environments</li>
+            <li>Multi-Tenant Isolation &amp; Advanced RBAC</li>
+            <li>Hybrid Fleet Manager (outbound-only sync)</li>
+            <li>Offline Fleet Config Caching &amp; Failover</li>
+            <li>Advanced AI Policies (PII Redaction, Cost Limits)</li>
+            <li>Kubernetes-native Helm &amp; Operator Packaging</li>
+            <li>High-Availability (Active-Active) Clusters</li>
+            <li>24/7 Premium SLA Support &amp; Success Manager</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQs -->
     <section class="section reveal">
-      <div class="split-section">
-        <div class="section-copy reveal">
-          <p class="eyebrow">Fleet management</p>
-          <h2>Connected hybrid fleets, deployed anywhere</h2>
-          <p style="color: var(--muted); margin-bottom: 20px;">
-            Enforce unified governance across multi-region edge nodes, cloud VM groups, and on-premises containers from a single console.
-          </p>
-          <div class="check-list">
-            <span><strong>Outbound Agent Pull:</strong> Edge gateways heart-beat and pull configurations—the control plane never reaches into your network</span>
-            <span><strong>Offline Caches:</strong> Runtimes cache deployment configurations locally to continue serving traffic during database or control-plane outages</span>
-            <span><strong>Env overlays:</strong> Merge tenant variables and plugin configurations dynamically based on fleet env bounds</span>
-          </div>
-        </div>
-
-        <div class="section-copy reveal">
-          <p class="eyebrow">Operational security</p>
-          <h2>Decoupled Secrets &amp; Auditable Rollbacks</h2>
-          <p style="color: var(--muted); margin-bottom: 20px;">
-            Secure operations natively. Deploy bundles as database writes to Postgres, and resolve secrets at execution runtime.
-          </p>
-          <div class="check-list">
-            <span><strong>Secret references:</strong> Plaintext keys are never logged. Reference Vault, AWS SSM, Azure Key Vault, or Env overlays natively</span>
-            <span><strong>Atomic deployment:</strong> Promote, scale, or roll back bundle revisions safely through a single SQL transaction write</span>
-            <span><strong>Clustered alerts:</strong> Redis-coordinated locks deduplicate anomalous latency alerts, notifying Teams once across N nodes</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Kubernetes -->
-    <section class="split-section reverse reveal">
-      <div class="browser-frame reveal">
-        <div class="browser-bar">
-          <span></span><span></span><span></span>
-          <em>wasl-helm-deployment-spec</em>
-        </div>
-        <div style="background: var(--surface-warm); padding: 24px; font-family: 'JetBrains Mono', monospace; font-size: 0.84rem; color: #cbd5e1; line-height: 1.55;">
-          <div style="color: var(--muted);"># helm-values.yaml</div>
-          <div><span style="color: #f472b6;">gateway:</span></div>
-          <div>  <span style="color: #60a5fa;">replicaCount:</span> <span style="color: #f59e0b;">3</span></div>
-          <div>  <span style="color: #60a5fa;">autoscaling:</span></div>
-          <div>    <span style="color: #60a5fa;">enabled:</span> <span style="color: #2dd4bf;">true</span></div>
-          <div>    <span style="color: #60a5fa;">minReplicas:</span> <span style="color: #f59e0b;">2</span></div>
-          <div>    <span style="color: #60a5fa;">maxReplicas:</span> <span style="color: #f59e0b;">20</span></div>
-          <div>    <span style="color: #60a5fa;">targetCPUUtilizationPercentage:</span> <span style="color: #f59e0b;">75</span></div>
-          <div>  <span style="color: #60a5fa;">securityContext:</span></div>
-          <div>    <span style="color: #60a5fa;">runAsNonRoot:</span> <span style="color: #2dd4bf;">true</span></div>
-          <div>    <span style="color: #60a5fa;">allowPrivilegeEscalation:</span> <span style="color: #2dd4bf;">false</span></div>
-        </div>
-      </div>
-      <div class="section-copy reveal">
-        <p class="eyebrow">Cloud Native</p>
-        <h2>Kubernetes-Native Architecture</h2>
-        <p>
-          WASL is designed for orchestration tools. Every component is packaged as non-root container images with Prometheus metrics and health probes built directly into the core.
-        </p>
-        <div class="check-list" style="margin-top:20px;">
-          <span><strong>Hardened Helm Charts:</strong> Deploy Gateway HPAs, ServiceMonitors, NetworkPolicies, and PVCs cleanly</span>
-          <span><strong>Virtual Threads:</strong> Project Loom-ready threads reduce connection overhead for EKS, GKE, AKS, and OpenShift clusters</span>
-          <span><strong>PgBouncer &amp; HA Redis:</strong> Integrated support for pg_coordination and clustered Redis invalidations out of the box</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Enterprise controls -->
-    <section class="section tinted">
       <div class="section-head reveal">
-        <p class="eyebrow">Enterprise controls</p>
-        <h2>Built around deployment intent, auditability, and tenant boundaries.</h2>
+        <p class="eyebrow">FAQ</p>
+        <h2>Frequently Asked Questions</h2>
         <p>
-          WASL treats bundles, revisions, environments, deployments, policies, certificates, traces, and developer
-          access as first-class operational objects.
+          Have questions about licensing, deployment models, or support tiers? Find answers below.
         </p>
       </div>
-      <div class="platform-grid">
-        <article class="feature-card reveal reveal-delay-1">
-          <span class="card-icon">A</span>
-          <h3>Governed Deployment</h3>
-          <p>Deploy, promote, and rollback immutable revisions by updating deployment records rather than copying runtime files.</p>
-        </article>
-        <article class="feature-card reveal reveal-delay-2">
-          <span class="card-icon">B</span>
-          <h3>Tenant Isolation</h3>
-          <p>Tenant-scoped resources, sessions, analytics, logs, certificates, API keys, OAuth clients, and portal usage.</p>
-        </article>
-        <article class="feature-card reveal reveal-delay-3">
-          <span class="card-icon">C</span>
-          <h3>Operational Evidence</h3>
-          <p>Trace timelines, metrics, policy events, flow execution records, alerts, and usage counters for compliance workflows.</p>
-        </article>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h4>What is WASL's licensing model?</h4>
+          <p>
+            WASL operates on an open-core model. The core data-plane runtimes and the Plugin SDK are open-source and free to run. The advanced control-plane components, fleet synchronization engine, and specific AI governance policies are licensed under commercial terms.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h4>Can I deploy WASL in our own private cloud?</h4>
+          <p>
+            Yes! All WASL runtimes are stateless containers. With our Enterprise plan, you can orchestrate hybrid fleets where runtimes register from within your private VPC or on-prem environments to our centralized control plane.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h4>What is the difference between a direct proxy and a flow?</h4>
+          <p>
+            Direct Proxy mode forwards request streams directly to backend upstreams with minimal policy overhead (such as simple API keys). Flow mode compiles custom JavaScript logic (FlowJS) to choreograph multiple backends, translate headers, and invoke connector plugins.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h4>How does the AI Gateway semantic cache work?</h4>
+          <p>
+            Available in our Enterprise tier, the semantic cache uses embedding models to parse incoming natural language prompts. If a semantically similar prompt was recently evaluated, the gateway serves the cached result directly, saving provider costs and reducing latency.
+          </p>
+        </div>
       </div>
     </section>
 
+    <!-- Waitlist / Early Access -->
     <section id="waitlist" class="waitlist reveal">
       <div>
-        <p class="eyebrow">Early access</p>
-        <h2>Evaluate WASL with your platform architecture.</h2>
-        <p>Request early access and implementation notes for enterprise gateway deployment planning.</p>
+        <p class="eyebrow">Get Started</p>
+        <h2>Evaluate WASL Commercial Plans</h2>
+        <p>Request early access to test WASL Studio console, configure team workspaces, or speak with our architects about enterprise deployments.</p>
       </div>
       <form id="waitlistForm">
         <input type="email" id="email" placeholder="you@company.com" required aria-label="Email address" />
@@ -317,7 +311,7 @@
           <img src="./brand-mark.svg" alt="" aria-hidden="true" width="36" height="36" />
           <span class="footer-brand"><span class="brand-w">W</span>asl</span>
         </a>
-        <p>One gateway for APIs, AI, events, and jobs — governed and observed from a single control plane.</p>
+        <p>One control plane for APIs, AI, events, and jobs — open core, governed and observed from one place, deployed anywhere.</p>
       </div>
       <nav class="footer-links" aria-label="Footer">
         <div class="footer-col">

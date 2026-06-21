@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WASL for Enterprise — Governed API and AI Gateway Platform</title>
+  <title>WASL — Governed AI Gateway &amp; LLM Orchestration</title>
   <meta name="description"
-    content="WASL for enterprise platform teams: separated Gateway and Studio, tenant isolation, policy governance, AI Gateway controls, Developer Portal, and integration plugins." />
+    content="Govern LLM workloads with a pluggable pipeline featuring PII redaction, semantic caching, prompt templating, cost caps, and multi-provider load balancing." />
 
-  <link rel="canonical" href="https://waslhq.com/enterprise.html" />
+  <link rel="canonical" href="https://waslhq.com/ai-gateway.html" />
   <link rel="icon" type="image/svg+xml" href="./brand-mark.svg" />
   <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
   <link rel="manifest" href="./manifest.webmanifest" />
@@ -25,7 +25,7 @@
   <a class="skip-link" href="#top">Skip to content</a>
   <header class="topbar">
     <a class="brand" href="./index.html" aria-label="Wasl home">
-      <img class="brand-mark" src="./brand-mark.svg" alt="" aria-hidden="true" width="34" height="34" />
+      <img class="brand-mark" src="./brand-mark.svg" alt="" aria-hidden="true" width="42" height="42" />
       <span class="brand-text"><span class="brand-w">W</span>asl</span>
     </a>
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-controls="primaryNav" aria-expanded="false">
@@ -52,7 +52,7 @@
                 <span class="icon">⚙️</span>
                 <span class="label">API Management</span>
               </a>
-              <a href="./ai-gateway.html" class="sidebar-item">
+              <a href="./ai-gateway.html" class="sidebar-item active">
                 <span class="icon">🧠</span>
                 <span class="label">AI Management</span>
               </a>
@@ -60,7 +60,7 @@
                 <span class="icon">⚡</span>
                 <span class="label">Event Management</span>
               </a>
-              <a href="./enterprise.html" class="sidebar-item active">
+              <a href="./enterprise.html" class="sidebar-item">
                 <span class="icon">💼</span>
                 <span class="label">Enterprise Scale</span>
               </a>
@@ -71,7 +71,7 @@
               <div class="mega-column">
                 <h5>Runtimes</h5>
                 <a href="./api-gateway.html">API Gateway</a>
-                <a href="./ai-gateway.html">AI Gateway <span class="badge badge-hot">HOT</span></a>
+                <a href="./ai-gateway.html" class="active">AI Gateway <span class="badge badge-hot">HOT</span></a>
                 <a href="./event-gateway.html">Event Gateway</a>
                 <a href="./enterprise.html#mesh">Service Mesh</a>
                 <a href="./enterprise.html#context-mesh">Context Mesh</a>
@@ -111,7 +111,7 @@
             <!-- Platform Teams -->
             <div class="mega-column">
               <h5>For Platform Teams</h5>
-              <a href="./enterprise.html" class="active">Developer Platform</a>
+              <a href="./enterprise.html">Developer Platform</a>
               <a href="./enterprise.html#kubernetes">Kubernetes and Microservices</a>
               <a href="./enterprise.html#observability">Observability</a>
               <a href="./enterprise.html#service-mesh">Service Mesh Connectivity</a>
@@ -159,148 +159,187 @@
       <a href="/docs/">Docs</a>
       <a class="nav-cta" href="#waitlist">Request Access</a>
     </nav>
-    <a class="btn btn-outline topbar-cta" href="#waitlist">Request Access</a>
+    <a class="btn btn-primary topbar-cta" href="#waitlist">Request Access <span class="cta-arrow" aria-hidden="true">→</span></a>
   </header>
 
   <main id="top">
     <section class="hero">
       <div class="hero-copy reveal">
-        <p class="eyebrow">Enterprise deployment model</p>
-        <h1>Control-plane clarity for <span class="grad">regulated API and AI programs.</span></h1>
+        <p class="eyebrow">Enterprise LLM Governance</p>
+        <h1>Govern prompts. <span class="grad">Control LLM costs.</span></h1>
         <p class="hero-lede">
-          WASL gives enterprise teams the primitives they need to run governed traffic programs: tenant isolation,
-          environment-aware deployment, revision rollback, policy enforcement, certificate management, and traceable operations.
+          WASL AI Gateway runs as an isolated thread pool process (`AiGatewayApp`) to proxy LLM requests. It validates, redacts, and caches prompts natively—supporting OpenAI-compatible wire formats with automatic fallback across providers.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#waitlist">Request Enterprise Access</a>
-          <a class="btn btn-secondary" href="/docs/">Read Docs</a>
-        </div>
-        <div class="hero-proof" aria-label="Enterprise highlights">
-          <span>PostgreSQL state of record</span>
-          <span>Redis cluster coordination</span>
-          <span>Kubernetes oriented</span>
-          <span>RBAC ready</span>
-        </div>
-      </div>
-      <div class="architecture-panel reveal reveal-delay-1">
-        <div class="panel-row active">
-          <span class="panel-label">Gateway</span>
-          <strong>Stateless data plane</strong>
-          <small>Serves API and AI traffic independently of Studio availability. Pods restart in seconds.</small>
-        </div>
-        <div class="panel-row">
-          <span class="panel-label">Studio</span>
-          <strong>Control plane</strong>
-          <small>Writes deployment intent, manages tenants, policies, certificates, and traces. Outages never affect data plane.</small>
-        </div>
-        <div class="panel-row">
-          <span class="panel-label">Portal</span>
-          <strong>Developer self-service</strong>
-          <small>Catalog, subscriptions, API keys, OAuth2 AS, and usage analytics. Secret keys encrypted at rest using AES-256-GCM.</small>
+          <a class="btn btn-primary" href="#waitlist">Request Platform Access</a>
+          <a class="btn btn-secondary" href="/docs/ai-gateway.html">Read AI Gateway Docs</a>
         </div>
       </div>
     </section>
 
-    <!-- Hybrid Fleets -->
+    <!-- AI Governance Pipeline -->
     <section class="section reveal">
-      <div class="split-section">
-        <div class="section-copy reveal">
-          <p class="eyebrow">Fleet management</p>
-          <h2>Connected hybrid fleets, deployed anywhere</h2>
-          <p style="color: var(--muted); margin-bottom: 20px;">
-            Enforce unified governance across multi-region edge nodes, cloud VM groups, and on-premises containers from a single console.
-          </p>
-          <div class="check-list">
-            <span><strong>Outbound Agent Pull:</strong> Edge gateways heart-beat and pull configurations—the control plane never reaches into your network</span>
-            <span><strong>Offline Caches:</strong> Runtimes cache deployment configurations locally to continue serving traffic during database or control-plane outages</span>
-            <span><strong>Env overlays:</strong> Merge tenant variables and plugin configurations dynamically based on fleet env bounds</span>
+      <div class="section-head reveal">
+        <p class="eyebrow">The Pipeline</p>
+        <h2>Enterprise Governance Plugin Pipeline</h2>
+        <p>
+          Every LLM request traverses a secure, deterministic plugin chain before routing to OpenAI, Anthropic, Gemini, or self-hosted models.
+        </p>
+      </div>
+
+      <div class="ai-pipeline reveal">
+        <div class="ai-stage">
+          <span class="ai-step">01</span>
+          <strong>Inbound Auth</strong>
+          <small>Authenticate clients via OAuth 2.1 or API Keys mapped from the Developer Portal.</small>
+        </div>
+        <div class="ai-stage">
+          <span class="ai-step">02</span>
+          <strong>Prompt &amp; RAG</strong>
+          <small>Inject versioned system prompts and enrich request context using tenant database embeddings.</small>
+        </div>
+        <div class="ai-stage">
+          <span class="ai-step">03</span>
+          <strong>PII Redaction</strong>
+          <small>Scan prompts for sensitive data (SSNs, API keys, credentials) and redact them before egress.</small>
+        </div>
+        <div class="ai-stage">
+          <span class="ai-step">04</span>
+          <strong>Semantic Cache</strong>
+          <small>Check Redis for embedding-based near-match prompt answers. Save cost and compute instantly.</small>
+        </div>
+        <div class="ai-stage">
+          <span class="ai-step">05</span>
+          <strong>Provider Loop</strong>
+          <small>Evaluate weighted load balancing, circuit breaker states, and fallback to alternative LLM providers.</small>
+        </div>
+        <div class="ai-stage">
+          <span class="ai-step">06</span>
+          <strong>Token &amp; Cost Caps</strong>
+          <small>Record usage statistics and enforce tenant daily dollar spend ceilings and RPM quotas.</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- Code Switcher Section -->
+    <section class="section reveal">
+      <div class="section-head reveal">
+        <p class="eyebrow">Wire Protocol</p>
+        <h2>OpenAI-Compatible Wire Format</h2>
+        <p>
+          Connect existing tools natively. Your client libraries see standard OpenAI schemas, while WASL routes and translates payloads behind the scenes.
+        </p>
+      </div>
+
+      <div class="tabs-container">
+        <div class="tabs-nav">
+          <button class="tab-btn active" data-tab="tab-client-call">Inbound Client Request</button>
+          <button class="tab-btn" data-tab="tab-streaming-trans">Streaming Translation (SSE)</button>
+          <button class="tab-btn" data-tab="tab-ai-route">AI Route Config</button>
+        </div>
+
+        <div id="tab-client-call" class="tab-pane active">
+          <div class="code-block">
+            <div class="code-header">
+              <span>Terminal Request</span>
+              <span class="lang-badge">bash</span>
+            </div>
+            <pre><code># Call LLM through WASL proxy using OpenAI standard SDK
+curl -X POST https://wasl-ai.acme.local/v1/chat/completions \
+  -H "Authorization: Bearer wsl_key_90a1b8" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "gpt-4o",
+    "messages": [{"role": "user", "content": "Extract credentials from logs."}],
+    "stream": true
+  }'</code></pre>
           </div>
         </div>
 
-        <div class="section-copy reveal">
-          <p class="eyebrow">Operational security</p>
-          <h2>Decoupled Secrets &amp; Auditable Rollbacks</h2>
-          <p style="color: var(--muted); margin-bottom: 20px;">
-            Secure operations natively. Deploy bundles as database writes to Postgres, and resolve secrets at execution runtime.
-          </p>
-          <div class="check-list">
-            <span><strong>Secret references:</strong> Plaintext keys are never logged. Reference Vault, AWS SSM, Azure Key Vault, or Env overlays natively</span>
-            <span><strong>Atomic deployment:</strong> Promote, scale, or roll back bundle revisions safely through a single SQL transaction write</span>
-            <span><strong>Clustered alerts:</strong> Redis-coordinated locks deduplicate anomalous latency alerts, notifying Teams once across N nodes</span>
+        <div id="tab-streaming-trans" class="tab-pane">
+          <div class="code-block">
+            <div class="code-header">
+              <span>Server-Sent Events (SSE) Stream</span>
+              <span class="lang-badge">text/event-stream</span>
+            </div>
+            <pre><code># Translated back by WASL edge, even if backend resolved to Anthropic Claude!
+data: {"id":"chatcmpl-123","object":"chat.completion.chunk","created":1677825484,"model":"gpt-4o","choices":[{"delta":{"role":"assistant","content":"Analysis:"},"index":0,"finish_reason":null}]}
+
+data: {"id":"chatcmpl-123","object":"chat.completion.chunk","created":1677825484,"model":"gpt-4o","choices":[{"delta":{"content":" Access"},"index":0,"finish_reason":null}]}
+
+data: {"id":"chatcmpl-123","object":"chat.completion.chunk","created":1677825484,"model":"gpt-4o","choices":[{"delta":{"content":" denied."},"index":0,"finish_reason":null}]}
+
+data: {"id":"chatcmpl-123","object":"chat.completion.chunk","created":1677825484,"model":"gpt-4o","choices":[{"delta":{},"index":0,"finish_reason":"stop"}]}</code></pre>
+          </div>
+        </div>
+
+        <div id="tab-ai-route" class="tab-pane">
+          <div class="code-block">
+            <div class="code-header">
+              <span>ai-route-definition.json</span>
+              <span class="lang-badge">json</span>
+            </div>
+            <pre><code>{
+  "routeId": "risk-analysis-route",
+  "basePath": "/v1/chat/completions",
+  "providers": [
+    { "name": "primary-openai", "weight": 80 },
+    { "name": "fallback-anthropic", "weight": 20 }
+  ],
+  "governance": {
+    "pii_redaction": true,
+    "semantic_cache": {
+      "enabled": true,
+      "provider": "redis-semantic",
+      "threshold": 0.88
+    },
+    "max_cost_per_day": 50.00
+  }
+}</code></pre>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Kubernetes -->
+    <!-- Studio AI Assistant -->
     <section class="split-section reverse reveal">
       <div class="browser-frame reveal">
         <div class="browser-bar">
           <span></span><span></span><span></span>
-          <em>wasl-helm-deployment-spec</em>
+          <em>acme-corp.wasl.studio · AI Co-Author</em>
         </div>
-        <div style="background: var(--surface-warm); padding: 24px; font-family: 'JetBrains Mono', monospace; font-size: 0.84rem; color: #cbd5e1; line-height: 1.55;">
-          <div style="color: var(--muted);"># helm-values.yaml</div>
-          <div><span style="color: #f472b6;">gateway:</span></div>
-          <div>  <span style="color: #60a5fa;">replicaCount:</span> <span style="color: #f59e0b;">3</span></div>
-          <div>  <span style="color: #60a5fa;">autoscaling:</span></div>
-          <div>    <span style="color: #60a5fa;">enabled:</span> <span style="color: #2dd4bf;">true</span></div>
-          <div>    <span style="color: #60a5fa;">minReplicas:</span> <span style="color: #f59e0b;">2</span></div>
-          <div>    <span style="color: #60a5fa;">maxReplicas:</span> <span style="color: #f59e0b;">20</span></div>
-          <div>    <span style="color: #60a5fa;">targetCPUUtilizationPercentage:</span> <span style="color: #f59e0b;">75</span></div>
-          <div>  <span style="color: #60a5fa;">securityContext:</span></div>
-          <div>    <span style="color: #60a5fa;">runAsNonRoot:</span> <span style="color: #2dd4bf;">true</span></div>
-          <div>    <span style="color: #60a5fa;">allowPrivilegeEscalation:</span> <span style="color: #2dd4bf;">false</span></div>
+        <div style="background: var(--surface-warm); padding: 32px; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: #f8fafc; line-height: 1.6;">
+          <div style="color: var(--brand-strong); margin-bottom: 12px;">&gt; Assistant: How can I help you build today?</div>
+          <div style="color: var(--muted); margin-bottom: 16px;">&gt; User: Create a customer orders API bundle with JWT auth.</div>
+          <div style="border-left: 2px solid var(--accent); padding-left: 16px; color: #a7f3d0; margin-bottom: 12px;">
+            [SYSTEM] Blueprint generated:<br/>
+            - Bundle: "customer-orders-v1"<br/>
+            - BasePath: "/api/orders"<br/>
+            - Auth Policy: JWT Validation (RS256)<br/>
+            - Rate Limiting: Token Bucket (60req/min)
+          </div>
+          <div style="color: var(--brand-strong);">&gt; Assistant: Click 'Deploy to Fleet' to roll out this blueprint to Dev.</div>
         </div>
       </div>
       <div class="section-copy reveal">
-        <p class="eyebrow">Cloud Native</p>
-        <h2>Kubernetes-Native Architecture</h2>
+        <p class="eyebrow">Studio Integration</p>
+        <h2>AI Co-Author Assistant</h2>
         <p>
-          WASL is designed for orchestration tools. Every component is packaged as non-root container images with Prometheus metrics and health probes built directly into the core.
+          Author schemas and integration pipelines in plain English. Studio features a built-in assistant designed to generate complete working bundles directly from prompts.
         </p>
         <div class="check-list" style="margin-top:20px;">
-          <span><strong>Hardened Helm Charts:</strong> Deploy Gateway HPAs, ServiceMonitors, NetworkPolicies, and PVCs cleanly</span>
-          <span><strong>Virtual Threads:</strong> Project Loom-ready threads reduce connection overhead for EKS, GKE, AKS, and OpenShift clusters</span>
-          <span><strong>PgBouncer &amp; HA Redis:</strong> Integrated support for pg_coordination and clustered Redis invalidations out of the box</span>
+          <span><strong>Generate:</strong> Describe a service path and get a fully formatted bundle</span>
+          <span><strong>Refine:</strong> Command the assistant to append APIs or inject specific security policies</span>
+          <span><strong>Local Fallback:</strong> Operates using deterministic heuristics when no LLM API key is registered</span>
         </div>
-      </div>
-    </section>
-
-    <!-- Enterprise controls -->
-    <section class="section tinted">
-      <div class="section-head reveal">
-        <p class="eyebrow">Enterprise controls</p>
-        <h2>Built around deployment intent, auditability, and tenant boundaries.</h2>
-        <p>
-          WASL treats bundles, revisions, environments, deployments, policies, certificates, traces, and developer
-          access as first-class operational objects.
-        </p>
-      </div>
-      <div class="platform-grid">
-        <article class="feature-card reveal reveal-delay-1">
-          <span class="card-icon">A</span>
-          <h3>Governed Deployment</h3>
-          <p>Deploy, promote, and rollback immutable revisions by updating deployment records rather than copying runtime files.</p>
-        </article>
-        <article class="feature-card reveal reveal-delay-2">
-          <span class="card-icon">B</span>
-          <h3>Tenant Isolation</h3>
-          <p>Tenant-scoped resources, sessions, analytics, logs, certificates, API keys, OAuth clients, and portal usage.</p>
-        </article>
-        <article class="feature-card reveal reveal-delay-3">
-          <span class="card-icon">C</span>
-          <h3>Operational Evidence</h3>
-          <p>Trace timelines, metrics, policy events, flow execution records, alerts, and usage counters for compliance workflows.</p>
-        </article>
       </div>
     </section>
 
     <section id="waitlist" class="waitlist reveal">
       <div>
         <p class="eyebrow">Early access</p>
-        <h2>Evaluate WASL with your platform architecture.</h2>
-        <p>Request early access and implementation notes for enterprise gateway deployment planning.</p>
+        <h2>Evaluate WASL's AI Gateway</h2>
+        <p>Request early access to run governed LLM proxies or integrate the co-author Studio inside your private network.</p>
       </div>
       <form id="waitlistForm">
         <input type="email" id="email" placeholder="you@company.com" required aria-label="Email address" />
@@ -317,7 +356,7 @@
           <img src="./brand-mark.svg" alt="" aria-hidden="true" width="36" height="36" />
           <span class="footer-brand"><span class="brand-w">W</span>asl</span>
         </a>
-        <p>One gateway for APIs, AI, events, and jobs — governed and observed from a single control plane.</p>
+        <p>One control plane for APIs, AI, events, and jobs — open core, governed and observed from one place, deployed anywhere.</p>
       </div>
       <nav class="footer-links" aria-label="Footer">
         <div class="footer-col">
