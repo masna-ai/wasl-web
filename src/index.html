@@ -232,78 +232,6 @@
         </p>
       </div>
 
-      <div class="hero-command reveal reveal-delay-1" aria-label="WASL traffic command center preview">
-        <div class="command-topbar">
-          <div>
-            <span class="command-kicker">WASL Studio</span>
-            <strong>Traffic Command Center</strong>
-          </div>
-          <span class="command-live">Live governance</span>
-        </div>
-        <div class="command-layout">
-          <div class="command-lanes" aria-label="Governed traffic domains">
-            <div class="traffic-lane active">
-              <span>API</span>
-              <strong>Orders API</strong>
-              <small>Auth · quota · transform</small>
-            </div>
-            <div class="traffic-lane">
-              <span>AI</span>
-              <strong>Risk assistant</strong>
-              <small>PII · guardrails · cost cap</small>
-            </div>
-            <div class="traffic-lane">
-              <span>EV</span>
-              <strong>Order events</strong>
-              <small>Contract · subscription</small>
-            </div>
-            <div class="traffic-lane">
-              <span>MCP</span>
-              <strong>Agent tools</strong>
-              <small>Grants · approval · audit</small>
-            </div>
-            <div class="traffic-lane">
-              <span>INT</span>
-              <strong>CRM sync</strong>
-              <small>Connect · enrich · trace</small>
-            </div>
-          </div>
-          <div class="command-main">
-            <div class="governance-card">
-              <span class="command-kicker">Policy chain</span>
-              <div class="policy-flow">
-                <span>Identity</span>
-                <span>Threat</span>
-                <span>Privacy</span>
-                <span>Routing</span>
-                <span>Trace</span>
-              </div>
-            </div>
-            <div class="signal-grid">
-              <div>
-                <span>Protected calls</span>
-                <strong>2.4M</strong>
-                <small>last 24h</small>
-              </div>
-              <div>
-                <span>AI spend saved</span>
-                <strong>31%</strong>
-                <small>cache + routing</small>
-              </div>
-              <div>
-                <span>Policy drift</span>
-                <strong>0</strong>
-                <small>active fleets</small>
-              </div>
-            </div>
-            <div class="release-strip">
-              <span>Prod fleet</span>
-              <strong>All domains governed</strong>
-              <small>API · AI · Event · MCP · Integration</small>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <section class="builton reveal" aria-label="Platform capabilities">
@@ -350,6 +278,76 @@
           <h3>Turn services into discoverable products.</h3>
           <p>Give internal teams and partners a self-service catalog for APIs, event channels, credentials, subscriptions, and usage insight.</p>
         </article>
+      </div>
+    </section>
+
+    <section id="architecture-map" class="section architecture-map-section">
+      <div class="section-head reveal">
+        <p class="eyebrow">Unified architecture</p>
+        <h2>One governed fabric for every traffic plane.</h2>
+        <p>
+          WASL connects the people and applications consuming digital services to the runtime fleets that enforce
+          policy across APIs, AI requests, event streams, MCP tool calls, and integration flows.
+        </p>
+      </div>
+
+      <div class="hero-command wasl-arch reveal reveal-delay-1" aria-label="WASL unified API, AI, event, MCP, and integration platform architecture">
+        <div class="arch-title">WASL Unified Traffic Architecture</div>
+        <div class="arch-map">
+          <svg class="arch-routes" viewBox="0 0 1200 430" aria-hidden="true" focusable="false">
+            <path class="route route-primary" d="M120 80 H520 C560 80 560 42 600 42 C640 42 640 80 680 80 H1080" />
+            <path class="route route-primary" d="M120 350 H520 C560 350 560 390 600 390 C640 390 640 350 680 350 H1080" />
+            <path class="route route-primary" d="M120 80 V350" />
+            <path class="route route-primary" d="M1080 80 V350" />
+            <path class="route route-secondary" d="M210 120 H410 C455 120 455 176 500 176 H600" />
+            <path class="route route-secondary" d="M210 215 H470 C515 215 515 215 560 215 H600" />
+            <path class="route route-secondary" d="M210 310 H410 C455 310 455 254 500 254 H600" />
+            <path class="route route-secondary" d="M990 120 H790 C745 120 745 176 700 176 H600" />
+            <path class="route route-secondary" d="M990 215 H730 C685 215 685 215 640 215 H600" />
+            <path class="route route-secondary" d="M990 310 H790 C745 310 745 254 700 254 H600" />
+            <path class="route route-primary" d="M600 42 V156" />
+            <path class="route route-primary" d="M600 274 V390" />
+            <path class="route route-secondary" d="M420 215 C420 132 500 132 500 132 H700 C780 132 780 215 780 215" />
+            <path class="route route-secondary" d="M420 215 C420 298 500 298 500 298 H700 C780 298 780 215 780 215" />
+          </svg>
+          <div class="arch-side arch-side-left">
+            <div class="arch-pill"><span>APP</span> Apps</div>
+            <div class="arch-pill"><span>AI</span> AI apps</div>
+            <div class="arch-pill"><span>AG</span> Agents</div>
+            <div class="arch-pill"><span>DEV</span> Developers</div>
+            <div class="arch-pill"><span>PT</span> Partners</div>
+          </div>
+
+          <div class="arch-core">
+            <div class="arch-system-node arch-system-node-top">Studio</div>
+            <div class="arch-system-node arch-system-node-top">Runtime fleets</div>
+            <div class="arch-system-node arch-system-node-top">Portal</div>
+            <div class="arch-system-node">API / Event</div>
+            <div class="arch-center">
+              <img src="./brand-mark.svg" alt="" aria-hidden="true" />
+              <strong>WASL</strong>
+              <span>Governed traffic fabric</span>
+            </div>
+            <div class="arch-system-node">AI / MCP</div>
+          </div>
+
+          <div class="arch-gates">
+            <div class="arch-gate gate-left-top">Tenant RBAC</div>
+            <div class="arch-gate gate-left-mid">Policies</div>
+            <div class="arch-gate gate-top-mid">Deploy</div>
+            <div class="arch-gate gate-right-mid">OAuth Secrets</div>
+            <div class="arch-gate gate-right-bottom">Trace Audit</div>
+            <div class="arch-gate gate-bottom-mid">Cost Quota</div>
+          </div>
+
+          <div class="arch-side arch-side-right">
+            <div class="arch-pill"><span>API</span> API products</div>
+            <div class="arch-pill"><span>LLM</span> LLM providers</div>
+            <div class="arch-pill"><span>EV</span> Event streams</div>
+            <div class="arch-pill"><span>MCP</span> MCP servers</div>
+            <div class="arch-pill"><span>INT</span> Connectors</div>
+          </div>
+        </div>
       </div>
     </section>
 
