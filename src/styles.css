@@ -2467,21 +2467,43 @@ footer {
 
   .hero-cinematic {
     min-height: 0;
-    padding: 46px 0 34px;
+    justify-items: start;
+    padding: 48px 0 34px;
+    text-align: left;
   }
 
   .hero-cinematic::before {
     background:
-      linear-gradient(180deg, rgba(7, 11, 19, 0.96), rgba(7, 11, 19, 0.82) 48%, rgba(7, 11, 19, 0.98)),
-      radial-gradient(70% 56% at 50% 24%, rgba(20, 184, 166, 0.12), transparent 72%),
-      radial-gradient(80% 56% at 50% 0%, rgba(59, 130, 246, 0.14), transparent 74%);
+      linear-gradient(90deg, rgba(7, 11, 19, 0.98) 0%, rgba(7, 11, 19, 0.9) 48%, rgba(7, 11, 19, 0.48) 100%),
+      linear-gradient(180deg, rgba(7, 11, 19, 0.78), rgba(7, 11, 19, 0.9) 62%, rgba(7, 11, 19, 0.98)),
+      radial-gradient(84% 58% at 88% 22%, rgba(20, 184, 166, 0.16), transparent 72%),
+      radial-gradient(80% 56% at 50% 0%, rgba(59, 130, 246, 0.12), transparent 74%);
   }
 
   .hero-media img {
-    left: -14%;
-    width: 132%;
-    opacity: 0.22;
-    object-position: center;
+    inset: -54px -250px auto auto;
+    width: 760px;
+    height: 620px;
+    max-width: none;
+    opacity: 0.5;
+    object-position: center right;
+  }
+
+  .hero-cinematic .hero-copy {
+    width: 100%;
+    margin: 0;
+  }
+
+  .hero-cinematic .hero-copy .eyebrow,
+  .hero-cinematic .hero-copy .hero-actions,
+  .hero-cinematic .hero-copy .hero-proof {
+    justify-content: flex-start;
+  }
+
+  .hero-cinematic .hero-copy h1,
+  .hero-cinematic .hero-copy .hero-lede {
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .hero-signal-row {
@@ -2536,23 +2558,54 @@ footer {
   }
 
   .wasl-arch {
-    padding: 18px;
+    padding: 16px;
     border-radius: 18px;
   }
 
   .arch-title {
-    font-size: 1.05rem;
+    max-width: 260px;
+    margin: 0 auto;
+    font-size: 1rem;
     line-height: 1.25;
   }
 
-  .arch-side,
-  .arch-core,
-  .arch-gates {
-    grid-template-columns: minmax(0, 1fr);
+  .arch-title::after {
+    width: min(220px, 76%);
+    margin-top: 10px;
+  }
+
+  .arch-map {
+    gap: 14px;
+    min-height: 0;
+    padding-top: 10px;
+  }
+
+  .arch-side {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .arch-pill {
+    min-height: 40px;
+    padding: 0 10px;
+    gap: 8px;
+    font-size: 0.68rem;
+  }
+
+  .arch-pill span {
+    min-width: 25px;
+    height: 18px;
+    font-size: 0.58rem;
   }
 
   .arch-core {
-    min-height: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: 0;
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid rgba(96, 165, 250, 0.16);
+    border-radius: 16px;
+    background: rgba(6, 17, 31, 0.72);
   }
 
   .arch-core::before,
@@ -2561,10 +2614,33 @@ footer {
   }
 
   .arch-center {
+    order: -1;
     grid-column: auto;
     grid-row: auto;
-    width: 100%;
-    min-height: 112px;
+    grid-column: 1 / -1;
+    width: min(100%, 180px);
+    min-height: 104px;
+    justify-self: center;
+  }
+
+  .arch-system-node {
+    min-width: 0;
+    min-height: 38px;
+    padding: 0 10px;
+    font-size: 0.64rem;
+    line-height: 1.12;
+    text-align: center;
+  }
+
+  .arch-gates {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .arch-gate {
+    min-height: 38px;
+    padding: 0 10px;
+    font-size: 0.58rem;
   }
 
   .command-layout {
@@ -2677,6 +2753,17 @@ footer {
 }
 
 @media (max-width: 520px) {
+  .hero-media img {
+    right: -305px;
+    width: 720px;
+    height: 590px;
+    opacity: 0.44;
+  }
+
+  .hero-signal-row .ai-orbit {
+    padding: 11px;
+  }
+
   .cookie-actions {
     flex: 1 1 100%;
   }
