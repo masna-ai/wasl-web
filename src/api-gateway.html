@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WASL for Enterprise — Governed API and AI Gateway Platform</title>
+  <title>WASL API Gateway — Secure, Govern, and Scale API Products</title>
   <meta name="description"
-    content="WASL for enterprise platform teams: separated Gateway and Studio, tenant isolation, policy governance, AI Gateway controls, Developer Portal, and integration plugins." />
+    content="Launch secure API products with governance, traffic protection, transformations, connector-backed integrations, developer onboarding, and release control." />
 
-  <link rel="canonical" href="https://waslhq.com/enterprise.html" />
+  <link rel="canonical" href="https://waslhq.com/api-gateway.html" />
   <link rel="icon" type="image/svg+xml" href="./brand-mark.svg" />
   <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
   <link rel="manifest" href="./manifest.webmanifest" />
@@ -25,7 +25,7 @@
   <a class="skip-link" href="#top">Skip to content</a>
   <header class="topbar">
     <a class="brand" href="./index.html" aria-label="Wasl home">
-      <img class="brand-mark" src="./brand-mark.svg" alt="" aria-hidden="true" width="34" height="34" />
+      <img class="brand-mark" src="./brand-mark.svg" alt="" aria-hidden="true" width="42" height="42" />
       <span class="brand-text"><span class="brand-w">W</span>asl</span>
     </a>
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-controls="primaryNav" aria-expanded="false">
@@ -48,7 +48,7 @@
           </div>
           <div class="mega-menu-content">
             <div class="mega-menu-sidebar">
-              <a href="./api-gateway.html" class="sidebar-item">
+              <a href="./api-gateway.html" class="sidebar-item active">
                 <span class="icon">API</span>
                 <span class="label">API Management</span>
               </a>
@@ -60,7 +60,7 @@
                 <span class="icon">EV</span>
                 <span class="label">Event Management</span>
               </a>
-              <a href="./enterprise.html" class="sidebar-item active">
+              <a href="./enterprise.html" class="sidebar-item">
                 <span class="icon">EN</span>
                 <span class="label">Enterprise Scale</span>
               </a>
@@ -70,7 +70,7 @@
               <!-- Runtimes Column -->
               <div class="mega-column">
                 <h5>Runtimes</h5>
-                <a href="./api-gateway.html">API Gateway</a>
+                <a href="./api-gateway.html" class="active">API Gateway</a>
                 <a href="./ai-gateway.html">AI Gateway <span class="badge badge-hot">HOT</span></a>
                 <a href="./event-gateway.html">Event Gateway</a>
                 <a href="./mcp-gateway.html">MCP Gateway</a>
@@ -111,7 +111,7 @@
             <!-- Platform Teams -->
             <div class="mega-column">
               <h5>For Platform Teams</h5>
-              <a href="./enterprise.html" class="active">Developer Platform</a>
+              <a href="./enterprise.html">Developer Platform</a>
               <a href="./enterprise.html#kubernetes">Kubernetes and Microservices</a>
               <a href="./enterprise.html#observability">Observability</a>
               <a href="./enterprise.html#fleet-manager">Hybrid Fleet Management</a>
@@ -159,154 +159,162 @@
       <a class="nav-link-muted" href="/docs/">Resources</a>
       <a class="nav-cta" href="#waitlist">Request Demo</a>
     </nav>
-    <a class="btn btn-outline topbar-cta" href="#waitlist">Request Demo</a>
+    <a class="btn btn-primary topbar-cta" href="#waitlist">Request Demo <span class="cta-arrow" aria-hidden="true">→</span></a>
   </header>
 
   <main id="top">
     <section class="hero">
       <div class="hero-copy reveal">
-        <p class="eyebrow">Enterprise deployment model</p>
-        <h1>Control-plane clarity for <span class="grad">regulated API and AI programs.</span></h1>
+        <p class="eyebrow">API product platform</p>
+        <h1>Secure every API. <span class="grad">Ship faster with governance built in.</span></h1>
         <p class="hero-lede">
-          WASL gives enterprise teams the primitives they need to run governed traffic programs: tenant isolation,
-          environment-aware deployment, revision rollback, policy enforcement, certificate management, and traceable operations.
+          WASL turns APIs into governed products. Protect every request, transform and orchestrate backend calls,
+          publish to a developer portal, and manage releases across environments without stitching together
+          separate gateway, integration, and security tools.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#waitlist">Request Demo</a>
-          <a class="btn btn-secondary" href="#waitlist">Plan Enterprise Rollout</a>
-        </div>
-        <div class="hero-proof" aria-label="Enterprise highlights">
-          <span>Hybrid governance</span>
-          <span>Tenant isolation</span>
-          <span>Secure operations</span>
-          <span>Audit ready</span>
-        </div>
-      </div>
-      <div class="architecture-panel reveal reveal-delay-1">
-        <div class="panel-row active">
-          <span class="panel-label">Traffic layer</span>
-          <strong>Independent gateway execution</strong>
-          <small>Keeps API, AI, and event traffic serving close to the workload.</small>
-        </div>
-        <div class="panel-row">
-          <span class="panel-label">Command center</span>
-          <strong>WASL Studio</strong>
-          <small>Manages products, policies, teams, releases, certificates, and evidence.</small>
-        </div>
-        <div class="panel-row">
-          <span class="panel-label">Portal</span>
-          <strong>Developer self-service</strong>
-          <small>Catalog, subscriptions, credentials, access workflows, and usage analytics for consumers.</small>
+          <a class="btn btn-secondary" href="#policies">Explore Security Controls</a>
         </div>
       </div>
     </section>
 
-    <!-- Hybrid Fleets -->
+    <!-- Execution Mode Spectrum -->
     <section class="section reveal">
-      <div class="split-section">
-        <div class="section-copy reveal">
-          <p class="eyebrow">Fleet management</p>
-          <h2>Connected hybrid fleets, deployed anywhere</h2>
-          <p style="color: var(--muted); margin-bottom: 20px;">
-            Enforce unified governance across multi-region edge nodes, cloud VM groups, and on-premises containers from a single console.
-          </p>
-          <div class="check-list">
-            <span><strong>Network-safe fleet management:</strong> Govern remote gateways without opening inbound management paths</span>
-            <span><strong>Service continuity:</strong> Keep traffic serving when management workflows are temporarily unavailable</span>
-            <span><strong>Environment control:</strong> Apply environment-specific targets, credentials, and policy behavior safely</span>
-          </div>
-        </div>
+      <div class="section-head reveal">
+        <p class="eyebrow">Adaptive execution</p>
+        <h2>Choose the right path for every API experience.</h2>
+        <p>
+          Not every endpoint needs the same level of logic. WASL lets teams combine fast pass-through APIs,
+          orchestration flows, and mock experiences under one governance model.
+        </p>
+      </div>
 
-        <div class="section-copy reveal">
-          <p class="eyebrow">Operational security</p>
-          <h2>Govern secrets, releases, and rollbacks without slowing teams down.</h2>
-          <p style="color: var(--muted); margin-bottom: 20px;">
-            Enterprise teams need speed and evidence. WASL keeps credentials protected, changes reviewable, and
-            releases reversible across regulated environments.
-          </p>
-          <div class="check-list">
-            <span><strong>Secret governance:</strong> Keep sensitive values out of routes, logs, and developer workspaces</span>
-            <span><strong>Safe promotion:</strong> Move changes across environments with versioning and rollback</span>
-            <span><strong>Operational evidence:</strong> Capture policy decisions, traces, alerts, and usage history for reviews</span>
-          </div>
+      <div class="arch-grid">
+        <div class="arch-node">
+          <div class="node-icon">01</div>
+          <h4>Direct Proxy</h4>
+          <p>Expose existing services quickly with authentication, quotas, validation, and traffic protection at the edge.</p>
+        </div>
+        <div class="arch-node">
+          <div class="node-icon">02</div>
+          <h4>Flow Orchestration</h4>
+          <p>Compose services, transform payloads, enrich requests, and connect backend systems in the gateway path.</p>
+        </div>
+        <div class="arch-node">
+          <div class="node-icon">03</div>
+          <h4>Mock Sandbox</h4>
+          <p>Give product teams stable sandbox APIs for demos, partner onboarding, testing, and contract-first delivery.</p>
         </div>
       </div>
     </section>
 
-    <!-- Kubernetes -->
-    <section class="split-section reverse reveal">
-      <div class="browser-frame reveal">
-        <div class="browser-bar">
-          <span></span><span></span><span></span>
-          <em>enterprise-deployment-profile</em>
+    <!-- Code Tabs Section -->
+    <section class="section reveal">
+      <div class="section-head reveal">
+        <p class="eyebrow">Developer workspace</p>
+        <h2>Design, test, and promote API products from one workspace.</h2>
+        <p>
+          API teams can start simple, add orchestration when needed, and publish stable contracts without changing platforms.
+        </p>
+      </div>
+
+      <div class="product-workflow api-workflow">
+        <div class="workflow-rail">
+          <span class="workflow-badge active">Live</span>
+          <strong>Orders API product</strong>
+          <small>Versioned contract, policies, consumers, releases, and runtime health in one workspace.</small>
         </div>
-        <div class="studio-card-stack">
-          <div class="studio-card active">
-            <span class="panel-label">Deployment profile</span>
-            <strong>Production traffic fleet</strong>
-            <small>Cloud, private cloud, and edge environments governed from one release workspace.</small>
-          </div>
-          <div class="studio-card">
-            <span class="panel-label">Scale posture</span>
-            <strong>Elastic capacity enabled</strong>
-            <small>Gateway capacity follows real demand while preserving policy and observability standards.</small>
-          </div>
-          <div class="studio-card">
-            <span class="panel-label">Security posture</span>
-            <strong>Enterprise baseline enforced</strong>
-            <small>Identity, secrets, audit trails, and approval controls stay consistent across every environment.</small>
-          </div>
+        <div class="workflow-grid">
+          <article class="workflow-card active">
+            <span>01</span>
+            <h3>Protect</h3>
+            <p>Authenticate apps, apply quotas, validate payloads, and block risky traffic before it reaches services.</p>
+          </article>
+          <article class="workflow-card">
+            <span>02</span>
+            <h3>Shape</h3>
+            <p>Transform requests, orchestrate backend calls, and keep consumer contracts stable as systems evolve.</p>
+          </article>
+          <article class="workflow-card">
+            <span>03</span>
+            <h3>Publish</h3>
+            <p>Expose polished API products through the developer portal with plans, keys, docs, and onboarding controls.</p>
+          </article>
+        </div>
+        <div class="workflow-metrics">
+          <div><strong>99.99%</strong><span>Gateway availability target</span></div>
+          <div><strong>24</strong><span>Policy controls</span></div>
+          <div><strong>0</strong><span>Contract drift alerts</span></div>
         </div>
       </div>
+    </section>
+
+    <!-- Environment-aware target routing -->
+    <section class="split-section reveal">
       <div class="section-copy reveal">
-        <p class="eyebrow">Enterprise deployment</p>
-        <h2>Built for the environments enterprises actually run.</h2>
+        <p class="eyebrow">Environment-aware routing</p>
+        <h2>Promote APIs without rewriting backend endpoints.</h2>
         <p>
-          Run WASL across cloud, private cloud, managed clusters, and edge environments while preserving central
-          governance, release control, and observability.
+          WASL separates product logic from environment-specific infrastructure. Teams can promote the same API
+          from development to production while operations controls where traffic actually goes.
         </p>
         <div class="check-list" style="margin-top:20px;">
-          <span><strong>Cloud and private deployment:</strong> Support enterprise topology, networking, and security constraints</span>
-          <span><strong>Elastic traffic layer:</strong> Scale gateway capacity around real traffic patterns</span>
-          <span><strong>Operations-ready:</strong> Integrate with health, metrics, alerting, and platform automation workflows</span>
+          <span><strong>Stable API design:</strong> Keep product definitions independent from backend locations</span>
+          <span><strong>Environment promotion:</strong> Move APIs across dev, staging, and production safely</span>
+          <span><strong>Operational control:</strong> Change targets, timeouts, and routing behavior without changing consumer contracts</span>
+        </div>
+      </div>
+      <div class="architecture-panel reveal">
+        <div class="panel-row">
+          <span class="panel-label">Product layer</span>
+          <strong>Stable API contract</strong>
+          <small>Consumer-facing path, schema, policy, and behavior</small>
+        </div>
+        <div class="panel-row">
+          <span class="panel-label">Service layer</span>
+          <strong>Logical backend intent</strong>
+          <small>Targets, transformations, retries, and routing rules</small>
+        </div>
+        <div class="panel-row active">
+          <span class="panel-label">Environment layer</span>
+          <strong>Cloud, private, or partner endpoints</strong>
+          <small>Controlled per environment without breaking consumers</small>
         </div>
       </div>
     </section>
 
-    <!-- Enterprise controls -->
-    <section class="section tinted">
+    <!-- Policy engine -->
+    <section class="section reveal">
       <div class="section-head reveal">
-        <p class="eyebrow">Enterprise controls</p>
-        <h2>Built around deployment intent, auditability, and tenant boundaries.</h2>
+        <p class="eyebrow">Security Engine</p>
+        <h2>24 enterprise policy controls for every API product.</h2>
         <p>
-          WASL treats bundles, revisions, environments, deployments, policies, certificates, traces, and developer
-          access as first-class operational objects.
+          Standardize identity, traffic protection, validation, transformation, and response governance across every team and environment.
         </p>
       </div>
-      <div class="platform-grid">
-        <article class="feature-card reveal reveal-delay-1">
-          <span class="card-icon">A</span>
-          <h3>Governed Deployment</h3>
-          <p>Promote and roll back approved changes with clear ownership, version history, and operational evidence.</p>
-        </article>
-        <article class="feature-card reveal reveal-delay-2">
-          <span class="card-icon">B</span>
-          <h3>Tenant Isolation</h3>
-          <p>Tenant-scoped resources, sessions, analytics, logs, certificates, API keys, OAuth clients, and portal usage.</p>
-        </article>
-        <article class="feature-card reveal reveal-delay-3">
-          <span class="card-icon">C</span>
-          <h3>Operational Evidence</h3>
-          <p>Trace timelines, metrics, policy events, flow execution records, alerts, and usage counters for compliance workflows.</p>
-        </article>
+
+      <div class="policy-matrix">
+        <div class="policy-cat">
+          <strong>Authentication &amp; Identity</strong>
+          <span>API Keys, Basic Auth, JWT validations, full OAuth2 Server flows, mTLS CA certificate anchors.</span>
+        </div>
+        <div class="policy-cat">
+          <strong>Rate Limiting &amp; Quotas</strong>
+          <span>Token Bucket, Fixed Window, Sliding Window, and tenant-scoped daily/weekly Quotas.</span>
+        </div>
+        <div class="policy-cat">
+          <strong>Validation &amp; WAF</strong>
+          <span>JSON Schema compliance, OpenAPI spec matching, IP CIDR filtering, Bot detection, Data Masking.</span>
+        </div>
       </div>
     </section>
 
     <section id="waitlist" class="waitlist reveal">
       <div>
         <p class="eyebrow">Product demo</p>
-        <h2>Evaluate WASL with your platform architecture.</h2>
-        <p>Request a demo to map WASL to your enterprise traffic, security, deployment, and governance requirements.</p>
+        <h2>Evaluate WASL's API Gateway</h2>
+        <p>Request a demo to design secure API products, publish them to developers, and validate governance workflows with your team.</p>
       </div>
       <form id="waitlistForm">
         <input type="email" id="email" placeholder="you@company.com" required aria-label="Email address" />

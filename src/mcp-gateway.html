@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WASL for Enterprise — Governed API and AI Gateway Platform</title>
+  <title>WASL — Governed MCP Gateway &amp; Tool Registry</title>
   <meta name="description"
-    content="WASL for enterprise platform teams: separated Gateway and Studio, tenant isolation, policy governance, AI Gateway controls, Developer Portal, and integration plugins." />
+    content="Govern prompt actions, tools, and LLM integrations. Expose internal APIs as governed MCP tools, proxy third-party MCP servers, and secure agent egress." />
 
-  <link rel="canonical" href="https://waslhq.com/enterprise.html" />
+  <link rel="canonical" href="https://waslhq.com/mcp-gateway.html" />
   <link rel="icon" type="image/svg+xml" href="./brand-mark.svg" />
   <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
   <link rel="manifest" href="./manifest.webmanifest" />
@@ -25,7 +25,7 @@
   <a class="skip-link" href="#top">Skip to content</a>
   <header class="topbar">
     <a class="brand" href="./index.html" aria-label="Wasl home">
-      <img class="brand-mark" src="./brand-mark.svg" alt="" aria-hidden="true" width="34" height="34" />
+      <img class="brand-mark" src="./brand-mark.svg" alt="" aria-hidden="true" width="42" height="42" />
       <span class="brand-text"><span class="brand-w">W</span>asl</span>
     </a>
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-controls="primaryNav" aria-expanded="false">
@@ -60,7 +60,7 @@
                 <span class="icon">EV</span>
                 <span class="label">Event Management</span>
               </a>
-              <a href="./enterprise.html" class="sidebar-item active">
+              <a href="./enterprise.html" class="sidebar-item">
                 <span class="icon">EN</span>
                 <span class="label">Enterprise Scale</span>
               </a>
@@ -82,7 +82,7 @@
               <!-- Core Services Column -->
               <div class="mega-column">
                 <h5>Core Services</h5>
-                <a href="./mcp-gateway.html">MCP Registry <span class="badge badge-new">NEW</span></a>
+                <a href="./mcp-gateway.html" class="active">MCP Registry <span class="badge badge-new">NEW</span></a>
                 <a href="./api-gateway.html#catalog">API Service Catalog</a>
                 <a href="./enterprise.html#fleet-manager">Runtime Management</a>
                 <a href="./open-source.html#sdk">APIOps &amp; Automation</a>
@@ -111,7 +111,7 @@
             <!-- Platform Teams -->
             <div class="mega-column">
               <h5>For Platform Teams</h5>
-              <a href="./enterprise.html" class="active">Developer Platform</a>
+              <a href="./enterprise.html">Developer Platform</a>
               <a href="./enterprise.html#kubernetes">Kubernetes and Microservices</a>
               <a href="./enterprise.html#observability">Observability</a>
               <a href="./enterprise.html#fleet-manager">Hybrid Fleet Management</a>
@@ -159,154 +159,156 @@
       <a class="nav-link-muted" href="/docs/">Resources</a>
       <a class="nav-cta" href="#waitlist">Request Demo</a>
     </nav>
-    <a class="btn btn-outline topbar-cta" href="#waitlist">Request Demo</a>
+    <a class="btn btn-primary topbar-cta" href="#waitlist">Request Demo <span class="cta-arrow" aria-hidden="true">→</span></a>
   </header>
 
   <main id="top">
     <section class="hero">
       <div class="hero-copy reveal">
-        <p class="eyebrow">Enterprise deployment model</p>
-        <h1>Control-plane clarity for <span class="grad">regulated API and AI programs.</span></h1>
+        <p class="eyebrow">Model Context Protocol</p>
+        <h1>Govern what agents <span class="grad">are allowed to do.</span></h1>
         <p class="hero-lede">
-          WASL gives enterprise teams the primitives they need to run governed traffic programs: tenant isolation,
-          environment-aware deployment, revision rollback, policy enforcement, certificate management, and traceable operations.
+          WASL gives enterprises a control point for agent action. Publish approved tools, govern third-party tool
+          access, require consent for sensitive operations, and audit every agent execution from one platform.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#waitlist">Request Demo</a>
-          <a class="btn btn-secondary" href="#waitlist">Plan Enterprise Rollout</a>
-        </div>
-        <div class="hero-proof" aria-label="Enterprise highlights">
-          <span>Hybrid governance</span>
-          <span>Tenant isolation</span>
-          <span>Secure operations</span>
-          <span>Audit ready</span>
-        </div>
-      </div>
-      <div class="architecture-panel reveal reveal-delay-1">
-        <div class="panel-row active">
-          <span class="panel-label">Traffic layer</span>
-          <strong>Independent gateway execution</strong>
-          <small>Keeps API, AI, and event traffic serving close to the workload.</small>
-        </div>
-        <div class="panel-row">
-          <span class="panel-label">Command center</span>
-          <strong>WASL Studio</strong>
-          <small>Manages products, policies, teams, releases, certificates, and evidence.</small>
-        </div>
-        <div class="panel-row">
-          <span class="panel-label">Portal</span>
-          <strong>Developer self-service</strong>
-          <small>Catalog, subscriptions, credentials, access workflows, and usage analytics for consumers.</small>
+          <a class="btn btn-secondary" href="#waitlist">Plan Agent Governance</a>
         </div>
       </div>
     </section>
 
-    <!-- Hybrid Fleets -->
+    <!-- Capabilities -->
     <section class="section reveal">
+      <div class="section-head reveal">
+        <p class="eyebrow">Agent governance</p>
+        <h2>Control the tools agents can see, call, and chain together.</h2>
+        <p>
+          AI agents need access to business systems, but uncontrolled tool access creates new risk. WASL makes
+          every tool discoverable, permissioned, policy-checked, and auditable.
+        </p>
+      </div>
+
       <div class="split-section">
         <div class="section-copy reveal">
-          <p class="eyebrow">Fleet management</p>
-          <h2>Connected hybrid fleets, deployed anywhere</h2>
+          <h3>Publish governed tools</h3>
           <p style="color: var(--muted); margin-bottom: 20px;">
-            Enforce unified governance across multi-region edge nodes, cloud VM groups, and on-premises containers from a single console.
+            Turn approved APIs, integrations, and business actions into curated tools designed for agent use.
+            Agents see high-level capabilities instead of raw endpoints.
           </p>
           <div class="check-list">
-            <span><strong>Network-safe fleet management:</strong> Govern remote gateways without opening inbound management paths</span>
-            <span><strong>Service continuity:</strong> Keep traffic serving when management workflows are temporarily unavailable</span>
-            <span><strong>Environment control:</strong> Apply environment-specific targets, credentials, and policy behavior safely</span>
+            <span><strong>Tool catalog:</strong> Present model-friendly names, descriptions, and inputs</span>
+            <span><strong>Business actions:</strong> Bind tools to approved API and integration workflows</span>
+            <span><strong>Schema clarity:</strong> Keep tool parameters predictable and reviewable</span>
+            <span><strong>Policy checks:</strong> Apply identity, rate limits, approvals, and audit controls</span>
           </div>
         </div>
 
         <div class="section-copy reveal">
-          <p class="eyebrow">Operational security</p>
-          <h2>Govern secrets, releases, and rollbacks without slowing teams down.</h2>
+          <h3>Govern external tool access</h3>
           <p style="color: var(--muted); margin-bottom: 20px;">
-            Enterprise teams need speed and evidence. WASL keeps credentials protected, changes reviewable, and
-            releases reversible across regulated environments.
+            Centralize access to third-party tool servers and SaaS actions so agents cannot create unmanaged
+            connections around security and compliance controls.
           </p>
           <div class="check-list">
-            <span><strong>Secret governance:</strong> Keep sensitive values out of routes, logs, and developer workspaces</span>
-            <span><strong>Safe promotion:</strong> Move changes across environments with versioning and rollback</span>
-            <span><strong>Operational evidence:</strong> Capture policy decisions, traces, alerts, and usage history for reviews</span>
+            <span><strong>Egress control:</strong> Restrict where agents can send tool traffic</span>
+            <span><strong>Tool drift detection:</strong> Flag unexpected changes before they reach production agents</span>
+            <span><strong>Credential safety:</strong> Keep secrets scoped to approved upstream tools</span>
+            <span><strong>Audit trails:</strong> Record who called what, when, and with which authorization</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Kubernetes -->
-    <section class="split-section reverse reveal">
+    <!-- Code Switcher Section -->
+    <section class="section reveal">
+      <div class="section-head reveal">
+        <p class="eyebrow">Agent experience</p>
+        <h2>Make enterprise tools available without making them uncontrolled.</h2>
+        <p>
+          WASL keeps tool interaction compatible with modern agent ecosystems while giving platform teams a
+          governed layer for discovery, execution, approval, and monitoring.
+        </p>
+      </div>
+
+      <div class="product-workflow mcp-workflow">
+        <div class="workflow-rail">
+          <span class="workflow-badge active">MCP runtime</span>
+          <strong>Agent tool governance console</strong>
+          <small>Serve internal tools, broker external MCP servers, and audit every agent action through one control point.</small>
+        </div>
+        <div class="workflow-grid">
+          <article class="workflow-card active">
+            <span>01</span>
+            <h3>Discover</h3>
+            <p>Show agents only the tools they are allowed to see, with context-aware discovery and entitlement checks.</p>
+          </article>
+          <article class="workflow-card">
+            <span>02</span>
+            <h3>Approve</h3>
+            <p>Require consent for sensitive tools, scope actions by agent identity, and prevent broad shared access.</p>
+          </article>
+          <article class="workflow-card">
+            <span>03</span>
+            <h3>Audit</h3>
+            <p>Capture tool usage, inputs, approvals, outcomes, and policy decisions for security and compliance teams.</p>
+          </article>
+        </div>
+        <div class="workflow-metrics">
+          <div><strong>MCP</strong><span>Native runtime support</span></div>
+          <div><strong>Scoped</strong><span>Tool entitlements</span></div>
+          <div><strong>Audited</strong><span>Agent execution trail</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Agent Governance Spine -->
+    <section class="split-section reveal">
+      <div class="section-copy reveal">
+        <p class="eyebrow">Control model</p>
+        <h2>Give every agent an identity, scope, and approval path.</h2>
+        <p>
+          Agent access should not be a shared secret with broad permissions. WASL centers control around agent
+          identity, tool entitlements, approvals, and execution auditability.
+        </p>
+        <div class="check-list" style="margin-top:20px;">
+          <span><strong>Agent registration:</strong> Know which agent, app, or workspace is requesting tools</span>
+          <span><strong>Tool-level grants:</strong> Allow, deny, or require approval per tool and agent</span>
+          <span><strong>Filtered discovery:</strong> Agents only see tools they are authorized to use</span>
+        </div>
+      </div>
       <div class="browser-frame reveal">
         <div class="browser-bar">
           <span></span><span></span><span></span>
-          <em>enterprise-deployment-profile</em>
+          <em>acme-corp.wasl.studio · Agent Tool Grants</em>
         </div>
-        <div class="studio-card-stack">
-          <div class="studio-card active">
-            <span class="panel-label">Deployment profile</span>
-            <strong>Production traffic fleet</strong>
-            <small>Cloud, private cloud, and edge environments governed from one release workspace.</small>
-          </div>
-          <div class="studio-card">
-            <span class="panel-label">Scale posture</span>
-            <strong>Elastic capacity enabled</strong>
-            <small>Gateway capacity follows real demand while preserving policy and observability standards.</small>
-          </div>
-          <div class="studio-card">
-            <span class="panel-label">Security posture</span>
-            <strong>Enterprise baseline enforced</strong>
-            <small>Identity, secrets, audit trails, and approval controls stay consistent across every environment.</small>
+        <div style="background: var(--surface-warm); padding: 24px; border-bottom: 1px solid var(--line);">
+          <strong style="color: var(--ink-strong); font-size: 1rem; display: block; margin-bottom: 8px;">Entitled Agent Grants</strong>
+          <div style="display: grid; gap: 8px;">
+            <div style="display: flex; justify-content: space-between; border: 1px solid var(--line); border-radius: 8px; padding: 12px; background: var(--surface);">
+              <div>
+                <strong style="color: var(--ink-strong); font-size: 0.9rem;">Customer support agent</strong>
+                <small style="color: var(--muted); display: block;">Service, account, and ticket tools</small>
+              </div>
+              <span class="status-pill" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">3 tools approved</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; border: 1px solid var(--line); border-radius: 8px; padding: 12px; background: var(--surface);">
+              <div>
+                <strong style="color: var(--ink-strong); font-size: 0.9rem;">Operations analysis agent</strong>
+                <small style="color: var(--muted); display: block;">Diagnostics, deployment, and incident tools</small>
+              </div>
+              <span class="status-pill" style="background: rgba(168, 85, 247, 0.15); color: #c084fc;">Human Consent Required</span>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="section-copy reveal">
-        <p class="eyebrow">Enterprise deployment</p>
-        <h2>Built for the environments enterprises actually run.</h2>
-        <p>
-          Run WASL across cloud, private cloud, managed clusters, and edge environments while preserving central
-          governance, release control, and observability.
-        </p>
-        <div class="check-list" style="margin-top:20px;">
-          <span><strong>Cloud and private deployment:</strong> Support enterprise topology, networking, and security constraints</span>
-          <span><strong>Elastic traffic layer:</strong> Scale gateway capacity around real traffic patterns</span>
-          <span><strong>Operations-ready:</strong> Integrate with health, metrics, alerting, and platform automation workflows</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Enterprise controls -->
-    <section class="section tinted">
-      <div class="section-head reveal">
-        <p class="eyebrow">Enterprise controls</p>
-        <h2>Built around deployment intent, auditability, and tenant boundaries.</h2>
-        <p>
-          WASL treats bundles, revisions, environments, deployments, policies, certificates, traces, and developer
-          access as first-class operational objects.
-        </p>
-      </div>
-      <div class="platform-grid">
-        <article class="feature-card reveal reveal-delay-1">
-          <span class="card-icon">A</span>
-          <h3>Governed Deployment</h3>
-          <p>Promote and roll back approved changes with clear ownership, version history, and operational evidence.</p>
-        </article>
-        <article class="feature-card reveal reveal-delay-2">
-          <span class="card-icon">B</span>
-          <h3>Tenant Isolation</h3>
-          <p>Tenant-scoped resources, sessions, analytics, logs, certificates, API keys, OAuth clients, and portal usage.</p>
-        </article>
-        <article class="feature-card reveal reveal-delay-3">
-          <span class="card-icon">C</span>
-          <h3>Operational Evidence</h3>
-          <p>Trace timelines, metrics, policy events, flow execution records, alerts, and usage counters for compliance workflows.</p>
-        </article>
       </div>
     </section>
 
     <section id="waitlist" class="waitlist reveal">
       <div>
         <p class="eyebrow">Product demo</p>
-        <h2>Evaluate WASL with your platform architecture.</h2>
-        <p>Request a demo to map WASL to your enterprise traffic, security, deployment, and governance requirements.</p>
+        <h2>Evaluate WASL's MCP Gateway</h2>
+        <p>Request a demo to design agent permissions, publish governed tools, and audit production agent activity.</p>
       </div>
       <form id="waitlistForm">
         <input type="email" id="email" placeholder="you@company.com" required aria-label="Email address" />

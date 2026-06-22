@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WASL for Enterprise — Governed API and AI Gateway Platform</title>
+  <title>Why WASL — Unified Gateway &amp; iPaaS Platform Architecture</title>
   <meta name="description"
-    content="WASL for enterprise platform teams: separated Gateway and Studio, tenant isolation, policy governance, AI Gateway controls, Developer Portal, and integration plugins." />
+    content="Why WASL: consolidate API, AI, event, MCP, integration, security, and developer self-service into one next-generation gateway platform." />
 
-  <link rel="canonical" href="https://waslhq.com/enterprise.html" />
+  <link rel="canonical" href="https://waslhq.com/why-wasl.html" />
   <link rel="icon" type="image/svg+xml" href="./brand-mark.svg" />
   <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
   <link rel="manifest" href="./manifest.webmanifest" />
@@ -25,7 +25,7 @@
   <a class="skip-link" href="#top">Skip to content</a>
   <header class="topbar">
     <a class="brand" href="./index.html" aria-label="Wasl home">
-      <img class="brand-mark" src="./brand-mark.svg" alt="" aria-hidden="true" width="34" height="34" />
+      <img class="brand-mark" src="./brand-mark.svg" alt="" aria-hidden="true" width="42" height="42" />
       <span class="brand-text"><span class="brand-w">W</span>asl</span>
     </a>
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-controls="primaryNav" aria-expanded="false">
@@ -34,7 +34,7 @@
       <span class="menu-bar"></span>
     </button>
     <nav id="primaryNav" aria-label="Primary navigation">
-      <a href="./why-wasl.html">Why WASL</a>
+      <a href="./why-wasl.html" class="active">Why WASL</a>
       
       <!-- Products & Agents Mega Dropdown -->
       <div class="dropdown mega-dropdown">
@@ -60,7 +60,7 @@
                 <span class="icon">EV</span>
                 <span class="label">Event Management</span>
               </a>
-              <a href="./enterprise.html" class="sidebar-item active">
+              <a href="./enterprise.html" class="sidebar-item">
                 <span class="icon">EN</span>
                 <span class="label">Enterprise Scale</span>
               </a>
@@ -111,7 +111,7 @@
             <!-- Platform Teams -->
             <div class="mega-column">
               <h5>For Platform Teams</h5>
-              <a href="./enterprise.html" class="active">Developer Platform</a>
+              <a href="./enterprise.html">Developer Platform</a>
               <a href="./enterprise.html#kubernetes">Kubernetes and Microservices</a>
               <a href="./enterprise.html#observability">Observability</a>
               <a href="./enterprise.html#fleet-manager">Hybrid Fleet Management</a>
@@ -159,154 +159,181 @@
       <a class="nav-link-muted" href="/docs/">Resources</a>
       <a class="nav-cta" href="#waitlist">Request Demo</a>
     </nav>
-    <a class="btn btn-outline topbar-cta" href="#waitlist">Request Demo</a>
+    <a class="btn btn-primary topbar-cta" href="#waitlist">Request Demo <span class="cta-arrow" aria-hidden="true">→</span></a>
   </header>
 
   <main id="top">
+    <!-- Hero section -->
     <section class="hero">
       <div class="hero-copy reveal">
-        <p class="eyebrow">Enterprise deployment model</p>
-        <h1>Control-plane clarity for <span class="grad">regulated API and AI programs.</span></h1>
+        <p class="eyebrow">Why WASL</p>
+        <h1>Consolidate your stack. <span class="grad">Run at the edge.</span></h1>
         <p class="hero-lede">
-          WASL gives enterprise teams the primitives they need to run governed traffic programs: tenant isolation,
-          environment-aware deployment, revision rollback, policy enforcement, certificate management, and traceable operations.
+          Platform teams are being asked to govern APIs, AI applications, event streams, integrations, partners,
+          and agents at the same time. WASL brings those surfaces into one gateway platform so governance scales
+          with the business instead of multiplying tools.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#waitlist">Request Demo</a>
-          <a class="btn btn-secondary" href="#waitlist">Plan Enterprise Rollout</a>
-        </div>
-        <div class="hero-proof" aria-label="Enterprise highlights">
-          <span>Hybrid governance</span>
-          <span>Tenant isolation</span>
-          <span>Secure operations</span>
-          <span>Audit ready</span>
-        </div>
-      </div>
-      <div class="architecture-panel reveal reveal-delay-1">
-        <div class="panel-row active">
-          <span class="panel-label">Traffic layer</span>
-          <strong>Independent gateway execution</strong>
-          <small>Keeps API, AI, and event traffic serving close to the workload.</small>
-        </div>
-        <div class="panel-row">
-          <span class="panel-label">Command center</span>
-          <strong>WASL Studio</strong>
-          <small>Manages products, policies, teams, releases, certificates, and evidence.</small>
-        </div>
-        <div class="panel-row">
-          <span class="panel-label">Portal</span>
-          <strong>Developer self-service</strong>
-          <small>Catalog, subscriptions, credentials, access workflows, and usage analytics for consumers.</small>
+          <a class="btn btn-secondary" href="#waitlist">Discuss Your Stack</a>
         </div>
       </div>
     </section>
 
-    <!-- Hybrid Fleets -->
+    <!-- The Problem: Fragmented Gateways -->
     <section class="section reveal">
+      <div class="section-head reveal">
+        <p class="eyebrow">The Challenge</p>
+        <h2>The Cost of Tool Sprawl</h2>
+        <p>
+          As organizations adopt APIs, event-driven architectures, and AI, the traffic perimeter fractures.
+          Separate tools create operational drag and inconsistent governance:
+        </p>
+      </div>
+
+      <div class="arch-grid">
+        <div class="arch-node">
+          <div class="node-icon">01</div>
+          <h4>Observability Gaps</h4>
+          <p>Scattered logs, metrics, and traces across independent API management, AI proxies, and event streams make distributed debugging nearly impossible.</p>
+        </div>
+        <div class="arch-node">
+          <div class="node-icon">02</div>
+          <h4>Policy Duplication</h4>
+          <p>Rewriting authentication, rate-limiting, and validation rules in four separate systems introduces security risks and policy drift.</p>
+        </div>
+        <div class="arch-node">
+          <div class="node-icon">03</div>
+          <h4>High Cloud Overhead</h4>
+          <p>Running separate products for API, AI, event, MCP, and integration traffic increases cost, staffing needs, and operational complexity.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Pillars -->
+    <section class="section reveal">
+      <div class="section-head reveal">
+        <p class="eyebrow">WASL difference</p>
+        <h2>Designed for the next generation of digital traffic.</h2>
+        <p>
+          WASL is not a proxy with a few add-ons. It is a platform layer for governance, integration, security,
+          developer experience, and AI-era traffic control.
+        </p>
+      </div>
+
       <div class="split-section">
         <div class="section-copy reveal">
-          <p class="eyebrow">Fleet management</p>
-          <h2>Connected hybrid fleets, deployed anywhere</h2>
+          <h3>One traffic layer</h3>
           <p style="color: var(--muted); margin-bottom: 20px;">
-            Enforce unified governance across multi-region edge nodes, cloud VM groups, and on-premises containers from a single console.
+            Bring API products, AI calls, event streams, agent tools, and backend integrations under a single
+            governance model instead of operating disconnected control points.
           </p>
           <div class="check-list">
-            <span><strong>Network-safe fleet management:</strong> Govern remote gateways without opening inbound management paths</span>
-            <span><strong>Service continuity:</strong> Keep traffic serving when management workflows are temporarily unavailable</span>
-            <span><strong>Environment control:</strong> Apply environment-specific targets, credentials, and policy behavior safely</span>
+            <span><strong>Consistent control:</strong> Apply identity, quotas, validation, and auditability everywhere</span>
+            <span><strong>Shared visibility:</strong> Understand traffic behavior across APIs, AI, events, and integrations</span>
+            <span><strong>Lower tool sprawl:</strong> Reduce overlapping gateways, portals, policy engines, and proxies</span>
           </div>
         </div>
 
         <div class="section-copy reveal">
-          <p class="eyebrow">Operational security</p>
-          <h2>Govern secrets, releases, and rollbacks without slowing teams down.</h2>
+          <h3>Integration built in</h3>
           <p style="color: var(--muted); margin-bottom: 20px;">
-            Enterprise teams need speed and evidence. WASL keeps credentials protected, changes reviewable, and
-            releases reversible across regulated environments.
+            WASL connects traffic governance with backend orchestration. Teams can transform, enrich, and route
+            requests without pushing every integration into a separate middleware layer.
           </p>
           <div class="check-list">
-            <span><strong>Secret governance:</strong> Keep sensitive values out of routes, logs, and developer workspaces</span>
-            <span><strong>Safe promotion:</strong> Move changes across environments with versioning and rollback</span>
-            <span><strong>Operational evidence:</strong> Capture policy decisions, traces, alerts, and usage history for reviews</span>
+            <span><strong>Composable services:</strong> Combine APIs, events, tools, and backend calls safely</span>
+            <span><strong>Governed connectors:</strong> Access data systems, queues, search, storage, and SaaS services</span>
+            <span><strong>Traceable automation:</strong> Keep integration behavior visible to platform teams</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="split-section reverse reveal" style="margin-top: 40px;">
+        <div class="section-copy reveal">
+          <h3>Resilient enterprise operations</h3>
+          <p style="color: var(--muted); margin-bottom: 20px;">
+            WASL separates management workflows from live traffic serving so platform teams can manage releases,
+            policy, and observability without putting business traffic at risk.
+          </p>
+          <div class="check-list">
+            <span><strong>Traffic continuity:</strong> Keep services running while teams manage and review changes</span>
+            <span><strong>Versioned releases:</strong> Promote and roll back governed changes with confidence</span>
+            <span><strong>Hybrid placement:</strong> Run close to cloud, private, partner, or edge workloads</span>
+          </div>
+        </div>
+
+        <div class="section-copy reveal">
+          <h3>Extensible connector model</h3>
+          <p style="color: var(--muted); margin-bottom: 20px;">
+            WASL is built to grow with enterprise connectivity needs. Add new systems and governed capabilities
+            without turning the core gateway into a one-off custom project.
+          </p>
+          <div class="check-list">
+            <span><strong>Connector marketplace:</strong> Standardize access to core systems and services</span>
+            <span><strong>Custom extensions:</strong> Add proprietary systems without breaking platform governance</span>
+            <span><strong>Trust controls:</strong> Govern connector rollout, compatibility, telemetry, and ownership</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Kubernetes -->
-    <section class="split-section reverse reveal">
-      <div class="browser-frame reveal">
-        <div class="browser-bar">
-          <span></span><span></span><span></span>
-          <em>enterprise-deployment-profile</em>
-        </div>
-        <div class="studio-card-stack">
-          <div class="studio-card active">
-            <span class="panel-label">Deployment profile</span>
-            <strong>Production traffic fleet</strong>
-            <small>Cloud, private cloud, and edge environments governed from one release workspace.</small>
-          </div>
-          <div class="studio-card">
-            <span class="panel-label">Scale posture</span>
-            <strong>Elastic capacity enabled</strong>
-            <small>Gateway capacity follows real demand while preserving policy and observability standards.</small>
-          </div>
-          <div class="studio-card">
-            <span class="panel-label">Security posture</span>
-            <strong>Enterprise baseline enforced</strong>
-            <small>Identity, secrets, audit trails, and approval controls stay consistent across every environment.</small>
-          </div>
-        </div>
-      </div>
-      <div class="section-copy reveal">
-        <p class="eyebrow">Enterprise deployment</p>
-        <h2>Built for the environments enterprises actually run.</h2>
-        <p>
-          Run WASL across cloud, private cloud, managed clusters, and edge environments while preserving central
-          governance, release control, and observability.
-        </p>
-        <div class="check-list" style="margin-top:20px;">
-          <span><strong>Cloud and private deployment:</strong> Support enterprise topology, networking, and security constraints</span>
-          <span><strong>Elastic traffic layer:</strong> Scale gateway capacity around real traffic patterns</span>
-          <span><strong>Operations-ready:</strong> Integrate with health, metrics, alerting, and platform automation workflows</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Enterprise controls -->
-    <section class="section tinted">
+    <!-- Platform Highlights Compare -->
+    <section class="section reveal">
       <div class="section-head reveal">
-        <p class="eyebrow">Enterprise controls</p>
-        <h2>Built around deployment intent, auditability, and tenant boundaries.</h2>
+        <p class="eyebrow">Comparison</p>
+        <h2>Why WASL is Different</h2>
         <p>
-          WASL treats bundles, revisions, environments, deployments, policies, certificates, traces, and developer
-          access as first-class operational objects.
+          A quick glance at how WASL streamlines developer integration platforms compared to the legacy status quo.
         </p>
       </div>
-      <div class="platform-grid">
-        <article class="feature-card reveal reveal-delay-1">
-          <span class="card-icon">A</span>
-          <h3>Governed Deployment</h3>
-          <p>Promote and roll back approved changes with clear ownership, version history, and operational evidence.</p>
-        </article>
-        <article class="feature-card reveal reveal-delay-2">
-          <span class="card-icon">B</span>
-          <h3>Tenant Isolation</h3>
-          <p>Tenant-scoped resources, sessions, analytics, logs, certificates, API keys, OAuth clients, and portal usage.</p>
-        </article>
-        <article class="feature-card reveal reveal-delay-3">
-          <span class="card-icon">C</span>
-          <h3>Operational Evidence</h3>
-          <p>Trace timelines, metrics, policy events, flow execution records, alerts, and usage counters for compliance workflows.</p>
-        </article>
+
+      <div class="comparison-container">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Legacy Gateways</th>
+              <th>WASL Unified Platform</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Unified Traffic Control</strong></td>
+              <td class="no-cross">No: API only, with external AI/Event proxies required</td>
+              <td class="yes-tick">Yes: APIs, AI, events, integrations, and agent tools unified</td>
+            </tr>
+            <tr>
+              <td><strong>Runtime Footprint</strong></td>
+              <td class="no-cross">Heavy CPU and memory profile in many enterprise stacks</td>
+              <td class="yes-tick">Consolidated traffic platform with efficient hybrid deployment</td>
+            </tr>
+            <tr>
+              <td><strong>Integration Scripting</strong></td>
+              <td class="no-cross">Often proprietary XML configuration or proxy scripting</td>
+              <td class="yes-tick">Built-in integration flows and governed connectors</td>
+            </tr>
+            <tr>
+              <td><strong>Control Plane Isolation</strong></td>
+              <td class="partial-tick">Partial: management outages can affect operations</td>
+              <td class="yes-tick">Strict separation between management workflows and live traffic</td>
+            </tr>
+            <tr>
+              <td><strong>AI / LLM Governance</strong></td>
+              <td class="no-cross">Basic plugins, usually without native cost controls</td>
+              <td class="yes-tick">Native PII redaction, semantic cache, and cost controls</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
+    <!-- Early Access Waitlist -->
     <section id="waitlist" class="waitlist reveal">
       <div>
-        <p class="eyebrow">Product demo</p>
-        <h2>Evaluate WASL with your platform architecture.</h2>
-        <p>Request a demo to map WASL to your enterprise traffic, security, deployment, and governance requirements.</p>
+        <p class="eyebrow">Evaluate WASL</p>
+        <h2>Experience Unified Gateway Control</h2>
+        <p>Request a demo to evaluate how WASL can consolidate your API, AI, event, MCP, and integration governance stack.</p>
       </div>
       <form id="waitlistForm">
         <input type="email" id="email" placeholder="you@company.com" required aria-label="Email address" />

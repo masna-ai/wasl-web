@@ -7,10 +7,93 @@ const gatewayMode = document.querySelector('#gatewayMode');
 const payload = document.querySelector('#payload');
 const mockMode = document.querySelector('#mockMode');
 const traceMode = document.querySelector('#traceMode');
+const previewRequestTitle = document.querySelector('#previewRequestTitle');
+const previewRequestMeta = document.querySelector('#previewRequestMeta');
+const previewOutcome = document.querySelector('#previewOutcome');
+const previewOutcomeMeta = document.querySelector('#previewOutcomeMeta');
+const previewIdentity = document.querySelector('#previewIdentity');
+const previewProtection = document.querySelector('#previewProtection');
+const previewTrace = document.querySelector('#previewTrace');
+const previewTraceList = document.querySelector('#previewTraceList');
 
 function renderResponse(body) {
-  responseBlock.textContent = JSON.stringify(body, null, 2);
+  if (!responseBlock) return;
+
+  if (!previewOutcome) {
+    responseBlock.textContent = JSON.stringify(body, null, 2);
+    return;
+  }
+
+  const gateway = body?.request?.gateway || 'api-gateway';
+  const labels = {
+    'api-gateway': {
+      title: 'Customer order transaction',
+      meta: 'Authenticated app request with amount, currency, and order context.',
+      outcome: 'API request protected and routed',
+      detail: 'Identity, rate limits, validation, and route controls completed successfully.',
+      protection: 'API policies passed'
+    },
+    'ai-gateway': {
+      title: 'AI risk analysis prompt',
+      meta: 'Prompt inspected for sensitive data, model routing, budget, and safety controls.',
+      outcome: 'AI request governed before model access',
+      detail: 'Privacy, provider routing, semantic reuse, and cost controls completed successfully.',
+      protection: 'PII masked'
+    },
+    'event-gateway': {
+      title: 'Order event publication',
+      meta: 'Event product request validated for identity, schema, subscription, and delivery controls.',
+      outcome: 'Event accepted into governed stream',
+      detail: 'Consumer access, contract validation, and delivery controls completed successfully.',
+      protection: 'Schema validated'
+    },
+    'mcp-gateway': {
+      title: 'Agent tool invocation',
+      meta: 'Agent action checked for tool entitlement, approval needs, and execution auditability.',
+      outcome: 'MCP tool call authorized',
+      detail: 'Agent identity, scope, approval, and tool execution controls completed successfully.',
+      protection: 'Tool grant verified'
+    }
+  };
+  const selected = labels[gateway] || labels['api-gateway'];
+
+  if (previewRequestTitle) previewRequestTitle.textContent = selected.title;
+  if (previewRequestMeta) previewRequestMeta.textContent = selected.meta;
+  previewOutcome.textContent = selected.outcome;
+  if (previewOutcomeMeta) previewOutcomeMeta.textContent = selected.detail;
+  if (previewIdentity) previewIdentity.textContent = body?.request?.mode === 'mock/simulate' ? 'Simulated' : 'Verified';
+  if (previewProtection) previewProtection.textContent = selected.protection;
+  if (previewTrace) previewTrace.textContent = body?.trace?.correlationId ? body.trace.correlationId.slice(0, 8) : 'Hidden';
+  if (previewTraceList) {
+    const steps = body?.trace?.timeline?.slice(0, 5) || [];
+    previewTraceList.innerHTML = steps.length
+      ? steps.map((item) => `<span>${item.step.replaceAll('.', ' ')}</span>`).join('')
+      : '<span>Trace context hidden for this preview.</span>';
+  }
 }
+
+const gatewayDefaults = {
+  'api-gateway': {
+    method: 'POST',
+    endpoint: '/api/v1/orders',
+    payload: JSON.stringify({ orderId: 'ord_908231', amount: 154.50, currency: 'USD' }, null, 2)
+  },
+  'ai-gateway': {
+    method: 'POST',
+    endpoint: '/v1/chat/completions',
+    payload: JSON.stringify({ model: 'gpt-4o', messages: [{ role: 'user', content: 'Submit SSN 000-12-3456 to analyze order risk.' }], stream: false }, null, 2)
+  },
+  'event-gateway': {
+    method: 'POST',
+    endpoint: '/events/orders.created/records',
+    payload: JSON.stringify({ eventId: 'evt_77192', data: { orderId: 'ord_908231', status: 'PAID' } }, null, 2)
+  },
+  'mcp-gateway': {
+    method: 'POST',
+    endpoint: '/mcp/customer_support_ops',
+    payload: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'lookup_customer', arguments: { id: 'cust_123' } } }, null, 2)
+  }
+};
 
 function simulateStudioCall() {
   let parsedPayload = {};
@@ -22,48 +105,105 @@ function simulateStudioCall() {
 
   const now = new Date().toISOString();
   const correlationId = Math.random().toString(16).slice(2) + Math.random().toString(16).slice(2);
-  const aiMode = gatewayMode?.value === 'ai-gateway';
+  const selectedMode = gatewayMode?.value || 'api-gateway';
+
+  let responseData = {};
+  let timelineSteps = [];
+
+  switch (selectedMode) {
+    case 'api-gateway':
+      responseData = {
+        orderId: parsedPayload.orderId || `ord_${correlationId.slice(0, 8)}`,
+        status: 'ACCEPTED',
+        executionMode: mockMode?.checked ? 'mock' : 'live-direct-proxy',
+        processedBy: 'GatewayRouter-v3'
+      };
+      timelineSteps = [
+        { step: 'request.received', at: now },
+        { step: mockMode?.checked ? 'mock.policy.evaluated' : 'policy.chain.executed', at: now },
+        { step: 'target.resolved.3level', at: now },
+        { step: 'response.returned', at: now }
+      ];
+      break;
+
+    case 'ai-gateway':
+      const isRedacted = !mockMode?.checked;
+      responseData = {
+        routeId: 'private-llm-cluster',
+        provider: 'openai-gpt-4o',
+        pii_masking: isRedacted ? 'active (masked SSN: ***-**-****)' : 'disabled',
+        output: isRedacted 
+          ? 'Risk assessment completed successfully. Masked profile classified as Low Risk.'
+          : 'Risk assessment completed. Profile for SSN 000-12-3456 classified as Low Risk.',
+        usage: { promptTokens: 32, completionTokens: 18, totalTokens: 50, cost_usd: 0.00025 }
+      };
+      timelineSteps = [
+        { step: 'request.received', at: now },
+        { step: 'pii.redact.pre', at: now },
+        { step: 'semantic.cache.lookup', at: now },
+        { step: 'llm.provider.routed', at: now },
+        { step: 'cost.limits.evaluated', at: now },
+        { step: 'response.returned', at: now }
+      ];
+      break;
+
+    case 'event-gateway':
+      responseData = {
+        status: 'published',
+        topic: 'orders.created.v1',
+        partition: 2,
+        offset: 14502,
+        contractValidated: true,
+        correlationId
+      };
+      timelineSteps = [
+        { step: 'request.received', at: now },
+        { step: 'auth.subscription.verified', at: now },
+        { step: 'schema.contract.validated', at: now },
+        { step: 'kafka.producer.published', at: now },
+        { step: 'response.returned', at: now }
+      ];
+      break;
+
+    case 'mcp-gateway':
+      responseData = {
+        jsonrpc: '2.0',
+        id: parsedPayload.id || 1,
+        result: {
+          content: [
+            {
+              type: 'text',
+              text: 'Customer ID cust_123 resolved: Jane Doe, Status: VIP, Tier: Enterprise.'
+            }
+          ]
+        }
+      };
+      timelineSteps = [
+        { step: 'mcp.initialize.negotiated', at: now },
+        { step: 'origin.validation.passed', at: now },
+        { step: 'mcp.agent.grant.verified', at: now },
+        { step: 'flow.binding.dispatched', at: now },
+        { step: 'mcp.response.formatted', at: now }
+      ];
+      break;
+  }
 
   const result = {
     request: {
       method: method?.value || 'POST',
-      endpoint: endpoint?.value || '/ai/orchestrate',
+      endpoint: endpoint?.value || '/api/v1/orders',
       payload: parsedPayload,
-      gateway: aiMode ? 'ai-gateway' : 'api-gateway',
-      mode: mockMode?.checked ? 'mock' : 'live'
+      gateway: selectedMode,
+      mode: mockMode?.checked ? 'mock/simulate' : 'live/enforced'
     },
     response: {
       status: 200,
-      message: aiMode
-        ? (mockMode?.checked ? 'Simulated AI response served from Compliance Preview' : 'Live governed AI response from Provider Fleet')
-        : (mockMode?.checked ? 'Mock payload served by Governance Engine Sandbox' : 'Live verified payload from Edge Router'),
-      data: aiMode
-        ? {
-            routeId: 'private-llm-cluster',
-            provider: 'secure-internal',
-            pii_masking: 'enforced',
-            output: 'User feedback has been aggregated and masked for sensitive data securely.',
-            usage: {
-              promptTokens: 28,
-              completionTokens: 19,
-              totalTokens: 47
-            }
-          }
-        : {
-            orderId: parsedPayload.orderId || `ord_${correlationId.slice(0, 8)}`,
-            accepted: true
-          }
+      data: responseData
     },
     trace: traceMode?.checked
       ? {
           correlationId,
-          timeline: [
-            { step: 'request.received', at: now },
-            { step: mockMode?.checked ? 'mock.policy.evaluated' : 'policy.chain.executed', at: now },
-            { step: aiMode ? 'ai.route.executed' : 'flow.executed', at: now },
-            ...(aiMode ? [{ step: 'stream.normalized', at: now }] : []),
-            { step: 'response.returned', at: now }
-          ]
+          timeline: timelineSteps
         }
       : null
   };
@@ -71,8 +211,28 @@ function simulateStudioCall() {
   renderResponse(result);
 }
 
+if (gatewayMode) {
+  gatewayMode.addEventListener('change', () => {
+    const val = gatewayMode.value;
+    const defaults = gatewayDefaults[val];
+    if (defaults) {
+      if (method) method.value = defaults.method;
+      if (endpoint) endpoint.value = defaults.endpoint;
+      if (payload) payload.value = defaults.payload;
+    }
+    simulateStudioCall();
+  });
+}
+
 if (sendBtn) {
   sendBtn.addEventListener('click', simulateStudioCall);
+  // Set initial default form values if present
+  if (gatewayMode && gatewayDefaults[gatewayMode.value]) {
+    const defaults = gatewayDefaults[gatewayMode.value];
+    if (method) method.value = defaults.method;
+    if (endpoint) endpoint.value = defaults.endpoint;
+    if (payload) payload.value = defaults.payload;
+  }
   simulateStudioCall();
 }
 
@@ -179,7 +339,7 @@ if (waitlistForm) {
     }
     try {
       await submitWaitlist(email);
-      waitlistMessage.textContent = `Thanks. ${email} is registered for wasl early access.`;
+      waitlistMessage.textContent = `Thanks. ${email} is registered for a WASL demo.`;
       waitlistForm.reset();
       trackEvent('generate_lead', { method: 'waitlist_form' });
     } catch (error) {
@@ -335,6 +495,25 @@ function initStickyHeader() {
   window.addEventListener('scroll', onScroll, { passive: true });
 }
 
+function setupTabs() {
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+    const targetId = btn.getAttribute('data-tab');
+    if (!targetId) return;
+
+    const container = btn.closest('.tabs-container');
+    if (!container) return;
+
+    container.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    container.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+
+    btn.classList.add('active');
+    const pane = container.querySelector(`#${targetId}`);
+    if (pane) pane.classList.add('active');
+  });
+}
+
 wireCredibilityLinks();
 setupMobileNav();
 applyVariantByQuery();
@@ -343,3 +522,4 @@ initScrollReveal();
 initCardGlow();
 initStatCounters();
 initStickyHeader();
+setupTabs();

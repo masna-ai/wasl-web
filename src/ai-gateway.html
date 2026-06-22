@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WASL for Enterprise — Governed API and AI Gateway Platform</title>
+  <title>WASL — Governed AI Gateway &amp; LLM Orchestration</title>
   <meta name="description"
-    content="WASL for enterprise platform teams: separated Gateway and Studio, tenant isolation, policy governance, AI Gateway controls, Developer Portal, and integration plugins." />
+    content="Govern LLM workloads with a pluggable pipeline featuring PII redaction, semantic caching, prompt templating, cost caps, and multi-provider load balancing." />
 
-  <link rel="canonical" href="https://waslhq.com/enterprise.html" />
+  <link rel="canonical" href="https://waslhq.com/ai-gateway.html" />
   <link rel="icon" type="image/svg+xml" href="./brand-mark.svg" />
   <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
   <link rel="manifest" href="./manifest.webmanifest" />
@@ -25,7 +25,7 @@
   <a class="skip-link" href="#top">Skip to content</a>
   <header class="topbar">
     <a class="brand" href="./index.html" aria-label="Wasl home">
-      <img class="brand-mark" src="./brand-mark.svg" alt="" aria-hidden="true" width="34" height="34" />
+      <img class="brand-mark" src="./brand-mark.svg" alt="" aria-hidden="true" width="42" height="42" />
       <span class="brand-text"><span class="brand-w">W</span>asl</span>
     </a>
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-controls="primaryNav" aria-expanded="false">
@@ -52,7 +52,7 @@
                 <span class="icon">API</span>
                 <span class="label">API Management</span>
               </a>
-              <a href="./ai-gateway.html" class="sidebar-item">
+              <a href="./ai-gateway.html" class="sidebar-item active">
                 <span class="icon">AI</span>
                 <span class="label">AI Management</span>
               </a>
@@ -60,7 +60,7 @@
                 <span class="icon">EV</span>
                 <span class="label">Event Management</span>
               </a>
-              <a href="./enterprise.html" class="sidebar-item active">
+              <a href="./enterprise.html" class="sidebar-item">
                 <span class="icon">EN</span>
                 <span class="label">Enterprise Scale</span>
               </a>
@@ -71,7 +71,7 @@
               <div class="mega-column">
                 <h5>Runtimes</h5>
                 <a href="./api-gateway.html">API Gateway</a>
-                <a href="./ai-gateway.html">AI Gateway <span class="badge badge-hot">HOT</span></a>
+                <a href="./ai-gateway.html" class="active">AI Gateway <span class="badge badge-hot">HOT</span></a>
                 <a href="./event-gateway.html">Event Gateway</a>
                 <a href="./mcp-gateway.html">MCP Gateway</a>
                 <a href="./enterprise.html#developer-portal">Developer Portal</a>
@@ -111,7 +111,7 @@
             <!-- Platform Teams -->
             <div class="mega-column">
               <h5>For Platform Teams</h5>
-              <a href="./enterprise.html" class="active">Developer Platform</a>
+              <a href="./enterprise.html">Developer Platform</a>
               <a href="./enterprise.html#kubernetes">Kubernetes and Microservices</a>
               <a href="./enterprise.html#observability">Observability</a>
               <a href="./enterprise.html#fleet-manager">Hybrid Fleet Management</a>
@@ -159,154 +159,157 @@
       <a class="nav-link-muted" href="/docs/">Resources</a>
       <a class="nav-cta" href="#waitlist">Request Demo</a>
     </nav>
-    <a class="btn btn-outline topbar-cta" href="#waitlist">Request Demo</a>
+    <a class="btn btn-primary topbar-cta" href="#waitlist">Request Demo <span class="cta-arrow" aria-hidden="true">→</span></a>
   </header>
 
   <main id="top">
     <section class="hero">
       <div class="hero-copy reveal">
-        <p class="eyebrow">Enterprise deployment model</p>
-        <h1>Control-plane clarity for <span class="grad">regulated API and AI programs.</span></h1>
+        <p class="eyebrow">Enterprise LLM Governance</p>
+        <h1>Govern prompts. <span class="grad">Control LLM costs.</span></h1>
         <p class="hero-lede">
-          WASL gives enterprise teams the primitives they need to run governed traffic programs: tenant isolation,
-          environment-aware deployment, revision rollback, policy enforcement, certificate management, and traceable operations.
+          WASL gives enterprises a governed path to every model request. Protect sensitive data, enforce
+          guardrails, route across providers, control spend, and give AI teams one trusted gateway for production
+          applications and agent workflows.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#waitlist">Request Demo</a>
-          <a class="btn btn-secondary" href="#waitlist">Plan Enterprise Rollout</a>
-        </div>
-        <div class="hero-proof" aria-label="Enterprise highlights">
-          <span>Hybrid governance</span>
-          <span>Tenant isolation</span>
-          <span>Secure operations</span>
-          <span>Audit ready</span>
-        </div>
-      </div>
-      <div class="architecture-panel reveal reveal-delay-1">
-        <div class="panel-row active">
-          <span class="panel-label">Traffic layer</span>
-          <strong>Independent gateway execution</strong>
-          <small>Keeps API, AI, and event traffic serving close to the workload.</small>
-        </div>
-        <div class="panel-row">
-          <span class="panel-label">Command center</span>
-          <strong>WASL Studio</strong>
-          <small>Manages products, policies, teams, releases, certificates, and evidence.</small>
-        </div>
-        <div class="panel-row">
-          <span class="panel-label">Portal</span>
-          <strong>Developer self-service</strong>
-          <small>Catalog, subscriptions, credentials, access workflows, and usage analytics for consumers.</small>
+          <a class="btn btn-secondary" href="#waitlist">Plan AI Governance</a>
         </div>
       </div>
     </section>
 
-    <!-- Hybrid Fleets -->
+    <!-- AI Governance Pipeline -->
     <section class="section reveal">
-      <div class="split-section">
-        <div class="section-copy reveal">
-          <p class="eyebrow">Fleet management</p>
-          <h2>Connected hybrid fleets, deployed anywhere</h2>
-          <p style="color: var(--muted); margin-bottom: 20px;">
-            Enforce unified governance across multi-region edge nodes, cloud VM groups, and on-premises containers from a single console.
-          </p>
-          <div class="check-list">
-            <span><strong>Network-safe fleet management:</strong> Govern remote gateways without opening inbound management paths</span>
-            <span><strong>Service continuity:</strong> Keep traffic serving when management workflows are temporarily unavailable</span>
-            <span><strong>Environment control:</strong> Apply environment-specific targets, credentials, and policy behavior safely</span>
-          </div>
-        </div>
+      <div class="section-head reveal">
+        <p class="eyebrow">Governance pipeline</p>
+        <h2>Every AI request gets identity, safety, privacy, and cost control.</h2>
+        <p>
+          WASL brings repeatable controls to AI traffic before prompts reach external providers or private models.
+        </p>
+      </div>
 
-        <div class="section-copy reveal">
-          <p class="eyebrow">Operational security</p>
-          <h2>Govern secrets, releases, and rollbacks without slowing teams down.</h2>
-          <p style="color: var(--muted); margin-bottom: 20px;">
-            Enterprise teams need speed and evidence. WASL keeps credentials protected, changes reviewable, and
-            releases reversible across regulated environments.
-          </p>
-          <div class="check-list">
-            <span><strong>Secret governance:</strong> Keep sensitive values out of routes, logs, and developer workspaces</span>
-            <span><strong>Safe promotion:</strong> Move changes across environments with versioning and rollback</span>
-            <span><strong>Operational evidence:</strong> Capture policy decisions, traces, alerts, and usage history for reviews</span>
-          </div>
+      <div class="ai-pipeline reveal">
+        <div class="ai-stage">
+          <span class="ai-step">01</span>
+          <strong>Inbound Auth</strong>
+          <small>Verify users, apps, teams, and consumers before AI traffic leaves your platform.</small>
+        </div>
+        <div class="ai-stage">
+          <span class="ai-step">02</span>
+          <strong>Prompt &amp; RAG</strong>
+          <small>Attach approved instructions, retrieval context, and tool access for consistent AI behavior.</small>
+        </div>
+        <div class="ai-stage">
+          <span class="ai-step">03</span>
+          <strong>PII Redaction</strong>
+          <small>Scan prompts for sensitive data (SSNs, API keys, credentials) and redact them before egress.</small>
+        </div>
+        <div class="ai-stage">
+          <span class="ai-step">04</span>
+          <strong>Semantic Cache</strong>
+          <small>Reuse trusted answers for similar prompts to reduce latency and provider spend.</small>
+        </div>
+        <div class="ai-stage">
+          <span class="ai-step">05</span>
+          <strong>Provider Loop</strong>
+          <small>Route intelligently across approved providers with fallback and resilience controls.</small>
+        </div>
+        <div class="ai-stage">
+          <span class="ai-step">06</span>
+          <strong>Token &amp; Cost Caps</strong>
+          <small>Track consumption by tenant, team, route, and provider while enforcing usage limits.</small>
         </div>
       </div>
     </section>
 
-    <!-- Kubernetes -->
+    <!-- Code Switcher Section -->
+    <section class="section reveal">
+      <div class="section-head reveal">
+        <p class="eyebrow">Drop-in adoption</p>
+        <h2>Keep developer workflows familiar while centralizing governance.</h2>
+        <p>
+          Existing AI clients can route through WASL with minimal change, while platform teams gain centralized
+          control over providers, prompts, usage, and security outcomes.
+        </p>
+      </div>
+
+      <div class="product-workflow ai-workflow">
+        <div class="workflow-rail">
+          <span class="workflow-badge active">Guarded</span>
+          <strong>AI policy cockpit</strong>
+          <small>One governed path for prompts, model routing, streaming responses, spend, and agent activity.</small>
+        </div>
+        <div class="workflow-grid">
+          <article class="workflow-card active">
+            <span>01</span>
+            <h3>Classify</h3>
+            <p>Identify application, user, intent, sensitivity, and policy context before a prompt leaves your boundary.</p>
+          </article>
+          <article class="workflow-card">
+            <span>02</span>
+            <h3>Control</h3>
+            <p>Apply redaction, guardrails, model routing, semantic reuse, and budget limits through reusable policies.</p>
+          </article>
+          <article class="workflow-card">
+            <span>03</span>
+            <h3>Measure</h3>
+            <p>Track cost, latency, token usage, provider quality, blocked prompts, and team-level consumption.</p>
+          </article>
+        </div>
+        <div class="workflow-metrics">
+          <div><strong>31%</strong><span>AI spend reduced</span></div>
+          <div><strong>100%</strong><span>Prompt audit coverage</span></div>
+          <div><strong>0</strong><span>Unapproved providers</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Studio AI Assistant -->
     <section class="split-section reverse reveal">
       <div class="browser-frame reveal">
         <div class="browser-bar">
           <span></span><span></span><span></span>
-          <em>enterprise-deployment-profile</em>
+          <em>acme-corp.wasl.studio · AI Co-Author</em>
         </div>
         <div class="studio-card-stack">
           <div class="studio-card active">
-            <span class="panel-label">Deployment profile</span>
-            <strong>Production traffic fleet</strong>
-            <small>Cloud, private cloud, and edge environments governed from one release workspace.</small>
+            <span class="panel-label">Co-author request</span>
+            <strong>Customer orders API bundle</strong>
+            <small>Drafted with identity, rate limits, schema validation, and developer portal metadata.</small>
           </div>
           <div class="studio-card">
-            <span class="panel-label">Scale posture</span>
-            <strong>Elastic capacity enabled</strong>
-            <small>Gateway capacity follows real demand while preserving policy and observability standards.</small>
+            <span class="panel-label">Governance review</span>
+            <strong>3 standards applied</strong>
+            <small>Security baseline, release policy, and consumer-facing documentation checks passed.</small>
           </div>
           <div class="studio-card">
-            <span class="panel-label">Security posture</span>
-            <strong>Enterprise baseline enforced</strong>
-            <small>Identity, secrets, audit trails, and approval controls stay consistent across every environment.</small>
+            <span class="panel-label">Release action</span>
+            <strong>Ready for platform approval</strong>
+            <small>Teams can review, adjust, and promote through the same workflow as human-authored changes.</small>
           </div>
         </div>
       </div>
       <div class="section-copy reveal">
-        <p class="eyebrow">Enterprise deployment</p>
-        <h2>Built for the environments enterprises actually run.</h2>
+        <p class="eyebrow">Studio intelligence</p>
+        <h2>Accelerate delivery without bypassing platform standards.</h2>
         <p>
-          Run WASL across cloud, private cloud, managed clusters, and edge environments while preserving central
-          governance, release control, and observability.
+          Studio helps teams draft APIs, policies, and integration blueprints faster while keeping every generated
+          asset visible, reviewable, and governed.
         </p>
         <div class="check-list" style="margin-top:20px;">
-          <span><strong>Cloud and private deployment:</strong> Support enterprise topology, networking, and security constraints</span>
-          <span><strong>Elastic traffic layer:</strong> Scale gateway capacity around real traffic patterns</span>
-          <span><strong>Operations-ready:</strong> Integrate with health, metrics, alerting, and platform automation workflows</span>
+          <span><strong>Generate:</strong> Describe a service and draft routes, policies, and schemas</span>
+          <span><strong>Refine:</strong> Add security, quotas, transformations, and consumer-facing metadata</span>
+          <span><strong>Govern:</strong> Review and release AI-assisted changes through normal platform workflows</span>
         </div>
-      </div>
-    </section>
-
-    <!-- Enterprise controls -->
-    <section class="section tinted">
-      <div class="section-head reveal">
-        <p class="eyebrow">Enterprise controls</p>
-        <h2>Built around deployment intent, auditability, and tenant boundaries.</h2>
-        <p>
-          WASL treats bundles, revisions, environments, deployments, policies, certificates, traces, and developer
-          access as first-class operational objects.
-        </p>
-      </div>
-      <div class="platform-grid">
-        <article class="feature-card reveal reveal-delay-1">
-          <span class="card-icon">A</span>
-          <h3>Governed Deployment</h3>
-          <p>Promote and roll back approved changes with clear ownership, version history, and operational evidence.</p>
-        </article>
-        <article class="feature-card reveal reveal-delay-2">
-          <span class="card-icon">B</span>
-          <h3>Tenant Isolation</h3>
-          <p>Tenant-scoped resources, sessions, analytics, logs, certificates, API keys, OAuth clients, and portal usage.</p>
-        </article>
-        <article class="feature-card reveal reveal-delay-3">
-          <span class="card-icon">C</span>
-          <h3>Operational Evidence</h3>
-          <p>Trace timelines, metrics, policy events, flow execution records, alerts, and usage counters for compliance workflows.</p>
-        </article>
       </div>
     </section>
 
     <section id="waitlist" class="waitlist reveal">
       <div>
         <p class="eyebrow">Product demo</p>
-        <h2>Evaluate WASL with your platform architecture.</h2>
-        <p>Request a demo to map WASL to your enterprise traffic, security, deployment, and governance requirements.</p>
+        <h2>Evaluate WASL's AI Gateway</h2>
+        <p>Request a demo to design AI governance, control model spend, and standardize production AI access across teams.</p>
       </div>
       <form id="waitlistForm">
         <input type="email" id="email" placeholder="you@company.com" required aria-label="Email address" />
