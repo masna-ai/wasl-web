@@ -7,9 +7,69 @@ const gatewayMode = document.querySelector('#gatewayMode');
 const payload = document.querySelector('#payload');
 const mockMode = document.querySelector('#mockMode');
 const traceMode = document.querySelector('#traceMode');
+const previewRequestTitle = document.querySelector('#previewRequestTitle');
+const previewRequestMeta = document.querySelector('#previewRequestMeta');
+const previewOutcome = document.querySelector('#previewOutcome');
+const previewOutcomeMeta = document.querySelector('#previewOutcomeMeta');
+const previewIdentity = document.querySelector('#previewIdentity');
+const previewProtection = document.querySelector('#previewProtection');
+const previewTrace = document.querySelector('#previewTrace');
+const previewTraceList = document.querySelector('#previewTraceList');
 
 function renderResponse(body) {
-  responseBlock.textContent = JSON.stringify(body, null, 2);
+  if (!responseBlock) return;
+
+  if (!previewOutcome) {
+    responseBlock.textContent = JSON.stringify(body, null, 2);
+    return;
+  }
+
+  const gateway = body?.request?.gateway || 'api-gateway';
+  const labels = {
+    'api-gateway': {
+      title: 'Customer order transaction',
+      meta: 'Authenticated app request with amount, currency, and order context.',
+      outcome: 'API request protected and routed',
+      detail: 'Identity, rate limits, validation, and route controls completed successfully.',
+      protection: 'API policies passed'
+    },
+    'ai-gateway': {
+      title: 'AI risk analysis prompt',
+      meta: 'Prompt inspected for sensitive data, model routing, budget, and safety controls.',
+      outcome: 'AI request governed before model access',
+      detail: 'Privacy, provider routing, semantic reuse, and cost controls completed successfully.',
+      protection: 'PII masked'
+    },
+    'event-gateway': {
+      title: 'Order event publication',
+      meta: 'Event product request validated for identity, schema, subscription, and delivery controls.',
+      outcome: 'Event accepted into governed stream',
+      detail: 'Consumer access, contract validation, and delivery controls completed successfully.',
+      protection: 'Schema validated'
+    },
+    'mcp-gateway': {
+      title: 'Agent tool invocation',
+      meta: 'Agent action checked for tool entitlement, approval needs, and execution auditability.',
+      outcome: 'MCP tool call authorized',
+      detail: 'Agent identity, scope, approval, and tool execution controls completed successfully.',
+      protection: 'Tool grant verified'
+    }
+  };
+  const selected = labels[gateway] || labels['api-gateway'];
+
+  if (previewRequestTitle) previewRequestTitle.textContent = selected.title;
+  if (previewRequestMeta) previewRequestMeta.textContent = selected.meta;
+  previewOutcome.textContent = selected.outcome;
+  if (previewOutcomeMeta) previewOutcomeMeta.textContent = selected.detail;
+  if (previewIdentity) previewIdentity.textContent = body?.request?.mode === 'mock/simulate' ? 'Simulated' : 'Verified';
+  if (previewProtection) previewProtection.textContent = selected.protection;
+  if (previewTrace) previewTrace.textContent = body?.trace?.correlationId ? body.trace.correlationId.slice(0, 8) : 'Hidden';
+  if (previewTraceList) {
+    const steps = body?.trace?.timeline?.slice(0, 5) || [];
+    previewTraceList.innerHTML = steps.length
+      ? steps.map((item) => `<span>${item.step.replaceAll('.', ' ')}</span>`).join('')
+      : '<span>Trace context hidden for this preview.</span>';
+  }
 }
 
 const gatewayDefaults = {
@@ -279,7 +339,7 @@ if (waitlistForm) {
     }
     try {
       await submitWaitlist(email);
-      waitlistMessage.textContent = `Thanks. ${email} is registered for wasl early access.`;
+      waitlistMessage.textContent = `Thanks. ${email} is registered for a WASL demo.`;
       waitlistForm.reset();
       trackEvent('generate_lead', { method: 'waitlist_form' });
     } catch (error) {

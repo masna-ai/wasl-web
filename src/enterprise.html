@@ -43,25 +43,25 @@
         </button>
         <div class="dropdown-menu mega-menu">
           <div class="mega-menu-header">
-            <span class="mega-menu-tag">API &amp; AI Connectivity Technologies</span>
-            <a href="./index.html" class="mega-menu-title">The Unified API and AI Platform <span aria-hidden="true">→</span></a>
+            <span class="mega-menu-tag">Unified Gateway Platform</span>
+            <a href="./index.html" class="mega-menu-title">API, AI, Event, MCP, and Integration Governance <span aria-hidden="true">→</span></a>
           </div>
           <div class="mega-menu-content">
             <div class="mega-menu-sidebar">
               <a href="./api-gateway.html" class="sidebar-item">
-                <span class="icon">⚙️</span>
+                <span class="icon">API</span>
                 <span class="label">API Management</span>
               </a>
               <a href="./ai-gateway.html" class="sidebar-item">
-                <span class="icon">🧠</span>
+                <span class="icon">AI</span>
                 <span class="label">AI Management</span>
               </a>
               <a href="./event-gateway.html" class="sidebar-item">
-                <span class="icon">⚡</span>
+                <span class="icon">EV</span>
                 <span class="label">Event Management</span>
               </a>
               <a href="./enterprise.html" class="sidebar-item active">
-                <span class="icon">💼</span>
+                <span class="icon">EN</span>
                 <span class="label">Enterprise Scale</span>
               </a>
             </div>
@@ -73,10 +73,10 @@
                 <a href="./api-gateway.html">API Gateway</a>
                 <a href="./ai-gateway.html">AI Gateway <span class="badge badge-hot">HOT</span></a>
                 <a href="./event-gateway.html">Event Gateway</a>
-                <a href="./enterprise.html#mesh">Service Mesh</a>
-                <a href="./enterprise.html#context-mesh">Context Mesh</a>
+                <a href="./mcp-gateway.html">MCP Gateway</a>
+                <a href="./enterprise.html#developer-portal">Developer Portal</a>
                 <a href="./enterprise.html#ingress">Ingress Controller</a>
-                <a href="./enterprise.html#operator">WASL Operator</a>
+                <a href="./enterprise.html#kubernetes">Kubernetes Deployment</a>
               </div>
               
               <!-- Core Services Column -->
@@ -94,7 +94,7 @@
                 <a href="./enterprise.html#developer-portal">Developer Portal</a>
                 <a href="./pricing.html">Usage Billing &amp; Metering</a>
                 <a href="./enterprise.html#observability">Observability</a>
-                <a href="./ai-gateway.html#assistant">KAi Agent</a>
+                <a href="./ai-gateway.html#assistant">Studio AI Assistant</a>
               </div>
             </div>
           </div>
@@ -114,8 +114,8 @@
               <a href="./enterprise.html" class="active">Developer Platform</a>
               <a href="./enterprise.html#kubernetes">Kubernetes and Microservices</a>
               <a href="./enterprise.html#observability">Observability</a>
-              <a href="./enterprise.html#service-mesh">Service Mesh Connectivity</a>
-              <a href="./event-gateway.html">Kafka Event Streaming</a>
+              <a href="./enterprise.html#fleet-manager">Hybrid Fleet Management</a>
+              <a href="./event-gateway.html">Event Streaming</a>
             </div>
             
             <!-- Executives -->
@@ -125,7 +125,7 @@
               <a href="./open-source.html">Open Banking</a>
               <a href="./open-source.html#comparison">Legacy Migration</a>
               <a href="./pricing.html">Platform Cost Reduction</a>
-              <a href="./event-gateway.html#cost-optimization">Kafka Cost Optimization</a>
+              <a href="./event-gateway.html#cost-optimization">Event Streaming Cost Optimization</a>
               <a href="./pricing.html">API Monetization</a>
               <a href="./pricing.html#ai-monetization">AI Monetization</a>
               <a href="./pricing.html#finops">AI FinOps</a>
@@ -156,10 +156,10 @@
       </div>
       
       <a href="./pricing.html">Pricing</a>
-      <a href="/docs/">Docs</a>
-      <a class="nav-cta" href="#waitlist">Request Access</a>
+      <a class="nav-link-muted" href="/docs/">Resources</a>
+      <a class="nav-cta" href="#waitlist">Request Demo</a>
     </nav>
-    <a class="btn btn-outline topbar-cta" href="#waitlist">Request Access</a>
+    <a class="btn btn-outline topbar-cta" href="#waitlist">Request Demo</a>
   </header>
 
   <main id="top">
@@ -172,31 +172,31 @@
           environment-aware deployment, revision rollback, policy enforcement, certificate management, and traceable operations.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#waitlist">Request Enterprise Access</a>
-          <a class="btn btn-secondary" href="/docs/">Read Docs</a>
+          <a class="btn btn-primary" href="#waitlist">Request Demo</a>
+          <a class="btn btn-secondary" href="#waitlist">Plan Enterprise Rollout</a>
         </div>
         <div class="hero-proof" aria-label="Enterprise highlights">
-          <span>PostgreSQL state of record</span>
-          <span>Redis cluster coordination</span>
-          <span>Kubernetes oriented</span>
-          <span>RBAC ready</span>
+          <span>Hybrid governance</span>
+          <span>Tenant isolation</span>
+          <span>Secure operations</span>
+          <span>Audit ready</span>
         </div>
       </div>
       <div class="architecture-panel reveal reveal-delay-1">
         <div class="panel-row active">
-          <span class="panel-label">Gateway</span>
-          <strong>Stateless data plane</strong>
-          <small>Serves API and AI traffic independently of Studio availability. Pods restart in seconds.</small>
+          <span class="panel-label">Traffic layer</span>
+          <strong>Independent gateway execution</strong>
+          <small>Keeps API, AI, and event traffic serving close to the workload.</small>
         </div>
         <div class="panel-row">
-          <span class="panel-label">Studio</span>
-          <strong>Control plane</strong>
-          <small>Writes deployment intent, manages tenants, policies, certificates, and traces. Outages never affect data plane.</small>
+          <span class="panel-label">Command center</span>
+          <strong>WASL Studio</strong>
+          <small>Manages products, policies, teams, releases, certificates, and evidence.</small>
         </div>
         <div class="panel-row">
           <span class="panel-label">Portal</span>
           <strong>Developer self-service</strong>
-          <small>Catalog, subscriptions, API keys, OAuth2 AS, and usage analytics. Secret keys encrypted at rest using AES-256-GCM.</small>
+          <small>Catalog, subscriptions, credentials, access workflows, and usage analytics for consumers.</small>
         </div>
       </div>
     </section>
@@ -211,22 +211,23 @@
             Enforce unified governance across multi-region edge nodes, cloud VM groups, and on-premises containers from a single console.
           </p>
           <div class="check-list">
-            <span><strong>Outbound Agent Pull:</strong> Edge gateways heart-beat and pull configurations—the control plane never reaches into your network</span>
-            <span><strong>Offline Caches:</strong> Runtimes cache deployment configurations locally to continue serving traffic during database or control-plane outages</span>
-            <span><strong>Env overlays:</strong> Merge tenant variables and plugin configurations dynamically based on fleet env bounds</span>
+            <span><strong>Network-safe fleet management:</strong> Govern remote gateways without opening inbound management paths</span>
+            <span><strong>Service continuity:</strong> Keep traffic serving when management workflows are temporarily unavailable</span>
+            <span><strong>Environment control:</strong> Apply environment-specific targets, credentials, and policy behavior safely</span>
           </div>
         </div>
 
         <div class="section-copy reveal">
           <p class="eyebrow">Operational security</p>
-          <h2>Decoupled Secrets &amp; Auditable Rollbacks</h2>
+          <h2>Govern secrets, releases, and rollbacks without slowing teams down.</h2>
           <p style="color: var(--muted); margin-bottom: 20px;">
-            Secure operations natively. Deploy bundles as database writes to Postgres, and resolve secrets at execution runtime.
+            Enterprise teams need speed and evidence. WASL keeps credentials protected, changes reviewable, and
+            releases reversible across regulated environments.
           </p>
           <div class="check-list">
-            <span><strong>Secret references:</strong> Plaintext keys are never logged. Reference Vault, AWS SSM, Azure Key Vault, or Env overlays natively</span>
-            <span><strong>Atomic deployment:</strong> Promote, scale, or roll back bundle revisions safely through a single SQL transaction write</span>
-            <span><strong>Clustered alerts:</strong> Redis-coordinated locks deduplicate anomalous latency alerts, notifying Teams once across N nodes</span>
+            <span><strong>Secret governance:</strong> Keep sensitive values out of routes, logs, and developer workspaces</span>
+            <span><strong>Safe promotion:</strong> Move changes across environments with versioning and rollback</span>
+            <span><strong>Operational evidence:</strong> Capture policy decisions, traces, alerts, and usage history for reviews</span>
           </div>
         </div>
       </div>
@@ -237,32 +238,37 @@
       <div class="browser-frame reveal">
         <div class="browser-bar">
           <span></span><span></span><span></span>
-          <em>wasl-helm-deployment-spec</em>
+          <em>enterprise-deployment-profile</em>
         </div>
-        <div style="background: var(--surface-warm); padding: 24px; font-family: 'JetBrains Mono', monospace; font-size: 0.84rem; color: #cbd5e1; line-height: 1.55;">
-          <div style="color: var(--muted);"># helm-values.yaml</div>
-          <div><span style="color: #f472b6;">gateway:</span></div>
-          <div>  <span style="color: #60a5fa;">replicaCount:</span> <span style="color: #f59e0b;">3</span></div>
-          <div>  <span style="color: #60a5fa;">autoscaling:</span></div>
-          <div>    <span style="color: #60a5fa;">enabled:</span> <span style="color: #2dd4bf;">true</span></div>
-          <div>    <span style="color: #60a5fa;">minReplicas:</span> <span style="color: #f59e0b;">2</span></div>
-          <div>    <span style="color: #60a5fa;">maxReplicas:</span> <span style="color: #f59e0b;">20</span></div>
-          <div>    <span style="color: #60a5fa;">targetCPUUtilizationPercentage:</span> <span style="color: #f59e0b;">75</span></div>
-          <div>  <span style="color: #60a5fa;">securityContext:</span></div>
-          <div>    <span style="color: #60a5fa;">runAsNonRoot:</span> <span style="color: #2dd4bf;">true</span></div>
-          <div>    <span style="color: #60a5fa;">allowPrivilegeEscalation:</span> <span style="color: #2dd4bf;">false</span></div>
+        <div class="studio-card-stack">
+          <div class="studio-card active">
+            <span class="panel-label">Deployment profile</span>
+            <strong>Production traffic fleet</strong>
+            <small>Cloud, private cloud, and edge environments governed from one release workspace.</small>
+          </div>
+          <div class="studio-card">
+            <span class="panel-label">Scale posture</span>
+            <strong>Elastic capacity enabled</strong>
+            <small>Gateway capacity follows real demand while preserving policy and observability standards.</small>
+          </div>
+          <div class="studio-card">
+            <span class="panel-label">Security posture</span>
+            <strong>Enterprise baseline enforced</strong>
+            <small>Identity, secrets, audit trails, and approval controls stay consistent across every environment.</small>
+          </div>
         </div>
       </div>
       <div class="section-copy reveal">
-        <p class="eyebrow">Cloud Native</p>
-        <h2>Kubernetes-Native Architecture</h2>
+        <p class="eyebrow">Enterprise deployment</p>
+        <h2>Built for the environments enterprises actually run.</h2>
         <p>
-          WASL is designed for orchestration tools. Every component is packaged as non-root container images with Prometheus metrics and health probes built directly into the core.
+          Run WASL across cloud, private cloud, managed clusters, and edge environments while preserving central
+          governance, release control, and observability.
         </p>
         <div class="check-list" style="margin-top:20px;">
-          <span><strong>Hardened Helm Charts:</strong> Deploy Gateway HPAs, ServiceMonitors, NetworkPolicies, and PVCs cleanly</span>
-          <span><strong>Virtual Threads:</strong> Project Loom-ready threads reduce connection overhead for EKS, GKE, AKS, and OpenShift clusters</span>
-          <span><strong>PgBouncer &amp; HA Redis:</strong> Integrated support for pg_coordination and clustered Redis invalidations out of the box</span>
+          <span><strong>Cloud and private deployment:</strong> Support enterprise topology, networking, and security constraints</span>
+          <span><strong>Elastic traffic layer:</strong> Scale gateway capacity around real traffic patterns</span>
+          <span><strong>Operations-ready:</strong> Integrate with health, metrics, alerting, and platform automation workflows</span>
         </div>
       </div>
     </section>
@@ -281,7 +287,7 @@
         <article class="feature-card reveal reveal-delay-1">
           <span class="card-icon">A</span>
           <h3>Governed Deployment</h3>
-          <p>Deploy, promote, and rollback immutable revisions by updating deployment records rather than copying runtime files.</p>
+          <p>Promote and roll back approved changes with clear ownership, version history, and operational evidence.</p>
         </article>
         <article class="feature-card reveal reveal-delay-2">
           <span class="card-icon">B</span>
@@ -298,13 +304,13 @@
 
     <section id="waitlist" class="waitlist reveal">
       <div>
-        <p class="eyebrow">Early access</p>
+        <p class="eyebrow">Product demo</p>
         <h2>Evaluate WASL with your platform architecture.</h2>
-        <p>Request early access and implementation notes for enterprise gateway deployment planning.</p>
+        <p>Request a demo to map WASL to your enterprise traffic, security, deployment, and governance requirements.</p>
       </div>
       <form id="waitlistForm">
         <input type="email" id="email" placeholder="you@company.com" required aria-label="Email address" />
-        <button class="btn btn-primary" type="submit">Request Access</button>
+        <button class="btn btn-primary" type="submit">Request Demo</button>
         <p id="waitlistMessage" aria-live="polite"></p>
       </form>
     </section>
@@ -317,7 +323,7 @@
           <img src="./brand-mark.svg" alt="" aria-hidden="true" width="36" height="36" />
           <span class="footer-brand"><span class="brand-w">W</span>asl</span>
         </a>
-        <p>One gateway for APIs, AI, events, and jobs — governed and observed from a single control plane.</p>
+        <p>Next-generation gateway platform for APIs, AI, events, MCP tools, integrations, security, and developer self-service.</p>
       </div>
       <nav class="footer-links" aria-label="Footer">
         <div class="footer-col">
@@ -332,7 +338,7 @@
           <h4>Developers</h4>
           <a href="/docs/">Documentation</a>
           <a href="/docs/quickstart.html">Quickstart</a>
-          <a href="/docs/flow-runtime.html">Flow runtime</a>
+          <a href="/docs/flow-runtime.html">Integrations</a>
           <a href="/docs/developer-portal.html">Developer Portal</a>
         </div>
         <div class="footer-col">
@@ -342,7 +348,7 @@
           <a href="./why-wasl.html">Why WASL?</a>
           <a href="./pricing.html">Pricing</a>
           <a href="/docs/security.html">Security</a>
-          <a href="#waitlist">Request access</a>
+          <a href="#waitlist">Request Demo</a>
         </div>
       </nav>
     </div>

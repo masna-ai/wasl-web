@@ -43,25 +43,25 @@
         </button>
         <div class="dropdown-menu mega-menu">
           <div class="mega-menu-header">
-            <span class="mega-menu-tag">API &amp; AI Connectivity Technologies</span>
-            <a href="./index.html" class="mega-menu-title">The Unified API and AI Platform <span aria-hidden="true">→</span></a>
+            <span class="mega-menu-tag">Unified Gateway Platform</span>
+            <a href="./index.html" class="mega-menu-title">API, AI, Event, MCP, and Integration Governance <span aria-hidden="true">→</span></a>
           </div>
           <div class="mega-menu-content">
             <div class="mega-menu-sidebar">
               <a href="./api-gateway.html" class="sidebar-item">
-                <span class="icon">⚙️</span>
+                <span class="icon">API</span>
                 <span class="label">API Management</span>
               </a>
               <a href="./ai-gateway.html" class="sidebar-item active">
-                <span class="icon">🧠</span>
+                <span class="icon">AI</span>
                 <span class="label">AI Management</span>
               </a>
               <a href="./event-gateway.html" class="sidebar-item">
-                <span class="icon">⚡</span>
+                <span class="icon">EV</span>
                 <span class="label">Event Management</span>
               </a>
               <a href="./enterprise.html" class="sidebar-item">
-                <span class="icon">💼</span>
+                <span class="icon">EN</span>
                 <span class="label">Enterprise Scale</span>
               </a>
             </div>
@@ -73,10 +73,10 @@
                 <a href="./api-gateway.html">API Gateway</a>
                 <a href="./ai-gateway.html" class="active">AI Gateway <span class="badge badge-hot">HOT</span></a>
                 <a href="./event-gateway.html">Event Gateway</a>
-                <a href="./enterprise.html#mesh">Service Mesh</a>
-                <a href="./enterprise.html#context-mesh">Context Mesh</a>
+                <a href="./mcp-gateway.html">MCP Gateway</a>
+                <a href="./enterprise.html#developer-portal">Developer Portal</a>
                 <a href="./enterprise.html#ingress">Ingress Controller</a>
-                <a href="./enterprise.html#operator">WASL Operator</a>
+                <a href="./enterprise.html#kubernetes">Kubernetes Deployment</a>
               </div>
               
               <!-- Core Services Column -->
@@ -94,7 +94,7 @@
                 <a href="./enterprise.html#developer-portal">Developer Portal</a>
                 <a href="./pricing.html">Usage Billing &amp; Metering</a>
                 <a href="./enterprise.html#observability">Observability</a>
-                <a href="./ai-gateway.html#assistant">KAi Agent</a>
+                <a href="./ai-gateway.html#assistant">Studio AI Assistant</a>
               </div>
             </div>
           </div>
@@ -114,8 +114,8 @@
               <a href="./enterprise.html">Developer Platform</a>
               <a href="./enterprise.html#kubernetes">Kubernetes and Microservices</a>
               <a href="./enterprise.html#observability">Observability</a>
-              <a href="./enterprise.html#service-mesh">Service Mesh Connectivity</a>
-              <a href="./event-gateway.html">Kafka Event Streaming</a>
+              <a href="./enterprise.html#fleet-manager">Hybrid Fleet Management</a>
+              <a href="./event-gateway.html">Event Streaming</a>
             </div>
             
             <!-- Executives -->
@@ -125,7 +125,7 @@
               <a href="./open-source.html">Open Banking</a>
               <a href="./open-source.html#comparison">Legacy Migration</a>
               <a href="./pricing.html">Platform Cost Reduction</a>
-              <a href="./event-gateway.html#cost-optimization">Kafka Cost Optimization</a>
+              <a href="./event-gateway.html#cost-optimization">Event Streaming Cost Optimization</a>
               <a href="./pricing.html">API Monetization</a>
               <a href="./pricing.html#ai-monetization">AI Monetization</a>
               <a href="./pricing.html#finops">AI FinOps</a>
@@ -156,10 +156,10 @@
       </div>
       
       <a href="./pricing.html">Pricing</a>
-      <a href="/docs/">Docs</a>
-      <a class="nav-cta" href="#waitlist">Request Access</a>
+      <a class="nav-link-muted" href="/docs/">Resources</a>
+      <a class="nav-cta" href="#waitlist">Request Demo</a>
     </nav>
-    <a class="btn btn-primary topbar-cta" href="#waitlist">Request Access <span class="cta-arrow" aria-hidden="true">→</span></a>
+    <a class="btn btn-primary topbar-cta" href="#waitlist">Request Demo <span class="cta-arrow" aria-hidden="true">→</span></a>
   </header>
 
   <main id="top">
@@ -168,11 +168,13 @@
         <p class="eyebrow">Enterprise LLM Governance</p>
         <h1>Govern prompts. <span class="grad">Control LLM costs.</span></h1>
         <p class="hero-lede">
-          WASL AI Gateway runs as an isolated thread pool process (`AiGatewayApp`) to proxy LLM requests. It validates, redacts, and caches prompts natively—supporting OpenAI-compatible wire formats with automatic fallback across providers.
+          WASL gives enterprises a governed path to every model request. Protect sensitive data, enforce
+          guardrails, route across providers, control spend, and give AI teams one trusted gateway for production
+          applications and agent workflows.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#waitlist">Request Platform Access</a>
-          <a class="btn btn-secondary" href="/docs/ai-gateway.html">Read AI Gateway Docs</a>
+          <a class="btn btn-primary" href="#waitlist">Request Demo</a>
+          <a class="btn btn-secondary" href="#waitlist">Plan AI Governance</a>
         </div>
       </div>
     </section>
@@ -180,10 +182,10 @@
     <!-- AI Governance Pipeline -->
     <section class="section reveal">
       <div class="section-head reveal">
-        <p class="eyebrow">The Pipeline</p>
-        <h2>Enterprise Governance Plugin Pipeline</h2>
+        <p class="eyebrow">Governance pipeline</p>
+        <h2>Every AI request gets identity, safety, privacy, and cost control.</h2>
         <p>
-          Every LLM request traverses a secure, deterministic plugin chain before routing to OpenAI, Anthropic, Gemini, or self-hosted models.
+          WASL brings repeatable controls to AI traffic before prompts reach external providers or private models.
         </p>
       </div>
 
@@ -191,12 +193,12 @@
         <div class="ai-stage">
           <span class="ai-step">01</span>
           <strong>Inbound Auth</strong>
-          <small>Authenticate clients via OAuth 2.1 or API Keys mapped from the Developer Portal.</small>
+          <small>Verify users, apps, teams, and consumers before AI traffic leaves your platform.</small>
         </div>
         <div class="ai-stage">
           <span class="ai-step">02</span>
           <strong>Prompt &amp; RAG</strong>
-          <small>Inject versioned system prompts and enrich request context using tenant database embeddings.</small>
+          <small>Attach approved instructions, retrieval context, and tool access for consistent AI behavior.</small>
         </div>
         <div class="ai-stage">
           <span class="ai-step">03</span>
@@ -206,17 +208,17 @@
         <div class="ai-stage">
           <span class="ai-step">04</span>
           <strong>Semantic Cache</strong>
-          <small>Check Redis for embedding-based near-match prompt answers. Save cost and compute instantly.</small>
+          <small>Reuse trusted answers for similar prompts to reduce latency and provider spend.</small>
         </div>
         <div class="ai-stage">
           <span class="ai-step">05</span>
           <strong>Provider Loop</strong>
-          <small>Evaluate weighted load balancing, circuit breaker states, and fallback to alternative LLM providers.</small>
+          <small>Route intelligently across approved providers with fallback and resilience controls.</small>
         </div>
         <div class="ai-stage">
           <span class="ai-step">06</span>
           <strong>Token &amp; Cost Caps</strong>
-          <small>Record usage statistics and enforce tenant daily dollar spend ceilings and RPM quotas.</small>
+          <small>Track consumption by tenant, team, route, and provider while enforcing usage limits.</small>
         </div>
       </div>
     </section>
@@ -224,79 +226,41 @@
     <!-- Code Switcher Section -->
     <section class="section reveal">
       <div class="section-head reveal">
-        <p class="eyebrow">Wire Protocol</p>
-        <h2>OpenAI-Compatible Wire Format</h2>
+        <p class="eyebrow">Drop-in adoption</p>
+        <h2>Keep developer workflows familiar while centralizing governance.</h2>
         <p>
-          Connect existing tools natively. Your client libraries see standard OpenAI schemas, while WASL routes and translates payloads behind the scenes.
+          Existing AI clients can route through WASL with minimal change, while platform teams gain centralized
+          control over providers, prompts, usage, and security outcomes.
         </p>
       </div>
 
-      <div class="tabs-container">
-        <div class="tabs-nav">
-          <button class="tab-btn active" data-tab="tab-client-call">Inbound Client Request</button>
-          <button class="tab-btn" data-tab="tab-streaming-trans">Streaming Translation (SSE)</button>
-          <button class="tab-btn" data-tab="tab-ai-route">AI Route Config</button>
+      <div class="product-workflow ai-workflow">
+        <div class="workflow-rail">
+          <span class="workflow-badge active">Guarded</span>
+          <strong>AI policy cockpit</strong>
+          <small>One governed path for prompts, model routing, streaming responses, spend, and agent activity.</small>
         </div>
-
-        <div id="tab-client-call" class="tab-pane active">
-          <div class="code-block">
-            <div class="code-header">
-              <span>Terminal Request</span>
-              <span class="lang-badge">bash</span>
-            </div>
-            <pre><code># Call LLM through WASL proxy using OpenAI standard SDK
-curl -X POST https://wasl-ai.acme.local/v1/chat/completions \
-  -H "Authorization: Bearer wsl_key_90a1b8" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "model": "gpt-4o",
-    "messages": [{"role": "user", "content": "Extract credentials from logs."}],
-    "stream": true
-  }'</code></pre>
-          </div>
+        <div class="workflow-grid">
+          <article class="workflow-card active">
+            <span>01</span>
+            <h3>Classify</h3>
+            <p>Identify application, user, intent, sensitivity, and policy context before a prompt leaves your boundary.</p>
+          </article>
+          <article class="workflow-card">
+            <span>02</span>
+            <h3>Control</h3>
+            <p>Apply redaction, guardrails, model routing, semantic reuse, and budget limits through reusable policies.</p>
+          </article>
+          <article class="workflow-card">
+            <span>03</span>
+            <h3>Measure</h3>
+            <p>Track cost, latency, token usage, provider quality, blocked prompts, and team-level consumption.</p>
+          </article>
         </div>
-
-        <div id="tab-streaming-trans" class="tab-pane">
-          <div class="code-block">
-            <div class="code-header">
-              <span>Server-Sent Events (SSE) Stream</span>
-              <span class="lang-badge">text/event-stream</span>
-            </div>
-            <pre><code># Translated back by WASL edge, even if backend resolved to Anthropic Claude!
-data: {"id":"chatcmpl-123","object":"chat.completion.chunk","created":1677825484,"model":"gpt-4o","choices":[{"delta":{"role":"assistant","content":"Analysis:"},"index":0,"finish_reason":null}]}
-
-data: {"id":"chatcmpl-123","object":"chat.completion.chunk","created":1677825484,"model":"gpt-4o","choices":[{"delta":{"content":" Access"},"index":0,"finish_reason":null}]}
-
-data: {"id":"chatcmpl-123","object":"chat.completion.chunk","created":1677825484,"model":"gpt-4o","choices":[{"delta":{"content":" denied."},"index":0,"finish_reason":null}]}
-
-data: {"id":"chatcmpl-123","object":"chat.completion.chunk","created":1677825484,"model":"gpt-4o","choices":[{"delta":{},"index":0,"finish_reason":"stop"}]}</code></pre>
-          </div>
-        </div>
-
-        <div id="tab-ai-route" class="tab-pane">
-          <div class="code-block">
-            <div class="code-header">
-              <span>ai-route-definition.json</span>
-              <span class="lang-badge">json</span>
-            </div>
-            <pre><code>{
-  "routeId": "risk-analysis-route",
-  "basePath": "/v1/chat/completions",
-  "providers": [
-    { "name": "primary-openai", "weight": 80 },
-    { "name": "fallback-anthropic", "weight": 20 }
-  ],
-  "governance": {
-    "pii_redaction": true,
-    "semantic_cache": {
-      "enabled": true,
-      "provider": "redis-semantic",
-      "threshold": 0.88
-    },
-    "max_cost_per_day": 50.00
-  }
-}</code></pre>
-          </div>
+        <div class="workflow-metrics">
+          <div><strong>31%</strong><span>AI spend reduced</span></div>
+          <div><strong>100%</strong><span>Prompt audit coverage</span></div>
+          <div><strong>0</strong><span>Unapproved providers</span></div>
         </div>
       </div>
     </section>
@@ -308,42 +272,48 @@ data: {"id":"chatcmpl-123","object":"chat.completion.chunk","created":1677825484
           <span></span><span></span><span></span>
           <em>acme-corp.wasl.studio · AI Co-Author</em>
         </div>
-        <div style="background: var(--surface-warm); padding: 32px; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: #f8fafc; line-height: 1.6;">
-          <div style="color: var(--brand-strong); margin-bottom: 12px;">&gt; Assistant: How can I help you build today?</div>
-          <div style="color: var(--muted); margin-bottom: 16px;">&gt; User: Create a customer orders API bundle with JWT auth.</div>
-          <div style="border-left: 2px solid var(--accent); padding-left: 16px; color: #a7f3d0; margin-bottom: 12px;">
-            [SYSTEM] Blueprint generated:<br/>
-            - Bundle: "customer-orders-v1"<br/>
-            - BasePath: "/api/orders"<br/>
-            - Auth Policy: JWT Validation (RS256)<br/>
-            - Rate Limiting: Token Bucket (60req/min)
+        <div class="studio-card-stack">
+          <div class="studio-card active">
+            <span class="panel-label">Co-author request</span>
+            <strong>Customer orders API bundle</strong>
+            <small>Drafted with identity, rate limits, schema validation, and developer portal metadata.</small>
           </div>
-          <div style="color: var(--brand-strong);">&gt; Assistant: Click 'Deploy to Fleet' to roll out this blueprint to Dev.</div>
+          <div class="studio-card">
+            <span class="panel-label">Governance review</span>
+            <strong>3 standards applied</strong>
+            <small>Security baseline, release policy, and consumer-facing documentation checks passed.</small>
+          </div>
+          <div class="studio-card">
+            <span class="panel-label">Release action</span>
+            <strong>Ready for platform approval</strong>
+            <small>Teams can review, adjust, and promote through the same workflow as human-authored changes.</small>
+          </div>
         </div>
       </div>
       <div class="section-copy reveal">
-        <p class="eyebrow">Studio Integration</p>
-        <h2>AI Co-Author Assistant</h2>
+        <p class="eyebrow">Studio intelligence</p>
+        <h2>Accelerate delivery without bypassing platform standards.</h2>
         <p>
-          Author schemas and integration pipelines in plain English. Studio features a built-in assistant designed to generate complete working bundles directly from prompts.
+          Studio helps teams draft APIs, policies, and integration blueprints faster while keeping every generated
+          asset visible, reviewable, and governed.
         </p>
         <div class="check-list" style="margin-top:20px;">
-          <span><strong>Generate:</strong> Describe a service path and get a fully formatted bundle</span>
-          <span><strong>Refine:</strong> Command the assistant to append APIs or inject specific security policies</span>
-          <span><strong>Local Fallback:</strong> Operates using deterministic heuristics when no LLM API key is registered</span>
+          <span><strong>Generate:</strong> Describe a service and draft routes, policies, and schemas</span>
+          <span><strong>Refine:</strong> Add security, quotas, transformations, and consumer-facing metadata</span>
+          <span><strong>Govern:</strong> Review and release AI-assisted changes through normal platform workflows</span>
         </div>
       </div>
     </section>
 
     <section id="waitlist" class="waitlist reveal">
       <div>
-        <p class="eyebrow">Early access</p>
+        <p class="eyebrow">Product demo</p>
         <h2>Evaluate WASL's AI Gateway</h2>
-        <p>Request early access to run governed LLM proxies or integrate the co-author Studio inside your private network.</p>
+        <p>Request a demo to design AI governance, control model spend, and standardize production AI access across teams.</p>
       </div>
       <form id="waitlistForm">
         <input type="email" id="email" placeholder="you@company.com" required aria-label="Email address" />
-        <button class="btn btn-primary" type="submit">Request Access</button>
+        <button class="btn btn-primary" type="submit">Request Demo</button>
         <p id="waitlistMessage" aria-live="polite"></p>
       </form>
     </section>
@@ -356,7 +326,7 @@ data: {"id":"chatcmpl-123","object":"chat.completion.chunk","created":1677825484
           <img src="./brand-mark.svg" alt="" aria-hidden="true" width="36" height="36" />
           <span class="footer-brand"><span class="brand-w">W</span>asl</span>
         </a>
-        <p>One control plane for APIs, AI, events, and jobs — open core, governed and observed from one place, deployed anywhere.</p>
+        <p>Next-generation gateway platform for APIs, AI, events, MCP tools, integrations, security, and developer self-service.</p>
       </div>
       <nav class="footer-links" aria-label="Footer">
         <div class="footer-col">
@@ -371,7 +341,7 @@ data: {"id":"chatcmpl-123","object":"chat.completion.chunk","created":1677825484
           <h4>Developers</h4>
           <a href="/docs/">Documentation</a>
           <a href="/docs/quickstart.html">Quickstart</a>
-          <a href="/docs/flow-runtime.html">Flow runtime</a>
+          <a href="/docs/flow-runtime.html">Integrations</a>
           <a href="/docs/developer-portal.html">Developer Portal</a>
         </div>
         <div class="footer-col">
@@ -381,7 +351,7 @@ data: {"id":"chatcmpl-123","object":"chat.completion.chunk","created":1677825484
           <a href="./why-wasl.html">Why WASL?</a>
           <a href="./pricing.html">Pricing</a>
           <a href="/docs/security.html">Security</a>
-          <a href="#waitlist">Request access</a>
+          <a href="#waitlist">Request Demo</a>
         </div>
       </nav>
     </div>

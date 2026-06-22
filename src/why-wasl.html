@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Why WASL — Unified Gateway &amp; iPaaS Platform Architecture</title>
   <meta name="description"
-    content="Understand the architectural philosophy behind WASL. Concurrency via Jetty 12 and Loom virtual threads, GraalJS compiled JavaScript flows, and clean data/control-plane separation." />
+    content="Why WASL: consolidate API, AI, event, MCP, integration, security, and developer self-service into one next-generation gateway platform." />
 
   <link rel="canonical" href="https://waslhq.com/why-wasl.html" />
   <link rel="icon" type="image/svg+xml" href="./brand-mark.svg" />
@@ -43,25 +43,25 @@
         </button>
         <div class="dropdown-menu mega-menu">
           <div class="mega-menu-header">
-            <span class="mega-menu-tag">API &amp; AI Connectivity Technologies</span>
-            <a href="./index.html" class="mega-menu-title">The Unified API and AI Platform <span aria-hidden="true">→</span></a>
+            <span class="mega-menu-tag">Unified Gateway Platform</span>
+            <a href="./index.html" class="mega-menu-title">API, AI, Event, MCP, and Integration Governance <span aria-hidden="true">→</span></a>
           </div>
           <div class="mega-menu-content">
             <div class="mega-menu-sidebar">
               <a href="./api-gateway.html" class="sidebar-item">
-                <span class="icon">⚙️</span>
+                <span class="icon">API</span>
                 <span class="label">API Management</span>
               </a>
               <a href="./ai-gateway.html" class="sidebar-item">
-                <span class="icon">🧠</span>
+                <span class="icon">AI</span>
                 <span class="label">AI Management</span>
               </a>
               <a href="./event-gateway.html" class="sidebar-item">
-                <span class="icon">⚡</span>
+                <span class="icon">EV</span>
                 <span class="label">Event Management</span>
               </a>
               <a href="./enterprise.html" class="sidebar-item">
-                <span class="icon">💼</span>
+                <span class="icon">EN</span>
                 <span class="label">Enterprise Scale</span>
               </a>
             </div>
@@ -73,10 +73,10 @@
                 <a href="./api-gateway.html">API Gateway</a>
                 <a href="./ai-gateway.html">AI Gateway <span class="badge badge-hot">HOT</span></a>
                 <a href="./event-gateway.html">Event Gateway</a>
-                <a href="./enterprise.html#mesh">Service Mesh</a>
-                <a href="./enterprise.html#context-mesh">Context Mesh</a>
+                <a href="./mcp-gateway.html">MCP Gateway</a>
+                <a href="./enterprise.html#developer-portal">Developer Portal</a>
                 <a href="./enterprise.html#ingress">Ingress Controller</a>
-                <a href="./enterprise.html#operator">WASL Operator</a>
+                <a href="./enterprise.html#kubernetes">Kubernetes Deployment</a>
               </div>
               
               <!-- Core Services Column -->
@@ -94,7 +94,7 @@
                 <a href="./enterprise.html#developer-portal">Developer Portal</a>
                 <a href="./pricing.html">Usage Billing &amp; Metering</a>
                 <a href="./enterprise.html#observability">Observability</a>
-                <a href="./ai-gateway.html#assistant">KAi Agent</a>
+                <a href="./ai-gateway.html#assistant">Studio AI Assistant</a>
               </div>
             </div>
           </div>
@@ -114,8 +114,8 @@
               <a href="./enterprise.html">Developer Platform</a>
               <a href="./enterprise.html#kubernetes">Kubernetes and Microservices</a>
               <a href="./enterprise.html#observability">Observability</a>
-              <a href="./enterprise.html#service-mesh">Service Mesh Connectivity</a>
-              <a href="./event-gateway.html">Kafka Event Streaming</a>
+              <a href="./enterprise.html#fleet-manager">Hybrid Fleet Management</a>
+              <a href="./event-gateway.html">Event Streaming</a>
             </div>
             
             <!-- Executives -->
@@ -125,7 +125,7 @@
               <a href="./open-source.html">Open Banking</a>
               <a href="./open-source.html#comparison">Legacy Migration</a>
               <a href="./pricing.html">Platform Cost Reduction</a>
-              <a href="./event-gateway.html#cost-optimization">Kafka Cost Optimization</a>
+              <a href="./event-gateway.html#cost-optimization">Event Streaming Cost Optimization</a>
               <a href="./pricing.html">API Monetization</a>
               <a href="./pricing.html#ai-monetization">AI Monetization</a>
               <a href="./pricing.html#finops">AI FinOps</a>
@@ -156,24 +156,26 @@
       </div>
       
       <a href="./pricing.html">Pricing</a>
-      <a href="/docs/">Docs</a>
-      <a class="nav-cta" href="#waitlist">Request Access</a>
+      <a class="nav-link-muted" href="/docs/">Resources</a>
+      <a class="nav-cta" href="#waitlist">Request Demo</a>
     </nav>
-    <a class="btn btn-primary topbar-cta" href="#waitlist">Request Access <span class="cta-arrow" aria-hidden="true">→</span></a>
+    <a class="btn btn-primary topbar-cta" href="#waitlist">Request Demo <span class="cta-arrow" aria-hidden="true">→</span></a>
   </header>
 
   <main id="top">
     <!-- Hero section -->
     <section class="hero">
       <div class="hero-copy reveal">
-        <p class="eyebrow">Architectural Philosophy</p>
+        <p class="eyebrow">Why WASL</p>
         <h1>Consolidate your stack. <span class="grad">Run at the edge.</span></h1>
         <p class="hero-lede">
-          Traditional enterprise architectures force platform teams to run a different proxy engine for every kind of traffic. WASL breaks this pattern by running API management, AI governance, event-streaming, and background scheduling on a single, lightweight runtime.
+          Platform teams are being asked to govern APIs, AI applications, event streams, integrations, partners,
+          and agents at the same time. WASL brings those surfaces into one gateway platform so governance scales
+          with the business instead of multiplying tools.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#waitlist">Request Platform Access</a>
-          <a class="btn btn-secondary" href="/docs/">Read Technical Docs</a>
+          <a class="btn btn-primary" href="#waitlist">Request Demo</a>
+          <a class="btn btn-secondary" href="#waitlist">Discuss Your Stack</a>
         </div>
       </div>
     </section>
@@ -184,7 +186,8 @@
         <p class="eyebrow">The Challenge</p>
         <h2>The Cost of Tool Sprawl</h2>
         <p>
-          As organizations adopt APIs, event-driven architectures, and LLMs, their network perimeter fractures. Operating multiple disparate runtimes leads to severe platform challenges:
+          As organizations adopt APIs, event-driven architectures, and AI, the traffic perimeter fractures.
+          Separate tools create operational drag and inconsistent governance:
         </p>
       </div>
 
@@ -202,7 +205,7 @@
         <div class="arch-node">
           <div class="node-icon">03</div>
           <h4>High Cloud Overhead</h4>
-          <p>Operating multiple gateway clusters (often written in different languages and frameworks) inflates container counts and runtime resource requirements.</p>
+          <p>Running separate products for API, AI, event, MCP, and integration traffic increases cost, staffing needs, and operational complexity.</p>
         </div>
       </div>
     </section>
@@ -210,61 +213,66 @@
     <!-- The Pillars -->
     <section class="section reveal">
       <div class="section-head reveal">
-        <p class="eyebrow">Pillars of WASL</p>
-        <h2>Built from First-Principles</h2>
+        <p class="eyebrow">WASL difference</p>
+        <h2>Designed for the next generation of digital traffic.</h2>
         <p>
-          We engineered WASL to provide enterprise-grade capabilities with a developer-first aesthetic and minimal infrastructure footprint.
+          WASL is not a proxy with a few add-ons. It is a platform layer for governance, integration, security,
+          developer experience, and AI-era traffic control.
         </p>
       </div>
 
       <div class="split-section">
         <div class="section-copy reveal">
-          <h3>Jetty 12 + Project Loom Virtual Threads</h3>
+          <h3>One traffic layer</h3>
           <p style="color: var(--muted); margin-bottom: 20px;">
-            Traditional gateways block native OS threads on slow downstream calls, causing severe memory overhead under load. Reactive gateways (Node, Netty) prevent blocking but force developers into complex reactive programming models.
+            Bring API products, AI calls, event streams, agent tools, and backend integrations under a single
+            governance model instead of operating disconnected control points.
           </p>
           <div class="check-list">
-            <span><strong>Virtual Threading:</strong> Millions of concurrent requests mapped to lightweight JVM virtual threads</span>
-            <span><strong>Synchronous Syntax:</strong> Write straightforward, readable code without async/await callbacks</span>
-            <span><strong>Memory Efficiency:</strong> Scale to heavy load using only a fraction of the memory of legacy JVM servers</span>
+            <span><strong>Consistent control:</strong> Apply identity, quotas, validation, and auditability everywhere</span>
+            <span><strong>Shared visibility:</strong> Understand traffic behavior across APIs, AI, events, and integrations</span>
+            <span><strong>Lower tool sprawl:</strong> Reduce overlapping gateways, portals, policy engines, and proxies</span>
           </div>
         </div>
 
         <div class="section-copy reveal">
-          <h3>GraalJS-compiled Flow Engine</h3>
+          <h3>Integration built in</h3>
           <p style="color: var(--muted); margin-bottom: 20px;">
-            WASL integrates a high-performance JavaScript execution engine (Flow v3) powered by GraalVM. Your customization scripts run at native compiled speeds.
+            WASL connects traffic governance with backend orchestration. Teams can transform, enrich, and route
+            requests without pushing every integration into a separate middleware layer.
           </p>
           <div class="check-list">
-            <span><strong>Polyglot Performance:</strong> JavaScript flows compiled directly to native Java bytecode</span>
-            <span><strong>Zero-overhead Proxying:</strong> Routes that do not require scripting run at pure hardware-proxy speeds</span>
-            <span><strong>Type Safety:</strong> Enforce strong typing, parameters, and policies before execution</span>
+            <span><strong>Composable services:</strong> Combine APIs, events, tools, and backend calls safely</span>
+            <span><strong>Governed connectors:</strong> Access data systems, queues, search, storage, and SaaS services</span>
+            <span><strong>Traceable automation:</strong> Keep integration behavior visible to platform teams</span>
           </div>
         </div>
       </div>
 
       <div class="split-section reverse reveal" style="margin-top: 40px;">
         <div class="section-copy reveal">
-          <h3>Strict Control &amp; Data Plane Isolation</h3>
+          <h3>Resilient enterprise operations</h3>
           <p style="color: var(--muted); margin-bottom: 20px;">
-            The WASL data-plane gateway has zero runtime dependency on the WASL Studio control plane. Gateway runtimes are completely stateless and pull configurations asynchronously from Postgres or Redis.
+            WASL separates management workflows from live traffic serving so platform teams can manage releases,
+            policy, and observability without putting business traffic at risk.
           </p>
           <div class="check-list">
-            <span><strong>Resiliency:</strong> Studio control plane outages have zero impact on live traffic</span>
-            <span><strong>Immutable Revisions:</strong> All configuration deployments are transactional, versioned database updates</span>
-            <span><strong>Horizontal Scale:</strong> Easily spin up gateways at the edge, on-prem, or in Kubernetes clusters</span>
+            <span><strong>Traffic continuity:</strong> Keep services running while teams manage and review changes</span>
+            <span><strong>Versioned releases:</strong> Promote and roll back governed changes with confidence</span>
+            <span><strong>Hybrid placement:</strong> Run close to cloud, private, partner, or edge workloads</span>
           </div>
         </div>
 
         <div class="section-copy reveal">
-          <h3>Pluggable Integration SDK</h3>
+          <h3>Extensible connector model</h3>
           <p style="color: var(--muted); margin-bottom: 20px;">
-            Instead of bundling every database and queue driver into the gateway core, WASL leverages a dynamic Java SPI plugin architecture. 
+            WASL is built to grow with enterprise connectivity needs. Add new systems and governed capabilities
+            without turning the core gateway into a one-off custom project.
           </p>
           <div class="check-list">
-            <span><strong>Lean Footprint:</strong> The base core is less than 50MB, making it extremely fast to boot and deploy</span>
-            <span><strong>Dynamic Marketplace:</strong> Download signed adapters (JDBC, Kafka, Redis) on-demand</span>
-            <span><strong>Extension SDK:</strong> Author custom protocols and custom security adapters in standard Java</span>
+            <span><strong>Connector marketplace:</strong> Standardize access to core systems and services</span>
+            <span><strong>Custom extensions:</strong> Add proprietary systems without breaking platform governance</span>
+            <span><strong>Trust controls:</strong> Govern connector rollout, compatibility, telemetry, and ownership</span>
           </div>
         </div>
       </div>
@@ -285,35 +293,35 @@
           <thead>
             <tr>
               <th>Feature</th>
-              <th>Legacy Gateways (Apigee, Kong)</th>
+              <th>Legacy Gateways</th>
               <th>WASL Unified Platform</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><strong>Unified Traffic Control</strong></td>
-              <td class="no-cross">❌ API Only (Requires external AI/Event proxies)</td>
-              <td class="yes-tick">✅ API, AI, Events, and Worker Jobs unified</td>
+              <td class="no-cross">No: API only, with external AI/Event proxies required</td>
+              <td class="yes-tick">Yes: APIs, AI, events, integrations, and agent tools unified</td>
             </tr>
             <tr>
               <td><strong>Runtime Footprint</strong></td>
-              <td class="no-cross">❌ High CPU/Memory (Heavy JVM or complex Lua stacks)</td>
-              <td class="yes-tick">✅ Ultra-lean (<50MB core, virtual-threaded Jetty 12)</td>
+              <td class="no-cross">Heavy CPU and memory profile in many enterprise stacks</td>
+              <td class="yes-tick">Consolidated traffic platform with efficient hybrid deployment</td>
             </tr>
             <tr>
               <td><strong>Integration Scripting</strong></td>
-              <td class="no-cross">❌ Proprietary XML configurations or complex Lua files</td>
-              <td class="yes-tick">✅ Standard JavaScript (FlowJS) running at native speed</td>
+              <td class="no-cross">Often proprietary XML configuration or proxy scripting</td>
+              <td class="yes-tick">Built-in integration flows and governed connectors</td>
             </tr>
             <tr>
               <td><strong>Control Plane Isolation</strong></td>
-              <td class="partial-tick">⚠️ Partial (Outages can cause configuration locks)</td>
-              <td class="yes-tick">✅ Absolute (Stateless gateways pull from DB/Cache)</td>
+              <td class="partial-tick">Partial: management outages can affect operations</td>
+              <td class="yes-tick">Strict separation between management workflows and live traffic</td>
             </tr>
             <tr>
               <td><strong>AI / LLM Governance</strong></td>
-              <td class="no-cross">❌ Basic plugins (No native semantic cache or cost caps)</td>
-              <td class="yes-tick">✅ Native PII redaction, semantic cache, and cost controls</td>
+              <td class="no-cross">Basic plugins, usually without native cost controls</td>
+              <td class="yes-tick">Native PII redaction, semantic cache, and cost controls</td>
             </tr>
           </tbody>
         </table>
@@ -325,11 +333,11 @@
       <div>
         <p class="eyebrow">Evaluate WASL</p>
         <h2>Experience Unified Gateway Control</h2>
-        <p>Request early access to run WASL in your developer environments and see the performance of Jetty 12 + Loom virtual threads firsthand.</p>
+        <p>Request a demo to evaluate how WASL can consolidate your API, AI, event, MCP, and integration governance stack.</p>
       </div>
       <form id="waitlistForm">
         <input type="email" id="email" placeholder="you@company.com" required aria-label="Email address" />
-        <button class="btn btn-primary" type="submit">Request Access</button>
+        <button class="btn btn-primary" type="submit">Request Demo</button>
         <p id="waitlistMessage" aria-live="polite"></p>
       </form>
     </section>
@@ -342,7 +350,7 @@
           <img src="./brand-mark.svg" alt="" aria-hidden="true" width="36" height="36" />
           <span class="footer-brand"><span class="brand-w">W</span>asl</span>
         </a>
-        <p>One control plane for APIs, AI, events, and jobs — open core, governed and observed from one place, deployed anywhere.</p>
+        <p>Next-generation gateway platform for APIs, AI, events, MCP tools, integrations, security, and developer self-service.</p>
       </div>
       <nav class="footer-links" aria-label="Footer">
         <div class="footer-col">
@@ -357,7 +365,7 @@
           <h4>Developers</h4>
           <a href="/docs/">Documentation</a>
           <a href="/docs/quickstart.html">Quickstart</a>
-          <a href="/docs/flow-runtime.html">Flow runtime</a>
+          <a href="/docs/flow-runtime.html">Integrations</a>
           <a href="/docs/developer-portal.html">Developer Portal</a>
         </div>
         <div class="footer-col">
@@ -367,7 +375,7 @@
           <a href="./why-wasl.html">Why WASL?</a>
           <a href="./pricing.html">Pricing</a>
           <a href="/docs/security.html">Security</a>
-          <a href="#waitlist">Request access</a>
+          <a href="#waitlist">Request Demo</a>
         </div>
       </nav>
     </div>
